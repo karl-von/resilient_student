@@ -3,7 +3,7 @@ import statsmodels.formula.api as smf
 import os
 
 # --- Configuration Section ---
-imputed_file = '../dataset/analysis/imputed_standardized_good_countries.csv'
+imputed_file = '../dataset/analysis/imputed_standardized_final.csv'
 psych_pca_file = '../dataset/analysis/pca_components_TUR_HKG.csv'
 env_pca_file = '../dataset/analysis/environmental_pca_components.csv'
 

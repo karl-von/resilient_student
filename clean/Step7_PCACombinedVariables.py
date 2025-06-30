@@ -7,7 +7,7 @@ import seaborn as sns
 import os
 
 # --- Configuration Section ---
-input_file = '../dataset/analysis/imputed_standardized_good_countries.csv'
+input_file = '../dataset/analysis/imputed_standardized_final.csv'
 output_file = '../dataset/analysis/pca_components_TUR_HKG.csv'
 COUNTRIES_TO_INCLUDE = ['TUR', 'HKG']
 imputation_id_column = 'imputation_num'

@@ -6,7 +6,7 @@ import os
 # --- Configuration Section ---
 
 # 1. Path to the imputed and standardized dataset you just created.
-input_file = '../dataset/analysis/imputed_standardized_good_countries.csv'
+input_file = '../dataset/analysis/imputed_standardized_final.csv'
 
 # 2. Define the names of your key columns.
 outcome_variable = 'ACADEMIC_RESILIENCE'

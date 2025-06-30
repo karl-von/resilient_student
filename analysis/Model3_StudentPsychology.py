@@ -4,7 +4,7 @@ import os
 
 # --- Configuration Section ---
 pca_file = '../dataset/analysis/pca_components_TUR_HKG.csv'
-imputed_file = '../dataset/analysis/imputed_standardized_good_countries.csv'
+imputed_file = '../dataset/analysis/imputed_standardized_final.csv'
 student_id_column = 'CNTSTUID'
 
 # Define the background variables you want to keep as controls

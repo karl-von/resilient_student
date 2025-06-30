@@ -7,7 +7,7 @@ import os
 
 # --- Configuration Section ---
 
-input_file = '../dataset/analysis/imputed_standardized_good_countries.csv'
+input_file = '../dataset/analysis/imputed_standardized_final.csv'
 outcome_variable = 'ACADEMIC_RESILIENCE'
 school_column = 'CNTSCHID'
 imputation_id_column = 'imputation_num'
