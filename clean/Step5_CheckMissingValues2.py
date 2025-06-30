@@ -14,7 +14,7 @@ country_column = 'CNT'
 
 # 3. Thresholds for the logic.
 MISSING_VALUE_THRESHOLD = 50.0 # The value considered "highly missing" (50%).
-PROPORTION_TO_EXCLUDE = 0.50   # Proportion to flag a country/variable for exclusion (80%).
+PROPORTION_TO_EXCLUDE = 0.80   # Proportion to flag a country/variable for exclusion (80%).
 PROPORTION_FOR_GOOD_DATA = 0.20 # Proportion to flag a country as "good" (10%).
 
 # 4. Path for the new filtered heatmap image.
