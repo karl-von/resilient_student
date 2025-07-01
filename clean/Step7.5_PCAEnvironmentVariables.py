@@ -25,7 +25,7 @@ PCA_GROUPS = {
 def create_environmental_pca_components_with_plots():
     """
     Loads imputed data, runs PCA on environmental variable groups,
-    generates diagnostic plots, and saves the final component scores.
+    generates diagnostic plots and loadings tables, and saves the final component scores.
     """
     print(f"Loading imputed data from: {input_file}")
     long_format_df = pd.read_csv(input_file, low_memory=False)
@@ -48,15 +48,28 @@ def create_environmental_pca_components_with_plots():
             scaler = StandardScaler()
             scaled_data = scaler.fit_transform(group_data)
             pca = PCA(n_components=None).fit(scaled_data)
-            eigenvalues = pca.explained_variance_
 
-            # --- ** NEW: Generate Diagnostic Plots (only for the first imputation) ** ---
+            # --- For the first imputation, print detailed results and generate plots ---
             if i == 1:
-                generate_pca_plots(eigenvalues, group_name)
+                print(f"\n--- Detailed PCA Results for: {group_name} (from Imputation #1) ---")
 
+                # --- NEW: Generate and print the PCA Loadings Table ---
+                loadings = pca.components_
+                pc_names = [f"PC{j+1}" for j in range(len(loadings))]
+                loadings_df = pd.DataFrame(loadings.T, columns=pc_names, index=var_list)
+                print("PCA Loadings Table:")
+                print(loadings_df.round(3))
+                print("-" * 50)
+                # --- END NEW ---
+
+                generate_pca_plots(pca.explained_variance_, group_name)
+
+            # Determine components to keep based on Kaiser Criterion
+            eigenvalues = pca.explained_variance_
             n_components_to_keep = np.sum(eigenvalues > 1.0)
             if n_components_to_keep == 0: n_components_to_keep = 1
 
+            # Rerun PCA with the final number of components
             pca_final = PCA(n_components=n_components_to_keep)
             component_scores = pca_final.fit_transform(scaled_data)
 
@@ -66,11 +79,11 @@ def create_environmental_pca_components_with_plots():
 
         all_imputation_components.append(pd.concat(imputation_results, axis=1))
 
-    print("\n--- Averaging Component Scores ---")
+    print("\n--- Averaging Component Scores Across All Imputations ---")
     final_components_df = pd.concat(all_imputation_components)
     averaged_components = final_components_df.groupby(final_components_df.index).mean()
 
-    print("\nCreating final dataset with ALL necessary IDs...")
+    print("\nCreating final dataset with necessary IDs...")
     ids_to_keep = df_subset[df_subset[imputation_id_column] == 1][
         [student_id_column, school_id_column]
     ].reset_index(drop=True)
@@ -80,20 +93,17 @@ def create_environmental_pca_components_with_plots():
     final_df.to_csv(output_file, index=False)
     print(f"\nSuccess! New dataset with Environmental PCA components saved to:\n{output_file}")
 
-
-# --- ** NEW: Added the plotting function from our previous script ** ---
+# --- Plotting Function (Unchanged) ---
 def generate_pca_plots(eigenvalues, group_name):
     """Generates and saves a Scree Plot and Explained Variance Plot for a PCA run."""
     n_components = len(eigenvalues)
     component_numbers = np.arange(1, n_components + 1)
     explained_variance_ratio = eigenvalues / np.sum(eigenvalues)
     cumulative_explained_variance = np.cumsum(explained_variance_ratio)
-
     plt.style.use('seaborn-v0_8-whitegrid')
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle(f'PCA Diagnostics for: {group_name}', fontsize=16)
-
-    # Scree Plot (Elbow Method)
+    # Scree Plot
     ax1.plot(component_numbers, eigenvalues, 'o-', markerfacecolor='red', markersize=8, color='skyblue')
     ax1.axhline(y=1, color='gray', linestyle='--', label='Kaiser Criterion (Eigenvalue=1)')
     ax1.set_title('Scree Plot')
@@ -101,7 +111,6 @@ def generate_pca_plots(eigenvalues, group_name):
     ax1.set_ylabel('Eigenvalue')
     ax1.set_xticks(component_numbers)
     ax1.legend()
-
     # Explained Variance Plot
     ax2.bar(component_numbers, explained_variance_ratio, alpha=0.6, color='g', label='Individual Explained Variance')
     ax2.plot(component_numbers, cumulative_explained_variance, 'o-', markerfacecolor='purple', markersize=8, color='purple', label='Cumulative Explained Variance')
@@ -111,17 +120,14 @@ def generate_pca_plots(eigenvalues, group_name):
     ax2.set_ylim(0, 1.1)
     ax2.set_xticks(component_numbers)
     ax2.legend(loc='center right')
-
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-
     # Save the plot
     output_dir = "../dataset/analysis/pca_plots/"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     plt.savefig(f"{output_dir}{group_name}_pca_diagnostics.png", dpi=300)
-    plt.close() # Close the plot to save memory
+    plt.close()
     print(f"  - Diagnostic plots saved for '{group_name}'")
-
 
 if __name__ == '__main__':
     create_environmental_pca_components_with_plots()

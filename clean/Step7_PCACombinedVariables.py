@@ -11,8 +11,6 @@ input_file = '../dataset/analysis/imputed_standardized_final.csv'
 output_file = '../dataset/analysis/pca_components_TUR_HKG.csv'
 COUNTRIES_TO_INCLUDE = ['TUR', 'HKG']
 imputation_id_column = 'imputation_num'
-
-# --- ** IMPORTANT: Make sure this column name is correct ** ---
 student_id_column = 'CNTSTUID'
 
 # Define Your Variable Groupings for PCA
@@ -36,7 +34,7 @@ PCA_GROUPS = {
 def create_pca_components_corrected():
     """
     Loads imputed data, runs PCA on defined variable groups for each imputation,
-    averages the component scores, and generates diagnostic plots.
+    averages the component scores, and generates diagnostic plots and loadings tables.
     """
     print(f"Loading imputed data from: {input_file}")
     try:
@@ -60,19 +58,36 @@ def create_pca_components_corrected():
             group_data = df_imputation[var_list]
             scaler = StandardScaler()
             scaled_data = scaler.fit_transform(group_data)
-            pca = PCA(n_components=None)
-            pca.fit(scaled_data)
+
+            # Fit PCA once to get all components for diagnostics
+            pca = PCA(n_components=None).fit(scaled_data)
+
+            # --- For the first imputation, print detailed results and generate plots ---
+            if i == 1:
+                print(f"\n--- Detailed PCA Results for: {group_name} (from Imputation #1) ---")
+
+                # --- NEW: Generate and print the PCA Loadings Table ---
+                loadings = pca.components_
+                pc_names = [f"PC{j+1}" for j in range(len(loadings))]
+                loadings_df = pd.DataFrame(loadings.T, columns=pc_names, index=var_list)
+                print("PCA Loadings Table:")
+                print(loadings_df.round(3))
+                print("-" * 50)
+                # --- END NEW ---
+
+                generate_pca_plots(pca.explained_variance_, group_name)
+
+            # Determine components to keep based on Kaiser Criterion
             eigenvalues = pca.explained_variance_
             n_components_to_keep = np.sum(eigenvalues > 1.0)
             if n_components_to_keep == 0: n_components_to_keep = 1
+
+            # Rerun PCA with the final number of components
             pca_final = PCA(n_components=n_components_to_keep)
             component_scores = pca_final.fit_transform(scaled_data)
             component_cols = [f"{group_name}_PC{j+1}" for j in range(n_components_to_keep)]
             component_df = pd.DataFrame(component_scores, columns=component_cols, index=group_data.index)
             imputation_results.append(component_df)
-
-            if i == 1:
-                generate_pca_plots(eigenvalues, group_name)
 
         all_imputation_components.append(pd.concat(imputation_results, axis=1))
 
@@ -81,12 +96,9 @@ def create_pca_components_corrected():
     averaged_components = final_components_df.groupby(final_components_df.index).mean()
     print("Averaging complete.")
 
-    # --- Create final dataset for modeling ---
     print("\nCreating final dataset with student IDs...")
-
-    # --- ** THIS IS THE CORRECTED LINE ** ---
     ids_and_outcome = df_subset[df_subset[imputation_id_column] == 1][
-        ['CNT', 'CNTSCHID', student_id_column, 'ACADEMIC_RESILIENCE'] # <-- CORRECTLY INCLUDES STUDENT ID
+        ['CNT', 'CNTSCHID', student_id_column, 'ACADEMIC_RESILIENCE']
     ].reset_index(drop=True)
 
     final_df_for_model = pd.concat([ids_and_outcome, averaged_components.reset_index(drop=True)], axis=1)
@@ -97,7 +109,7 @@ def create_pca_components_corrected():
     final_df_for_model.to_csv(output_file, index=False)
     print(f"\nSuccess! New dataset WITH STUDENT IDs saved to:\n{output_file}")
 
-
+# --- Plotting Function (Unchanged) ---
 def generate_pca_plots(eigenvalues, group_name):
     """Generates and saves a Scree Plot and Explained Variance Plot for a PCA run."""
     n_components = len(eigenvalues)

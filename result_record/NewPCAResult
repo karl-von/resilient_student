@@ -1,0 +1,124 @@
+D:\essay\resilient_student\.venv\Scripts\python.exe D:\essay\resilient_student\clean\Step7_PCACombinedVariables.py
+Loading imputed data from: ../dataset/analysis/imputed_standardized_final.csv
+Filtering data for: TUR, HKG
+
+--- Running PCA on each Imputation ---
+Processing Imputation #1...
+
+--- Detailed PCA Results for: Math_Disposition (from Imputation #1) ---
+PCA Loadings Table:
+              PC1    PC2    PC3    PC4    PC5    PC6    PC7
+ANXMAT     -0.333  0.500  0.151 -0.243  0.746  0.015 -0.003
+MATHEFF     0.417  0.029  0.512 -0.229 -0.026  0.710 -0.069
+MATHEF21    0.409 -0.021  0.568 -0.152  0.046 -0.685  0.119
+MATHPERS    0.343  0.314  0.036  0.854  0.212  0.036 -0.076
+ST268Q04JA  0.430 -0.220 -0.376 -0.217  0.344 -0.094 -0.672
+ST268Q07JA  0.223  0.774 -0.251 -0.257 -0.451 -0.091 -0.105
+ST268Q01JA  0.442 -0.051 -0.430 -0.148  0.272  0.084  0.716
+--------------------------------------------------
+  - Diagnostic plots saved for 'Math_Disposition'
+
+--- Detailed PCA Results for: Social_Emotional_Skills (from Imputation #1) ---
+PCA Loadings Table:
+             PC1    PC2    PC3    PC4    PC5    PC6
+ASSERAGR   0.428 -0.119  0.759 -0.332  0.084 -0.331
+COOPAGR    0.504 -0.140 -0.420 -0.220  0.696  0.136
+EMOCOAGR   0.236  0.638 -0.342 -0.144 -0.176 -0.607
+EMPATAGR   0.453 -0.369 -0.267 -0.270 -0.688  0.202
+PERSEVAGR  0.490 -0.048  0.060  0.863 -0.039 -0.086
+STRESAGR   0.248  0.649  0.237 -0.057 -0.056  0.675
+--------------------------------------------------
+  - Diagnostic plots saved for 'Social_Emotional_Skills'
+
+--- Detailed PCA Results for: Openness_Creativity (from Imputation #1) ---
+PCA Loadings Table:
+            PC1    PC2    PC3    PC4    PC5
+CURIOAGR  0.384  0.794 -0.228 -0.396 -0.117
+CREATEFF  0.444  0.068  0.772  0.237 -0.383
+CREATOP   0.510 -0.067  0.122  0.039  0.848
+IMAGINE   0.457 -0.098 -0.565  0.639 -0.231
+OPENART   0.432 -0.593 -0.136 -0.614 -0.259
+--------------------------------------------------
+  - Diagnostic plots saved for 'Openness_Creativity'
+
+--- Detailed PCA Results for: Self_Directed_Learning (from Imputation #1) ---
+PCA Loadings Table:
+           PC1    PC2
+SDLEFF   0.707 -0.707
+GROSAGR  0.707  0.707
+--------------------------------------------------
+  - Diagnostic plots saved for 'Self_Directed_Learning'
+Processing Imputation #2...
+Processing Imputation #3...
+Processing Imputation #4...
+Processing Imputation #5...
+
+--- Averaging Component Scores Across All Imputations ---
+Averaging complete.
+
+Creating final dataset with student IDs...
+
+Success! New dataset WITH STUDENT IDs saved to:
+../dataset/analysis/pca_components_TUR_HKG.csv
+
+Process finished with exit code 0
+
+D:\essay\resilient_student\.venv\Scripts\python.exe D:\essay\resilient_student\clean\Step7.5_PCAEnvironmentVariables.py
+Loading imputed data from: ../dataset/analysis/imputed_standardized_final.csv
+
+--- Running PCA on each Imputation for Environmental Variables ---
+Processing Imputation #1...
+
+--- Detailed PCA Results for: Teacher_Classroom_Exp (from Imputation #1) ---
+PCA Loadings Table:
+            PC1    PC2    PC3    PC4    PC5    PC6
+TEACHSUP  0.410 -0.323 -0.141  0.786 -0.301 -0.001
+RELATST   0.408 -0.418 -0.296 -0.155  0.738  0.050
+COGACRCO  0.426  0.559  0.155  0.116  0.211 -0.651
+COGACMCO  0.468  0.479  0.102 -0.029 -0.003  0.735
+DISCLIM   0.267 -0.408  0.850 -0.183 -0.074 -0.030
+CREATSCH  0.440 -0.115 -0.368 -0.558 -0.561 -0.179
+--------------------------------------------------
+  - Diagnostic plots saved for 'Teacher_Classroom_Exp'
+
+--- Detailed PCA Results for: Home_Learning_Env (from Imputation #1) ---
+PCA Loadings Table:
+            PC1    PC2    PC3
+FAMSUP    0.648 -0.039  0.761
+CREATFAM  0.524  0.748 -0.408
+FAMSUPSL  0.553 -0.663 -0.505
+--------------------------------------------------
+  - Diagnostic plots saved for 'Home_Learning_Env'
+
+--- Detailed PCA Results for: Remote_Learning_Exp (from Imputation #1) ---
+PCA Loadings Table:
+            PC1    PC2    PC3
+FEELLAH   0.626 -0.434 -0.648
+PROBSELF  0.380  0.895 -0.232
+LEARRES   0.681 -0.101  0.725
+--------------------------------------------------
+  - Diagnostic plots saved for 'Remote_Learning_Exp'
+
+--- Detailed PCA Results for: School_Experience (from Imputation #1) ---
+PCA Loadings Table:
+            PC1    PC2    PC3    PC4    PC5
+BULLIED   0.519  0.286  0.348  0.407 -0.602
+FEELSAFE -0.469  0.443  0.015  0.706  0.292
+SCHRISK   0.504  0.466  0.249 -0.228  0.645
+BELONG   -0.413  0.642  0.081 -0.529 -0.361
+SCHSUST  -0.295 -0.304  0.900 -0.058  0.082
+--------------------------------------------------
+  - Diagnostic plots saved for 'School_Experience'
+Processing Imputation #2...
+Processing Imputation #3...
+Processing Imputation #4...
+Processing Imputation #5...
+
+--- Averaging Component Scores Across All Imputations ---
+
+Creating final dataset with necessary IDs...
+
+Success! New dataset with Environmental PCA components saved to:
+../dataset/analysis/environmental_pca_components.csv
+
+Process finished with exit code 0
