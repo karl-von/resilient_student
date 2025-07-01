@@ -10,16 +10,23 @@ env_pca_file = '../dataset/analysis/environmental_pca_components.csv'
 student_id_column = 'CNTSTUID'
 school_id_column = 'CNTSCHID'
 
+# Define all blocks of variables
 BACKGROUND_CONTROLS = [
     'AGE', 'ST004D01T', 'ISCEDP', 'IMMIG', 'BSMJ', 'EXPECEDU',
     'SISCO', 'OCOD3_major_group'
 ]
 
+# --- ADDED: The list of practice variables from Model 4 ---
+PRACTICE_VARIABLES = [
+    'REPEAT', 'MISSSC', 'SKIPPING', 'TARDYSD', 'EXERPRAC', 'STUDYHMW',
+    'WORKPAY', 'WORKHOME', 'INFOSEEK', 'EXPOFA', 'EXPO21ST', 'CREATAS', 'CREATOOS'
+]
+
 # --- Main Processing Logic ---
-def run_final_model_e():
+def run_ultimate_full_model():
     """
-    Loads and merges all data blocks and runs the final, all-encompassing
-    Model E.
+    Loads and merges ALL data blocks and runs the final, all-encompassing
+    model.
     """
     print("--- Step 1: Loading and Preparing All Data Blocks ---")
     imputed_df = pd.read_csv(imputed_file, low_memory=False)
@@ -33,9 +40,15 @@ def run_final_model_e():
         (imputed_df['CNT'].isin(['TUR', 'HKG']))
         ].copy()
 
-    cols_to_keep = ['CNT', school_id_column, student_id_column, 'ACADEMIC_RESILIENCE'] + BACKGROUND_CONTROLS
+    # --- MODIFIED: Ensure cols_to_keep includes all variable blocks ---
+    cols_to_keep = (
+            ['CNT', school_id_column, student_id_column, 'ACADEMIC_RESILIENCE'] +
+            BACKGROUND_CONTROLS +
+            PRACTICE_VARIABLES
+    )
     final_df = df_base[cols_to_keep]
 
+    # Merge PCA components
     psych_cols_to_merge = [student_id_column] + [col for col in psych_pca_df.columns if '_PC' in col]
     final_df = pd.merge(final_df, psych_pca_df[psych_cols_to_merge], on=student_id_column)
 
@@ -44,18 +57,20 @@ def run_final_model_e():
 
     print("Successfully merged all predictor blocks.")
 
-    # --- Step 2: Define and Run Model E ---
+    # --- Step 2: Define and Run the Ultimate Model ---
+    # Define each part of the formula
     controls_part = "AGE + C(ST004D01T) + C(ISCEDP) + C(IMMIG) + C(CNT) + BSMJ + C(EXPECEDU) + C(SISCO) + C(OCOD3_major_group)"
     psych_pca_part = " + ".join([col for col in final_df.columns if 'Disposition_PC' in col or 'Social_Emotional_Skills_PC' in col or 'Openness_Creativity_PC' in col or 'Self_Directed_Learning_PC' in col])
     env_pca_part = " + ".join([col for col in final_df.columns if 'Teacher_Classroom_Exp_PC' in col or 'Home_Learning_Env_PC' in col or 'Remote_Learning_Exp_PC' in col])
-
-    # ** NEW: Add the final block of predictors **
     school_exp_part = " + ".join([col for col in final_df.columns if 'School_Experience_PC' in col])
 
-    # Combine all four parts for the final formula
-    model_formula = f"ACADEMIC_RESILIENCE ~ {controls_part} + {psych_pca_part} + {env_pca_part} + {school_exp_part}"
+    # --- ADDED: Define the practice variables part of the formula ---
+    practice_part = "C(REPEAT) + " + " + ".join(PRACTICE_VARIABLES[1:])
 
-    print("\n--- Running Final Model E (with School Experience) ---")
+    # Combine all five parts for the final formula
+    model_formula = f"ACADEMIC_RESILIENCE ~ {controls_part} + {psych_pca_part} + {practice_part} + {env_pca_part} + {school_exp_part}"
+
+    print("\n--- Running Ultimate Full Model (with all variables) ---")
     print("Model Formula:")
     print(model_formula)
 
@@ -63,13 +78,15 @@ def run_final_model_e():
         formula=model_formula,
         data=final_df,
         groups=final_df[school_id_column]
-    ).fit()
+    ).fit(reml=False)
 
     # --- Step 3: View the Results ---
-    print("\n--- Final Model Results (Model E) ---")
+    print("\n--- Final Model Results (Ultimate Full Model) ---")
     print(model.summary())
-    print("-------------------------------------\n")
+    print(f"AIC: {model.aic}")
+    print(f"BIC: {model.bic}")
+    print("---------------------------------------------------\n")
 
 
 if __name__ == '__main__':
-    run_final_model_e()
+    run_ultimate_full_model()

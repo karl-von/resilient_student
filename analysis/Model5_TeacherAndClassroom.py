@@ -11,17 +11,23 @@ env_pca_file = '../dataset/analysis/environmental_pca_components.csv'
 student_id_column = 'CNTSTUID'
 school_id_column = 'CNTSCHID'
 
-# Define the background variables you want to keep as controls
+# Define the variable blocks
 BACKGROUND_CONTROLS = [
     'AGE', 'ST004D01T', 'ISCEDP', 'IMMIG', 'BSMJ', 'EXPECEDU',
     'SISCO', 'OCOD3_major_group'
 ]
 
+# --- NEW: Added the list of practice variables from your Model 4 script ---
+PRACTICE_VARIABLES = [
+    'REPEAT', 'MISSSC', 'SKIPPING', 'TARDYSD', 'EXERPRAC', 'STUDYHMW',
+    'WORKPAY', 'WORKHOME', 'INFOSEEK', 'EXPOFA', 'EXPO21ST', 'CREATAS', 'CREATOOS'
+]
+
 # --- Main Processing Logic ---
-def run_model_d_final_fix():
+def run_full_final_model():
     """
-    Loads and robustly merges all data blocks using a corrected strategy
-    and runs the final Model D.
+    Loads and merges ALL data blocks (Controls, Psychology, Practice, Environment)
+    and runs the final, most comprehensive model.
     """
     print("--- Step 1: Loading and Preparing All Data Blocks ---")
     try:
@@ -33,54 +39,59 @@ def run_model_d_final_fix():
         print(f"--- ERROR --- \nFile not found. Please check path: {e.filename}")
         return
 
-    # --- ** NEW, MORE ROBUST MERGING LOGIC ** ---
     print("\nMerging data blocks using a robust strategy...")
 
-    # 1. Start with the controls and identifiers from the first imputed dataset.
-    #    This will be our clean base.
+    # 1. Start with the base data from the first imputed dataset.
     df_base = imputed_df[
         (imputed_df['imputation_num'] == 1) &
         (imputed_df['CNT'].isin(['TUR', 'HKG']))
         ].copy()
 
-    cols_to_keep = ['CNT', school_id_column, student_id_column, 'ACADEMIC_RESILIENCE'] + BACKGROUND_CONTROLS
+    # --- NEW: Ensure the columns to keep include the PRACTICE_VARIABLES ---
+    cols_to_keep = (
+            ['CNT', school_id_column, student_id_column, 'ACADEMIC_RESILIENCE'] +
+            BACKGROUND_CONTROLS +
+            PRACTICE_VARIABLES
+    )
     final_df = df_base[cols_to_keep]
 
-    # 2. Prepare the psychological PCA components for merging.
-    #    We only need the student ID (as the key) and the new PC columns.
+    # 2. Prepare and merge the psychological PCA components.
     psych_pca_cols = [student_id_column] + [col for col in psych_pca_df.columns if '_PC' in col]
-    psych_pca_to_merge = psych_pca_df[psych_pca_cols]
+    final_df = pd.merge(final_df, psych_pca_df[psych_pca_cols], on=student_id_column)
 
-    # 3. Prepare the environmental PCA components for merging.
+    # 3. Prepare and merge the environmental PCA components.
     env_pca_cols = [student_id_column] + [col for col in env_pca_df.columns if '_PC' in col]
-    env_pca_to_merge = env_pca_df[env_pca_cols]
-
-    # 4. Merge the dataframes one by one. This prevents column name conflicts.
-    final_df = pd.merge(final_df, psych_pca_to_merge, on=student_id_column)
-    final_df = pd.merge(final_df, env_pca_to_merge, on=student_id_column)
+    final_df = pd.merge(final_df, env_pca_df[env_pca_cols], on=student_id_column)
 
     print("Successfully merged all predictor blocks.")
     print(f"Final dataset for modeling has {final_df.shape[0]} rows and {final_df.shape[1]} columns.")
 
-    # --- Step 2: Define and Run Model D ---
+    # --- Step 2: Define and Run the Full Model ---
+    # Define each part of the formula string
     controls_part = "AGE + C(ST004D01T) + C(ISCEDP) + C(IMMIG) + C(CNT) + BSMJ + C(EXPECEDU) + C(SISCO) + C(OCOD3_major_group)"
     psych_pca_part = " + ".join([col for col in final_df.columns if 'Disposition_PC' in col or 'Social_Emotional_Skills_PC' in col or 'Openness_Creativity_PC' in col or 'Self_Directed_Learning_PC' in col])
     env_pca_part = " + ".join([col for col in final_df.columns if 'Teacher_Classroom_Exp_PC' in col or 'Home_Learning_Env_PC' in col or 'Remote_Learning_Exp_PC' in col])
 
-    model_formula = f"ACADEMIC_RESILIENCE ~ {controls_part} + {psych_pca_part} + {env_pca_part}"
+    # --- NEW: Define the practice variables part of the formula ---
+    practice_part = "C(REPEAT) + " + " + ".join(PRACTICE_VARIABLES[1:]) # Add C() for REPEAT
 
-    print("\n--- Running Model D (with Teacher, Home, Remote Variables) ---")
+    # --- NEW: Combine ALL parts into the final formula ---
+    model_formula = f"ACADEMIC_RESILIENCE ~ {controls_part} + {psych_pca_part} + {practice_part} + {env_pca_part}"
+
+    print("\n--- Running Final, Comprehensive Model ---")
     model = smf.mixedlm(
         formula=model_formula,
         data=final_df,
-        groups=final_df[school_id_column] # <-- This will now find the 'CNTSCHID' column successfully
-    ).fit()
+        groups=final_df[school_id_column]
+    ).fit(reml=False) # Use reml=False for model comparison
 
     # --- Step 3: View the Results ---
-    print("\n--- Final Model Results (Model D) ---")
+    print("\n--- Final Model Results (Full Model) ---")
     print(model.summary())
-    print("-------------------------------------\n")
+    print(f"AIC: {model.aic}")
+    print(f"BIC: {model.bic}")
+    print("----------------------------------------\n")
 
 
 if __name__ == '__main__':
-    run_model_d_final_fix()
+    run_full_final_model()

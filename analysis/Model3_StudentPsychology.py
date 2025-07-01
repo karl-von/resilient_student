@@ -2,6 +2,7 @@ import pandas as pd
 import statsmodels.formula.api as smf
 import os
 
+pd.set_option('display.max_rows', None)
 # --- Configuration Section ---
 pca_file = '../dataset/analysis/pca_components_TUR_HKG.csv'
 imputed_file = '../dataset/analysis/imputed_standardized_final.csv'
@@ -75,13 +76,14 @@ def run_final_model_corrected():
         formula=model_formula,
         data=final_df,
         groups=final_df['CNTSCHID']
-    ).fit()
+    ).fit(reml=False)
 
     # --- Step 3: View the Results ---
     print("\n--- Final Model Results ---")
     print(model.summary())
     print("---------------------------\n")
-
+    print(f"AIC: {model.aic}")
+    print(f"BIC: {model.bic}")
 
 if __name__ == '__main__':
     run_final_model_corrected()

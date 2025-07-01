@@ -78,13 +78,14 @@ def run_model_with_practice_vars_corrected():
         formula=model_formula,
         data=final_df,
         groups=final_df['CNTSCHID']
-    ).fit()
+    ).fit(reml=False)
 
     # --- Step 3: View the Results ---
     print("\n--- Final Model Results (with Practice Variables) ---")
     print(model.summary())
     print("------------------------------------------------------\n")
-
+    print(f"AIC: {model.aic}")
+    print(f"BIC: {model.bic}")
 
 if __name__ == '__main__':
     run_model_with_practice_vars_corrected()
