@@ -1,6 +1,6 @@
+
 # =================================================================
-# Step 4: Post-Imputation Feature Engineering (Corrected + PCA Console Output)
-# 步骤 4: 插补后特征工程 (修正版 + PCA控制台输出)
+# Step 4: Post-Imputation Feature Engineering (Complete & Modified)
 # =================================================================
 
 # --- 1. Load Libraries and Data ---
@@ -23,7 +23,7 @@ data_with_ids <- readRDS(INPUT_RDS_STEP2)
 
 
 # --- 2. Configuration: Define Variable Groups ---
-# (This section remains unchanged)
+# This section is unchanged
 vars_for_school_means <- c(
   "ESCS", "AGE", "BSMJ", "GROSAGR", "ANXMAT", "MATHEFF", "MATHEF21", "MATHPERS",
   "ASSERAGR", "COOPAGR", "CURIOAGR", "EMOCOAGR", "EMPATAGR", "PERSEVAGR",
@@ -45,40 +45,23 @@ pca_groups <- list(
   School_Experience = c('BULLIED', 'FEELSAFE', 'SCHRISK', 'BELONG', 'SCHSUST')
 )
 
-
+# This plotting function is unchanged
 generate_pca_plots <- function(pca_results, group_name) {
   eigenvalues <- pca_results$values
   n_components <- length(eigenvalues)
-
-  plot_data <- tibble(
-    component = 1:n_components,
-    eigenvalue = eigenvalues
-  )
-
-  # Scree Plot
-  # 碎石图
+  plot_data <- tibble(component = 1:n_components, eigenvalue = eigenvalues)
   scree_plot <- ggplot(plot_data, aes(x = component, y = eigenvalue)) +
-    geom_line(color = "skyblue") +
-    geom_point(color = "red", size = 3) +
+    geom_line(color = "skyblue") + geom_point(color = "red", size = 3) +
     geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
     labs(title = "Scree Plot", x = "Component Number", y = "Eigenvalue") +
-    scale_x_continuous(breaks = 1:n_components) +
-    theme_minimal()
-
-  # Create directory for plots if it doesn't exist
-  # 如果绘图目录不存在，则创建它
-  if (!dir.exists(OUTPUT_PLOT_DIR)) {
-    dir.create(OUTPUT_PLOT_DIR, recursive = TRUE)
-  }
-
-  ggsave(
-    filename = file.path(OUTPUT_PLOT_DIR, paste0(group_name, "_scree_plot.png")),
-    plot = scree_plot, width = 7, height = 5
-  )
+    scale_x_continuous(breaks = 1:n_components) + theme_minimal()
+  if (!dir.exists(OUTPUT_PLOT_DIR)) { dir.create(OUTPUT_PLOT_DIR, recursive = TRUE) }
+  ggsave(filename = file.path(OUTPUT_PLOT_DIR, paste0(group_name, "_scree_plot.png")),
+         plot = scree_plot, width = 7, height = 5)
 }
 
 
-# --- 3. Loop Through Imputations to Create Features ---
+# --- 3. Loop Through Imputations to Create ALL Features ---
 print("Beginning feature engineering loop...")
 list_of_feature_dfs <- list()
 
@@ -94,62 +77,69 @@ for (i in 1:imputed_object$m) {
   completed_data <- complete(imputed_object, i)
   completed_data_with_ids <- bind_cols(original_ids, completed_data)
 
-  # --- 3a. Calculate School-Level Means ---
-  school_mean_vars_exist <- vars_for_school_means[vars_for_school_means %in% names(completed_data_with_ids)]
-  data_with_means <- completed_data_with_ids %>%
-    group_by(CNTSCHID) %>%
-    mutate(across(all_of(school_mean_vars_exist), ~mean(.x, na.rm = TRUE), .names = "{.col}_sch_mean")) %>%
-    ungroup()
-
-  # --- 3b. Perform PCA ---
+  # --- 3a. Perform PCA and create student-level component scores ---
   list_of_pca_results <- list()
   for (group_name in names(pca_groups)) {
     var_list <- pca_groups[[group_name]]
-    if(all(var_list %in% names(data_with_means))) {
-      # Use a tryCatch block to handle potential errors in PCA gracefully
+    if(all(var_list %in% names(completed_data_with_ids))) {
       tryCatch({
-        pca_data <- data_with_means %>% select(all_of(var_list))
+        pca_data <- completed_data_with_ids %>% select(all_of(var_list))
         pca_data <- data.frame(sapply(pca_data, as.numeric))
         scaled_data <- scale(pca_data)
-
-        # Run PCA once to get all components for diagnostics
         pca_full_results <- principal(scaled_data, nfactors = ncol(scaled_data), rotate = "none")
 
-        # === NEW: Print PCA results to console for the first imputation ===
         if (i == 1) {
           print(paste("--- PCA Diagnostics for Group:", group_name, "(from Imputation #1) ---"))
-          # The "loadings" matrix shows how variables contribute to components
           print("Loadings:")
-          print(pca_full_results$loadings, cutoff = 0.2) # cutoff hides small loadings
-          cat("\n") # Add a blank line for readability
-          # The "Vaccounted" matrix shows eigenvalues and variance explained
+          print(pca_full_results$loadings, cutoff = 0.2)
+          cat("\n")
           print("Variance Accounted For:")
           print(pca_full_results$Vaccounted)
           cat("\n----------------------------------------------------\n")
           generate_pca_plots(pca_full_results, group_name)
         }
 
-        # Decide components to keep using Kaiser Criterion
         n_components <- sum(pca_full_results$values > 1)
         if (n_components == 0) n_components <- 1
 
-        # Rerun with the final number of components and get scores
         final_pca <- principal(scaled_data, nfactors = n_components, rotate = "varimax")
         component_scores <- as.data.frame(final_pca$scores)
         names(component_scores) <- paste0(group_name, "_", names(component_scores))
         list_of_pca_results[[group_name]] <- component_scores
       }, error = function(e) {
-        # If an error occurs (e.g., not enough variance), print a message and skip
         print(paste("Could not perform PCA for group:", group_name, ". Error:", e$message))
       })
     }
   }
+  all_pca_scores <- bind_cols(list_of_pca_results)
 
-  all_pca_df <- bind_cols(list_of_pca_results)
+  ### --- MODIFICATION: Create ALL school-level means in one go --- ###
 
-  features_for_this_imputation <- data_with_means %>%
-    select(CNTSTUID, ends_with("_sch_mean")) %>%
-    bind_cols(all_pca_df)
+  # 1. Create a temporary dataframe with IDs, original data, and new student-level PCA scores
+  temp_full_data <- bind_cols(completed_data_with_ids, all_pca_scores)
+
+  # 2. Define ALL variables that need a school-level average
+  all_vars_for_sch_means <- c(
+    vars_for_school_means, # Original PISA variables
+    names(all_pca_scores)  # NEW: Add the names of the PCA scores
+  )
+
+  # 3. Create all school means in a single, efficient step
+  data_with_all_means <- temp_full_data %>%
+    group_by(CNTSCHID) %>%
+    mutate(across(all_of(intersect(all_vars_for_sch_means, names(.))),
+                  ~mean(.x, na.rm = TRUE),
+                  .names = "{.col}_sch_mean")) %>%
+    ungroup()
+
+  # --- 3c. Select only the final columns needed for the analysis ---
+  # We need the student ID for pooling, the student-level PCA scores, and ALL school-level means.
+  features_for_this_imputation <- data_with_all_means %>%
+    select(
+      CNTSTUID,
+      one_of(names(all_pca_scores)), # Select all the student-level PCA scores
+      ends_with("_sch_mean")         # Select ALL columns that end with _sch_mean
+    )
 
   list_of_feature_dfs[[i]] <- features_for_this_imputation
 }
@@ -157,6 +147,7 @@ print("Feature engineering loop complete.")
 
 
 # --- 4. Pool and Save the Engineered Features ---
+# This section is unchanged and will correctly pool all the new variables
 print("Pooling engineered features by averaging across imputations...")
 all_features_long <- bind_rows(list_of_feature_dfs)
 pooled_features <- all_features_long %>%
