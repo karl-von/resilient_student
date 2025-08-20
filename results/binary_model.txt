@@ -1,0 +1,412 @@
+Multiple imputation results:
+      MIcombine.default(results = lapply(pooled_by_imp, coef), variances = lapply(pooled_by_imp, 
+    vcov))
+                                   results           se
+beta_(Intercept)             -2.538668e-01 0.7108422539
+beta_ESCS                     2.918779e-02 0.0168268436
+beta_AGE                      3.141219e-02 0.0461254262
+beta_FEMALE                  -5.945287e-02 0.0251677099
+beta_IMMIG                   -1.087229e-02 0.0251261017
+beta_ISCEDP                   1.319905e-05 0.0003166650
+beta_EXPECEDU                 9.751564e-03 0.0055335244
+beta_OCOD3_major_group       -3.268746e-03 0.0071534336
+beta_BSMJ                     1.559442e-03 0.0009179433
+beta_SISCO                   -4.219535e-02 0.0543836470
+beta_REPEAT                  -2.657535e-02 0.0314848923
+beta_MISSSC                  -2.785129e-02 0.0370423538
+beta_SKIPPING                 1.249073e-02 0.0239288407
+beta_TARDYSD                 -1.364451e-02 0.0159117212
+beta_EXERPRAC                -4.791410e-03 0.0030792947
+beta_STUDYHMW                -2.440880e-03 0.0032681608
+beta_WORKPAY                 -5.906092e-03 0.0034153674
+beta_WORKHOME                -4.224292e-03 0.0029992488
+beta_INFOSEEK                 4.207425e-03 0.0103888444
+beta_EXPOFA                   8.118095e-03 0.0092069003
+beta_EXPO21ST                -4.693534e-03 0.0099273552
+beta_CREATAS                  2.181413e-03 0.0158897967
+beta_CREATOOS                -2.390086e-02 0.0136658082
+beta_STRESAGR                 2.756882e-03 0.0144826332
+beta_BULLIED                  2.548016e-03 0.0121526457
+beta_FEELLAH                 -8.255526e-04 0.0131396009
+beta_PROBSELF                -1.508110e-03 0.0111780080
+beta_LEARRES                  8.664049e-03 0.0107173608
+beta_Math_Disposition         6.746391e-02 0.0118853584
+beta_Social_Emotional_Skills -4.893666e-03 0.0134262636
+beta_Openness_Creativity      1.465624e-02 0.0131191480
+beta_Self_Directed_Learning   1.775039e-02 0.0221560524
+beta_Teacher_Classroom_Exp   -1.451326e-02 0.0120315472
+beta_Home_Learning_Env       -2.534221e-02 0.0132006752
+beta_School_Experience        4.439009e-03 0.0133278508
+Var_(Intercept)               7.071068e-03 0.0034495196
+ResidVar                      7.678900e-02 0.0022991848
+ExplVar_Lev2_Fixed           -5.093565e-04 0.0084255641
+ExplVar_Lev2_Random           0.000000e+00 0.0000000000
+ResidVar_Lev2                 7.071068e-03 0.0034495196
+ExplVar_Lev1_Fixed            4.311829e-02 0.0711292158
+ExplVar_Lev1_Random           0.000000e+00 0.0000000000
+ResidVar_Lev1                 7.678900e-02 0.0022991848
+Var_Total                     1.264690e-01 0.0640669224
+R2_Lev2                      -8.346696e-02 1.7373885793
+R2_Lev1                       3.595182e-01 0.3491151429
+R2_Total                      3.368301e-01 0.3021090792
+ICC_Uncond                    5.184537e-02 0.0708341585
+ICC_UncondWB                 -1.656266e-02 0.1382404533
+ICC_Cond                      8.426975e-02 0.0390410082
+                                    (lower        upper) missInfo
+beta_(Intercept)             -1.6471088870  1.1393753744      1 %
+beta_ESCS                    -0.0037943750  0.0621699609      1 %
+beta_AGE                     -0.0589921114  0.1218164861      0 %
+beta_FEMALE                  -0.1087807271 -0.0101250197      0 %
+beta_IMMIG                   -0.0601192290  0.0383746524      1 %
+beta_ISCEDP                  -0.0006088738  0.0006352719      9 %
+beta_EXPECEDU                -0.0011399315  0.0206430605     12 %
+beta_OCOD3_major_group       -0.0174860906  0.0109485990     23 %
+beta_BSMJ                    -0.0003848834  0.0035037667     55 %
+beta_SISCO                   -0.1532297018  0.0688390082     40 %
+beta_REPEAT                  -0.0883002405  0.0351495402      3 %
+beta_MISSSC                  -0.1004538932  0.0447513076      1 %
+beta_SKIPPING                -0.0344100037  0.0593914610      1 %
+beta_TARDYSD                 -0.0448310509  0.0175420298      0 %
+beta_EXERPRAC                -0.0108267572  0.0012439369      0 %
+beta_STUDYHMW                -0.0088477887  0.0039660284      3 %
+beta_WORKPAY                 -0.0126003377  0.0007881529      1 %
+beta_WORKHOME                -0.0101030445  0.0016544603      1 %
+beta_INFOSEEK                -0.0161555063  0.0245703553      1 %
+beta_EXPOFA                  -0.0099299538  0.0261661429      2 %
+beta_EXPO21ST                -0.0241523430  0.0147652752      2 %
+beta_CREATAS                 -0.0292643492  0.0336271762     19 %
+beta_CREATOOS                -0.0507546606  0.0029529400     10 %
+beta_STRESAGR                -0.0256300122  0.0311437765      1 %
+beta_BULLIED                 -0.0212713720  0.0263674048      1 %
+beta_FEELLAH                 -0.0270097144  0.0253586092     25 %
+beta_PROBSELF                -0.0235861610  0.0205699400     17 %
+beta_LEARRES                 -0.0127811310  0.0301092295     28 %
+beta_Math_Disposition         0.0441087367  0.0908190738     10 %
+beta_Social_Emotional_Skills -0.0312089145  0.0214215821      1 %
+beta_Openness_Creativity     -0.0110625029  0.0403749778      3 %
+beta_Self_Directed_Learning  -0.0257395286  0.0612403154      7 %
+beta_Teacher_Classroom_Exp   -0.0381236797  0.0090971611      7 %
+beta_Home_Learning_Env       -0.0527111532  0.0020267297     47 %
+beta_School_Experience       -0.0216841180  0.0305621352      1 %
+Var_(Intercept)               0.0003098609  0.0138322749      1 %
+ResidVar                      0.0722823710  0.0812956363      2 %
+ExplVar_Lev2_Fixed           -0.0170231688  0.0160044559      0 %
+ExplVar_Lev2_Random                    NaN           NaN    NaN %
+ResidVar_Lev2                 0.0003098609  0.0138322749      1 %
+ExplVar_Lev1_Fixed           -0.0962924113  0.1825289947      0 %
+ExplVar_Lev1_Random                    NaN           NaN    NaN %
+ResidVar_Lev1                 0.0722823710  0.0812956363      2 %
+Var_Total                     0.0009001454  0.2520378682      0 %
+R2_Lev2                      -3.4886865649  3.3217526408      0 %
+R2_Lev1                      -0.3247348914  1.0437713558      0 %
+R2_Total                     -0.2552928677  0.9289530762      0 %
+ICC_Uncond                   -0.0869870292  0.1906777762      0 %
+ICC_UncondWB                 -0.2875089704  0.2543836487      0 %
+ICC_Cond                      0.0077483873  0.1607911036      1 %
+[1] "Final pooled results saved to: D:/essay/resilient_student/dataset/analysis/Summary_Model_Full_with_LVs.csv"
+[1] "Complete model object saved to: D:/essay/resilient_student/dataset/analysis/Results_Model_Full_with_LVs.rds"
+[1] "=================================================================="
+[1] " FINAL POOLED RESULTS FOR TWO-LEVEL MODEL 1 (CONTROLS ONLY) "
+[1] "=================================================================="
+Multiple imputation results:
+      MIcombine.default(results = lapply(pooled_by_imp, coef), variances = lapply(pooled_by_imp, 
+    vcov))
+                          results           se        (lower
+beta_(Intercept)    -0.4874470329 0.7957480269 -2.0470845064
+beta_ESCS            0.0269504828 0.0181185650 -0.0085612521
+beta_AGE             0.0381031998 0.0518656656 -0.0635516369
+beta_FEMALE         -0.0461956612 0.0271428562 -0.0993946819
+beta_IMMIG           0.0007092428 0.0266586802 -0.0515409665
+beta_ISCEDP          0.0003555613 0.0003035648 -0.0002394149
+Var_(Intercept)      0.0130802784 0.0047193679  0.0038304874
+ResidVar             0.0847548063 0.0029773438  0.0789193197
+ExplVar_Lev2_Fixed   0.0017947590 0.0036320199 -0.0053238693
+ExplVar_Lev2_Random  0.0000000000 0.0000000000           NaN
+ResidVar_Lev2        0.0130802784 0.0047193679  0.0038304874
+ExplVar_Lev1_Fixed   0.0022483066 0.0045784279 -0.0067252471
+ExplVar_Lev1_Random  0.0000000000 0.0000000000           NaN
+ResidVar_Lev1        0.0847548063 0.0029773438  0.0789193197
+Var_Total            0.1018781502 0.0078504721  0.0864915077
+R2_Lev2              0.1189862959 0.2091547472 -0.2909494759
+R2_Lev1              0.0258251228 0.0513845339 -0.0748867129
+R2_Total             0.0396133063 0.0590493656 -0.0761213237
+ICC_Uncond           0.1459181639 0.0465752552  0.0546323411
+ICC_UncondWB        -0.0165626608 0.1382404533 -0.2875089704
+ICC_Cond             0.1336602845 0.0443903556  0.0466567863
+                          upper) missInfo
+beta_(Intercept)    1.0721904407      0 %
+beta_ESCS           0.0624622177      0 %
+beta_AGE            0.1397580365      0 %
+beta_FEMALE         0.0070033594      0 %
+beta_IMMIG          0.0529594521      0 %
+beta_ISCEDP         0.0009505375      0 %
+Var_(Intercept)     0.0223300694      0 %
+ResidVar            0.0905902929      0 %
+ExplVar_Lev2_Fixed  0.0089133872      0 %
+ExplVar_Lev2_Random          NaN    NaN %
+ResidVar_Lev2       0.0223300694      0 %
+ExplVar_Lev1_Fixed  0.0112218603      0 %
+ExplVar_Lev1_Random          NaN    NaN %
+ResidVar_Lev1       0.0905902929      0 %
+Var_Total           0.1172647927      0 %
+R2_Lev2             0.5289220677      0 %
+R2_Lev1             0.1265369585      0 %
+R2_Total            0.1553479363      0 %
+ICC_Uncond          0.2372039867      0 %
+ICC_UncondWB        0.2543836487      0 %
+ICC_Cond            0.2206637827      0 %
+                          results           se        (lower
+beta_(Intercept)    -0.4874470329 0.7957480269 -2.0470845064
+beta_ESCS            0.0269504828 0.0181185650 -0.0085612521
+beta_AGE             0.0381031998 0.0518656656 -0.0635516369
+beta_FEMALE         -0.0461956612 0.0271428562 -0.0993946819
+beta_IMMIG           0.0007092428 0.0266586802 -0.0515409665
+beta_ISCEDP          0.0003555613 0.0003035648 -0.0002394149
+Var_(Intercept)      0.0130802784 0.0047193679  0.0038304874
+ResidVar             0.0847548063 0.0029773438  0.0789193197
+ExplVar_Lev2_Fixed   0.0017947590 0.0036320199 -0.0053238693
+ExplVar_Lev2_Random  0.0000000000 0.0000000000           NaN
+ResidVar_Lev2        0.0130802784 0.0047193679  0.0038304874
+ExplVar_Lev1_Fixed   0.0022483066 0.0045784279 -0.0067252471
+ExplVar_Lev1_Random  0.0000000000 0.0000000000           NaN
+ResidVar_Lev1        0.0847548063 0.0029773438  0.0789193197
+Var_Total            0.1018781502 0.0078504721  0.0864915077
+R2_Lev2              0.1189862959 0.2091547472 -0.2909494759
+R2_Lev1              0.0258251228 0.0513845339 -0.0748867129
+R2_Total             0.0396133063 0.0590493656 -0.0761213237
+ICC_Uncond           0.1459181639 0.0465752552  0.0546323411
+ICC_UncondWB        -0.0165626608 0.1382404533 -0.2875089704
+ICC_Cond             0.1336602845 0.0443903556  0.0466567863
+                          upper) missInfo
+beta_(Intercept)    1.0721904407      0 %
+beta_ESCS           0.0624622177      0 %
+beta_AGE            0.1397580365      0 %
+beta_FEMALE         0.0070033594      0 %
+beta_IMMIG          0.0529594521      0 %
+beta_ISCEDP         0.0009505375      0 %
+Var_(Intercept)     0.0223300694      0 %
+ResidVar            0.0905902929      0 %
+ExplVar_Lev2_Fixed  0.0089133872      0 %
+ExplVar_Lev2_Random          NaN    NaN %
+ResidVar_Lev2       0.0223300694      0 %
+ExplVar_Lev1_Fixed  0.0112218603      0 %
+ExplVar_Lev1_Random          NaN    NaN %
+ResidVar_Lev1       0.0905902929      0 %
+Var_Total           0.1172647927      0 %
+R2_Lev2             0.5289220677      0 %
+R2_Lev1             0.1265369585      0 %
+R2_Total            0.1553479363      0 %
+ICC_Uncond          0.2372039867      0 %
+ICC_UncondWB        0.2543836487      0 %
+ICC_Cond            0.2206637827      0 %
+[1] "=================================================================="
+[1] " FINAL POOLED RESULTS FOR TWO-LEVEL MODEL 2 (FULL MODEL + LVs) "
+[1] "=================================================================="
+Multiple imputation results:
+      MIcombine.default(results = lapply(pooled_by_imp, coef), variances = lapply(pooled_by_imp, 
+    vcov))
+                                   results           se
+beta_(Intercept)             -2.538668e-01 0.7108422539
+beta_ESCS                     2.918779e-02 0.0168268436
+beta_AGE                      3.141219e-02 0.0461254262
+beta_FEMALE                  -5.945287e-02 0.0251677099
+beta_IMMIG                   -1.087229e-02 0.0251261017
+beta_ISCEDP                   1.319905e-05 0.0003166650
+beta_EXPECEDU                 9.751564e-03 0.0055335244
+beta_OCOD3_major_group       -3.268746e-03 0.0071534336
+beta_BSMJ                     1.559442e-03 0.0009179433
+beta_SISCO                   -4.219535e-02 0.0543836470
+beta_REPEAT                  -2.657535e-02 0.0314848923
+beta_MISSSC                  -2.785129e-02 0.0370423538
+beta_SKIPPING                 1.249073e-02 0.0239288407
+beta_TARDYSD                 -1.364451e-02 0.0159117212
+beta_EXERPRAC                -4.791410e-03 0.0030792947
+beta_STUDYHMW                -2.440880e-03 0.0032681608
+beta_WORKPAY                 -5.906092e-03 0.0034153674
+beta_WORKHOME                -4.224292e-03 0.0029992488
+beta_INFOSEEK                 4.207425e-03 0.0103888444
+beta_EXPOFA                   8.118095e-03 0.0092069003
+beta_EXPO21ST                -4.693534e-03 0.0099273552
+beta_CREATAS                  2.181413e-03 0.0158897967
+beta_CREATOOS                -2.390086e-02 0.0136658082
+beta_STRESAGR                 2.756882e-03 0.0144826332
+beta_BULLIED                  2.548016e-03 0.0121526457
+beta_FEELLAH                 -8.255526e-04 0.0131396009
+beta_PROBSELF                -1.508110e-03 0.0111780080
+beta_LEARRES                  8.664049e-03 0.0107173608
+beta_Math_Disposition         6.746391e-02 0.0118853584
+beta_Social_Emotional_Skills -4.893666e-03 0.0134262636
+beta_Openness_Creativity      1.465624e-02 0.0131191480
+beta_Self_Directed_Learning   1.775039e-02 0.0221560524
+beta_Teacher_Classroom_Exp   -1.451326e-02 0.0120315472
+beta_Home_Learning_Env       -2.534221e-02 0.0132006752
+beta_School_Experience        4.439009e-03 0.0133278508
+Var_(Intercept)               7.071068e-03 0.0034495196
+ResidVar                      7.678900e-02 0.0022991848
+ExplVar_Lev2_Fixed           -5.093565e-04 0.0084255641
+ExplVar_Lev2_Random           0.000000e+00 0.0000000000
+ResidVar_Lev2                 7.071068e-03 0.0034495196
+ExplVar_Lev1_Fixed            4.311829e-02 0.0711292158
+ExplVar_Lev1_Random           0.000000e+00 0.0000000000
+ResidVar_Lev1                 7.678900e-02 0.0022991848
+Var_Total                     1.264690e-01 0.0640669224
+R2_Lev2                      -8.346696e-02 1.7373885793
+R2_Lev1                       3.595182e-01 0.3491151429
+R2_Total                      3.368301e-01 0.3021090792
+ICC_Uncond                    5.184537e-02 0.0708341585
+ICC_UncondWB                 -1.656266e-02 0.1382404533
+ICC_Cond                      8.426975e-02 0.0390410082
+                                    (lower        upper) missInfo
+beta_(Intercept)             -1.6471088870  1.1393753744      1 %
+beta_ESCS                    -0.0037943750  0.0621699609      1 %
+beta_AGE                     -0.0589921114  0.1218164861      0 %
+beta_FEMALE                  -0.1087807271 -0.0101250197      0 %
+beta_IMMIG                   -0.0601192290  0.0383746524      1 %
+beta_ISCEDP                  -0.0006088738  0.0006352719      9 %
+beta_EXPECEDU                -0.0011399315  0.0206430605     12 %
+beta_OCOD3_major_group       -0.0174860906  0.0109485990     23 %
+beta_BSMJ                    -0.0003848834  0.0035037667     55 %
+beta_SISCO                   -0.1532297018  0.0688390082     40 %
+beta_REPEAT                  -0.0883002405  0.0351495402      3 %
+beta_MISSSC                  -0.1004538932  0.0447513076      1 %
+beta_SKIPPING                -0.0344100037  0.0593914610      1 %
+beta_TARDYSD                 -0.0448310509  0.0175420298      0 %
+beta_EXERPRAC                -0.0108267572  0.0012439369      0 %
+beta_STUDYHMW                -0.0088477887  0.0039660284      3 %
+beta_WORKPAY                 -0.0126003377  0.0007881529      1 %
+beta_WORKHOME                -0.0101030445  0.0016544603      1 %
+beta_INFOSEEK                -0.0161555063  0.0245703553      1 %
+beta_EXPOFA                  -0.0099299538  0.0261661429      2 %
+beta_EXPO21ST                -0.0241523430  0.0147652752      2 %
+beta_CREATAS                 -0.0292643492  0.0336271762     19 %
+beta_CREATOOS                -0.0507546606  0.0029529400     10 %
+beta_STRESAGR                -0.0256300122  0.0311437765      1 %
+beta_BULLIED                 -0.0212713720  0.0263674048      1 %
+beta_FEELLAH                 -0.0270097144  0.0253586092     25 %
+beta_PROBSELF                -0.0235861610  0.0205699400     17 %
+beta_LEARRES                 -0.0127811310  0.0301092295     28 %
+beta_Math_Disposition         0.0441087367  0.0908190738     10 %
+beta_Social_Emotional_Skills -0.0312089145  0.0214215821      1 %
+beta_Openness_Creativity     -0.0110625029  0.0403749778      3 %
+beta_Self_Directed_Learning  -0.0257395286  0.0612403154      7 %
+beta_Teacher_Classroom_Exp   -0.0381236797  0.0090971611      7 %
+beta_Home_Learning_Env       -0.0527111532  0.0020267297     47 %
+beta_School_Experience       -0.0216841180  0.0305621352      1 %
+Var_(Intercept)               0.0003098609  0.0138322749      1 %
+ResidVar                      0.0722823710  0.0812956363      2 %
+ExplVar_Lev2_Fixed           -0.0170231688  0.0160044559      0 %
+ExplVar_Lev2_Random                    NaN           NaN    NaN %
+ResidVar_Lev2                 0.0003098609  0.0138322749      1 %
+ExplVar_Lev1_Fixed           -0.0962924113  0.1825289947      0 %
+ExplVar_Lev1_Random                    NaN           NaN    NaN %
+ResidVar_Lev1                 0.0722823710  0.0812956363      2 %
+Var_Total                     0.0009001454  0.2520378682      0 %
+R2_Lev2                      -3.4886865649  3.3217526408      0 %
+R2_Lev1                      -0.3247348914  1.0437713558      0 %
+R2_Total                     -0.2552928677  0.9289530762      0 %
+ICC_Uncond                   -0.0869870292  0.1906777762      0 %
+ICC_UncondWB                 -0.2875089704  0.2543836487      0 %
+ICC_Cond                      0.0077483873  0.1607911036      1 %
+                                   results           se
+beta_(Intercept)             -2.538668e-01 0.7108422539
+beta_ESCS                     2.918779e-02 0.0168268436
+beta_AGE                      3.141219e-02 0.0461254262
+beta_FEMALE                  -5.945287e-02 0.0251677099
+beta_IMMIG                   -1.087229e-02 0.0251261017
+beta_ISCEDP                   1.319905e-05 0.0003166650
+beta_EXPECEDU                 9.751564e-03 0.0055335244
+beta_OCOD3_major_group       -3.268746e-03 0.0071534336
+beta_BSMJ                     1.559442e-03 0.0009179433
+beta_SISCO                   -4.219535e-02 0.0543836470
+beta_REPEAT                  -2.657535e-02 0.0314848923
+beta_MISSSC                  -2.785129e-02 0.0370423538
+beta_SKIPPING                 1.249073e-02 0.0239288407
+beta_TARDYSD                 -1.364451e-02 0.0159117212
+beta_EXERPRAC                -4.791410e-03 0.0030792947
+beta_STUDYHMW                -2.440880e-03 0.0032681608
+beta_WORKPAY                 -5.906092e-03 0.0034153674
+beta_WORKHOME                -4.224292e-03 0.0029992488
+beta_INFOSEEK                 4.207425e-03 0.0103888444
+beta_EXPOFA                   8.118095e-03 0.0092069003
+beta_EXPO21ST                -4.693534e-03 0.0099273552
+beta_CREATAS                  2.181413e-03 0.0158897967
+beta_CREATOOS                -2.390086e-02 0.0136658082
+beta_STRESAGR                 2.756882e-03 0.0144826332
+beta_BULLIED                  2.548016e-03 0.0121526457
+beta_FEELLAH                 -8.255526e-04 0.0131396009
+beta_PROBSELF                -1.508110e-03 0.0111780080
+beta_LEARRES                  8.664049e-03 0.0107173608
+beta_Math_Disposition         6.746391e-02 0.0118853584
+beta_Social_Emotional_Skills -4.893666e-03 0.0134262636
+beta_Openness_Creativity      1.465624e-02 0.0131191480
+beta_Self_Directed_Learning   1.775039e-02 0.0221560524
+beta_Teacher_Classroom_Exp   -1.451326e-02 0.0120315472
+beta_Home_Learning_Env       -2.534221e-02 0.0132006752
+beta_School_Experience        4.439009e-03 0.0133278508
+Var_(Intercept)               7.071068e-03 0.0034495196
+ResidVar                      7.678900e-02 0.0022991848
+ExplVar_Lev2_Fixed           -5.093565e-04 0.0084255641
+ExplVar_Lev2_Random           0.000000e+00 0.0000000000
+ResidVar_Lev2                 7.071068e-03 0.0034495196
+ExplVar_Lev1_Fixed            4.311829e-02 0.0711292158
+ExplVar_Lev1_Random           0.000000e+00 0.0000000000
+ResidVar_Lev1                 7.678900e-02 0.0022991848
+Var_Total                     1.264690e-01 0.0640669224
+R2_Lev2                      -8.346696e-02 1.7373885793
+R2_Lev1                       3.595182e-01 0.3491151429
+R2_Total                      3.368301e-01 0.3021090792
+ICC_Uncond                    5.184537e-02 0.0708341585
+ICC_UncondWB                 -1.656266e-02 0.1382404533
+ICC_Cond                      8.426975e-02 0.0390410082
+                                    (lower        upper) missInfo
+beta_(Intercept)             -1.6471088870  1.1393753744      1 %
+beta_ESCS                    -0.0037943750  0.0621699609      1 %
+beta_AGE                     -0.0589921114  0.1218164861      0 %
+beta_FEMALE                  -0.1087807271 -0.0101250197      0 %
+beta_IMMIG                   -0.0601192290  0.0383746524      1 %
+beta_ISCEDP                  -0.0006088738  0.0006352719      9 %
+beta_EXPECEDU                -0.0011399315  0.0206430605     12 %
+beta_OCOD3_major_group       -0.0174860906  0.0109485990     23 %
+beta_BSMJ                    -0.0003848834  0.0035037667     55 %
+beta_SISCO                   -0.1532297018  0.0688390082     40 %
+beta_REPEAT                  -0.0883002405  0.0351495402      3 %
+beta_MISSSC                  -0.1004538932  0.0447513076      1 %
+beta_SKIPPING                -0.0344100037  0.0593914610      1 %
+beta_TARDYSD                 -0.0448310509  0.0175420298      0 %
+beta_EXERPRAC                -0.0108267572  0.0012439369      0 %
+beta_STUDYHMW                -0.0088477887  0.0039660284      3 %
+beta_WORKPAY                 -0.0126003377  0.0007881529      1 %
+beta_WORKHOME                -0.0101030445  0.0016544603      1 %
+beta_INFOSEEK                -0.0161555063  0.0245703553      1 %
+beta_EXPOFA                  -0.0099299538  0.0261661429      2 %
+beta_EXPO21ST                -0.0241523430  0.0147652752      2 %
+beta_CREATAS                 -0.0292643492  0.0336271762     19 %
+beta_CREATOOS                -0.0507546606  0.0029529400     10 %
+beta_STRESAGR                -0.0256300122  0.0311437765      1 %
+beta_BULLIED                 -0.0212713720  0.0263674048      1 %
+beta_FEELLAH                 -0.0270097144  0.0253586092     25 %
+beta_PROBSELF                -0.0235861610  0.0205699400     17 %
+beta_LEARRES                 -0.0127811310  0.0301092295     28 %
+beta_Math_Disposition         0.0441087367  0.0908190738     10 %
+beta_Social_Emotional_Skills -0.0312089145  0.0214215821      1 %
+beta_Openness_Creativity     -0.0110625029  0.0403749778      3 %
+beta_Self_Directed_Learning  -0.0257395286  0.0612403154      7 %
+beta_Teacher_Classroom_Exp   -0.0381236797  0.0090971611      7 %
+beta_Home_Learning_Env       -0.0527111532  0.0020267297     47 %
+beta_School_Experience       -0.0216841180  0.0305621352      1 %
+Var_(Intercept)               0.0003098609  0.0138322749      1 %
+ResidVar                      0.0722823710  0.0812956363      2 %
+ExplVar_Lev2_Fixed           -0.0170231688  0.0160044559      0 %
+ExplVar_Lev2_Random                    NaN           NaN    NaN %
+ResidVar_Lev2                 0.0003098609  0.0138322749      1 %
+ExplVar_Lev1_Fixed           -0.0962924113  0.1825289947      0 %
+ExplVar_Lev1_Random                    NaN           NaN    NaN %
+ResidVar_Lev1                 0.0722823710  0.0812956363      2 %
+Var_Total                     0.0009001454  0.2520378682      0 %
+R2_Lev2                      -3.4886865649  3.3217526408      0 %
+R2_Lev1                      -0.3247348914  1.0437713558      0 %
+R2_Total                     -0.2552928677  0.9289530762      0 %
+ICC_Uncond                   -0.0869870292  0.1906777762      0 %
+ICC_UncondWB                 -0.2875089704  0.2543836487      0 %
+ICC_Cond                      0.0077483873  0.1607911036      1 %
+[1] "=================================================================="

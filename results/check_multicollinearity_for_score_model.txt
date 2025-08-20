@@ -1,0 +1,104 @@
+[1] "Loading libraries..."
+[1] "Loading and preparing data..."
+[1] "Data loading and preparation complete."
+[1] "=================================================================="
+[1] " RUNNING DIAGNOSTIC CHECKS ON THE FIRST IMPUTED DATASET "
+[1] "=================================================================="
+[1] "--- Checking predictor distributions with skimr ---"
+-- Data Summary ------------------------
+                           Values        
+Name                       key_predictors
+Number of rows             23995         
+Number of columns          12            
+_______________________                  
+Column type frequency:                   
+  numeric                  12            
+________________________                 
+Group variables            None          
+
+-- Variable type: numeric ------------------------------------------
+   skim_variable           n_missing complete_rate    mean    sd
+ 1 ESCS                            0             1 -1.37   0.663
+ 2 REPEAT                          0             1  0.0749 0.263
+ 3 MISSSC                          0             1  0.0842 0.278
+ 4 SKIPPING                        0             1  0.346  0.476
+ 5 TARDYSD                         0             1  0.620  0.756
+ 6 Math_Disposition                0             1 -0.353  1.12 
+ 7 Social_Emotional_Skills         0             1  0.222  0.858
+ 8 Openness_Creativity             0             1  0.0201 0.915
+ 9 Self_Directed_Learning          0             1  0.135  0.389
+10 Teacher_Classroom_Exp           0             1 -0.561  1.01 
+11 Home_Learning_Env               0             1 -0.167  1.11 
+12 School_Experience               0             1  0.0645 0.734
+      p0    p25    p50    p75   p100 hist 
+ 1 -6.84 -1.68  -1.25  -0.903 -0.124 ▁▁▁▃▇
+ 2  0     0      0      0      1     ▇▁▁▁▁
+ 3  0     0      0      0      1     ▇▁▁▁▁
+ 4  0     0      0      1      1     ▇▁▁▁▅
+ 5  0     0      0      1      2     ▇▁▅▁▂
+ 6 -3.55 -1.09  -0.344  0.385  3.45  ▁▅▇▃▁
+ 7 -6.34 -0.328  0.106  0.604  7.11  ▁▁▇▁▁
+ 8 -3.77 -0.495  0.003  0.47   3.67  ▁▂▇▂▁
+ 9 -1.96 -0.163  0.19   0.381  1.58  ▁▁▇▇▁
+10 -5.84 -1.13  -0.544 -0.018  3.62  ▁▁▇▃▁
+11 -2.38 -0.92  -0.017  0.564  2.44  ▃▅▇▅▂
+12 -3.44 -0.381 -0.013  0.512  3.12  ▁▁▇▃▁
+[1] "--- Calculating Variance Inflation Factor (VIF) Scores ---"
+                            GVIF Df GVIF^(1/(2*Df))
+ESCS                    1.185980  1        1.089027
+AGE                     1.052830  1        1.026075
+FEMALE                  1.247248  1        1.116803
+IMMIG                   1.053070  2        1.013011
+ISCEDP                  1.300664  1        1.140466
+EXPECEDU                1.210074  1        1.100034
+OCOD3_major_group       3.165795  1        1.779268
+BSMJ                    1.888266  1        1.374142
+SISCO                   2.361037  1        1.536567
+REPEAT                  1.148914  1        1.071874
+MISSSC                  1.066858  1        1.032888
+SKIPPING                1.205187  1        1.097810
+TARDYSD                 1.173884  1        1.083459
+EXERPRAC                1.231860  1        1.109892
+STUDYHMW                1.310167  1        1.144625
+WORKPAY                 1.152401  1        1.073499
+WORKHOME                1.211973  1        1.100896
+INFOSEEK                1.084279  1        1.041287
+EXPOFA                  1.425136  1        1.193791
+EXPO21ST                1.485688  1        1.218888
+CREATAS                 1.408585  1        1.186838
+CREATOOS                1.438554  1        1.199397
+STRESAGR                1.212328  1        1.101058
+BULLIED                 1.224629  1        1.106630
+FEELLAH                 1.092356  1        1.045158
+PROBSELF                1.098111  1        1.047908
+LEARRES                 1.136158  1        1.065907
+Math_Disposition        1.271388  1        1.127559
+Social_Emotional_Skills 1.414531  1        1.189340
+Openness_Creativity     1.330333  1        1.153400
+Self_Directed_Learning  1.122153  1        1.059317
+Teacher_Classroom_Exp   1.295576  1        1.138234
+Home_Learning_Env       1.105811  1        1.051575
+School_Experience       1.378374  1        1.174042
+[1] "creat correlation matrix.png"
+TheRPlugin_ProxyDevice 
+                     2 
+[1] "--- Calculating RMSE across all 10 Plausible Values ---"
+[1] "--- RMSE and SD for each Plausible Value ---"
+                                         PV      RMSE Outcome_SD
+RESILIENCE_SCORE_PV1   RESILIENCE_SCORE_PV1 0.7136266  0.8628387
+RESILIENCE_SCORE_PV2   RESILIENCE_SCORE_PV2 0.7153006  0.8641336
+RESILIENCE_SCORE_PV3   RESILIENCE_SCORE_PV3 0.7133639  0.8641824
+RESILIENCE_SCORE_PV4   RESILIENCE_SCORE_PV4 0.7142469  0.8656395
+RESILIENCE_SCORE_PV5   RESILIENCE_SCORE_PV5 0.7137700  0.8635035
+RESILIENCE_SCORE_PV6   RESILIENCE_SCORE_PV6 0.7113031  0.8615105
+RESILIENCE_SCORE_PV7   RESILIENCE_SCORE_PV7 0.7132285  0.8626441
+RESILIENCE_SCORE_PV8   RESILIENCE_SCORE_PV8 0.7102953  0.8580588
+RESILIENCE_SCORE_PV9   RESILIENCE_SCORE_PV9 0.7142966  0.8632236
+RESILIENCE_SCORE_PV10 RESILIENCE_SCORE_PV10 0.7132576  0.8637590
+[1] "--- Averaged Diagnostic Results Across 10 PVs ---"
+[1] "Average Root Mean Squared Error (RMSE): 0.7133"
+[1] "Average Outcome Standard Deviation (SD): 0.8629"
+[1] "Average Reduction in Error (vs. SD): 17.35 %"
+[1] "=================================================================="
+[1] " DIAGNOSTIC SCRIPT COMPLETE "
+[1] "=================================================================="
