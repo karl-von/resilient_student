@@ -1,0 +1,2690 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+08/19/2025   3:18 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Alignment for Self_Dir_Lear (IMPUTATION 4 - FIXED);
+
+  DATA:
+    FILE IS "D:/essay/resilient_student/dataset/mplus_data/imputed_data_4.dat";
+    FORMAT IS FREE;
+
+  VARIABLE:
+    NAMES ARE
+      CNT
+      CNTSTUID
+      CNTSCHID
+      W_FSTUWT
+      ESCS
+      PV1MATH
+      PV2MATH
+      PV3MATH
+      PV4MATH
+      PV5MATH
+      PV6MATH
+      PV7MATH
+      PV8MATH
+      PV9MATH
+      PV10MATH
+      ACADEMIC_RESILIENCE_PV1
+      ACADEMIC_RESILIENCE_PV2
+      ACADEMIC_RESILIENCE_PV3
+      ACADEMIC_RESILIENCE_PV4
+      ACADEMIC_RESILIENCE_PV5
+      ACADEMIC_RESILIENCE_PV6
+      ACADEMIC_RESILIENCE_PV7
+      ACADEMIC_RESILIENCE_PV8
+      ACADEMIC_RESILIENCE_PV9
+      ACADEMIC_RESILIENCE_PV10
+      W_FSTURWT1
+      W_FSTURWT2
+      W_FSTURWT3
+      W_FSTURWT4
+      W_FSTURWT5
+      W_FSTURWT6
+      W_FSTURWT7
+      W_FSTURWT8
+      W_FSTURWT9
+      W_FSTURWT10
+      W_FSTURWT11
+      W_FSTURWT12
+      W_FSTURWT13
+      W_FSTURWT14
+      W_FSTURWT15
+      W_FSTURWT16
+      W_FSTURWT17
+      W_FSTURWT18
+      W_FSTURWT19
+      W_FSTURWT20
+      W_FSTURWT21
+      W_FSTURWT22
+      W_FSTURWT23
+      W_FSTURWT24
+      W_FSTURWT25
+      W_FSTURWT26
+      W_FSTURWT27
+      W_FSTURWT28
+      W_FSTURWT29
+      W_FSTURWT30
+      W_FSTURWT31
+      W_FSTURWT32
+      W_FSTURWT33
+      W_FSTURWT34
+      W_FSTURWT35
+      W_FSTURWT36
+      W_FSTURWT37
+      W_FSTURWT38
+      W_FSTURWT39
+      W_FSTURWT40
+      W_FSTURWT41
+      W_FSTURWT42
+      W_FSTURWT43
+      W_FSTURWT44
+      W_FSTURWT45
+      W_FSTURWT46
+      W_FSTURWT47
+      W_FSTURWT48
+      W_FSTURWT49
+      W_FSTURWT50
+      W_FSTURWT51
+      W_FSTURWT52
+      W_FSTURWT53
+      W_FSTURWT54
+      W_FSTURWT55
+      W_FSTURWT56
+      W_FSTURWT57
+      W_FSTURWT58
+      W_FSTURWT59
+      W_FSTURWT60
+      W_FSTURWT61
+      W_FSTURWT62
+      W_FSTURWT63
+      W_FSTURWT64
+      W_FSTURWT65
+      W_FSTURWT66
+      W_FSTURWT67
+      W_FSTURWT68
+      W_FSTURWT69
+      W_FSTURWT70
+      W_FSTURWT71
+      W_FSTURWT72
+      W_FSTURWT73
+      W_FSTURWT74
+      W_FSTURWT75
+      W_FSTURWT76
+      W_FSTURWT77
+      W_FSTURWT78
+      W_FSTURWT79
+      W_FSTURWT80
+      ST004D01T
+      ST268Q01JA
+      ST268Q04JA
+      ST268Q07JA
+      AGE
+      ISCEDP
+      IMMIG
+      REPEAT
+      MISSSC
+      SKIPPING
+      TARDYSD
+      EXERPRAC
+      STUDYHMW
+      WORKPAY
+      WORKHOME
+      EXPECEDU
+      BSMJ
+      SISCO
+      RELATST
+      BELONG
+      BULLIED
+      FEELSAFE
+      SCHRISK
+      PERSEVAGR
+      CURIOAGR
+      COOPAGR
+      EMPATAGR
+      ASSERAGR
+      STRESAGR
+      EMOCOAGR
+      GROSAGR
+      INFOSEEK
+      FAMSUP
+      DISCLIM
+      TEACHSUP
+      COGACRCO
+      COGACMCO
+      EXPOFA
+      EXPO21ST
+      MATHEFF
+      MATHEF21
+      ANXMAT
+      MATHPERS
+      CREATEFF
+      CREATSCH
+      CREATFAM
+      CREATAS
+      CREATOOS
+      CREATOP
+      OPENART
+      IMAGINE
+      SCHSUST
+      LEARRES
+      PROBSELF
+      FAMSUPSL
+      FEELLAH
+      SDLEFF
+      OCOD3_major_group;
+    USEVARIABLES ARE
+      SDLEFF GROSAGR CNT CNTSTUID;
+    IDVARIABLE IS CNTSTUID;
+    GROUPING IS CNT (
+      1 = CHL
+      2 = TAP
+      3 = HRV
+      4 = FIN
+      5 = GRC
+      6 = HKG
+      7 = ISL
+      8 = KOR
+      9 = LTU
+      10 = MLT
+      11 = NZL
+      12 = PRT
+      13 = ROU
+      14 = TUR
+      15 = GBR
+    );
+
+  ANALYSIS:
+    ESTIMATOR = MLR;
+    PROCESSORS = 4;
+    ALIGNMENT = FIXED;
+
+  MODEL:
+    Self_Dir_Lear BY SDLEFF GROSAGR;
+
+  SAVEDATA:
+    FILE IS "D:/essay/resilient_student/dataset/mplus_data/self_dir_lear_scores_imp4.dat";
+    SAVE = FSCORES;
+    FORMAT IS FREE;
+
+  OUTPUT:
+    TECH11;
+    ALIGNMENT;
+
+
+
+*** WARNING in OUTPUT command
+  TECH11 option is available only with TYPE=MIXTURE.
+  Request for TECH11 is ignored.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Alignment for Self_Dir_Lear (IMPUTATION 4 - FIXED);
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                15
+Number of observations
+   Group CHL                                                  1209
+   Group TAP                                                  1668
+   Group HRV                                                  1528
+   Group FIN                                                  2754
+   Group GRC                                                  1529
+   Group HKG                                                  1368
+   Group ISL                                                   810
+   Group KOR                                                  1568
+   Group LTU                                                  1786
+   Group MLT                                                   710
+   Group NZL                                                  1104
+   Group PRT                                                  1621
+   Group ROU                                                  1593
+   Group TUR                                                  1884
+   Group GBR                                                  2863
+   Total sample size                                         23995
+
+Number of dependent variables                                    2
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   SDLEFF      GROSAGR
+
+Continuous latent variables
+   SELF_DIR
+
+Variables with special functions
+
+  Grouping variable     CNT
+  ID variable           CNTSTUID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Specifications for Alignment Analysis
+  Factor mean for reference group                            FIXED
+  Simplicity function                                         SQRT
+  Factor variance metric                           Reference group
+  Reference group                                                1
+  Tolerance value                                        0.100D-01
+  Number of random starts                                       30
+  Maximum number of iterations                                5000
+  Convergence criteration                                0.100D-02
+
+Input data file(s)
+  D:/essay/resilient_student/dataset/mplus_data/imputed_data_4.dat
+Input data format  FREE
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR CHL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.117       0.062      -2.585    0.17%      -0.924     -0.351     -0.095
+            1209.000       1.029       0.266       2.082    0.33%       0.170      0.408
+     GROSAGR               0.068      -1.067      -3.599    4.22%      -0.430     -0.160     -0.014
+            1209.000       1.272       2.662       2.029    6.37%       0.362      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR TAP
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.362       0.244      -2.585    0.30%      -0.986     -0.680     -0.416
+            1668.000       1.075       0.311       2.082    0.12%      -0.172      0.222
+     GROSAGR               0.144      -1.078      -3.599    3.24%      -0.306     -0.145     -0.014
+            1668.000       1.093       3.448       3.372    0.06%       0.505      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR HRV
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF                0.154      -0.013      -2.573    0.07%      -0.566      0.122      0.184
+            1528.000       0.964       0.311       2.082    0.20%       0.211      0.816
+     GROSAGR              -0.170      -1.269      -3.599    3.80%      -0.739     -0.306     -0.145
+            1528.000       0.937       4.097       2.029    2.29%      -0.014      0.585
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR FIN
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.135       0.096      -2.585    0.07%      -0.930     -0.382     -0.119
+            2754.000       1.011       0.296       2.082    0.11%       0.166      0.262
+     GROSAGR              -0.060      -1.199      -3.599    3.41%      -0.581     -0.293     -0.074
+            2754.000       0.975       3.729       2.029    2.76%       0.094      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR GRC
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.199       0.238      -2.585    0.07%      -0.972     -0.549     -0.318
+            1529.000       1.191      -0.154       2.082    0.39%       0.001      0.553
+     GROSAGR              -0.135      -1.307      -3.599    3.53%      -0.668     -0.306     -0.145
+            1529.000       0.915       4.131       2.029    1.83%      -0.003      0.585
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR HKG
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.324       0.049      -2.585    0.15%      -0.962     -0.563     -0.326
+            1368.000       0.881       0.605       2.035    0.15%      -0.027      0.226
+     GROSAGR              -0.053      -1.321      -3.599    4.09%      -0.430     -0.306     -0.145
+            1368.000       1.051       3.799       2.029    3.07%       0.214      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR ISL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.192      -0.001      -2.585    0.37%      -0.935     -0.421     -0.166
+             810.000       1.045       0.344       2.035    0.12%       0.161      0.245
+     GROSAGR              -0.018      -0.806      -3.599    2.59%      -0.430     -0.306     -0.145
+             810.000       0.953       3.241       3.360    0.12%      -0.014      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR KOR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.456       0.140      -2.585    0.13%      -1.101     -0.759     -0.484
+            1568.000       1.183      -0.022       2.082    0.26%      -0.180      0.228
+     GROSAGR              -0.028      -1.131      -3.602    0.06%      -0.420     -0.160     -0.014
+            1568.000       1.186       3.103       2.029    4.91%       0.086      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR LTU
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.131       0.162      -2.573    0.06%      -0.910     -0.399     -0.148
+            1786.000       0.929       0.402       2.082    0.06%       0.166      0.336
+     GROSAGR              -0.206      -1.060      -3.599    3.36%      -0.856     -0.306     -0.160
+            1786.000       0.906       3.753       2.029    2.46%      -0.014      0.498
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR MLT
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.161       0.131      -2.556    0.14%      -0.944     -0.404     -0.160
+             710.000       1.065       0.173       2.082    0.28%       0.139      0.406
+     GROSAGR              -0.210      -1.429      -3.599    4.23%      -0.739     -0.306     -0.160
+             710.000       0.948       4.124       2.029    1.27%      -0.014      0.432
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR NZL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.252      -0.066      -2.585    0.09%      -0.952     -0.448     -0.169
+            1104.000       0.965       0.437       2.082    0.18%       0.153      0.238
+     GROSAGR               0.166      -1.314      -3.599    2.72%      -0.306     -0.103      0.172
+            1104.000       0.929       4.408       2.029    3.71%       0.585      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR PRT
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.123       0.104      -2.556    0.06%      -0.862     -0.321     -0.067
+            1621.000       0.896       0.557       2.082    0.25%       0.164      0.247
+     GROSAGR              -0.162      -1.371      -3.599    3.95%      -0.518     -0.306     -0.160
+            1621.000       0.936       4.299       2.029    1.79%      -0.014      0.674
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR ROU
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.138       0.116      -2.573    0.13%      -0.944     -0.383     -0.116
+            1593.000       1.082       0.143       2.082    0.06%       0.162      0.275
+     GROSAGR              -0.173      -1.148      -3.602    0.06%      -0.775     -0.306     -0.160
+            1593.000       1.045       3.291       2.029    2.64%      -0.014      0.585
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR TUR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.221      -0.042      -2.585    0.27%      -0.956     -0.395     -0.168
+            1884.000       1.019       0.358       2.035    0.74%       0.153      0.245
+     GROSAGR               0.162      -1.230      -3.599    3.72%      -0.410     -0.014      0.251
+            1884.000       1.183       3.215       3.372    0.05%       0.544      0.780
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR GBR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     SDLEFF               -0.319       0.104      -2.585    0.14%      -0.984     -0.558     -0.332
+            2863.000       1.031       0.255       2.082    0.07%      -0.034      0.238
+     GROSAGR              -0.009      -1.207      -3.599    3.32%      -0.420     -0.160     -0.014
+            2863.000       0.994       3.643       2.029    3.04%       0.243      0.780
+
+     THE STANDARD ERRORS OF THE MODEL PARAMETER ESTIMATES MAY NOT BE
+     TRUSTWORTHY FOR SOME PARAMETERS DUE TO A NON-POSITIVE DEFINITE
+     FIRST-ORDER DERIVATIVE PRODUCT MATRIX.  THIS MAY BE DUE TO THE STARTING
+     VALUES BUT MAY ALSO BE AN INDICATION OF MODEL NONIDENTIFICATION.  THE
+     CONDITION NUMBER IS      -0.134D-15.  PROBLEM INVOLVING THE FOLLOWING PARAMETER:
+     Parameter 6, Group CHL: GROSAGR
+
+     ONE OR MORE PARAMETERS WERE FIXED TO AVOID SINGULARITY OF THE
+     INFORMATION MATRIX. THE SINGULARITY IS MOST LIKELY BECAUSE THE
+     MODEL IS NOT IDENTIFIED, OR BECAUSE OF EMPTY CELLS IN THE JOINT
+     DISTRIBUTION OF THE CATEGORICAL VARIABLES IN THE MODEL.
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       90
+
+Loglikelihood
+
+          H0 Value                      -68504.449
+          H0 Scaling Correction Factor      1.2112
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                  137188.898
+          Bayesian (BIC)                137916.602
+          Sample-Size Adjusted BIC      137630.584
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group CHL
+
+ SELF_DIR BY
+    SDLEFF             0.080      0.035      2.256      0.024
+    GROSAGR            0.540      0.702      0.769      0.442
+
+ Means
+    SELF_DIR_L         0.000      0.000    999.000    999.000
+
+ Intercepts
+    SDLEFF            -0.117      0.029     -4.012      0.000
+    GROSAGR            0.068      0.032      2.109      0.035
+
+ Variances
+    SELF_DIR_L         1.000      0.000    999.000    999.000
+
+ Residual Variances
+    SDLEFF             1.022      0.045     22.657      0.000
+    GROSAGR            0.981      0.757      1.296      0.195
+
+Group TAP
+
+ SELF_DIR BY
+    SDLEFF             0.245      0.341      0.719      0.472
+    GROSAGR            0.376      0.738      0.509      0.610
+
+ Means
+    SELF_DIR_L         0.347      0.674      0.515      0.607
+
+ Intercepts
+    SDLEFF            -0.448      0.105     -4.268      0.000
+    GROSAGR            0.014      0.043      0.323      0.747
+
+ Variances
+    SELF_DIR_L         0.462      1.599      0.289      0.773
+
+ Residual Variances
+    SDLEFF             1.047      0.064     16.462      0.000
+    GROSAGR            1.028      0.000    999.000    999.000
+
+Group HRV
+
+ SELF_DIR BY
+    SDLEFF             0.241      0.332      0.727      0.467
+    GROSAGR           -0.094      0.130     -0.722      0.470
+
+ Means
+    SELF_DIR_L         1.901      2.610      0.728      0.466
+
+ Intercepts
+    SDLEFF            -0.305      0.039     -7.763      0.000
+    GROSAGR            0.009      0.039      0.229      0.819
+
+ Variances
+    SELF_DIR_L         0.318      1.456      0.219      0.827
+
+ Residual Variances
+    SDLEFF             0.945      0.077     12.329      0.000
+    GROSAGR            0.934      0.060     15.497      0.000
+
+Group FIN
+
+ SELF_DIR BY
+    SDLEFF             0.039      0.147      0.266      0.790
+    GROSAGR            0.537      0.702      0.765      0.445
+
+ Means
+    SELF_DIR_L        -0.115      0.166     -0.692      0.489
+
+ Intercepts
+    SDLEFF            -0.130      0.024     -5.394      0.000
+    GROSAGR            0.001      0.032      0.044      0.965
+
+ Variances
+    SELF_DIR_L         0.302      0.805      0.375      0.708
+
+ Residual Variances
+    SDLEFF             1.011      0.029     34.400      0.000
+    GROSAGR            0.888      0.000    999.000    999.000
+
+Group GRC
+
+ SELF_DIR BY
+    SDLEFF             0.243      0.335      0.727      0.467
+    GROSAGR           -0.013      0.019     -0.692      0.489
+
+ Means
+    SELF_DIR_L         0.444      0.628      0.707      0.479
+
+ Intercepts
+    SDLEFF            -0.307      0.038     -8.129      0.000
+    GROSAGR           -0.129      0.024     -5.293      0.000
+
+ Variances
+    SELF_DIR_L         4.089     13.742      0.298      0.766
+
+ Residual Variances
+    SDLEFF             0.949      0.466      2.038      0.042
+    GROSAGR            0.914      0.058     15.849      0.000
+
+Group HKG
+
+ SELF_DIR BY
+    SDLEFF             0.240      0.329      0.729      0.466
+    GROSAGR            0.534      0.702      0.761      0.447
+
+ Means
+    SELF_DIR_L        -0.097      0.143     -0.681      0.496
+
+ Intercepts
+    SDLEFF            -0.301      0.022    -13.426      0.000
+    GROSAGR           -0.001      0.024     -0.057      0.954
+
+ Variances
+    SELF_DIR_L         0.744      1.964      0.379      0.705
+
+ Residual Variances
+    SDLEFF             0.838      0.047     17.735      0.000
+    GROSAGR            0.839      0.000    999.000    999.000
+
+Group ISL
+
+ SELF_DIR BY
+    SDLEFF             0.246      0.339      0.726      0.468
+    GROSAGR           -0.011      0.110     -0.099      0.922
+
+ Means
+    SELF_DIR_L         0.467      0.665      0.703      0.482
+
+ Intercepts
+    SDLEFF            -0.307      0.039     -7.953      0.000
+    GROSAGR           -0.013      0.063     -0.213      0.832
+
+ Variances
+    SELF_DIR_L         1.507      4.152      0.363      0.717
+
+ Residual Variances
+    SDLEFF             0.954      0.057     16.683      0.000
+    GROSAGR            0.953      0.077     12.355      0.000
+
+Group KOR
+
+ SELF_DIR BY
+    SDLEFF             0.244      0.336      0.726      0.468
+    GROSAGR            0.218      0.628      0.347      0.729
+
+ Means
+    SELF_DIR_L        -0.574      0.832     -0.689      0.491
+
+ Intercepts
+    SDLEFF            -0.316      0.041     -7.716      0.000
+    GROSAGR            0.097      0.281      0.346      0.729
+
+ Variances
+    SELF_DIR_L         0.646      2.703      0.239      0.811
+
+ Residual Variances
+    SDLEFF             1.144      0.124      9.211      0.000
+    GROSAGR            1.155      0.000    999.000    999.000
+
+Group LTU
+
+ SELF_DIR BY
+    SDLEFF             0.234      0.322      0.727      0.467
+    GROSAGR           -0.267      0.367     -0.727      0.467
+
+ Means
+    SELF_DIR_L         0.764      1.055      0.724      0.469
+
+ Intercepts
+    SDLEFF            -0.310      0.034     -9.217      0.000
+    GROSAGR           -0.002      0.040     -0.054      0.957
+
+ Variances
+    SELF_DIR_L         1.049      2.912      0.360      0.719
+
+ Residual Variances
+    SDLEFF             0.871      0.037     23.461      0.000
+    GROSAGR            0.831      0.055     15.212      0.000
+
+Group MLT
+
+ SELF_DIR BY
+    SDLEFF             0.247      0.340      0.726      0.468
+    GROSAGR            0.007      0.079      0.088      0.930
+
+ Means
+    SELF_DIR_L         0.592      0.829      0.714      0.475
+
+ Intercepts
+    SDLEFF            -0.307      0.038     -8.126      0.000
+    GROSAGR           -0.214      0.058     -3.716      0.000
+
+ Variances
+    SELF_DIR_L         1.890      6.292      0.300      0.764
+
+ Residual Variances
+    SDLEFF             0.950      0.222      4.284      0.000
+    GROSAGR            0.947      0.088     10.761      0.000
+
+Group NZL
+
+ SELF_DIR BY
+    SDLEFF             0.245      0.339      0.723      0.470
+    GROSAGR            0.074      2.053      0.036      0.971
+
+ Means
+    SELF_DIR_L         0.236      0.585      0.403      0.687
+
+ Intercepts
+    SDLEFF            -0.310      0.127     -2.440      0.015
+    GROSAGR            0.148      0.534      0.277      0.781
+
+ Variances
+    SELF_DIR_L         0.469     13.318      0.035      0.972
+
+ Residual Variances
+    SDLEFF             0.937      0.787      1.190      0.234
+    GROSAGR            0.926      0.000    999.000    999.000
+
+Group PRT
+
+ SELF_DIR BY
+    SDLEFF             0.153      0.354      0.431      0.667
+    GROSAGR            0.541      0.708      0.764      0.445
+
+ Means
+    SELF_DIR_L        -0.296      0.396     -0.747      0.455
+
+ Intercepts
+    SDLEFF            -0.077      0.084     -0.922      0.357
+    GROSAGR           -0.002      0.034     -0.061      0.952
+
+ Variances
+    SELF_DIR_L         0.196      0.553      0.354      0.723
+
+ Residual Variances
+    SDLEFF             0.892      0.039     22.793      0.000
+    GROSAGR            0.879      0.000    999.000    999.000
+
+Group ROU
+
+ SELF_DIR BY
+    SDLEFF             0.238      0.328      0.727      0.467
+    GROSAGR           -0.232      0.319     -0.726      0.468
+
+ Means
+    SELF_DIR_L         0.727      1.005      0.723      0.469
+
+ Intercepts
+    SDLEFF            -0.312      0.036     -8.628      0.000
+    GROSAGR           -0.005      0.040     -0.120      0.904
+
+ Variances
+    SELF_DIR_L         0.559      1.624      0.344      0.731
+
+ Residual Variances
+    SDLEFF             1.050      0.048     21.927      0.000
+    GROSAGR            1.015      0.064     15.891      0.000
+
+Group TUR
+
+ SELF_DIR BY
+    SDLEFF             0.225      0.310      0.724      0.469
+    GROSAGR            0.543      0.711      0.763      0.445
+
+ Means
+    SELF_DIR_L         0.307      0.408      0.752      0.452
+
+ Intercepts
+    SDLEFF            -0.290      0.043     -6.701      0.000
+    GROSAGR           -0.005      0.029     -0.157      0.875
+
+ Variances
+    SELF_DIR_L         0.671      1.769      0.379      0.704
+
+ Residual Variances
+    SDLEFF             0.985      0.044     22.490      0.000
+    GROSAGR            0.985      0.000    999.000    999.000
+
+Group GBR
+
+ SELF_DIR BY
+    SDLEFF             0.065      0.102      0.636      0.525
+    GROSAGR            0.537      0.701      0.766      0.443
+
+ Means
+    SELF_DIR_L        -0.024      0.070     -0.334      0.738
+
+ Intercepts
+    SDLEFF            -0.317      0.019    -17.116      0.000
+    GROSAGR            0.004      0.029      0.129      0.898
+
+ Variances
+    SELF_DIR_L         0.727      1.904      0.382      0.703
+
+ Residual Variances
+    SDLEFF             1.028      0.030     34.761      0.000
+    GROSAGR            0.784      0.000    999.000    999.000
+
+
+
+APPROXIMATE MEASUREMENT INVARIANCE (NONINVARIANCE) FOR GROUPS
+
+ Intercepts/Thresholds
+   SDLEFF      (1) 2 3 (4) 5 6 7 8 9 10 11 12 13 14 15
+   GROSAGR     1 2 3 4 (5) 6 7 8 9 (10) 11 12 13 14 15
+
+ Loadings for SELF_DIR
+   SDLEFF      1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+   GROSAGR     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+
+FACTOR MEAN COMPARISON AT THE 5% SIGNIFICANCE LEVEL IN DESCENDING ORDER
+
+ Results for Factor SELF_DIR
+
+           Latent    Group      Factor
+ Ranking    Class    Value       Mean     Groups With Significantly Smaller Factor Mean
+     1         3         3       1.901
+     2         9         9       0.764
+     3        13        13       0.727
+     4        10        10       0.592
+     5         7         7       0.467
+     6         5         5       0.444
+     7         2         2       0.347
+     8        14        14       0.307
+     9        11        11       0.236
+    10         1         1       0.000
+    11        15        15      -0.024
+    12         6         6      -0.097
+    13         4         4      -0.115
+    14        12        12      -0.296
+    15         8         8      -0.574
+
+
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.790E-08
+       (ratio of smallest to largest eigenvalue)
+
+
+ALIGNMENT OUTPUT
+
+INVARIANCE ANALYSIS
+
+ Intercepts/Thresholds
+ Intercept for SDLEFF
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1     -0.448     -0.117     -0.331      0.109      0.002
+     3         1     -0.305     -0.117     -0.188      0.049      0.000
+     3         2     -0.305     -0.448      0.143      0.117      0.223
+     4         1     -0.130     -0.117     -0.013      0.038      0.730
+     4         2     -0.130     -0.448      0.318      0.108      0.003
+     4         3     -0.130     -0.305      0.175      0.047      0.000
+     5         1     -0.307     -0.117     -0.190      0.048      0.000
+     5         2     -0.307     -0.448      0.140      0.117      0.232
+     5         3     -0.307     -0.305     -0.002      0.007      0.731
+     5         4     -0.307     -0.130     -0.177      0.046      0.000
+     6         1     -0.301     -0.117     -0.184      0.037      0.000
+     6         2     -0.301     -0.448      0.147      0.108      0.174
+     6         3     -0.301     -0.305      0.004      0.043      0.922
+     6         4     -0.301     -0.130     -0.171      0.033      0.000
+     6         5     -0.301     -0.307      0.007      0.042      0.876
+     7         1     -0.307     -0.117     -0.190      0.049      0.000
+     7         2     -0.307     -0.448      0.140      0.118      0.234
+     7         3     -0.307     -0.305     -0.002      0.007      0.747
+     7         4     -0.307     -0.130     -0.177      0.047      0.000
+     7         5     -0.307     -0.307      0.000      0.004      0.982
+     7         6     -0.307     -0.301     -0.006      0.043      0.881
+     8         1     -0.316     -0.117     -0.199      0.050      0.000
+     8         2     -0.316     -0.448      0.131      0.118      0.265
+     8         3     -0.316     -0.305     -0.011      0.019      0.548
+     8         4     -0.316     -0.130     -0.186      0.049      0.000
+     8         5     -0.316     -0.307     -0.009      0.016      0.566
+     8         6     -0.316     -0.301     -0.015      0.045      0.729
+     8         7     -0.316     -0.307     -0.009      0.016      0.571
+     9         1     -0.310     -0.117     -0.193      0.045      0.000
+     9         2     -0.310     -0.448      0.137      0.114      0.229
+     9         3     -0.310     -0.305     -0.005      0.018      0.775
+     9         4     -0.310     -0.130     -0.180      0.043      0.000
+     9         5     -0.310     -0.307     -0.003      0.015      0.849
+     9         6     -0.310     -0.301     -0.009      0.039      0.811
+     9         7     -0.310     -0.307     -0.003      0.015      0.844
+     9         8     -0.310     -0.316      0.006      0.023      0.791
+     10        1     -0.307     -0.117     -0.190      0.048      0.000
+     10        2     -0.307     -0.448      0.141      0.117      0.229
+     10        3     -0.307     -0.305     -0.002      0.007      0.829
+     10        4     -0.307     -0.130     -0.177      0.046      0.000
+     10        5     -0.307     -0.307      0.001      0.003      0.789
+     10        6     -0.307     -0.301     -0.006      0.042      0.890
+     10        7     -0.307     -0.307      0.001      0.005      0.885
+     10        8     -0.307     -0.316      0.010      0.016      0.542
+     10        9     -0.307     -0.310      0.004      0.015      0.813
+     11        1     -0.310     -0.117     -0.193      0.130      0.139
+     11        2     -0.310     -0.448      0.138      0.178      0.438
+     11        3     -0.310     -0.305     -0.005      0.091      0.957
+     11        4     -0.310     -0.130     -0.180      0.131      0.169
+     11        5     -0.310     -0.307     -0.003      0.091      0.977
+     11        6     -0.310     -0.301     -0.009      0.130      0.944
+     11        7     -0.310     -0.307     -0.003      0.091      0.976
+     11        8     -0.310     -0.316      0.006      0.094      0.946
+     11        9     -0.310     -0.310      0.000      0.100      0.998
+     11        10     -0.310     -0.307     -0.003      0.092      0.971
+     12        1     -0.077     -0.117      0.040      0.089      0.657
+     12        2     -0.077     -0.448      0.370      0.135      0.006
+     12        3     -0.077     -0.305      0.228      0.095      0.016
+     12        4     -0.077     -0.130      0.053      0.088      0.548
+     12        5     -0.077     -0.307      0.230      0.094      0.015
+     12        6     -0.077     -0.301      0.223      0.088      0.011
+     12        7     -0.077     -0.307      0.230      0.095      0.015
+     12        8     -0.077     -0.316      0.239      0.095      0.012
+     12        9     -0.077     -0.310      0.233      0.092      0.011
+     12        10     -0.077     -0.307      0.229      0.094      0.015
+     12        11     -0.077     -0.310      0.233      0.157      0.139
+     13        1     -0.312     -0.117     -0.194      0.046      0.000
+     13        2     -0.312     -0.448      0.136      0.115      0.238
+     13        3     -0.312     -0.305     -0.006      0.017      0.707
+     13        4     -0.312     -0.130     -0.181      0.045      0.000
+     13        5     -0.312     -0.307     -0.004      0.014      0.767
+     13        6     -0.312     -0.301     -0.011      0.041      0.796
+     13        7     -0.312     -0.307     -0.004      0.014      0.759
+     13        8     -0.312     -0.316      0.005      0.022      0.826
+     13        9     -0.312     -0.310     -0.001      0.020      0.950
+     13        10     -0.312     -0.307     -0.005      0.014      0.731
+     13        11     -0.312     -0.310     -0.001      0.097      0.988
+     13        12     -0.312     -0.077     -0.234      0.093      0.012
+     14        1     -0.290     -0.117     -0.173      0.052      0.001
+     14        2     -0.290     -0.448      0.158      0.113      0.163
+     14        3     -0.290     -0.305      0.015      0.060      0.801
+     14        4     -0.290     -0.130     -0.160      0.049      0.001
+     14        5     -0.290     -0.307      0.017      0.059      0.769
+     14        6     -0.290     -0.301      0.011      0.047      0.818
+     14        7     -0.290     -0.307      0.017      0.060      0.773
+     14        8     -0.290     -0.316      0.026      0.062      0.670
+     14        9     -0.290     -0.310      0.020      0.058      0.724
+     14        10     -0.290     -0.307      0.017      0.059      0.778
+     14        11     -0.290     -0.310      0.020      0.140      0.886
+     14        12     -0.290     -0.077     -0.212      0.095      0.025
+     14        13     -0.290     -0.312      0.022      0.059      0.715
+     15        1     -0.317     -0.117     -0.200      0.035      0.000
+     15        2     -0.317     -0.448      0.130      0.107      0.223
+     15        3     -0.317     -0.305     -0.012      0.042      0.770
+     15        4     -0.317     -0.130     -0.187      0.030      0.000
+     15        5     -0.317     -0.307     -0.010      0.040      0.806
+     15        6     -0.317     -0.301     -0.016      0.029      0.575
+     15        7     -0.317     -0.307     -0.010      0.041      0.809
+     15        8     -0.317     -0.316     -0.001      0.042      0.982
+     15        9     -0.317     -0.310     -0.007      0.037      0.850
+     15        10     -0.317     -0.307     -0.011      0.040      0.792
+     15        11     -0.317     -0.310     -0.007      0.129      0.955
+     15        12     -0.317     -0.077     -0.240      0.086      0.006
+     15        13     -0.317     -0.312     -0.006      0.039      0.882
+     15        14     -0.317     -0.290     -0.027      0.047      0.562
+ Approximate Measurement Invariance Holds For Groups:
+ 2 3 5 6 7 8 9 10 11 12
+ 13 14 15
+ Weighted Average Value Across Invariant Groups:      -0.301
+ R-square/Explained variance/Invariance index:       0.538
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     2     -0.448     -0.147      0.103      0.155
+     3     -0.305     -0.004      0.021      0.844
+     5     -0.307     -0.006      0.020      0.745
+     6     -0.301      0.000      0.032      0.997
+     7     -0.307     -0.006      0.021      0.760
+     8     -0.316     -0.015      0.024      0.527
+     9     -0.310     -0.009      0.019      0.633
+     10     -0.307     -0.006      0.020      0.774
+     11     -0.310     -0.009      0.107      0.933
+     12     -0.077      0.224      0.083      0.007
+     13     -0.312     -0.010      0.021      0.610
+     14     -0.290      0.011      0.048      0.819
+     15     -0.317     -0.016      0.029      0.571
+
+ Intercept for GROSAGR
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.014      0.068     -0.055      0.054      0.315
+     3         1      0.009      0.068     -0.059      0.051      0.245
+     3         2      0.009      0.014     -0.005      0.035      0.892
+     4         1      0.001      0.068     -0.067      0.047      0.150
+     4         2      0.001      0.014     -0.012      0.019      0.513
+     4         3      0.001      0.009     -0.008      0.030      0.801
+     5         1     -0.129      0.068     -0.198      0.041      0.000
+     5         2     -0.129      0.014     -0.143      0.048      0.003
+     5         3     -0.129      0.009     -0.138      0.046      0.002
+     5         4     -0.129      0.001     -0.131      0.040      0.001
+     6         1     -0.001      0.068     -0.070      0.041      0.087
+     6         2     -0.001      0.014     -0.015      0.030      0.612
+     6         3     -0.001      0.009     -0.010      0.033      0.753
+     6         4     -0.001      0.001     -0.003      0.019      0.883
+     6         5     -0.001     -0.129      0.128      0.034      0.000
+     7         1     -0.013      0.068     -0.082      0.071      0.248
+     7         2     -0.013      0.014     -0.027      0.066      0.680
+     7         3     -0.013      0.009     -0.022      0.072      0.755
+     7         4     -0.013      0.001     -0.015      0.058      0.800
+     7         5     -0.013     -0.129      0.116      0.067      0.085
+     7         6     -0.013     -0.001     -0.012      0.058      0.835
+     8         1      0.097      0.068      0.029      0.283      0.919
+     8         2      0.097      0.014      0.083      0.294      0.777
+     8         3      0.097      0.009      0.088      0.285      0.757
+     8         4      0.097      0.001      0.096      0.291      0.742
+     8         5      0.097     -0.129      0.226      0.282      0.422
+     8         6      0.097     -0.001      0.099      0.288      0.732
+     8         7      0.097     -0.013      0.111      0.289      0.702
+     9         1     -0.002      0.068     -0.071      0.052      0.171
+     9         2     -0.002      0.014     -0.016      0.028      0.571
+     9         3     -0.002      0.009     -0.011      0.041      0.785
+     9         4     -0.002      0.001     -0.004      0.019      0.854
+     9         5     -0.002     -0.129      0.127      0.045      0.005
+     9         6     -0.002     -0.001     -0.001      0.031      0.980
+     9         7     -0.002     -0.013      0.011      0.066      0.864
+     9         8     -0.002      0.097     -0.099      0.288      0.730
+     10        1     -0.214      0.068     -0.282      0.066      0.000
+     10        2     -0.214      0.014     -0.228      0.072      0.002
+     10        3     -0.214      0.009     -0.223      0.070      0.001
+     10        4     -0.214      0.001     -0.215      0.066      0.001
+     10        5     -0.214     -0.129     -0.085      0.063      0.176
+     10        6     -0.214     -0.001     -0.212      0.063      0.001
+     10        7     -0.214     -0.013     -0.200      0.085      0.019
+     10        8     -0.214      0.097     -0.311      0.287      0.278
+     10        9     -0.214     -0.002     -0.212      0.070      0.003
+     11        1      0.148      0.068      0.080      0.535      0.882
+     11        2      0.148      0.014      0.134      0.561      0.811
+     11        3      0.148      0.009      0.139      0.549      0.800
+     11        4      0.148      0.001      0.147      0.556      0.792
+     11        5      0.148     -0.129      0.277      0.537      0.605
+     11        6      0.148     -0.001      0.149      0.540      0.782
+     11        7      0.148     -0.013      0.162      0.539      0.765
+     11        8      0.148      0.097      0.051      0.577      0.930
+     11        9      0.148     -0.002      0.150      0.566      0.791
+     11        10      0.148     -0.214      0.362      0.536      0.500
+     12        1     -0.002      0.068     -0.070      0.047      0.137
+     12        2     -0.002      0.014     -0.016      0.021      0.441
+     12        3     -0.002      0.009     -0.011      0.032      0.732
+     12        4     -0.002      0.001     -0.003      0.007      0.628
+     12        5     -0.002     -0.129      0.127      0.041      0.002
+     12        6     -0.002     -0.001     -0.001      0.020      0.973
+     12        7     -0.002     -0.013      0.011      0.058      0.845
+     12        8     -0.002      0.097     -0.099      0.291      0.733
+     12        9     -0.002     -0.002      0.000      0.021      0.996
+     12        10     -0.002     -0.214      0.212      0.067      0.002
+     12        11     -0.002      0.148     -0.150      0.556      0.787
+     13        1     -0.005      0.068     -0.073      0.052      0.157
+     13        2     -0.005      0.014     -0.019      0.031      0.549
+     13        3     -0.005      0.009     -0.014      0.043      0.749
+     13        4     -0.005      0.001     -0.006      0.022      0.777
+     13        5     -0.005     -0.129      0.124      0.046      0.006
+     13        6     -0.005     -0.001     -0.003      0.032      0.914
+     13        7     -0.005     -0.013      0.009      0.067      0.897
+     13        8     -0.005      0.097     -0.102      0.287      0.722
+     13        9     -0.005     -0.002     -0.003      0.028      0.925
+     13        10     -0.005     -0.214      0.209      0.070      0.003
+     13        11     -0.005      0.148     -0.153      0.564      0.786
+     13        12     -0.005     -0.002     -0.003      0.023      0.904
+     14        1     -0.005      0.068     -0.073      0.044      0.097
+     14        2     -0.005      0.014     -0.018      0.022      0.397
+     14        3     -0.005      0.009     -0.014      0.031      0.661
+     14        4     -0.005      0.001     -0.006      0.006      0.335
+     14        5     -0.005     -0.129      0.125      0.037      0.001
+     14        6     -0.005     -0.001     -0.003      0.016      0.843
+     14        7     -0.005     -0.013      0.009      0.056      0.873
+     14        8     -0.005      0.097     -0.102      0.290      0.725
+     14        9     -0.005     -0.002     -0.002      0.021      0.912
+     14        10     -0.005     -0.214      0.209      0.065      0.001
+     14        11     -0.005      0.148     -0.153      0.552      0.782
+     14        12     -0.005     -0.002     -0.002      0.009      0.775
+     14        13     -0.005     -0.005      0.000      0.023      0.991
+     15        1      0.004      0.068     -0.065      0.044      0.145
+     15        2      0.004      0.014     -0.010      0.020      0.618
+     15        3      0.004      0.009     -0.005      0.029      0.855
+     15        4      0.004      0.001      0.002      0.006      0.691
+     15        5      0.004     -0.129      0.133      0.037      0.000
+     15        6      0.004     -0.001      0.005      0.015      0.738
+     15        7      0.004     -0.013      0.017      0.058      0.768
+     15        8      0.004      0.097     -0.093      0.290      0.747
+     15        9      0.004     -0.002      0.006      0.022      0.789
+     15        10      0.004     -0.214      0.218      0.065      0.001
+     15        11      0.004      0.148     -0.144      0.551      0.793
+     15        12      0.004     -0.002      0.006      0.009      0.522
+     15        13      0.004     -0.005      0.009      0.024      0.722
+     15        14      0.004     -0.005      0.008      0.005      0.093
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 6 7 8 9 11 12
+ 13 14 15
+ Weighted Average Value Across Invariant Groups:       0.019
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.068      0.049      0.042      0.242
+     2      0.014     -0.005      0.050      0.916
+     3      0.009     -0.010      0.043      0.816
+     4      0.001     -0.018      0.042      0.672
+     6     -0.001     -0.020      0.030      0.499
+     7     -0.013     -0.032      0.060      0.587
+     8      0.097      0.078      0.264      0.767
+     9     -0.002     -0.021      0.050      0.674
+     11      0.148      0.129      0.522      0.804
+     12     -0.002     -0.021      0.042      0.617
+     13     -0.005     -0.024      0.050      0.632
+     14     -0.005     -0.024      0.038      0.534
+     15      0.004     -0.015      0.038      0.688
+
+
+
+ Loadings
+ Loadings for SDLEFF
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.245      0.080      0.166      0.375      0.659
+     3         1      0.241      0.080      0.162      0.366      0.659
+     3         2      0.241      0.245     -0.004      0.023      0.867
+     4         1      0.039      0.080     -0.041      0.163      0.802
+     4         2      0.039      0.245     -0.206      0.328      0.529
+     4         3      0.039      0.241     -0.202      0.319      0.526
+     5         1      0.243      0.080      0.163      0.369      0.658
+     5         2      0.243      0.245     -0.002      0.022      0.925
+     5         3      0.243      0.241      0.002      0.003      0.565
+     5         4      0.243      0.039      0.204      0.322      0.526
+     6         1      0.240      0.080      0.160      0.363      0.660
+     6         2      0.240      0.245     -0.006      0.058      0.921
+     6         3      0.240      0.241     -0.002      0.045      0.968
+     6         4      0.240      0.039      0.201      0.313      0.522
+     6         5      0.240      0.243     -0.004      0.046      0.936
+     7         1      0.246      0.080      0.166      0.373      0.656
+     7         2      0.246      0.245      0.001      0.021      0.975
+     7         3      0.246      0.241      0.005      0.009      0.606
+     7         4      0.246      0.039      0.207      0.325      0.525
+     7         5      0.246      0.243      0.003      0.006      0.649
+     7         6      0.246      0.240      0.006      0.049      0.897
+     8         1      0.244      0.080      0.164      0.370      0.657
+     8         2      0.244      0.245     -0.001      0.025      0.959
+     8         3      0.244      0.241      0.003      0.011      0.810
+     8         4      0.244      0.039      0.205      0.323      0.526
+     8         5      0.244      0.243      0.001      0.010      0.941
+     8         6      0.244      0.240      0.004      0.047      0.925
+     8         7      0.244      0.246     -0.002      0.012      0.872
+     9         1      0.234      0.080      0.154      0.356      0.665
+     9         2      0.234      0.245     -0.011      0.033      0.739
+     9         3      0.234      0.241     -0.007      0.016      0.642
+     9         4      0.234      0.039      0.195      0.310      0.529
+     9         5      0.234      0.243     -0.009      0.019      0.627
+     9         6      0.234      0.240     -0.005      0.043      0.900
+     9         7      0.234      0.246     -0.012      0.024      0.626
+     9         8      0.234      0.244     -0.010      0.021      0.643
+     10        1      0.247      0.080      0.167      0.374      0.655
+     10        2      0.247      0.245      0.002      0.021      0.942
+     10        3      0.247      0.241      0.005      0.010      0.590
+     10        4      0.247      0.039      0.208      0.326      0.524
+     10        5      0.247      0.243      0.004      0.007      0.608
+     10        6      0.247      0.240      0.007      0.050      0.884
+     10        7      0.247      0.246      0.001      0.002      0.703
+     10        8      0.247      0.244      0.003      0.013      0.824
+     10        9      0.247      0.234      0.013      0.026      0.620
+     11        1      0.245      0.080      0.165      0.373      0.658
+     11        2      0.245      0.245     -0.001      0.026      0.983
+     11        3      0.245      0.241      0.003      0.019      0.863
+     11        4      0.245      0.039      0.206      0.325      0.527
+     11        5      0.245      0.243      0.001      0.017      0.931
+     11        6      0.245      0.240      0.005      0.057      0.928
+     11        7      0.245      0.246     -0.001      0.013      0.925
+     11        8      0.245      0.244      0.001      0.022      0.974
+     11        9      0.245      0.234      0.011      0.034      0.752
+     11        10      0.245      0.247     -0.002      0.012      0.865
+     12        1      0.153      0.080      0.073      0.375      0.846
+     12        2      0.153      0.245     -0.093      0.356      0.794
+     12        3      0.153      0.241     -0.089      0.349      0.799
+     12        4      0.153      0.039      0.113      0.356      0.750
+     12        5      0.153      0.243     -0.091      0.351      0.796
+     12        6      0.153      0.240     -0.087      0.335      0.795
+     12        7      0.153      0.246     -0.093      0.353      0.791
+     12        8      0.153      0.244     -0.092      0.352      0.795
+     12        9      0.153      0.234     -0.082      0.344      0.812
+     12        10      0.153      0.247     -0.094      0.353      0.789
+     12        11      0.153      0.245     -0.092      0.353      0.794
+     13        1      0.238      0.080      0.159      0.362      0.662
+     13        2      0.238      0.245     -0.007      0.027      0.797
+     13        3      0.238      0.241     -0.003      0.007      0.664
+     13        4      0.238      0.039      0.199      0.315      0.527
+     13        5      0.238      0.243     -0.005      0.010      0.628
+     13        6      0.238      0.240     -0.001      0.043      0.977
+     13        7      0.238      0.246     -0.008      0.016      0.629
+     13        8      0.238      0.244     -0.006      0.014      0.689
+     13        9      0.238      0.234      0.004      0.009      0.631
+     13        10      0.238      0.247     -0.009      0.017      0.619
+     13        11      0.238      0.245     -0.006      0.026      0.805
+     13        12      0.238      0.153      0.086      0.347      0.804
+     14        1      0.225      0.080      0.145      0.344      0.674
+     14        2      0.225      0.245     -0.021      0.116      0.858
+     14        3      0.225      0.241     -0.017      0.105      0.872
+     14        4      0.225      0.039      0.185      0.296      0.532
+     14        5      0.225      0.243     -0.019      0.107      0.861
+     14        6      0.225      0.240     -0.015      0.124      0.903
+     14        7      0.225      0.246     -0.021      0.110      0.845
+     14        8      0.225      0.244     -0.020      0.108      0.857
+     14        9      0.225      0.234     -0.010      0.094      0.918
+     14        10      0.225      0.247     -0.022      0.111      0.841
+     14        11      0.225      0.245     -0.020      0.114      0.859
+     14        12      0.225      0.153      0.072      0.325      0.825
+     14        13      0.225      0.238     -0.014      0.101      0.890
+     15        1      0.065      0.080     -0.015      0.133      0.909
+     15        2      0.065      0.245     -0.181      0.269      0.502
+     15        3      0.065      0.241     -0.177      0.260      0.496
+     15        4      0.065      0.039      0.026      0.153      0.867
+     15        5      0.065      0.243     -0.179      0.262      0.496
+     15        6      0.065      0.240     -0.175      0.256      0.494
+     15        7      0.065      0.246     -0.181      0.266      0.496
+     15        8      0.065      0.244     -0.179      0.264      0.497
+     15        9      0.065      0.234     -0.169      0.249      0.497
+     15        10      0.065      0.247     -0.182      0.267      0.496
+     15        11      0.065      0.245     -0.180      0.267      0.500
+     15        12      0.065      0.153     -0.088      0.320      0.784
+     15        13      0.065      0.238     -0.174      0.255      0.497
+     15        14      0.065      0.225     -0.160      0.238      0.503
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 8 9 10
+ 11 12 13 14 15
+ Weighted Average Value Across Invariant Groups:       0.182
+ R-square/Explained variance/Invariance index:       0.720
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.080     -0.102      0.274      0.710
+     2      0.245      0.064      0.112      0.570
+     3      0.241      0.060      0.100      0.553
+     4      0.039     -0.143      0.228      0.532
+     5      0.243      0.061      0.103      0.551
+     6      0.240      0.058      0.100      0.563
+     7      0.246      0.064      0.107      0.549
+     8      0.244      0.062      0.105      0.553
+     9      0.234      0.052      0.090      0.561
+     10      0.247      0.065      0.108      0.548
+     11      0.245      0.063      0.109      0.563
+     12      0.153     -0.029      0.293      0.920
+     13      0.238      0.057      0.096      0.556
+     14      0.225      0.043      0.105      0.684
+     15      0.065     -0.117      0.167      0.484
+
+ Loadings for GROSAGR
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.376      0.540     -0.163      0.585      0.780
+     3         1     -0.094      0.540     -0.634      0.827      0.444
+     3         2     -0.094      0.376     -0.470      0.839      0.575
+     4         1      0.537      0.540     -0.003      0.010      0.774
+     4         2      0.537      0.376      0.161      0.586      0.784
+     4         3      0.537     -0.094      0.631      0.827      0.446
+     5         1     -0.013      0.540     -0.553      0.720      0.442
+     5         2     -0.013      0.376     -0.390      0.752      0.605
+     5         3     -0.013     -0.094      0.080      0.112      0.472
+     5         4     -0.013      0.537     -0.550      0.720      0.445
+     6         1      0.534      0.540     -0.006      0.040      0.885
+     6         2      0.534      0.376      0.158      0.574      0.783
+     6         3      0.534     -0.094      0.628      0.826      0.447
+     6         4      0.534      0.537     -0.003      0.043      0.943
+     6         5      0.534     -0.013      0.547      0.719      0.447
+     7         1     -0.011      0.540     -0.550      0.725      0.447
+     7         2     -0.011      0.376     -0.387      0.757      0.609
+     7         3     -0.011     -0.094      0.083      0.159      0.600
+     7         4     -0.011      0.537     -0.548      0.725      0.450
+     7         5     -0.011     -0.013      0.003      0.109      0.981
+     7         6     -0.011      0.534     -0.545      0.724      0.452
+     8         1      0.218      0.540     -0.322      0.696      0.644
+     8         2      0.218      0.376     -0.159      0.771      0.837
+     8         3      0.218     -0.094      0.312      0.702      0.657
+     8         4      0.218      0.537     -0.319      0.697      0.647
+     8         5      0.218     -0.013      0.231      0.638      0.717
+     8         6      0.218      0.534     -0.316      0.692      0.648
+     8         7      0.218     -0.011      0.229      0.645      0.723
+     9         1     -0.267      0.540     -0.806      1.060      0.447
+     9         2     -0.267      0.376     -0.643      1.040      0.536
+     9         3     -0.267     -0.094     -0.173      0.238      0.468
+     9         4     -0.267      0.537     -0.803      1.059      0.448
+     9         5     -0.267     -0.013     -0.253      0.348      0.467
+     9         6     -0.267      0.534     -0.800      1.059      0.450
+     9         7     -0.267     -0.011     -0.256      0.368      0.487
+     9         8     -0.267      0.218     -0.484      0.871      0.578
+     10        1      0.007      0.540     -0.533      0.697      0.445
+     10        2      0.007      0.376     -0.369      0.736      0.616
+     10        3      0.007     -0.094      0.101      0.160      0.528
+     10        4      0.007      0.537     -0.530      0.697      0.447
+     10        5      0.007     -0.013      0.020      0.083      0.807
+     10        6      0.007      0.534     -0.527      0.697      0.450
+     10        7      0.007     -0.011      0.018      0.136      0.896
+     10        8      0.007      0.218     -0.211      0.628      0.737
+     10        9      0.007     -0.267      0.274      0.384      0.477
+     11        1      0.074      0.540     -0.465      2.138      0.828
+     11        2      0.074      0.376     -0.302      2.109      0.886
+     11        3      0.074     -0.094      0.168      2.074      0.935
+     11        4      0.074      0.537     -0.463      2.142      0.829
+     11        5      0.074     -0.013      0.088      2.055      0.966
+     11        6      0.074      0.534     -0.460      2.128      0.829
+     11        7      0.074     -0.011      0.085      2.058      0.967
+     11        8      0.074      0.218     -0.143      2.109      0.946
+     11        9      0.074     -0.267      0.341      2.122      0.872
+     11        10      0.074      0.007      0.067      2.053      0.974
+     12        1      0.541      0.540      0.002      0.025      0.947
+     12        2      0.541      0.376      0.165      0.589      0.779
+     12        3      0.541     -0.094      0.635      0.833      0.445
+     12        4      0.541      0.537      0.004      0.026      0.866
+     12        5      0.541     -0.013      0.555      0.726      0.445
+     12        6      0.541      0.534      0.007      0.054      0.890
+     12        7      0.541     -0.011      0.552      0.730      0.450
+     12        8      0.541      0.218      0.324      0.701      0.644
+     12        9      0.541     -0.267      0.808      1.065      0.448
+     12        10      0.541      0.007      0.534      0.703      0.447
+     12        11      0.541      0.074      0.467      2.139      0.827
+     13        1     -0.232      0.540     -0.771      1.012      0.446
+     13        2     -0.232      0.376     -0.608      0.999      0.543
+     13        3     -0.232     -0.094     -0.138      0.190      0.470
+     13        4     -0.232      0.537     -0.768      1.012      0.448
+     13        5     -0.232     -0.013     -0.218      0.300      0.468
+     13        6     -0.232      0.534     -0.765      1.011      0.449
+     13        7     -0.232     -0.011     -0.221      0.323      0.494
+     13        8     -0.232      0.218     -0.449      0.835      0.590
+     13        9     -0.232     -0.267      0.035      0.050      0.483
+     13        10     -0.232      0.007     -0.238      0.338      0.480
+     13        11     -0.232      0.074     -0.306      2.114      0.885
+     13        12     -0.232      0.541     -0.773      1.017      0.447
+     14        1      0.543      0.540      0.003      0.028      0.913
+     14        2      0.543      0.376      0.167      0.581      0.774
+     14        3      0.543     -0.094      0.637      0.837      0.447
+     14        4      0.543      0.537      0.006      0.032      0.854
+     14        5      0.543     -0.013      0.556      0.729      0.446
+     14        6      0.543      0.534      0.009      0.061      0.884
+     14        7      0.543     -0.011      0.554      0.734      0.451
+     14        8      0.543      0.218      0.325      0.699      0.642
+     14        9      0.543     -0.267      0.809      1.070      0.449
+     14        10      0.543      0.007      0.536      0.706      0.448
+     14        11      0.543      0.074      0.468      2.139      0.827
+     14        12      0.543      0.541      0.001      0.040      0.972
+     14        13      0.543     -0.232      0.774      1.022      0.449
+     15        1      0.537      0.540     -0.002      0.005      0.623
+     15        2      0.537      0.376      0.161      0.585      0.783
+     15        3      0.537     -0.094      0.631      0.826      0.445
+     15        4      0.537      0.537      0.000      0.007      0.968
+     15        5      0.537     -0.013      0.551      0.719      0.444
+     15        6      0.537      0.534      0.003      0.041      0.935
+     15        7      0.537     -0.011      0.548      0.723      0.449
+     15        8      0.537      0.218      0.319      0.696      0.646
+     15        9      0.537     -0.267      0.804      1.058      0.447
+     15        10      0.537      0.007      0.530      0.696      0.446
+     15        11      0.537      0.074      0.463      2.141      0.829
+     15        12      0.537      0.541     -0.004      0.025      0.871
+     15        13      0.537     -0.232      0.769      1.011      0.447
+     15        14      0.537      0.543     -0.006      0.031      0.856
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 8 9 10
+ 11 12 13 14 15
+ Weighted Average Value Across Invariant Groups:       0.264
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.540      0.276      0.373      0.460
+     2      0.376      0.112      0.535      0.834
+     3     -0.094     -0.358      0.486      0.461
+     4      0.537      0.273      0.374      0.466
+     5     -0.013     -0.278      0.379      0.464
+     6      0.534      0.270      0.369      0.465
+     7     -0.011     -0.275      0.390      0.481
+     8      0.218     -0.046      0.531      0.930
+     9     -0.267     -0.531      0.717      0.459
+     10      0.007     -0.257      0.361      0.476
+     11      0.074     -0.190      1.971      0.923
+     12      0.541      0.277      0.379      0.464
+     13     -0.232     -0.496      0.671      0.460
+     14      0.543      0.279      0.381      0.465
+     15      0.537      0.273      0.373      0.464
+
+ Average Invariance index:       0.314
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR CHL
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                    1             2
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF             3
+ GROSAGR            4
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF             5
+ GROSAGR            0             6
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                    7
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR           8
+
+
+     PARAMETER SPECIFICATION FOR TAP
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                    9            10
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            11
+ GROSAGR           12
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            13
+ GROSAGR            0            14
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   15
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          16
+
+
+     PARAMETER SPECIFICATION FOR HRV
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   17            18
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            19
+ GROSAGR           20
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            21
+ GROSAGR            0            22
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   23
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          24
+
+
+     PARAMETER SPECIFICATION FOR FIN
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   25            26
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            27
+ GROSAGR           28
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            29
+ GROSAGR            0            30
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   31
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          32
+
+
+     PARAMETER SPECIFICATION FOR GRC
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   33            34
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            35
+ GROSAGR           36
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            37
+ GROSAGR            0            38
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   39
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          40
+
+
+     PARAMETER SPECIFICATION FOR HKG
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   41            42
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            43
+ GROSAGR           44
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            45
+ GROSAGR            0            46
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   47
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          48
+
+
+     PARAMETER SPECIFICATION FOR ISL
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   49            50
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            51
+ GROSAGR           52
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            53
+ GROSAGR            0            54
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   55
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          56
+
+
+     PARAMETER SPECIFICATION FOR KOR
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   57            58
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            59
+ GROSAGR           60
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            61
+ GROSAGR            0            62
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   63
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          64
+
+
+     PARAMETER SPECIFICATION FOR LTU
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   65            66
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            67
+ GROSAGR           68
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            69
+ GROSAGR            0            70
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   71
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          72
+
+
+     PARAMETER SPECIFICATION FOR MLT
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   73            74
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            75
+ GROSAGR           76
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            77
+ GROSAGR            0            78
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   79
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          80
+
+
+     PARAMETER SPECIFICATION FOR NZL
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   81            82
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            83
+ GROSAGR           84
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            85
+ GROSAGR            0            86
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   87
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          88
+
+
+     PARAMETER SPECIFICATION FOR PRT
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   89            90
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            91
+ GROSAGR           92
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF            93
+ GROSAGR            0            94
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                   95
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR          96
+
+
+     PARAMETER SPECIFICATION FOR ROU
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                   97            98
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF            99
+ GROSAGR          100
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF           101
+ GROSAGR            0           102
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                  103
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR         104
+
+
+     PARAMETER SPECIFICATION FOR TUR
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                  105           106
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF           107
+ GROSAGR          108
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF           109
+ GROSAGR            0           110
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                  111
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR         112
+
+
+     PARAMETER SPECIFICATION FOR GBR
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                  113           114
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF           115
+ GROSAGR          116
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF           117
+ GROSAGR            0           118
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                  119
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR           0
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR         120
+
+
+     STARTING VALUES FOR CHL
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -2.245        -2.080
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR TAP
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -1.224        -1.061
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR HRV
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -1.224        -1.061
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR FIN
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -1.224        -1.061
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR GRC
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -0.203        -0.043
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR HKG
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -0.203        -0.043
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR ISL
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -0.203        -0.043
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR KOR
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -0.203        -0.043
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR LTU
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -0.203        -0.043
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR MLT
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -0.203        -0.043
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR NZL
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+               -0.203        -0.043
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR PRT
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                0.817         0.975
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR ROU
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                0.817         0.975
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR TUR
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                0.817         0.975
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+     STARTING VALUES FOR GBR
+
+
+           NU
+              SDLEFF        GROSAGR
+              ________      ________
+                1.838         1.994
+
+
+           LAMBDA
+              SELF_DIR
+              ________
+ SDLEFF         1.000
+ GROSAGR        1.000
+
+
+           THETA
+              SDLEFF        GROSAGR
+              ________      ________
+ SDLEFF         0.521
+ GROSAGR        0.000         0.518
+
+
+           ALPHA
+              SELF_DIR
+              ________
+                0.000
+
+
+           BETA
+              SELF_DIR
+              ________
+ SELF_DIR       0.000
+
+
+           PSI
+              SELF_DIR
+              ________
+ SELF_DIR       0.050
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              SELF_DIR
+              ________
+                0.268
+
+
+           Covariances
+              SELF_DIR
+              ________
+ SELF_DIR       0.452
+
+
+           Correlations
+              SELF_DIR
+              ________
+ SELF_DIR       1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    D:/essay/resilient_student/dataset/mplus_data/self_dir_lear_scores_imp4.dat
+
+  Order of variables
+
+    SDLEFF
+    GROSAGR
+    SELF_DIR_LEA
+    CNTSTUID
+    CNT
+
+
+  Save file format           Free
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    d:\essay\resilient_student\dataset\mplus_data\alignment_imp4_self_dir_lear.dgm
+
+     Beginning Time:  15:18:41
+        Ending Time:  15:18:43
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

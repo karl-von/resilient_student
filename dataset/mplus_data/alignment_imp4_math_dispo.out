@@ -1,0 +1,3093 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+08/19/2025   3:17 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Alignment for Math_Dispo (IMPUTATION 4 - FIXED);
+
+  DATA:
+    FILE IS "D:/essay/resilient_student/dataset/mplus_data/imputed_data_4.dat";
+    FORMAT IS FREE;
+
+  VARIABLE:
+    NAMES ARE
+      CNT
+      CNTSTUID
+      CNTSCHID
+      W_FSTUWT
+      ESCS
+      PV1MATH
+      PV2MATH
+      PV3MATH
+      PV4MATH
+      PV5MATH
+      PV6MATH
+      PV7MATH
+      PV8MATH
+      PV9MATH
+      PV10MATH
+      ACADEMIC_RESILIENCE_PV1
+      ACADEMIC_RESILIENCE_PV2
+      ACADEMIC_RESILIENCE_PV3
+      ACADEMIC_RESILIENCE_PV4
+      ACADEMIC_RESILIENCE_PV5
+      ACADEMIC_RESILIENCE_PV6
+      ACADEMIC_RESILIENCE_PV7
+      ACADEMIC_RESILIENCE_PV8
+      ACADEMIC_RESILIENCE_PV9
+      ACADEMIC_RESILIENCE_PV10
+      W_FSTURWT1
+      W_FSTURWT2
+      W_FSTURWT3
+      W_FSTURWT4
+      W_FSTURWT5
+      W_FSTURWT6
+      W_FSTURWT7
+      W_FSTURWT8
+      W_FSTURWT9
+      W_FSTURWT10
+      W_FSTURWT11
+      W_FSTURWT12
+      W_FSTURWT13
+      W_FSTURWT14
+      W_FSTURWT15
+      W_FSTURWT16
+      W_FSTURWT17
+      W_FSTURWT18
+      W_FSTURWT19
+      W_FSTURWT20
+      W_FSTURWT21
+      W_FSTURWT22
+      W_FSTURWT23
+      W_FSTURWT24
+      W_FSTURWT25
+      W_FSTURWT26
+      W_FSTURWT27
+      W_FSTURWT28
+      W_FSTURWT29
+      W_FSTURWT30
+      W_FSTURWT31
+      W_FSTURWT32
+      W_FSTURWT33
+      W_FSTURWT34
+      W_FSTURWT35
+      W_FSTURWT36
+      W_FSTURWT37
+      W_FSTURWT38
+      W_FSTURWT39
+      W_FSTURWT40
+      W_FSTURWT41
+      W_FSTURWT42
+      W_FSTURWT43
+      W_FSTURWT44
+      W_FSTURWT45
+      W_FSTURWT46
+      W_FSTURWT47
+      W_FSTURWT48
+      W_FSTURWT49
+      W_FSTURWT50
+      W_FSTURWT51
+      W_FSTURWT52
+      W_FSTURWT53
+      W_FSTURWT54
+      W_FSTURWT55
+      W_FSTURWT56
+      W_FSTURWT57
+      W_FSTURWT58
+      W_FSTURWT59
+      W_FSTURWT60
+      W_FSTURWT61
+      W_FSTURWT62
+      W_FSTURWT63
+      W_FSTURWT64
+      W_FSTURWT65
+      W_FSTURWT66
+      W_FSTURWT67
+      W_FSTURWT68
+      W_FSTURWT69
+      W_FSTURWT70
+      W_FSTURWT71
+      W_FSTURWT72
+      W_FSTURWT73
+      W_FSTURWT74
+      W_FSTURWT75
+      W_FSTURWT76
+      W_FSTURWT77
+      W_FSTURWT78
+      W_FSTURWT79
+      W_FSTURWT80
+      ST004D01T
+      ST268Q01JA
+      ST268Q04JA
+      ST268Q07JA
+      AGE
+      ISCEDP
+      IMMIG
+      REPEAT
+      MISSSC
+      SKIPPING
+      TARDYSD
+      EXERPRAC
+      STUDYHMW
+      WORKPAY
+      WORKHOME
+      EXPECEDU
+      BSMJ
+      SISCO
+      RELATST
+      BELONG
+      BULLIED
+      FEELSAFE
+      SCHRISK
+      PERSEVAGR
+      CURIOAGR
+      COOPAGR
+      EMPATAGR
+      ASSERAGR
+      STRESAGR
+      EMOCOAGR
+      GROSAGR
+      INFOSEEK
+      FAMSUP
+      DISCLIM
+      TEACHSUP
+      COGACRCO
+      COGACMCO
+      EXPOFA
+      EXPO21ST
+      MATHEFF
+      MATHEF21
+      ANXMAT
+      MATHPERS
+      CREATEFF
+      CREATSCH
+      CREATFAM
+      CREATAS
+      CREATOOS
+      CREATOP
+      OPENART
+      IMAGINE
+      SCHSUST
+      LEARRES
+      PROBSELF
+      FAMSUPSL
+      FEELLAH
+      SDLEFF
+      OCOD3_major_group;
+    USEVARIABLES ARE
+      ANXMAT MATHEFF MATHEF21 MATHPERS ST268Q04JA ST268Q07JA ST268Q01JA CNT CNTSTUID;
+    IDVARIABLE IS CNTSTUID;
+    GROUPING IS CNT (
+      1 = CHL
+      2 = TAP
+      3 = HRV
+      4 = FIN
+      5 = GRC
+      6 = HKG
+      7 = ISL
+      8 = KOR
+      9 = LTU
+      10 = MLT
+      11 = NZL
+      12 = PRT
+      13 = ROU
+      14 = TUR
+      15 = GBR
+    );
+
+  ANALYSIS:
+    ESTIMATOR = MLR;
+    PROCESSORS = 4;
+    ALIGNMENT = FIXED;
+
+  MODEL:
+    Math_Dispo BY ANXMAT MATHEFF MATHEF21 MATHPERS ST268Q04JA ST268Q07JA ST268Q01JA;
+
+  SAVEDATA:
+    FILE IS "D:/essay/resilient_student/dataset/mplus_data/math_dispo_scores_imp4.dat";
+    SAVE = FSCORES;
+    FORMAT IS FREE;
+
+  OUTPUT:
+    TECH11;
+    ALIGNMENT;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  TECH11 option is available only with TYPE=MIXTURE.
+  Request for TECH11 is ignored.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Alignment for Math_Dispo (IMPUTATION 4 - FIXED);
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                15
+Number of observations
+   Group CHL                                                  1209
+   Group TAP                                                  1668
+   Group HRV                                                  1528
+   Group FIN                                                  2754
+   Group GRC                                                  1529
+   Group HKG                                                  1368
+   Group ISL                                                   810
+   Group KOR                                                  1568
+   Group LTU                                                  1786
+   Group MLT                                                   710
+   Group NZL                                                  1104
+   Group PRT                                                  1621
+   Group ROU                                                  1593
+   Group TUR                                                  1884
+   Group GBR                                                  2863
+   Total sample size                                         23995
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   ANXMAT      MATHEFF     MATHEF21    MATHPERS    ST268Q04JA  ST268Q07JA
+   ST268Q01JA
+
+Continuous latent variables
+   MATH_DIS
+
+Variables with special functions
+
+  Grouping variable     CNT
+  ID variable           CNTSTUID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Specifications for Alignment Analysis
+  Factor mean for reference group                            FIXED
+  Simplicity function                                         SQRT
+  Factor variance metric                           Reference group
+  Reference group                                                1
+  Tolerance value                                        0.100D-01
+  Number of random starts                                       30
+  Maximum number of iterations                                5000
+  Convergence criteration                                0.100D-02
+
+Input data file(s)
+  D:/essay/resilient_student/dataset/mplus_data/imputed_data_4.dat
+Input data format  FREE
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR CHL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.546      -0.149      -2.394    0.74%      -0.276      0.302      0.544
+            1209.000       1.264       0.465       2.635    2.40%       0.665      1.419
+     MATHEFF              -0.799      -0.103      -3.508    0.08%      -1.395     -0.991     -0.741
+            1209.000       1.352       1.139       2.336    0.17%      -0.505     -0.090
+     MATHEF21             -0.130      -0.021      -2.480    0.08%      -0.633     -0.425     -0.149
+            1209.000       1.079       0.493       2.787    0.17%       0.137      0.709
+     MATHPERS             -0.029       0.126      -3.050    0.08%      -0.727     -0.308     -0.075
+            1209.000       1.017       0.774       2.799    0.08%       0.156      0.628
+     ST268Q04JA            2.230       0.294       1.000   27.38%       1.000      2.000      2.000
+            1209.000       0.968      -0.958       4.000   12.16%       2.000      3.000
+     ST268Q07JA            3.390      -1.356       1.000    4.55%       3.000      3.000      4.000
+            1209.000       0.632       1.492       4.000   54.09%       4.000      4.000
+     ST268Q01JA            2.298       0.212       1.000   27.46%       1.000      2.000      2.000
+            1209.000       1.061      -1.119       4.000   15.14%       3.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR TAP
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.389      -0.067      -2.394    0.78%      -0.374      0.133      0.407
+            1668.000       1.233       0.686       2.635    1.74%       0.639      1.011
+     MATHEFF              -0.934      -0.052      -3.497    0.06%      -1.472     -1.209     -0.885
+            1668.000       1.716       0.407       2.336    0.06%      -0.605     -0.111
+     MATHEF21             -0.419       0.196      -2.488    0.06%      -1.236     -0.571     -0.528
+            1668.000       1.144       0.353       2.890    0.06%      -0.261      0.450
+     MATHPERS             -0.745       0.330      -3.132    0.06%      -1.375     -0.957     -0.698
+            1668.000       1.158       1.090       2.828    0.06%      -0.518     -0.073
+     ST268Q04JA            1.969       0.536       1.000   34.89%       1.000      2.000      2.000
+            1668.000       0.774      -0.555       4.000    5.40%       2.000      3.000
+     ST268Q07JA            2.878      -0.662       1.000    8.51%       2.000      3.000      3.000
+            1668.000       0.689       0.115       4.000   20.56%       3.000      4.000
+     ST268Q01JA            2.177       0.290       1.000   26.86%       1.000      2.000      2.000
+            1668.000       0.853      -0.828       4.000    8.51%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR HRV
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.177      -0.081      -2.394    1.57%      -0.501     -0.117      0.175
+            1528.000       1.323       0.484       2.635    0.92%       0.425      0.825
+     MATHEFF              -0.535      -0.199      -3.494    0.13%      -1.214     -0.685     -0.463
+            1528.000       1.129       1.852       2.326    0.07%      -0.279     -0.009
+     MATHEF21             -0.007      -0.096      -2.461    0.07%      -0.582     -0.200     -0.003
+            1528.000       0.901       0.983       2.900    0.07%       0.208      0.718
+     MATHPERS             -0.145       0.278      -3.095    0.07%      -0.770     -0.421     -0.238
+            1528.000       1.002       1.276       2.832    0.07%      -0.038      0.395
+     ST268Q04JA            2.028       0.433       1.000   30.69%       1.000      2.000      2.000
+            1528.000       0.746      -0.592       4.000    5.24%       2.000      3.000
+     ST268Q07JA            3.022      -0.862       1.000    6.61%       3.000      3.000      3.000
+            1528.000       0.614       0.824       4.000   25.20%       3.000      4.000
+     ST268Q01JA            1.902       0.685       1.000   39.14%       1.000      2.000      2.000
+            1528.000       0.790      -0.383       4.000    5.76%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR FIN
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT               -0.058       0.058      -2.394    1.49%      -0.519     -0.374     -0.117
+            2754.000       1.288       0.540       2.635    0.98%       0.173      0.665
+     MATHEFF              -0.590      -0.054      -3.494    0.07%      -1.338     -0.814     -0.541
+            2754.000       1.420       0.926       2.356    0.04%      -0.296      0.062
+     MATHEF21             -0.169      -0.068      -2.488    0.04%      -0.644     -0.469     -0.189
+            2754.000       1.020       0.399       2.902    0.04%       0.073      0.709
+     MATHPERS             -0.262       0.173      -3.132    0.07%      -0.863     -0.463     -0.322
+            2754.000       0.966       1.674       2.834    0.04%      -0.133      0.313
+     ST268Q04JA            2.227       0.190       1.000   25.45%       1.000      2.000      2.000
+            2754.000       0.858      -0.902       4.000    8.68%       2.000      3.000
+     ST268Q07JA            2.763      -0.404       1.000   12.06%       2.000      3.000      3.000
+            2754.000       0.870      -0.667       4.000   22.37%       3.000      4.000
+     ST268Q01JA            2.056       0.503       1.000   34.64%       1.000      2.000      2.000
+            2754.000       0.929      -0.781       4.000    9.19%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR GRC
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.408      -0.032      -2.394    0.65%      -0.374      0.175      0.373
+            1529.000       1.242       0.541       2.635    1.90%       0.602      1.129
+     MATHEFF              -0.947      -0.134      -3.508    0.07%      -1.592     -1.120     -0.880
+            1529.000       1.320       0.864       2.326    0.07%      -0.677     -0.155
+     MATHEF21             -0.479       0.123      -2.488    0.07%      -1.396     -0.573     -0.474
+            1529.000       0.986       0.326       2.735    0.07%      -0.227      0.238
+     MATHPERS             -0.423       0.174      -3.095    0.07%      -1.213     -0.637     -0.449
+            1529.000       1.257       0.473       2.813    0.07%      -0.218      0.335
+     ST268Q04JA            2.092       0.382       1.000   30.67%       1.000      2.000      2.000
+            1529.000       0.842      -0.783       4.000    7.26%       2.000      3.000
+     ST268Q07JA            3.008      -0.834       1.000    9.48%       3.000      3.000      3.000
+            1529.000       0.785       0.151       4.000   30.15%       3.000      4.000
+     ST268Q01JA            2.156       0.360       1.000   33.22%       1.000      2.000      2.000
+            1529.000       1.033      -1.042       4.000   11.84%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR HKG
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.345      -0.096      -2.394    0.44%      -0.458      0.133      0.373
+            1368.000       1.311       0.531       2.635    1.61%       0.639      1.016
+     MATHEFF              -0.680      -0.078      -3.508    0.07%      -1.359     -0.909     -0.643
+            1368.000       1.645       0.740       2.356    0.07%      -0.371     -0.009
+     MATHEF21             -0.200       0.166      -2.480    0.07%      -0.640     -0.531     -0.307
+            1368.000       1.189       0.434       2.914    0.22%      -0.026      0.701
+     MATHPERS             -0.371       0.271      -3.132    0.07%      -1.016     -0.526     -0.412
+            1368.000       0.941       1.850       2.849    0.15%      -0.246      0.225
+     ST268Q04JA            2.211       0.269       1.000   25.07%       1.000      2.000      2.000
+            1368.000       0.851      -0.812       4.000    9.14%       2.000      3.000
+     ST268Q07JA            3.080      -0.835       1.000    5.92%       3.000      3.000      3.000
+            1368.000       0.643       0.567       4.000   30.56%       3.000      4.000
+     ST268Q01JA            2.477      -0.070       1.000   19.01%       2.000      2.000      3.000
+            1368.000       0.929      -0.970       4.000   14.99%       3.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR ISL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.166      -0.050      -2.394    1.48%      -0.508     -0.137      0.175
+             810.000       1.387       0.400       2.635    0.99%       0.425      0.825
+     MATHEFF              -0.512       0.008      -3.508    0.12%      -1.278     -0.717     -0.520
+             810.000       1.417       1.043       2.336    0.25%      -0.284      0.056
+     MATHEF21             -0.162       0.029      -2.488    0.25%      -0.949     -0.459     -0.133
+             810.000       1.267       0.040       2.787    0.12%       0.108      0.721
+     MATHPERS             -0.051       0.239      -3.132    0.12%      -0.659     -0.309     -0.108
+             810.000       1.004       1.276       2.813    0.12%       0.088      0.489
+     ST268Q04JA            2.114       0.332       1.000   30.12%       1.000      2.000      2.000
+             810.000       0.849      -0.846       4.000    7.28%       2.000      3.000
+     ST268Q07JA            3.130      -0.940       1.000    7.04%       3.000      3.000      3.000
+             810.000       0.720       0.483       4.000   36.30%       3.000      4.000
+     ST268Q01JA            2.243       0.228       1.000   29.88%       1.000      2.000      2.000
+             810.000       1.038      -1.116       4.000   12.84%       3.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR KOR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.072      -0.112      -2.394    1.21%      -0.519     -0.137      0.133
+            1568.000       1.488       0.188       2.635    1.34%       0.373      0.825
+     MATHEFF              -1.152      -0.044      -3.508    0.13%      -2.223     -1.289     -1.014
+            1568.000       1.836      -0.046       2.336    0.06%      -0.767     -0.151
+     MATHEF21             -0.704       0.332      -2.488    0.06%      -2.033     -0.623     -0.576
+            1568.000       1.117       0.132       2.791    0.06%      -0.529      0.052
+     MATHPERS             -0.518      -0.023      -3.132    0.13%      -1.245     -0.605     -0.457
+            1568.000       1.241       0.722       2.849    0.06%      -0.252      0.216
+     ST268Q04JA            1.765       0.887       1.000   44.96%       1.000      1.000      2.000
+            1568.000       0.691       0.105       4.000    4.08%       2.000      2.000
+     ST268Q07JA            3.221      -1.134       1.000    8.99%       3.000      3.000      3.000
+            1568.000       0.854       0.453       4.000   47.19%       4.000      4.000
+     ST268Q01JA            1.995       0.532       1.000   37.95%       1.000      2.000      2.000
+            1568.000       0.903      -0.783       4.000    7.46%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR LTU
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.245      -0.077      -2.394    1.12%      -0.501     -0.039      0.193
+            1786.000       1.220       0.674       2.635    1.12%       0.425      0.892
+     MATHEFF              -0.616       0.018      -3.508    0.06%      -1.311     -0.800     -0.605
+            1786.000       1.209       1.627       2.336    0.06%      -0.406     -0.037
+     MATHEF21             -0.179      -0.060      -2.461    0.06%      -0.653     -0.440     -0.170
+            1786.000       0.827       0.754       2.890    0.06%       0.030      0.667
+     MATHPERS             -0.159       0.056      -3.050    0.06%      -0.802     -0.387     -0.206
+            1786.000       0.982       1.278       2.710    0.11%       0.029      0.441
+     ST268Q04JA            2.036       0.482       1.000   28.84%       1.000      2.000      2.000
+            1786.000       0.724      -0.416       4.000    5.66%       2.000      3.000
+     ST268Q07JA            3.221      -1.060       1.000    5.49%       3.000      3.000      3.000
+            1786.000       0.640       0.996       4.000   39.98%       3.000      4.000
+     ST268Q01JA            2.074       0.446       1.000   31.75%       1.000      2.000      2.000
+            1786.000       0.861      -0.735       4.000    7.89%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR MLT
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.502      -0.109      -2.394    0.56%      -0.374      0.193      0.429
+             710.000       1.274       0.361       2.635    2.39%       0.665      1.260
+     MATHEFF              -0.641      -0.184      -3.508    0.14%      -1.380     -0.829     -0.587
+             710.000       1.519       0.620       2.336    0.14%      -0.366      0.128
+     MATHEF21             -0.202       0.123      -2.452    0.14%      -0.846     -0.465     -0.206
+             710.000       1.044       0.556       2.737    0.14%       0.016      0.622
+     MATHPERS             -0.103       0.220      -2.866    0.14%      -0.815     -0.405     -0.194
+             710.000       1.027       0.874       2.832    0.14%       0.083      0.600
+     ST268Q04JA            2.048       0.400       1.000   33.80%       1.000      2.000      2.000
+             710.000       0.851      -0.848       4.000    6.48%       2.000      3.000
+     ST268Q07JA            3.344      -1.224       1.000    4.65%       3.000      3.000      4.000
+             710.000       0.659       1.037       4.000   51.41%       4.000      4.000
+     ST268Q01JA            2.194       0.307       1.000   33.24%       1.000      2.000      2.000
+             710.000       1.086      -1.140       4.000   13.24%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR NZL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.280      -0.093      -2.394    0.45%      -0.458      0.103      0.338
+            1104.000       1.175       0.768       2.635    1.18%       0.565      0.892
+     MATHEFF              -0.932      -0.330      -3.508    0.09%      -1.405     -1.053     -0.830
+            1104.000       1.268       1.099       2.306    0.18%      -0.650     -0.164
+     MATHEF21             -0.201      -0.369      -2.480    0.09%      -0.636     -0.433     -0.137
+            1104.000       0.856       0.490       2.751    0.09%       0.070      0.658
+     MATHPERS             -0.210      -0.089      -3.095    0.09%      -0.757     -0.407     -0.239
+            1104.000       0.844       1.800       2.799    0.09%      -0.063      0.356
+     ST268Q04JA            2.216       0.070       1.000   22.28%       1.000      2.000      2.000
+            1104.000       0.714      -0.804       4.000    4.98%       2.000      3.000
+     ST268Q07JA            3.194      -0.985       1.000    5.25%       3.000      3.000      3.000
+            1104.000       0.635       0.835       4.000   38.04%       3.000      4.000
+     ST268Q01JA            2.173       0.254       1.000   28.35%       1.000      2.000      2.000
+            1104.000       0.875      -0.921       4.000    8.24%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR PRT
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.250      -0.204      -2.394    0.99%      -0.379      0.103      0.241
+            1621.000       1.000       1.285       2.635    1.05%       0.544      0.825
+     MATHEFF              -0.732      -0.316      -3.508    0.19%      -1.362     -0.861     -0.625
+            1621.000       1.326       1.101       2.306    0.06%      -0.406     -0.028
+     MATHEF21             -0.103      -0.331      -2.473    0.06%      -0.611     -0.338     -0.053
+            1621.000       0.894       0.460       2.890    0.06%       0.180      0.706
+     MATHPERS             -0.171      -0.097      -3.095    0.06%      -0.837     -0.392     -0.212
+            1621.000       1.088       1.033       2.834    0.06%       0.025      0.479
+     ST268Q04JA            2.078       0.307       1.000   27.64%       1.000      2.000      2.000
+            1621.000       0.717      -0.681       4.000    4.63%       2.000      3.000
+     ST268Q07JA            3.271      -1.143       1.000    5.12%       3.000      3.000      3.000
+            1621.000       0.625       1.213       4.000   43.37%       4.000      4.000
+     ST268Q01JA            2.094       0.383       1.000   33.25%       1.000      2.000      2.000
+            1621.000       0.918      -0.916       4.000    8.39%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR ROU
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.324      -0.076      -2.394    0.94%      -0.379      0.103      0.338
+            1593.000       1.286       0.558       2.635    1.00%       0.602      1.011
+     MATHEFF              -0.696      -0.009      -3.508    0.06%      -1.374     -0.857     -0.667
+            1593.000       1.371       1.141       2.356    0.13%      -0.435     -0.063
+     MATHEF21             -0.109       0.007      -2.480    0.13%      -0.640     -0.372     -0.093
+            1593.000       1.038       0.474       2.867    0.06%       0.140      0.716
+     MATHPERS             -0.416       0.240      -3.132    0.06%      -1.149     -0.617     -0.448
+            1593.000       1.120       0.974       2.839    0.06%      -0.263      0.285
+     ST268Q04JA            1.962       0.537       1.000   34.53%       1.000      2.000      2.000
+            1593.000       0.751      -0.515       4.000    5.02%       2.000      3.000
+     ST268Q07JA            2.890      -0.614       1.000   10.17%       2.000      3.000      3.000
+            1593.000       0.813      -0.297       4.000   25.61%       3.000      4.000
+     ST268Q01JA            2.046       0.473       1.000   33.52%       1.000      2.000      2.000
+            1593.000       0.867      -0.739       4.000    7.60%       2.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR TUR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.646      -0.168      -2.394    0.85%      -0.270      0.373      0.620
+            1884.000       1.432       0.212       2.635    2.60%       0.789      1.543
+     MATHEFF              -0.683      -0.205      -3.508    0.16%      -1.378     -0.849     -0.591
+            1884.000       1.475       0.773       2.307    0.11%      -0.336      0.026
+     MATHEF21             -0.101      -0.032      -2.373    0.05%      -0.837     -0.313     -0.052
+            1884.000       1.131       0.172       2.791    0.05%       0.189      0.717
+     MATHPERS             -0.167       0.013      -3.095    0.11%      -0.876     -0.377     -0.197
+            1884.000       1.135       0.954       2.834    0.05%       0.025      0.467
+     ST268Q04JA            2.065       0.499       1.000   32.75%       1.000      2.000      2.000
+            1884.000       0.892      -0.709       4.000    8.81%       2.000      3.000
+     ST268Q07JA            3.320      -1.249       1.000    6.85%       3.000      3.000      4.000
+            1884.000       0.796       0.717       4.000   54.03%       4.000      4.000
+     ST268Q01JA            2.300       0.172       1.000   27.92%       1.000      2.000      2.000
+            1884.000       1.057      -1.144       4.000   14.44%       3.000      3.000
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR GBR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     ANXMAT                0.238       0.024      -2.394    0.80%      -0.501     -0.042      0.193
+            2863.000       1.274       0.571       2.635    1.85%       0.425      0.876
+     MATHEFF              -0.674      -0.149      -3.508    0.03%      -1.352     -0.862     -0.649
+            2863.000       1.311       1.057       2.356    0.03%      -0.429      0.016
+     MATHEF21             -0.153      -0.131      -2.488    0.03%      -0.653     -0.344     -0.105
+            2863.000       0.936       0.609       2.900    0.07%       0.111      0.666
+     MATHPERS             -0.111       0.098      -3.132    0.07%      -0.719     -0.346     -0.152
+            2863.000       0.919       1.556       2.849    0.07%       0.020      0.474
+     ST268Q04JA            2.219       0.113       1.000   24.03%       1.000      2.000      2.000
+            2863.000       0.778      -0.866       4.000    6.32%       2.000      3.000
+     ST268Q07JA            3.330      -1.281       1.000    5.03%       3.000      3.000      3.000
+            2863.000       0.612       1.596       4.000   47.50%       4.000      4.000
+     ST268Q01JA            2.116       0.362       1.000   29.48%       1.000      2.000      2.000
+            2863.000       0.847      -0.788       4.000    7.72%       2.000      3.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      315
+
+Loglikelihood
+
+          H0 Value                     -218981.797
+          H0 Scaling Correction Factor      1.3238
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                  438593.594
+          Bayesian (BIC)                441140.558
+          Sample-Size Adjusted BIC      440139.497
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group CHL
+
+ MATH_DIS BY
+    ANXMAT            -0.334      0.040     -8.351      0.000
+    MATHEFF            0.589      0.046     12.758      0.000
+    MATHEF21           0.462      0.042     10.935      0.000
+    MATHPERS           0.396      0.035     11.190      0.000
+    ST268Q04JA         0.787      0.025     30.908      0.000
+    ST268Q07JA         0.167      0.024      6.902      0.000
+    ST268Q01JA         0.811      0.026     31.672      0.000
+
+ Means
+    MATH_DISPO         0.000      0.000    999.000    999.000
+
+ Intercepts
+    ANXMAT             0.546      0.032     16.896      0.000
+    MATHEFF           -0.799      0.033    -23.886      0.000
+    MATHEF21          -0.130      0.030     -4.336      0.000
+    MATHPERS          -0.029      0.029     -1.014      0.310
+    ST268Q04JA         2.230      0.028     78.816      0.000
+    ST268Q07JA         3.390      0.023    148.310      0.000
+    ST268Q01JA         2.298      0.030     77.563      0.000
+
+ Variances
+    MATH_DISPO         1.000      0.000    999.000    999.000
+
+ Residual Variances
+    ANXMAT             1.152      0.058     19.950      0.000
+    MATHEFF            1.004      0.058     17.367      0.000
+    MATHEF21           0.865      0.049     17.547      0.000
+    MATHPERS           0.860      0.047     18.352      0.000
+    ST268Q04JA         0.349      0.032     10.981      0.000
+    ST268Q07JA         0.604      0.032     18.712      0.000
+    ST268Q01JA         0.404      0.035     11.426      0.000
+
+Group TAP
+
+ MATH_DIS BY
+    ANXMAT            -0.316      0.035     -8.961      0.000
+    MATHEFF            0.676      0.072      9.385      0.000
+    MATHEF21           0.560      0.057      9.822      0.000
+    MATHPERS           0.392      0.036     11.003      0.000
+    ST268Q04JA         0.480      0.057      8.476      0.000
+    ST268Q07JA         0.303      0.027     11.043      0.000
+    ST268Q01JA         0.512      0.061      8.333      0.000
+
+ Means
+    MATH_DISPO        -0.650      0.080     -8.081      0.000
+
+ Intercepts
+    ANXMAT             0.184      0.032      5.764      0.000
+    MATHEFF           -0.494      0.038    -13.070      0.000
+    MATHEF21          -0.055      0.031     -1.764      0.078
+    MATHPERS          -0.491      0.035    -14.007      0.000
+    ST268Q04JA         2.281      0.049     46.571      0.000
+    ST268Q07JA         3.075      0.027    115.584      0.000
+    ST268Q01JA         2.510      0.053     47.156      0.000
+
+ Variances
+    MATH_DISPO         2.001      0.325      6.158      0.000
+
+ Residual Variances
+    ANXMAT             1.034      0.051     20.366      0.000
+    MATHEFF            0.800      0.158      5.061      0.000
+    MATHEF21           0.517      0.101      5.100      0.000
+    MATHPERS           0.851      0.050     17.147      0.000
+    ST268Q04JA         0.312      0.065      4.804      0.000
+    ST268Q07JA         0.505      0.019     26.271      0.000
+    ST268Q01JA         0.329      0.076      4.324      0.000
+
+Group HRV
+
+ MATH_DIS BY
+    ANXMAT            -0.472      0.052     -9.017      0.000
+    MATHEFF            0.598      0.062      9.637      0.000
+    MATHEF21           0.563      0.055     10.166      0.000
+    MATHPERS           0.439      0.041     10.731      0.000
+    ST268Q04JA         0.495      0.063      7.809      0.000
+    ST268Q07JA         0.242      0.028      8.570      0.000
+    ST268Q01JA         0.442      0.063      6.973      0.000
+
+ Means
+    MATH_DISPO        -0.087      0.065     -1.345      0.179
+
+ Intercepts
+    ANXMAT             0.136      0.032      4.241      0.000
+    MATHEFF           -0.483      0.035    -13.651      0.000
+    MATHEF21           0.042      0.034      1.221      0.222
+    MATHPERS          -0.106      0.032     -3.332      0.001
+    ST268Q04JA         2.071      0.036     56.828      0.000
+    ST268Q07JA         3.043      0.024    127.178      0.000
+    ST268Q01JA         1.940      0.036     54.535      0.000
+
+ Variances
+    MATH_DISPO         1.317      0.222      5.922      0.000
+
+ Residual Variances
+    ANXMAT             1.030      0.057     18.184      0.000
+    MATHEFF            0.657      0.079      8.312      0.000
+    MATHEF21           0.483      0.061      7.912      0.000
+    MATHPERS           0.748      0.039     19.134      0.000
+    ST268Q04JA         0.424      0.051      8.300      0.000
+    ST268Q07JA         0.537      0.024     22.228      0.000
+    ST268Q01JA         0.532      0.053     10.043      0.000
+
+Group FIN
+
+ MATH_DIS BY
+    ANXMAT            -0.329      0.031    -10.638      0.000
+    MATHEFF            0.604      0.049     12.389      0.000
+    MATHEF21           0.479      0.039     12.239      0.000
+    MATHPERS           0.340      0.031     11.079      0.000
+    ST268Q04JA         0.542      0.044     12.448      0.000
+    ST268Q07JA         0.409      0.035     11.642      0.000
+    ST268Q01JA         0.544      0.045     12.057      0.000
+
+ Means
+    MATH_DISPO        -0.240      0.061     -3.934      0.000
+
+ Intercepts
+    ANXMAT            -0.137      0.026     -5.256      0.000
+    MATHEFF           -0.445      0.033    -13.277      0.000
+    MATHEF21          -0.054      0.027     -2.026      0.043
+    MATHPERS          -0.181      0.026     -6.922      0.000
+    ST268Q04JA         2.358      0.032     73.586      0.000
+    ST268Q07JA         2.861      0.028    103.365      0.000
+    ST268Q01JA         2.187      0.034     63.883      0.000
+
+ Variances
+    MATH_DISPO         1.581      0.247      6.395      0.000
+
+ Residual Variances
+    ANXMAT             1.117      0.039     28.751      0.000
+    MATHEFF            0.844      0.044     19.127      0.000
+    MATHEF21           0.657      0.030     21.710      0.000
+    MATHPERS           0.784      0.031     24.978      0.000
+    ST268Q04JA         0.394      0.021     19.095      0.000
+    ST268Q07JA         0.605      0.018     33.562      0.000
+    ST268Q01JA         0.461      0.023     19.793      0.000
+
+Group GRC
+
+ MATH_DIS BY
+    ANXMAT            -0.383      0.040     -9.671      0.000
+    MATHEFF            0.510      0.049     10.415      0.000
+    MATHEF21           0.424      0.041     10.382      0.000
+    MATHPERS           0.462      0.041     11.198      0.000
+    ST268Q04JA         0.507      0.042     12.088      0.000
+    ST268Q07JA         0.304      0.029     10.633      0.000
+    ST268Q01JA         0.571      0.047     12.098      0.000
+
+ Means
+    MATH_DISPO        -0.648      0.092     -7.071      0.000
+
+ Intercepts
+    ANXMAT             0.160      0.024      6.755      0.000
+    MATHEFF           -0.616      0.046    -13.461      0.000
+    MATHEF21          -0.204      0.040     -5.163      0.000
+    MATHPERS          -0.123      0.038     -3.241      0.001
+    ST268Q04JA         2.420      0.039     62.514      0.000
+    ST268Q07JA         3.205      0.029    109.261      0.000
+    ST268Q01JA         2.526      0.044     57.303      0.000
+
+ Variances
+    MATH_DISPO         1.916      0.319      6.012      0.000
+
+ Residual Variances
+    ANXMAT             0.962      0.052     18.408      0.000
+    MATHEFF            0.822      0.049     16.732      0.000
+    MATHEF21           0.642      0.033     19.249      0.000
+    MATHPERS           0.847      0.041     20.525      0.000
+    ST268Q04JA         0.349      0.026     13.417      0.000
+    ST268Q07JA         0.608      0.023     26.570      0.000
+    ST268Q01JA         0.408      0.027     14.936      0.000
+
+Group HKG
+
+ MATH_DIS BY
+    ANXMAT            -0.487      0.045    -10.931      0.000
+    MATHEFF            0.618      0.052     11.932      0.000
+    MATHEF21           0.505      0.043     11.716      0.000
+    MATHPERS           0.316      0.033      9.656      0.000
+    ST268Q04JA         0.533      0.043     12.284      0.000
+    ST268Q07JA         0.231      0.025      9.192      0.000
+    ST268Q01JA         0.548      0.045     12.198      0.000
+
+ Means
+    MATH_DISPO        -0.278      0.067     -4.116      0.000
+
+ Intercepts
+    ANXMAT             0.209      0.030      7.087      0.000
+    MATHEFF           -0.508      0.033    -15.379      0.000
+    MATHEF21          -0.059      0.029     -2.030      0.042
+    MATHPERS          -0.283      0.030     -9.483      0.000
+    ST268Q04JA         2.359      0.031     75.275      0.000
+    ST268Q07JA         3.144      0.022    141.534      0.000
+    ST268Q01JA         2.630      0.034     77.796      0.000
+
+ Variances
+    MATH_DISPO         2.123      0.342      6.202      0.000
+
+ Residual Variances
+    ANXMAT             0.807      0.052     15.671      0.000
+    MATHEFF            0.834      0.061     13.617      0.000
+    MATHEF21           0.647      0.043     15.213      0.000
+    MATHPERS           0.729      0.041     17.857      0.000
+    ST268Q04JA         0.247      0.022     11.188      0.000
+    ST268Q07JA         0.530      0.022     23.569      0.000
+    ST268Q01JA         0.292      0.023     12.587      0.000
+
+Group ISL
+
+ MATH_DIS BY
+    ANXMAT            -0.260      0.048     -5.405      0.000
+    MATHEFF            0.621      0.064      9.730      0.000
+    MATHEF21           0.625      0.062     10.042      0.000
+    MATHPERS           0.378      0.044      8.645      0.000
+    ST268Q04JA         0.521      0.046     11.397      0.000
+    ST268Q07JA         0.277      0.032      8.679      0.000
+    ST268Q01JA         0.543      0.049     10.987      0.000
+
+ Means
+    MATH_DISPO        -0.069      0.067     -1.021      0.307
+
+ Intercepts
+    ANXMAT             0.148      0.040      3.712      0.000
+    MATHEFF           -0.469      0.037    -12.610      0.000
+    MATHEF21          -0.119      0.036     -3.292      0.001
+    MATHPERS          -0.025      0.032     -0.779      0.436
+    ST268Q04JA         2.149      0.033     65.177      0.000
+    ST268Q07JA         3.149      0.029    107.474      0.000
+    ST268Q01JA         2.281      0.037     60.878      0.000
+
+ Variances
+    MATH_DISPO         1.571      0.265      5.935      0.000
+
+ Residual Variances
+    ANXMAT             1.280      0.078     16.449      0.000
+    MATHEFF            0.811      0.071     11.360      0.000
+    MATHEF21           0.654      0.063     10.415      0.000
+    MATHPERS           0.779      0.054     14.360      0.000
+    ST268Q04JA         0.423      0.042      9.995      0.000
+    ST268Q07JA         0.600      0.032     18.662      0.000
+    ST268Q01JA         0.575      0.051     11.265      0.000
+
+Group KOR
+
+ MATH_DIS BY
+    ANXMAT            -0.269      0.035     -7.755      0.000
+    MATHEFF            0.770      0.066     11.651      0.000
+    MATHEF21           0.568      0.048     11.721      0.000
+    MATHPERS           0.450      0.037     12.103      0.000
+    ST268Q04JA         0.420      0.038     10.923      0.000
+    ST268Q07JA         0.260      0.025     10.313      0.000
+    ST268Q01JA         0.475      0.043     11.116      0.000
+
+ Means
+    MATH_DISPO        -0.864      0.090     -9.563      0.000
+
+ Intercepts
+    ANXMAT            -0.160      0.032     -4.979      0.000
+    MATHEFF           -0.488      0.035    -14.099      0.000
+    MATHEF21          -0.214      0.033     -6.390      0.000
+    MATHPERS          -0.130      0.032     -4.083      0.000
+    ST268Q04JA         2.128      0.029     73.619      0.000
+    ST268Q07JA         3.445      0.023    152.756      0.000
+    ST268Q01JA         2.405      0.032     75.496      0.000
+
+ Variances
+    MATH_DISPO         2.262      0.393      5.760      0.000
+
+ Residual Variances
+    ANXMAT             1.324      0.057     23.410      0.000
+    MATHEFF            0.495      0.037     13.339      0.000
+    MATHEF21           0.388      0.025     15.351      0.000
+    MATHPERS           0.784      0.038     20.615      0.000
+    ST268Q04JA         0.292      0.017     17.236      0.000
+    ST268Q07JA         0.701      0.025     27.570      0.000
+    ST268Q01JA         0.394      0.026     15.136      0.000
+
+Group LTU
+
+ MATH_DIS BY
+    ANXMAT            -0.402      0.046     -8.657      0.000
+    MATHEFF            0.580      0.055     10.472      0.000
+    MATHEF21           0.458      0.046     10.048      0.000
+    MATHPERS           0.391      0.038     10.358      0.000
+    ST268Q04JA         0.546      0.056      9.757      0.000
+    ST268Q07JA         0.193      0.027      7.274      0.000
+    ST268Q01JA         0.619      0.063      9.874      0.000
+
+ Means
+    MATH_DISPO        -0.235      0.058     -4.030      0.000
+
+ Intercepts
+    ANXMAT             0.151      0.027      5.629      0.000
+    MATHEFF           -0.480      0.034    -14.103      0.000
+    MATHEF21          -0.071      0.028     -2.521      0.012
+    MATHPERS          -0.067      0.027     -2.503      0.012
+    ST268Q04JA         2.164      0.032     67.666      0.000
+    ST268Q07JA         3.266      0.020    163.787      0.000
+    ST268Q01JA         2.219      0.036     61.057      0.000
+
+ Variances
+    MATH_DISPO         1.196      0.192      6.230      0.000
+
+ Residual Variances
+    ANXMAT             1.027      0.050     20.745      0.000
+    MATHEFF            0.806      0.070     11.443      0.000
+    MATHEF21           0.577      0.045     12.766      0.000
+    MATHPERS           0.799      0.040     19.899      0.000
+    ST268Q04JA         0.367      0.037      9.840      0.000
+    ST268Q07JA         0.595      0.024     24.929      0.000
+    ST268Q01JA         0.403      0.045      8.998      0.000
+
+Group MLT
+
+ MATH_DIS BY
+    ANXMAT            -0.367      0.055     -6.707      0.000
+    MATHEFF            0.670      0.073      9.227      0.000
+    MATHEF21           0.499      0.058      8.674      0.000
+    MATHPERS           0.450      0.046      9.804      0.000
+    ST268Q04JA         0.496      0.054      9.212      0.000
+    ST268Q07JA         0.192      0.029      6.514      0.000
+    ST268Q01JA         0.568      0.060      9.399      0.000
+
+ Means
+    MATH_DISPO        -0.198      0.070     -2.817      0.005
+
+ Intercepts
+    ANXMAT             0.429      0.044      9.769      0.000
+    MATHEFF           -0.508      0.037    -13.822      0.000
+    MATHEF21          -0.103      0.034     -3.016      0.003
+    MATHPERS          -0.014      0.034     -0.418      0.676
+    ST268Q04JA         2.146      0.037     58.688      0.000
+    ST268Q07JA         3.382      0.027    123.384      0.000
+    ST268Q01JA         2.307      0.040     57.105      0.000
+
+ Variances
+    MATH_DISPO         1.679      0.284      5.918      0.000
+
+ Residual Variances
+    ANXMAT             1.048      0.084     12.514      0.000
+    MATHEFF            0.766      0.109      7.022      0.000
+    MATHEF21           0.626      0.073      8.603      0.000
+    MATHPERS           0.687      0.051     13.447      0.000
+    ST268Q04JA         0.438      0.061      7.133      0.000
+    ST268Q07JA         0.597      0.037     16.109      0.000
+    ST268Q01JA         0.545      0.074      7.342      0.000
+
+Group NZL
+
+ MATH_DIS BY
+    ANXMAT            -0.249      0.049     -5.058      0.000
+    MATHEFF            0.687      0.074      9.230      0.000
+    MATHEF21           0.562      0.059      9.544      0.000
+    MATHPERS           0.354      0.040      8.837      0.000
+    ST268Q04JA         0.498      0.046     10.889      0.000
+    ST268Q07JA         0.286      0.034      8.534      0.000
+    ST268Q01JA         0.552      0.051     10.792      0.000
+
+ Means
+    MATH_DISPO        -0.312      0.068     -4.569      0.000
+
+ Intercepts
+    ANXMAT             0.203      0.033      6.058      0.000
+    MATHEFF           -0.717      0.049    -14.493      0.000
+    MATHEF21          -0.025      0.036     -0.693      0.488
+    MATHPERS          -0.100      0.029     -3.478      0.001
+    ST268Q04JA         2.371      0.033     71.236      0.000
+    ST268Q07JA         3.283      0.026    128.253      0.000
+    ST268Q01JA         2.345      0.037     63.722      0.000
+
+ Variances
+    MATH_DISPO         1.223      0.206      5.933      0.000
+
+ Residual Variances
+    ANXMAT             1.100      0.062     17.731      0.000
+    MATHEFF            0.690      0.075      9.157      0.000
+    MATHEF21           0.470      0.045     10.507      0.000
+    MATHPERS           0.691      0.042     16.538      0.000
+    ST268Q04JA         0.411      0.034     12.174      0.000
+    ST268Q07JA         0.535      0.027     19.551      0.000
+    ST268Q01JA         0.502      0.045     11.040      0.000
+
+Group PRT
+
+ MATH_DIS BY
+    ANXMAT            -0.258      0.037     -6.939      0.000
+    MATHEFF            0.654      0.058     11.357      0.000
+    MATHEF21           0.518      0.046     11.189      0.000
+    MATHPERS           0.461      0.041     11.249      0.000
+    ST268Q04JA         0.483      0.044     11.081      0.000
+    ST268Q07JA         0.281      0.028     10.074      0.000
+    ST268Q01JA         0.546      0.049     11.048      0.000
+
+ Means
+    MATH_DISPO        -0.239      0.059     -4.075      0.000
+
+ Intercepts
+    ANXMAT             0.189      0.026      7.387      0.000
+    MATHEFF           -0.575      0.037    -15.702      0.000
+    MATHEF21           0.020      0.030      0.675      0.500
+    MATHPERS          -0.061      0.026     -2.378      0.017
+    ST268Q04JA         2.194      0.029     76.897      0.000
+    ST268Q07JA         3.339      0.021    158.225      0.000
+    ST268Q01JA         2.225      0.033     67.776      0.000
+
+ Variances
+    MATH_DISPO         1.520      0.249      6.103      0.000
+
+ Residual Variances
+    ANXMAT             0.899      0.047     18.966      0.000
+    MATHEFF            0.676      0.055     12.298      0.000
+    MATHEF21           0.486      0.035     13.881      0.000
+    MATHPERS           0.765      0.038     19.891      0.000
+    ST268Q04JA         0.363      0.026     13.972      0.000
+    ST268Q07JA         0.505      0.021     23.531      0.000
+    ST268Q01JA         0.465      0.034     13.704      0.000
+
+Group ROU
+
+ MATH_DIS BY
+    ANXMAT            -0.337      0.040     -8.441      0.000
+    MATHEFF            0.465      0.089      5.214      0.000
+    MATHEF21           0.412      0.074      5.551      0.000
+    MATHPERS           0.470      0.056      8.391      0.000
+    ST268Q04JA         0.500      0.044     11.414      0.000
+    ST268Q07JA         0.320      0.040      7.940      0.000
+    ST268Q01JA         0.581      0.051     11.311      0.000
+
+ Means
+    MATH_DISPO        -0.482      0.076     -6.373      0.000
+
+ Intercepts
+    ANXMAT             0.162      0.028      5.707      0.000
+    MATHEFF           -0.472      0.043    -11.030      0.000
+    MATHEF21           0.090      0.039      2.330      0.020
+    MATHPERS          -0.189      0.039     -4.804      0.000
+    ST268Q04JA         2.203      0.037     58.896      0.000
+    ST268Q07JA         3.044      0.027    111.987      0.000
+    ST268Q01JA         2.326      0.043     53.783      0.000
+
+ Variances
+    MATH_DISPO         1.142      0.211      5.407      0.000
+
+ Residual Variances
+    ANXMAT             1.156      0.053     21.946      0.000
+    MATHEFF            1.124      0.080     14.076      0.000
+    MATHEF21           0.844      0.056     15.100      0.000
+    MATHPERS           0.868      0.049     17.644      0.000
+    ST268Q04JA         0.466      0.038     12.318      0.000
+    ST268Q07JA         0.696      0.025     28.142      0.000
+    ST268Q01JA         0.481      0.048      9.931      0.000
+
+Group TUR
+
+ MATH_DIS BY
+    ANXMAT            -0.415      0.039    -10.509      0.000
+    MATHEFF            0.549      0.051     10.803      0.000
+    MATHEF21           0.479      0.044     10.943      0.000
+    MATHPERS           0.438      0.038     11.432      0.000
+    ST268Q04JA         0.523      0.045     11.601      0.000
+    ST268Q07JA         0.180      0.022      8.311      0.000
+    ST268Q01JA         0.601      0.051     11.681      0.000
+
+ Means
+    MATH_DISPO        -0.205      0.059     -3.467      0.001
+
+ Intercepts
+    ANXMAT             0.561      0.030     18.923      0.000
+    MATHEFF           -0.571      0.033    -17.268      0.000
+    MATHEF21          -0.002      0.029     -0.080      0.936
+    MATHPERS          -0.078      0.025     -3.141      0.002
+    ST268Q04JA         2.172      0.029     74.047      0.000
+    ST268Q07JA         3.356      0.020    164.576      0.000
+    ST268Q01JA         2.424      0.034     72.279      0.000
+
+ Variances
+    MATH_DISPO         1.826      0.289      6.325      0.000
+
+ Residual Variances
+    ANXMAT             1.118      0.054     20.805      0.000
+    MATHEFF            0.925      0.064     14.436      0.000
+    MATHEF21           0.712      0.048     14.727      0.000
+    MATHPERS           0.784      0.042     18.473      0.000
+    ST268Q04JA         0.392      0.035     11.353      0.000
+    ST268Q07JA         0.737      0.027     27.122      0.000
+    ST268Q01JA         0.397      0.042      9.475      0.000
+
+Group GBR
+
+ MATH_DIS BY
+    ANXMAT            -0.440      0.041    -10.738      0.000
+    MATHEFF            0.661      0.058     11.463      0.000
+    MATHEF21           0.528      0.047     11.274      0.000
+    MATHPERS           0.320      0.032     10.056      0.000
+    ST268Q04JA         0.521      0.044     11.764      0.000
+    ST268Q07JA         0.250      0.025     10.173      0.000
+    ST268Q01JA         0.502      0.045     11.271      0.000
+
+ Means
+    MATH_DISPO        -0.161      0.054     -3.002      0.003
+
+ Intercepts
+    ANXMAT             0.168      0.023      7.330      0.000
+    MATHEFF           -0.568      0.034    -16.465      0.000
+    MATHEF21          -0.068      0.028     -2.435      0.015
+    MATHPERS          -0.059      0.022     -2.676      0.007
+    ST268Q04JA         2.303      0.028     82.571      0.000
+    ST268Q07JA         3.370      0.017    198.665      0.000
+    ST268Q01JA         2.197      0.028     78.052      0.000
+
+ Variances
+    MATH_DISPO         1.420      0.229      6.204      0.000
+
+ Residual Variances
+    ANXMAT             0.999      0.039     25.500      0.000
+    MATHEFF            0.690      0.046     15.036      0.000
+    MATHEF21           0.539      0.031     17.130      0.000
+    MATHPERS           0.774      0.029     26.454      0.000
+    ST268Q04JA         0.392      0.025     15.407      0.000
+    ST268Q07JA         0.523      0.017     30.429      0.000
+    ST268Q01JA         0.489      0.028     17.388      0.000
+
+
+
+APPROXIMATE MEASUREMENT INVARIANCE (NONINVARIANCE) FOR GROUPS
+
+ Intercepts/Thresholds
+   ANXMAT      (1) 2 3 (4) 5 6 7 (8) 9 (10) 11 12 13 (14) 15
+   MATHEFF     (1) 2 3 (4) 5 6 7 8 9 10 (11) 12 13 14 15
+   MATHEF21    1 2 (3) 4 (5) 6 7 (8) 9 10 11 (12) (13) (14) 15
+   MATHPERS    1 (2) 3 (4) 5 (6) 7 8 9 10 11 12 (13) 14 15
+   ST268Q04    (1) 2 (3) 4 5 6 (7) (8) (9) (10) 11 (12) (13) (14) 15
+   ST268Q07    1 (2) (3) (4) (5) (6) (7) (8) (9) 10 (11) 12 (13) 14 15
+   ST268Q01    1 2 (3) (4) (5) (6) 7 8 (9) 10 11 (12) 13 14 (15)
+
+ Loadings for MATH_DIS
+   ANXMAT      1 2 (3) 4 5 (6) 7 8 9 10 11 12 13 (14) (15)
+   MATHEFF     1 2 3 4 5 6 7 (8) 9 10 11 12 13 14 15
+   MATHEF21    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+   MATHPERS    1 2 3 (4) 5 (6) 7 8 9 10 11 12 13 14 (15)
+   ST268Q04    (1) 2 3 4 5 6 7 (8) 9 10 11 12 13 14 15
+   ST268Q07    1 2 3 (4) 5 6 7 8 9 10 11 12 13 (14) 15
+   ST268Q01    (1) 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+
+
+FACTOR MEAN COMPARISON AT THE 5% SIGNIFICANCE LEVEL IN DESCENDING ORDER
+
+ Results for Factor MATH_DIS
+
+           Latent    Group      Factor
+ Ranking    Class    Value       Mean     Groups With Significantly Smaller Factor Mean
+     1         1         1       0.000    15 10 14 9 12 4 6 11 13 5
+                                          2 8
+     2         7         7      -0.069    14 9 12 4 6 11 13 5 2 8
+     3         3         3      -0.087    14 9 12 4 6 11 13 5 2 8
+     4        15        15      -0.161    6 11 13 5 2 8
+     5        10        10      -0.198    13 5 2 8
+     6        14        14      -0.205    13 5 2 8
+     7         9         9      -0.235    13 5 2 8
+     8        12        12      -0.239    13 5 2 8
+     9         4         4      -0.240    13 5 2 8
+    10         6         6      -0.278    13 5 2 8
+    11        11        11      -0.312    13 5 2 8
+    12        13        13      -0.482    5 2 8
+    13         5         5      -0.648    8
+    14         2         2      -0.650    8
+    15         8         8      -0.864
+
+
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.175E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+ALIGNMENT OUTPUT
+
+INVARIANCE ANALYSIS
+
+ Intercepts/Thresholds
+ Intercept for ANXMAT
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.184      0.546     -0.362      0.043      0.000
+     3         1      0.136      0.546     -0.411      0.042      0.000
+     3         2      0.136      0.184     -0.049      0.036      0.176
+     4         1     -0.137      0.546     -0.683      0.039      0.000
+     4         2     -0.137      0.184     -0.321      0.035      0.000
+     4         3     -0.137      0.136     -0.273      0.032      0.000
+     5         1      0.160      0.546     -0.386      0.037      0.000
+     5         2      0.160      0.184     -0.024      0.028      0.390
+     5         3      0.160      0.136      0.025      0.026      0.348
+     5         4      0.160     -0.137      0.297      0.026      0.000
+     6         1      0.209      0.546     -0.337      0.041      0.000
+     6         2      0.209      0.184      0.025      0.035      0.473
+     6         3      0.209      0.136      0.074      0.033      0.024
+     6         4      0.209     -0.137      0.346      0.031      0.000
+     6         5      0.209      0.160      0.049      0.027      0.065
+     7         1      0.148      0.546     -0.398      0.050      0.000
+     7         2      0.148      0.184     -0.036      0.044      0.413
+     7         3      0.148      0.136      0.013      0.039      0.743
+     7         4      0.148     -0.137      0.285      0.040      0.000
+     7         5      0.148      0.160     -0.012      0.034      0.724
+     7         6      0.148      0.209     -0.061      0.040      0.132
+     8         1     -0.160      0.546     -0.706      0.044      0.000
+     8         2     -0.160      0.184     -0.345      0.041      0.000
+     8         3     -0.160      0.136     -0.296      0.039      0.000
+     8         4     -0.160     -0.137     -0.023      0.035      0.508
+     8         5     -0.160      0.160     -0.321      0.035      0.000
+     8         6     -0.160      0.209     -0.370      0.038      0.000
+     8         7     -0.160      0.148     -0.309      0.046      0.000
+     9         1      0.151      0.546     -0.396      0.039      0.000
+     9         2      0.151      0.184     -0.034      0.034      0.315
+     9         3      0.151      0.136      0.015      0.029      0.609
+     9         4      0.151     -0.137      0.287      0.029      0.000
+     9         5      0.151      0.160     -0.010      0.022      0.659
+     9         6      0.151      0.209     -0.059      0.031      0.057
+     9         7      0.151      0.148      0.002      0.038      0.954
+     9         8      0.151     -0.160      0.311      0.036      0.000
+     10        1      0.429      0.546     -0.117      0.053      0.026
+     10        2      0.429      0.184      0.245      0.050      0.000
+     10        3      0.429      0.136      0.294      0.048      0.000
+     10        4      0.429     -0.137      0.566      0.046      0.000
+     10        5      0.429      0.160      0.269      0.044      0.000
+     10        6      0.429      0.209      0.220      0.047      0.000
+     10        7      0.429      0.148      0.281      0.054      0.000
+     10        8      0.429     -0.160      0.590      0.051      0.000
+     10        9      0.429      0.151      0.279      0.046      0.000
+     11        1      0.203      0.546     -0.344      0.045      0.000
+     11        2      0.203      0.184      0.018      0.039      0.639
+     11        3      0.203      0.136      0.067      0.038      0.077
+     11        4      0.203     -0.137      0.339      0.035      0.000
+     11        5      0.203      0.160      0.042      0.032      0.192
+     11        6      0.203      0.209     -0.007      0.034      0.843
+     11        7      0.203      0.148      0.054      0.045      0.232
+     11        8      0.203     -0.160      0.363      0.042      0.000
+     11        9      0.203      0.151      0.052      0.035      0.140
+     11        10      0.203      0.429     -0.227      0.050      0.000
+     12        1      0.189      0.546     -0.357      0.039      0.000
+     12        2      0.189      0.184      0.005      0.033      0.891
+     12        3      0.189      0.136      0.053      0.031      0.091
+     12        4      0.189     -0.137      0.326      0.029      0.000
+     12        5      0.189      0.160      0.029      0.024      0.237
+     12        6      0.189      0.209     -0.020      0.029      0.477
+     12        7      0.189      0.148      0.041      0.040      0.317
+     12        8      0.189     -0.160      0.349      0.036      0.000
+     12        9      0.189      0.151      0.038      0.028      0.178
+     12        10      0.189      0.429     -0.241      0.046      0.000
+     12        11      0.189      0.203     -0.014      0.035      0.695
+     13        1      0.162      0.546     -0.385      0.040      0.000
+     13        2      0.162      0.184     -0.023      0.034      0.508
+     13        3      0.162      0.136      0.026      0.032      0.418
+     13        4      0.162     -0.137      0.299      0.031      0.000
+     13        5      0.162      0.160      0.001      0.023      0.954
+     13        6      0.162      0.209     -0.048      0.031      0.128
+     13        7      0.162      0.148      0.013      0.040      0.737
+     13        8      0.162     -0.160      0.322      0.038      0.000
+     13        9      0.162      0.151      0.011      0.028      0.693
+     13        10      0.162      0.429     -0.268      0.047      0.000
+     13        11      0.162      0.203     -0.041      0.036      0.259
+     13        12      0.162      0.189     -0.027      0.029      0.355
+     14        1      0.561      0.546      0.015      0.039      0.709
+     14        2      0.561      0.184      0.377      0.037      0.000
+     14        3      0.561      0.136      0.425      0.035      0.000
+     14        4      0.561     -0.137      0.698      0.033      0.000
+     14        5      0.561      0.160      0.401      0.029      0.000
+     14        6      0.561      0.209      0.352      0.034      0.000
+     14        7      0.561      0.148      0.413      0.041      0.000
+     14        8      0.561     -0.160      0.721      0.039      0.000
+     14        9      0.561      0.151      0.410      0.032      0.000
+     14        10      0.561      0.429      0.132      0.048      0.006
+     14        11      0.561      0.203      0.358      0.038      0.000
+     14        12      0.561      0.189      0.372      0.032      0.000
+     14        13      0.561      0.162      0.399      0.033      0.000
+     15        1      0.168      0.546     -0.379      0.036      0.000
+     15        2      0.168      0.184     -0.017      0.029      0.560
+     15        3      0.168      0.136      0.032      0.026      0.220
+     15        4      0.168     -0.137      0.304      0.025      0.000
+     15        5      0.168      0.160      0.007      0.017      0.673
+     15        6      0.168      0.209     -0.042      0.027      0.116
+     15        7      0.168      0.148      0.019      0.035      0.583
+     15        8      0.168     -0.160      0.328      0.033      0.000
+     15        9      0.168      0.151      0.017      0.024      0.475
+     15        10      0.168      0.429     -0.262      0.044      0.000
+     15        11      0.168      0.203     -0.035      0.031      0.264
+     15        12      0.168      0.189     -0.021      0.024      0.378
+     15        13      0.168      0.162      0.006      0.024      0.802
+     15        14      0.168      0.561     -0.393      0.029      0.000
+ Approximate Measurement Invariance Holds For Groups:
+ 2 3 5 6 7 9 11 12 13 15
+ Weighted Average Value Across Invariant Groups:       0.170
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     2      0.184      0.014      0.025      0.566
+     3      0.136     -0.035      0.022      0.114
+     5      0.160     -0.010      0.012      0.416
+     6      0.209      0.039      0.022      0.071
+     7      0.148     -0.022      0.032      0.496
+     9      0.151     -0.020      0.019      0.287
+     11      0.203      0.032      0.028      0.243
+     12      0.189      0.019      0.019      0.337
+     13      0.162     -0.009      0.020      0.665
+     15      0.168     -0.003      0.012      0.818
+
+ Intercept for MATHEFF
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1     -0.494     -0.799      0.304      0.046      0.000
+     3         1     -0.483     -0.799      0.316      0.044      0.000
+     3         2     -0.483     -0.494      0.012      0.028      0.681
+     4         1     -0.445     -0.799      0.354      0.042      0.000
+     4         2     -0.445     -0.494      0.049      0.026      0.056
+     4         3     -0.445     -0.483      0.038      0.023      0.097
+     5         1     -0.616     -0.799      0.182      0.054      0.001
+     5         2     -0.616     -0.494     -0.122      0.044      0.006
+     5         3     -0.616     -0.483     -0.134      0.040      0.001
+     5         4     -0.616     -0.445     -0.172      0.039      0.000
+     6         1     -0.508     -0.799      0.291      0.042      0.000
+     6         2     -0.508     -0.494     -0.014      0.028      0.621
+     6         3     -0.508     -0.483     -0.025      0.025      0.300
+     6         4     -0.508     -0.445     -0.063      0.022      0.005
+     6         5     -0.508     -0.616      0.109      0.040      0.007
+     7         1     -0.469     -0.799      0.329      0.044      0.000
+     7         2     -0.469     -0.494      0.025      0.035      0.482
+     7         3     -0.469     -0.483      0.013      0.034      0.699
+     7         4     -0.469     -0.445     -0.025      0.030      0.411
+     7         5     -0.469     -0.616      0.147      0.047      0.002
+     7         6     -0.469     -0.508      0.038      0.031      0.220
+     8         1     -0.488     -0.799      0.311      0.043      0.000
+     8         2     -0.488     -0.494      0.007      0.025      0.786
+     8         3     -0.488     -0.483     -0.005      0.022      0.816
+     8         4     -0.488     -0.445     -0.043      0.019      0.026
+     8         5     -0.488     -0.616      0.129      0.037      0.000
+     8         6     -0.488     -0.508      0.020      0.021      0.322
+     8         7     -0.488     -0.469     -0.018      0.030      0.549
+     9         1     -0.480     -0.799      0.319      0.043      0.000
+     9         2     -0.480     -0.494      0.015      0.029      0.615
+     9         3     -0.480     -0.483      0.003      0.027      0.912
+     9         4     -0.480     -0.445     -0.035      0.023      0.132
+     9         5     -0.480     -0.616      0.137      0.042      0.001
+     9         6     -0.480     -0.508      0.028      0.025      0.249
+     9         7     -0.480     -0.469     -0.010      0.034      0.766
+     9         8     -0.480     -0.488      0.008      0.023      0.724
+     10        1     -0.508     -0.799      0.290      0.044      0.000
+     10        2     -0.508     -0.494     -0.014      0.030      0.642
+     10        3     -0.508     -0.483     -0.026      0.029      0.373
+     10        4     -0.508     -0.445     -0.064      0.026      0.016
+     10        5     -0.508     -0.616      0.108      0.043      0.013
+     10        6     -0.508     -0.508      0.000      0.027      0.989
+     10        7     -0.508     -0.469     -0.039      0.036      0.275
+     10        8     -0.508     -0.488     -0.021      0.026      0.415
+     10        9     -0.508     -0.480     -0.029      0.029      0.327
+     11        1     -0.717     -0.799      0.081      0.055      0.137
+     11        2     -0.717     -0.494     -0.223      0.042      0.000
+     11        3     -0.717     -0.483     -0.235      0.040      0.000
+     11        4     -0.717     -0.445     -0.272      0.037      0.000
+     11        5     -0.717     -0.616     -0.101      0.049      0.042
+     11        6     -0.717     -0.508     -0.209      0.040      0.000
+     11        7     -0.717     -0.469     -0.248      0.046      0.000
+     11        8     -0.717     -0.488     -0.230      0.038      0.000
+     11        9     -0.717     -0.480     -0.238      0.040      0.000
+     11        10     -0.717     -0.508     -0.209      0.042      0.000
+     12        1     -0.575     -0.799      0.223      0.044      0.000
+     12        2     -0.575     -0.494     -0.081      0.034      0.016
+     12        3     -0.575     -0.483     -0.093      0.029      0.001
+     12        4     -0.575     -0.445     -0.131      0.027      0.000
+     12        5     -0.575     -0.616      0.041      0.041      0.315
+     12        6     -0.575     -0.508     -0.067      0.029      0.018
+     12        7     -0.575     -0.469     -0.106      0.036      0.003
+     12        8     -0.575     -0.488     -0.088      0.027      0.001
+     12        9     -0.575     -0.480     -0.096      0.030      0.002
+     12        10     -0.575     -0.508     -0.067      0.032      0.035
+     12        11     -0.575     -0.717      0.142      0.041      0.001
+     13        1     -0.472     -0.799      0.327      0.051      0.000
+     13        2     -0.472     -0.494      0.022      0.041      0.585
+     13        3     -0.472     -0.483      0.010      0.037      0.780
+     13        4     -0.472     -0.445     -0.027      0.035      0.436
+     13        5     -0.472     -0.616      0.144      0.051      0.005
+     13        6     -0.472     -0.508      0.036      0.037      0.333
+     13        7     -0.472     -0.469     -0.003      0.043      0.952
+     13        8     -0.472     -0.488      0.015      0.034      0.650
+     13        9     -0.472     -0.480      0.007      0.039      0.849
+     13        10     -0.472     -0.508      0.036      0.041      0.376
+     13        11     -0.472     -0.717      0.245      0.050      0.000
+     13        12     -0.472     -0.575      0.103      0.042      0.014
+     14        1     -0.571     -0.799      0.228      0.042      0.000
+     14        2     -0.571     -0.494     -0.076      0.031      0.015
+     14        3     -0.571     -0.483     -0.088      0.028      0.002
+     14        4     -0.571     -0.445     -0.126      0.026      0.000
+     14        5     -0.571     -0.616      0.046      0.040      0.258
+     14        6     -0.571     -0.508     -0.063      0.027      0.020
+     14        7     -0.571     -0.469     -0.101      0.035      0.004
+     14        8     -0.571     -0.488     -0.083      0.026      0.001
+     14        9     -0.571     -0.480     -0.091      0.029      0.002
+     14        10     -0.571     -0.508     -0.062      0.031      0.043
+     14        11     -0.571     -0.717      0.147      0.041      0.000
+     14        12     -0.571     -0.575      0.005      0.028      0.869
+     14        13     -0.571     -0.472     -0.099      0.041      0.016
+     15        1     -0.568     -0.799      0.231      0.043      0.000
+     15        2     -0.568     -0.494     -0.073      0.030      0.015
+     15        3     -0.568     -0.483     -0.085      0.026      0.001
+     15        4     -0.568     -0.445     -0.123      0.023      0.000
+     15        5     -0.568     -0.616      0.049      0.039      0.212
+     15        6     -0.568     -0.508     -0.060      0.024      0.013
+     15        7     -0.568     -0.469     -0.098      0.034      0.004
+     15        8     -0.568     -0.488     -0.080      0.023      0.000
+     15        9     -0.568     -0.480     -0.088      0.027      0.001
+     15        10     -0.568     -0.508     -0.059      0.029      0.038
+     15        11     -0.568     -0.717      0.150      0.039      0.000
+     15        12     -0.568     -0.575      0.008      0.027      0.769
+     15        13     -0.568     -0.472     -0.095      0.040      0.016
+     15        14     -0.568     -0.571      0.003      0.026      0.904
+ Approximate Measurement Invariance Holds For Groups:
+ 2 3 5 6 7 8 9 10 12 13
+ 14 15
+ Weighted Average Value Across Invariant Groups:      -0.525
+ R-square/Explained variance/Invariance index:       0.643
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     2     -0.494      0.031      0.022      0.156
+     3     -0.483      0.043      0.018      0.017
+     5     -0.616     -0.091      0.034      0.007
+     6     -0.508      0.018      0.016      0.287
+     7     -0.469      0.056      0.028      0.042
+     8     -0.488      0.038      0.013      0.003
+     9     -0.480      0.046      0.019      0.015
+     10     -0.508      0.017      0.023      0.447
+     12     -0.575     -0.050      0.021      0.019
+     13     -0.472      0.053      0.032      0.096
+     14     -0.571     -0.045      0.020      0.022
+     15     -0.568     -0.042      0.016      0.010
+
+ Intercept for MATHEF21
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1     -0.055     -0.130      0.075      0.038      0.048
+     3         1      0.042     -0.130      0.171      0.040      0.000
+     3         2      0.042     -0.055      0.097      0.028      0.001
+     4         1     -0.054     -0.130      0.076      0.034      0.028
+     4         2     -0.054     -0.055      0.001      0.020      0.954
+     4         3     -0.054      0.042     -0.096      0.024      0.000
+     5         1     -0.204     -0.130     -0.075      0.046      0.104
+     5         2     -0.204     -0.055     -0.149      0.038      0.000
+     5         3     -0.204      0.042     -0.246      0.037      0.000
+     5         4     -0.204     -0.054     -0.151      0.034      0.000
+     6         1     -0.059     -0.130      0.070      0.037      0.057
+     6         2     -0.059     -0.055     -0.004      0.024      0.859
+     6         3     -0.059      0.042     -0.101      0.027      0.000
+     6         4     -0.059     -0.054     -0.006      0.019      0.775
+     6         5     -0.059     -0.204      0.145      0.037      0.000
+     7         1     -0.119     -0.130      0.010      0.040      0.800
+     7         2     -0.119     -0.055     -0.064      0.034      0.056
+     7         3     -0.119      0.042     -0.161      0.036      0.000
+     7         4     -0.119     -0.054     -0.066      0.030      0.029
+     7         5     -0.119     -0.204      0.085      0.043      0.048
+     7         6     -0.119     -0.059     -0.060      0.032      0.065
+     8         1     -0.214     -0.130     -0.084      0.040      0.035
+     8         2     -0.214     -0.055     -0.159      0.029      0.000
+     8         3     -0.214      0.042     -0.255      0.030      0.000
+     8         4     -0.214     -0.054     -0.160      0.026      0.000
+     8         5     -0.214     -0.204     -0.009      0.036      0.798
+     8         6     -0.214     -0.059     -0.154      0.029      0.000
+     8         7     -0.214     -0.119     -0.094      0.036      0.009
+     9         1     -0.071     -0.130      0.058      0.036      0.108
+     9         2     -0.071     -0.055     -0.016      0.025      0.514
+     9         3     -0.071      0.042     -0.113      0.028      0.000
+     9         4     -0.071     -0.054     -0.017      0.020      0.379
+     9         5     -0.071     -0.204      0.133      0.037      0.000
+     9         6     -0.071     -0.059     -0.012      0.023      0.610
+     9         7     -0.071     -0.119      0.048      0.033      0.147
+     9         8     -0.071     -0.214      0.142      0.029      0.000
+     10        1     -0.103     -0.130      0.026      0.040      0.518
+     10        2     -0.103     -0.055     -0.048      0.033      0.138
+     10        3     -0.103      0.042     -0.145      0.035      0.000
+     10        4     -0.103     -0.054     -0.050      0.029      0.089
+     10        5     -0.103     -0.204      0.101      0.043      0.018
+     10        6     -0.103     -0.059     -0.044      0.032      0.167
+     10        7     -0.103     -0.119      0.016      0.038      0.674
+     10        8     -0.103     -0.214      0.110      0.036      0.002
+     10        9     -0.103     -0.071     -0.032      0.032      0.317
+     11        1     -0.025     -0.130      0.104      0.042      0.012
+     11        2     -0.025     -0.055      0.030      0.030      0.322
+     11        3     -0.025      0.042     -0.067      0.031      0.031
+     11        4     -0.025     -0.054      0.029      0.026      0.263
+     11        5     -0.025     -0.204      0.179      0.039      0.000
+     11        6     -0.025     -0.059      0.034      0.030      0.248
+     11        7     -0.025     -0.119      0.094      0.037      0.011
+     11        8     -0.025     -0.214      0.188      0.034      0.000
+     11        9     -0.025     -0.071      0.046      0.029      0.117
+     11        10     -0.025     -0.103      0.078      0.037      0.034
+     12        1      0.020     -0.130      0.150      0.037      0.000
+     12        2      0.020     -0.055      0.075      0.028      0.008
+     12        3      0.020      0.042     -0.021      0.027      0.434
+     12        4      0.020     -0.054      0.074      0.023      0.001
+     12        5      0.020     -0.204      0.225      0.037      0.000
+     12        6      0.020     -0.059      0.080      0.026      0.003
+     12        7      0.020     -0.119      0.140      0.034      0.000
+     12        8      0.020     -0.214      0.234      0.030      0.000
+     12        9      0.020     -0.071      0.092      0.027      0.001
+     12        10      0.020     -0.103      0.124      0.034      0.000
+     12        11      0.020     -0.025      0.046      0.030      0.133
+     13        1      0.090     -0.130      0.219      0.045      0.000
+     13        2      0.090     -0.055      0.145      0.038      0.000
+     13        3      0.090      0.042      0.048      0.038      0.202
+     13        4      0.090     -0.054      0.144      0.033      0.000
+     13        5      0.090     -0.204      0.294      0.046      0.000
+     13        6      0.090     -0.059      0.149      0.037      0.000
+     13        7      0.090     -0.119      0.209      0.043      0.000
+     13        8      0.090     -0.214      0.303      0.039      0.000
+     13        9      0.090     -0.071      0.161      0.037      0.000
+     13        10      0.090     -0.103      0.193      0.043      0.000
+     13        11      0.090     -0.025      0.115      0.042      0.006
+     13        12      0.090      0.020      0.069      0.039      0.071
+     14        1     -0.002     -0.130      0.127      0.037      0.001
+     14        2     -0.002     -0.055      0.053      0.027      0.047
+     14        3     -0.002      0.042     -0.044      0.028      0.110
+     14        4     -0.002     -0.054      0.052      0.022      0.017
+     14        5     -0.002     -0.204      0.202      0.036      0.000
+     14        6     -0.002     -0.059      0.057      0.025      0.024
+     14        7     -0.002     -0.119      0.117      0.034      0.000
+     14        8     -0.002     -0.214      0.211      0.030      0.000
+     14        9     -0.002     -0.071      0.069      0.026      0.008
+     14        10     -0.002     -0.103      0.101      0.033      0.002
+     14        11     -0.002     -0.025      0.023      0.029      0.430
+     14        12     -0.002      0.020     -0.023      0.025      0.371
+     14        13     -0.002      0.090     -0.092      0.038      0.015
+     15        1     -0.068     -0.130      0.061      0.035      0.083
+     15        2     -0.068     -0.055     -0.013      0.024      0.587
+     15        3     -0.068      0.042     -0.110      0.026      0.000
+     15        4     -0.068     -0.054     -0.014      0.017      0.414
+     15        5     -0.068     -0.204      0.136      0.035      0.000
+     15        6     -0.068     -0.059     -0.009      0.021      0.682
+     15        7     -0.068     -0.119      0.051      0.031      0.103
+     15        8     -0.068     -0.214      0.146      0.028      0.000
+     15        9     -0.068     -0.071      0.003      0.022      0.885
+     15        10     -0.068     -0.103      0.035      0.031      0.249
+     15        11     -0.068     -0.025     -0.043      0.027      0.112
+     15        12     -0.068      0.020     -0.088      0.024      0.000
+     15        13     -0.068      0.090     -0.158      0.037      0.000
+     15        14     -0.068     -0.002     -0.066      0.023      0.004
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 4 6 7 9 10 11 15
+ Weighted Average Value Across Invariant Groups:      -0.070
+ R-square/Explained variance/Invariance index:       0.731
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1     -0.130     -0.060      0.030      0.048
+     2     -0.055      0.015      0.017      0.389
+     4     -0.054      0.016      0.010      0.109
+     6     -0.059      0.011      0.016      0.510
+     7     -0.119     -0.049      0.027      0.065
+     9     -0.071     -0.001      0.016      0.931
+     10     -0.103     -0.034      0.026      0.203
+     11     -0.025      0.045      0.023      0.051
+     15     -0.068      0.002      0.013      0.883
+
+ Intercept for MATHPERS
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1     -0.491     -0.029     -0.461      0.041      0.000
+     3         1     -0.106     -0.029     -0.077      0.037      0.040
+     3         2     -0.106     -0.491      0.384      0.037      0.000
+     4         1     -0.181     -0.029     -0.151      0.034      0.000
+     4         2     -0.181     -0.491      0.310      0.035      0.000
+     4         3     -0.181     -0.106     -0.074      0.029      0.011
+     5         1     -0.123     -0.029     -0.094      0.042      0.027
+     5         2     -0.123     -0.491      0.367      0.042      0.000
+     5         3     -0.123     -0.106     -0.017      0.035      0.624
+     5         4     -0.123     -0.181      0.057      0.035      0.107
+     6         1     -0.283     -0.029     -0.254      0.038      0.000
+     6         2     -0.283     -0.491      0.208      0.040      0.000
+     6         3     -0.283     -0.106     -0.177      0.036      0.000
+     6         4     -0.283     -0.181     -0.102      0.032      0.001
+     6         5     -0.283     -0.123     -0.160      0.041      0.000
+     7         1     -0.025     -0.029      0.004      0.038      0.911
+     7         2     -0.025     -0.491      0.465      0.042      0.000
+     7         3     -0.025     -0.106      0.081      0.038      0.033
+     7         4     -0.025     -0.181      0.155      0.035      0.000
+     7         5     -0.025     -0.123      0.098      0.044      0.024
+     7         6     -0.025     -0.283      0.258      0.039      0.000
+     8         1     -0.130     -0.029     -0.101      0.038      0.008
+     8         2     -0.130     -0.491      0.361      0.039      0.000
+     8         3     -0.130     -0.106     -0.024      0.031      0.453
+     8         4     -0.130     -0.181      0.051      0.031      0.100
+     8         5     -0.130     -0.123     -0.007      0.035      0.848
+     8         6     -0.130     -0.283      0.153      0.037      0.000
+     8         7     -0.130     -0.025     -0.105      0.039      0.008
+     9         1     -0.067     -0.029     -0.038      0.033      0.258
+     9         2     -0.067     -0.491      0.423      0.036      0.000
+     9         3     -0.067     -0.106      0.039      0.030      0.196
+     9         4     -0.067     -0.181      0.113      0.028      0.000
+     9         5     -0.067     -0.123      0.056      0.037      0.127
+     9         6     -0.067     -0.283      0.216      0.033      0.000
+     9         7     -0.067     -0.025     -0.042      0.036      0.242
+     9         8     -0.067     -0.130      0.063      0.032      0.051
+     10        1     -0.014     -0.029      0.015      0.038      0.692
+     10        2     -0.014     -0.491      0.476      0.042      0.000
+     10        3     -0.014     -0.106      0.092      0.038      0.016
+     10        4     -0.014     -0.181      0.166      0.036      0.000
+     10        5     -0.014     -0.123      0.109      0.044      0.012
+     10        6     -0.014     -0.283      0.269      0.040      0.000
+     10        7     -0.014     -0.025      0.011      0.041      0.789
+     10        8     -0.014     -0.130      0.116      0.040      0.004
+     10        9     -0.014     -0.067      0.053      0.036      0.144
+     11        1     -0.100     -0.029     -0.070      0.035      0.046
+     11        2     -0.100     -0.491      0.391      0.037      0.000
+     11        3     -0.100     -0.106      0.007      0.029      0.822
+     11        4     -0.100     -0.181      0.081      0.029      0.006
+     11        5     -0.100     -0.123      0.024      0.035      0.505
+     11        6     -0.100     -0.283      0.183      0.035      0.000
+     11        7     -0.100     -0.025     -0.075      0.037      0.043
+     11        8     -0.100     -0.130      0.030      0.032      0.341
+     11        9     -0.100     -0.067     -0.032      0.029      0.261
+     11        10     -0.100     -0.014     -0.085      0.037      0.022
+     12        1     -0.061     -0.029     -0.031      0.031      0.310
+     12        2     -0.061     -0.491      0.430      0.035      0.000
+     12        3     -0.061     -0.106      0.046      0.028      0.103
+     12        4     -0.061     -0.181      0.120      0.026      0.000
+     12        5     -0.061     -0.123      0.062      0.035      0.073
+     12        6     -0.061     -0.283      0.222      0.032      0.000
+     12        7     -0.061     -0.025     -0.036      0.034      0.297
+     12        8     -0.061     -0.130      0.069      0.030      0.023
+     12        9     -0.061     -0.067      0.006      0.025      0.801
+     12        10     -0.061     -0.014     -0.047      0.035      0.180
+     12        11     -0.061     -0.100      0.039      0.028      0.162
+     13        1     -0.189     -0.029     -0.160      0.043      0.000
+     13        2     -0.189     -0.491      0.302      0.043      0.000
+     13        3     -0.189     -0.106     -0.083      0.038      0.028
+     13        4     -0.189     -0.181     -0.009      0.035      0.805
+     13        5     -0.189     -0.123     -0.066      0.044      0.132
+     13        6     -0.189     -0.283      0.094      0.042      0.026
+     13        7     -0.189     -0.025     -0.164      0.044      0.000
+     13        8     -0.189     -0.130     -0.059      0.040      0.135
+     13        9     -0.189     -0.067     -0.122      0.038      0.001
+     13        10     -0.189     -0.014     -0.175      0.044      0.000
+     13        11     -0.189     -0.100     -0.089      0.039      0.020
+     13        12     -0.189     -0.061     -0.128      0.037      0.000
+     14        1     -0.078     -0.029     -0.048      0.031      0.120
+     14        2     -0.078     -0.491      0.413      0.034      0.000
+     14        3     -0.078     -0.106      0.029      0.026      0.272
+     14        4     -0.078     -0.181      0.103      0.025      0.000
+     14        5     -0.078     -0.123      0.046      0.033      0.168
+     14        6     -0.078     -0.283      0.205      0.031      0.000
+     14        7     -0.078     -0.025     -0.052      0.034      0.118
+     14        8     -0.078     -0.130      0.052      0.029      0.071
+     14        9     -0.078     -0.067     -0.010      0.024      0.669
+     14        10     -0.078     -0.014     -0.063      0.034      0.063
+     14        11     -0.078     -0.100      0.022      0.026      0.392
+     14        12     -0.078     -0.061     -0.017      0.023      0.466
+     14        13     -0.078     -0.189      0.111      0.036      0.002
+     15        1     -0.059     -0.029     -0.030      0.031      0.338
+     15        2     -0.059     -0.491      0.431      0.034      0.000
+     15        3     -0.059     -0.106      0.047      0.028      0.097
+     15        4     -0.059     -0.181      0.121      0.025      0.000
+     15        5     -0.059     -0.123      0.064      0.035      0.069
+     15        6     -0.059     -0.283      0.223      0.031      0.000
+     15        7     -0.059     -0.025     -0.034      0.033      0.300
+     15        8     -0.059     -0.130      0.070      0.030      0.018
+     15        9     -0.059     -0.067      0.008      0.025      0.757
+     15        10     -0.059     -0.014     -0.045      0.034      0.179
+     15        11     -0.059     -0.100      0.040      0.027      0.138
+     15        12     -0.059     -0.061      0.001      0.023      0.952
+     15        13     -0.059     -0.189      0.130      0.037      0.000
+     15        14     -0.059     -0.078      0.018      0.021      0.400
+ Approximate Measurement Invariance Holds For Groups:
+ 1 3 5 7 8 9 10 11 12 14
+ 15
+ Weighted Average Value Across Invariant Groups:      -0.076
+ R-square/Explained variance/Invariance index:       0.628
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1     -0.029      0.047      0.026      0.075
+     3     -0.106     -0.030      0.021      0.152
+     5     -0.123     -0.047      0.028      0.089
+     7     -0.025      0.051      0.029      0.079
+     8     -0.130     -0.054      0.023      0.019
+     9     -0.067      0.009      0.019      0.634
+     10     -0.014      0.062      0.030      0.037
+     11     -0.100     -0.024      0.021      0.257
+     12     -0.061      0.015      0.017      0.351
+     14     -0.078     -0.001      0.015      0.927
+     15     -0.059      0.017      0.015      0.259
+
+ Intercept for ST268Q04
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      2.281      2.230      0.051      0.052      0.328
+     3         1      2.071      2.230     -0.159      0.041      0.000
+     3         2      2.071      2.281     -0.210      0.051      0.000
+     4         1      2.358      2.230      0.128      0.035      0.000
+     4         2      2.358      2.281      0.077      0.048      0.112
+     4         3      2.358      2.071      0.286      0.030      0.000
+     5         1      2.420      2.230      0.190      0.042      0.000
+     5         2      2.420      2.281      0.139      0.049      0.004
+     5         3      2.420      2.071      0.349      0.037      0.000
+     5         4      2.420      2.358      0.063      0.034      0.062
+     6         1      2.359      2.230      0.129      0.036      0.000
+     6         2      2.359      2.281      0.078      0.049      0.110
+     6         3      2.359      2.071      0.288      0.033      0.000
+     6         4      2.359      2.358      0.002      0.025      0.943
+     6         5      2.359      2.420     -0.061      0.036      0.089
+     7         1      2.149      2.230     -0.081      0.036      0.026
+     7         2      2.149      2.281     -0.131      0.052      0.011
+     7         3      2.149      2.071      0.078      0.036      0.029
+     7         4      2.149      2.358     -0.208      0.031      0.000
+     7         5      2.149      2.420     -0.271      0.040      0.000
+     7         6      2.149      2.359     -0.210      0.033      0.000
+     8         1      2.128      2.230     -0.102      0.035      0.004
+     8         2      2.128      2.281     -0.153      0.050      0.002
+     8         3      2.128      2.071      0.057      0.033      0.090
+     8         4      2.128      2.358     -0.230      0.029      0.000
+     8         5      2.128      2.420     -0.292      0.036      0.000
+     8         6      2.128      2.359     -0.231      0.031      0.000
+     8         7      2.128      2.149     -0.022      0.033      0.509
+     9         1      2.164      2.230     -0.066      0.035      0.061
+     9         2      2.164      2.281     -0.117      0.049      0.016
+     9         3      2.164      2.071      0.093      0.031      0.003
+     9         4      2.164      2.358     -0.194      0.026      0.000
+     9         5      2.164      2.420     -0.256      0.035      0.000
+     9         6      2.164      2.359     -0.195      0.029      0.000
+     9         7      2.164      2.149      0.015      0.031      0.641
+     9         8      2.164      2.128      0.036      0.029      0.221
+     10        1      2.146      2.230     -0.084      0.040      0.036
+     10        2      2.146      2.281     -0.135      0.054      0.013
+     10        3      2.146      2.071      0.075      0.039      0.054
+     10        4      2.146      2.358     -0.211      0.034      0.000
+     10        5      2.146      2.420     -0.274      0.042      0.000
+     10        6      2.146      2.359     -0.213      0.037      0.000
+     10        7      2.146      2.149     -0.003      0.037      0.930
+     10        8      2.146      2.128      0.018      0.036      0.609
+     10        9      2.146      2.164     -0.018      0.034      0.604
+     11        1      2.371      2.230      0.141      0.037      0.000
+     11        2      2.371      2.281      0.090      0.050      0.069
+     11        3      2.371      2.071      0.300      0.034      0.000
+     11        4      2.371      2.358      0.013      0.027      0.612
+     11        5      2.371      2.420     -0.049      0.036      0.172
+     11        6      2.371      2.359      0.012      0.029      0.691
+     11        7      2.371      2.149      0.222      0.034      0.000
+     11        8      2.371      2.128      0.243      0.032      0.000
+     11        9      2.371      2.164      0.207      0.030      0.000
+     11        10      2.371      2.146      0.225      0.037      0.000
+     12        1      2.194      2.230     -0.036      0.033      0.272
+     12        2      2.194      2.281     -0.087      0.047      0.062
+     12        3      2.194      2.071      0.123      0.031      0.000
+     12        4      2.194      2.358     -0.164      0.024      0.000
+     12        5      2.194      2.420     -0.226      0.034      0.000
+     12        6      2.194      2.359     -0.166      0.027      0.000
+     12        7      2.194      2.149      0.044      0.030      0.139
+     12        8      2.194      2.128      0.066      0.028      0.019
+     12        9      2.194      2.164      0.030      0.025      0.231
+     12        10      2.194      2.146      0.048      0.034      0.156
+     12        11      2.194      2.371     -0.177      0.029      0.000
+     13        1      2.203      2.230     -0.027      0.040      0.491
+     13        2      2.203      2.281     -0.078      0.053      0.140
+     13        3      2.203      2.071      0.131      0.039      0.001
+     13        4      2.203      2.358     -0.155      0.036      0.000
+     13        5      2.203      2.420     -0.218      0.042      0.000
+     13        6      2.203      2.359     -0.157      0.037      0.000
+     13        7      2.203      2.149      0.053      0.039      0.174
+     13        8      2.203      2.128      0.075      0.038      0.047
+     13        9      2.203      2.164      0.039      0.035      0.277
+     13        10      2.203      2.146      0.056      0.041      0.165
+     13        11      2.203      2.371     -0.168      0.037      0.000
+     13        12      2.203      2.194      0.009      0.033      0.787
+     14        1      2.172      2.230     -0.058      0.033      0.080
+     14        2      2.172      2.281     -0.109      0.048      0.023
+     14        3      2.172      2.071      0.101      0.031      0.001
+     14        4      2.172      2.358     -0.185      0.026      0.000
+     14        5      2.172      2.420     -0.248      0.034      0.000
+     14        6      2.172      2.359     -0.187      0.029      0.000
+     14        7      2.172      2.149      0.023      0.030      0.450
+     14        8      2.172      2.128      0.044      0.027      0.107
+     14        9      2.172      2.164      0.008      0.026      0.753
+     14        10      2.172      2.146      0.026      0.033      0.437
+     14        11      2.172      2.371     -0.199      0.030      0.000
+     14        12      2.172      2.194     -0.022      0.025      0.382
+     14        13      2.172      2.203     -0.030      0.034      0.364
+     15        1      2.303      2.230      0.073      0.033      0.025
+     15        2      2.303      2.281      0.022      0.045      0.626
+     15        3      2.303      2.071      0.232      0.029      0.000
+     15        4      2.303      2.358     -0.055      0.022      0.012
+     15        5      2.303      2.420     -0.118      0.032      0.000
+     15        6      2.303      2.359     -0.057      0.026      0.026
+     15        7      2.303      2.149      0.153      0.030      0.000
+     15        8      2.303      2.128      0.175      0.027      0.000
+     15        9      2.303      2.164      0.139      0.024      0.000
+     15        10      2.303      2.146      0.157      0.033      0.000
+     15        11      2.303      2.371     -0.068      0.027      0.012
+     15        12      2.303      2.194      0.109      0.023      0.000
+     15        13      2.303      2.203      0.100      0.034      0.003
+     15        14      2.303      2.172      0.131      0.024      0.000
+ Approximate Measurement Invariance Holds For Groups:
+ 2 4 5 6 11 15
+ Weighted Average Value Across Invariant Groups:       2.342
+ R-square/Explained variance/Invariance index:       0.362
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     2      2.281     -0.061      0.038      0.103
+     4      2.358      0.015      0.016      0.338
+     5      2.420      0.078      0.026      0.003
+     6      2.359      0.017      0.021      0.408
+     11      2.371      0.029      0.022      0.195
+     15      2.303     -0.040      0.014      0.005
+
+ Intercept for ST268Q07
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      3.075      3.390     -0.315      0.033      0.000
+     3         1      3.043      3.390     -0.347      0.031      0.000
+     3         2      3.043      3.075     -0.032      0.030      0.279
+     4         1      2.861      3.390     -0.529      0.033      0.000
+     4         2      2.861      3.075     -0.214      0.030      0.000
+     4         3      2.861      3.043     -0.182      0.027      0.000
+     5         1      3.205      3.390     -0.185      0.035      0.000
+     5         2      3.205      3.075      0.130      0.032      0.000
+     5         3      3.205      3.043      0.162      0.031      0.000
+     5         4      3.205      2.861      0.344      0.031      0.000
+     6         1      3.144      3.390     -0.245      0.030      0.000
+     6         2      3.144      3.075      0.070      0.031      0.022
+     6         3      3.144      3.043      0.102      0.028      0.000
+     6         4      3.144      2.861      0.284      0.028      0.000
+     6         5      3.144      3.205     -0.060      0.032      0.062
+     7         1      3.149      3.390     -0.241      0.035      0.000
+     7         2      3.149      3.075      0.074      0.036      0.040
+     7         3      3.149      3.043      0.106      0.034      0.002
+     7         4      3.149      2.861      0.288      0.034      0.000
+     7         5      3.149      3.205     -0.056      0.038      0.139
+     7         6      3.149      3.144      0.004      0.033      0.897
+     8         1      3.445      3.390      0.056      0.030      0.066
+     8         2      3.445      3.075      0.371      0.030      0.000
+     8         3      3.445      3.043      0.403      0.028      0.000
+     8         4      3.445      2.861      0.585      0.029      0.000
+     8         5      3.445      3.205      0.241      0.031      0.000
+     8         6      3.445      3.144      0.301      0.028      0.000
+     8         7      3.445      3.149      0.297      0.034      0.000
+     9         1      3.266      3.390     -0.124      0.029      0.000
+     9         2      3.266      3.075      0.191      0.029      0.000
+     9         3      3.266      3.043      0.223      0.027      0.000
+     9         4      3.266      2.861      0.405      0.028      0.000
+     9         5      3.266      3.205      0.061      0.031      0.051
+     9         6      3.266      3.144      0.121      0.026      0.000
+     9         7      3.266      3.149      0.117      0.033      0.000
+     9         8      3.266      3.445     -0.180      0.027      0.000
+     10        1      3.382      3.390     -0.008      0.034      0.817
+     10        2      3.382      3.075      0.307      0.036      0.000
+     10        3      3.382      3.043      0.339      0.034      0.000
+     10        4      3.382      2.861      0.521      0.035      0.000
+     10        5      3.382      3.205      0.177      0.037      0.000
+     10        6      3.382      3.144      0.237      0.033      0.000
+     10        7      3.382      3.149      0.233      0.038      0.000
+     10        8      3.382      3.445     -0.064      0.033      0.056
+     10        9      3.382      3.266      0.116      0.032      0.000
+     11        1      3.283      3.390     -0.106      0.032      0.001
+     11        2      3.283      3.075      0.208      0.032      0.000
+     11        3      3.283      3.043      0.240      0.029      0.000
+     11        4      3.283      2.861      0.422      0.029      0.000
+     11        5      3.283      3.205      0.078      0.032      0.016
+     11        6      3.283      3.144      0.139      0.030      0.000
+     11        7      3.283      3.149      0.134      0.035      0.000
+     11        8      3.283      3.445     -0.162      0.029      0.000
+     11        9      3.283      3.266      0.017      0.027      0.530
+     11        10      3.283      3.382     -0.099      0.035      0.005
+     12        1      3.339      3.390     -0.051      0.029      0.077
+     12        2      3.339      3.075      0.264      0.029      0.000
+     12        3      3.339      3.043      0.296      0.026      0.000
+     12        4      3.339      2.861      0.478      0.027      0.000
+     12        5      3.339      3.205      0.134      0.030      0.000
+     12        6      3.339      3.144      0.194      0.027      0.000
+     12        7      3.339      3.149      0.190      0.033      0.000
+     12        8      3.339      3.445     -0.107      0.027      0.000
+     12        9      3.339      3.266      0.073      0.025      0.003
+     12        10      3.339      3.382     -0.043      0.032      0.175
+     12        11      3.339      3.283      0.055      0.028      0.047
+     13        1      3.044      3.390     -0.345      0.033      0.000
+     13        2      3.044      3.075     -0.030      0.032      0.339
+     13        3      3.044      3.043      0.002      0.028      0.950
+     13        4      3.044      2.861      0.184      0.029      0.000
+     13        5      3.044      3.205     -0.160      0.034      0.000
+     13        6      3.044      3.144     -0.100      0.031      0.001
+     13        7      3.044      3.149     -0.104      0.036      0.004
+     13        8      3.044      3.445     -0.401      0.030      0.000
+     13        9      3.044      3.266     -0.222      0.029      0.000
+     13        10      3.044      3.382     -0.337      0.036      0.000
+     13        11      3.044      3.283     -0.239      0.031      0.000
+     13        12      3.044      3.339     -0.294      0.029      0.000
+     14        1      3.356      3.390     -0.033      0.029      0.256
+     14        2      3.356      3.075      0.282      0.030      0.000
+     14        3      3.356      3.043      0.314      0.027      0.000
+     14        4      3.356      2.861      0.496      0.028      0.000
+     14        5      3.356      3.205      0.152      0.031      0.000
+     14        6      3.356      3.144      0.212      0.027      0.000
+     14        7      3.356      3.149      0.208      0.033      0.000
+     14        8      3.356      3.445     -0.089      0.027      0.001
+     14        9      3.356      3.266      0.090      0.025      0.000
+     14        10      3.356      3.382     -0.025      0.032      0.428
+     14        11      3.356      3.283      0.073      0.029      0.011
+     14        12      3.356      3.339      0.018      0.025      0.468
+     14        13      3.356      3.044      0.312      0.030      0.000
+     15        1      3.370      3.390     -0.020      0.026      0.455
+     15        2      3.370      3.075      0.295      0.026      0.000
+     15        3      3.370      3.043      0.327      0.024      0.000
+     15        4      3.370      2.861      0.509      0.024      0.000
+     15        5      3.370      3.205      0.165      0.028      0.000
+     15        6      3.370      3.144      0.226      0.024      0.000
+     15        7      3.370      3.149      0.221      0.030      0.000
+     15        8      3.370      3.445     -0.075      0.024      0.002
+     15        9      3.370      3.266      0.104      0.022      0.000
+     15        10      3.370      3.382     -0.012      0.029      0.690
+     15        11      3.370      3.283      0.087      0.025      0.001
+     15        12      3.370      3.339      0.032      0.021      0.139
+     15        13      3.370      3.044      0.326      0.027      0.000
+     15        14      3.370      3.356      0.014      0.022      0.532
+ Approximate Measurement Invariance Holds For Groups:
+ 1 10 12 14 15
+ Weighted Average Value Across Invariant Groups:       3.365
+ R-square/Explained variance/Invariance index:       0.131
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      3.390      0.025      0.021      0.232
+     10      3.382      0.017      0.025      0.498
+     12      3.339     -0.026      0.016      0.096
+     14      3.356     -0.008      0.015      0.593
+     15      3.370      0.005      0.011      0.607
+
+ Intercept for ST268Q01
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      2.510      2.298      0.212      0.056      0.000
+     3         1      1.940      2.298     -0.357      0.041      0.000
+     3         2      1.940      2.510     -0.570      0.054      0.000
+     4         1      2.187      2.298     -0.111      0.037      0.003
+     4         2      2.187      2.510     -0.323      0.053      0.000
+     4         3      2.187      1.940      0.246      0.033      0.000
+     5         1      2.526      2.298      0.229      0.047      0.000
+     5         2      2.526      2.510      0.016      0.054      0.766
+     5         3      2.526      1.940      0.586      0.042      0.000
+     5         4      2.526      2.187      0.340      0.039      0.000
+     6         1      2.630      2.298      0.332      0.038      0.000
+     6         2      2.630      2.510      0.119      0.054      0.027
+     6         3      2.630      1.940      0.689      0.036      0.000
+     6         4      2.630      2.187      0.443      0.030      0.000
+     6         5      2.630      2.526      0.103      0.042      0.013
+     7         1      2.281      2.298     -0.017      0.040      0.666
+     7         2      2.281      2.510     -0.230      0.058      0.000
+     7         3      2.281      1.940      0.340      0.041      0.000
+     7         4      2.281      2.187      0.094      0.038      0.012
+     7         5      2.281      2.526     -0.246      0.048      0.000
+     7         6      2.281      2.630     -0.349      0.039      0.000
+     8         1      2.405      2.298      0.107      0.038      0.004
+     8         2      2.405      2.510     -0.106      0.054      0.052
+     8         3      2.405      1.940      0.464      0.035      0.000
+     8         4      2.405      2.187      0.218      0.032      0.000
+     8         5      2.405      2.526     -0.122      0.041      0.003
+     8         6      2.405      2.630     -0.225      0.034      0.000
+     8         7      2.405      2.281      0.124      0.039      0.002
+     9         1      2.219      2.298     -0.079      0.038      0.040
+     9         2      2.219      2.510     -0.291      0.054      0.000
+     9         3      2.219      1.940      0.279      0.034      0.000
+     9         4      2.219      2.187      0.032      0.029      0.257
+     9         5      2.219      2.526     -0.307      0.041      0.000
+     9         6      2.219      2.630     -0.410      0.033      0.000
+     9         7      2.219      2.281     -0.061      0.039      0.112
+     9         8      2.219      2.405     -0.186      0.034      0.000
+     10        1      2.307      2.298      0.009      0.042      0.832
+     10        2      2.307      2.510     -0.203      0.060      0.001
+     10        3      2.307      1.940      0.367      0.042      0.000
+     10        4      2.307      2.187      0.120      0.039      0.002
+     10        5      2.307      2.526     -0.220      0.048      0.000
+     10        6      2.307      2.630     -0.323      0.041      0.000
+     10        7      2.307      2.281      0.026      0.044      0.549
+     10        8      2.307      2.405     -0.098      0.041      0.016
+     10        9      2.307      2.219      0.088      0.040      0.027
+     11        1      2.345      2.298      0.048      0.039      0.221
+     11        2      2.345      2.510     -0.165      0.055      0.003
+     11        3      2.345      1.940      0.405      0.037      0.000
+     11        4      2.345      2.187      0.159      0.032      0.000
+     11        5      2.345      2.526     -0.181      0.042      0.000
+     11        6      2.345      2.630     -0.284      0.035      0.000
+     11        7      2.345      2.281      0.065      0.041      0.115
+     11        8      2.345      2.405     -0.059      0.036      0.096
+     11        9      2.345      2.219      0.126      0.034      0.000
+     11        10      2.345      2.307      0.039      0.041      0.351
+     12        1      2.225      2.298     -0.073      0.036      0.044
+     12        2      2.225      2.510     -0.285      0.052      0.000
+     12        3      2.225      1.940      0.285      0.033      0.000
+     12        4      2.225      2.187      0.038      0.028      0.170
+     12        5      2.225      2.526     -0.301      0.040      0.000
+     12        6      2.225      2.630     -0.405      0.032      0.000
+     12        7      2.225      2.281     -0.056      0.037      0.134
+     12        8      2.225      2.405     -0.180      0.032      0.000
+     12        9      2.225      2.219      0.006      0.029      0.840
+     12        10      2.225      2.307     -0.082      0.039      0.034
+     12        11      2.225      2.345     -0.121      0.034      0.000
+     13        1      2.326      2.298      0.029      0.044      0.517
+     13        2      2.326      2.510     -0.184      0.059      0.002
+     13        3      2.326      1.940      0.386      0.042      0.000
+     13        4      2.326      2.187      0.140      0.040      0.000
+     13        5      2.326      2.526     -0.200      0.049      0.000
+     13        6      2.326      2.630     -0.303      0.042      0.000
+     13        7      2.326      2.281      0.046      0.046      0.323
+     13        8      2.326      2.405     -0.078      0.042      0.065
+     13        9      2.326      2.219      0.107      0.041      0.008
+     13        10      2.326      2.307      0.020      0.046      0.667
+     13        11      2.326      2.345     -0.019      0.041      0.642
+     13        12      2.326      2.225      0.102      0.039      0.009
+     14        1      2.424      2.298      0.126      0.036      0.000
+     14        2      2.424      2.510     -0.086      0.053      0.100
+     14        3      2.424      1.940      0.484      0.033      0.000
+     14        4      2.424      2.187      0.237      0.029      0.000
+     14        5      2.424      2.526     -0.102      0.040      0.010
+     14        6      2.424      2.630     -0.206      0.033      0.000
+     14        7      2.424      2.281      0.143      0.037      0.000
+     14        8      2.424      2.405      0.019      0.030      0.526
+     14        9      2.424      2.219      0.205      0.030      0.000
+     14        10      2.424      2.307      0.117      0.038      0.002
+     14        11      2.424      2.345      0.078      0.034      0.022
+     14        12      2.424      2.225      0.199      0.029      0.000
+     14        13      2.424      2.326      0.097      0.039      0.012
+     15        1      2.197      2.298     -0.101      0.033      0.003
+     15        2      2.197      2.510     -0.313      0.049      0.000
+     15        3      2.197      1.940      0.257      0.031      0.000
+     15        4      2.197      2.187      0.010      0.024      0.667
+     15        5      2.197      2.526     -0.329      0.038      0.000
+     15        6      2.197      2.630     -0.432      0.029      0.000
+     15        7      2.197      2.281     -0.083      0.036      0.019
+     15        8      2.197      2.405     -0.207      0.030      0.000
+     15        9      2.197      2.219     -0.022      0.027      0.422
+     15        10      2.197      2.307     -0.110      0.037      0.003
+     15        11      2.197      2.345     -0.148      0.031      0.000
+     15        12      2.197      2.225     -0.028      0.026      0.279
+     15        13      2.197      2.326     -0.129      0.038      0.001
+     15        14      2.197      2.424     -0.227      0.027      0.000
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 7 8 10 11 13 14
+ Weighted Average Value Across Invariant Groups:       2.378
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      2.298     -0.081      0.028      0.004
+     2      2.510      0.132      0.042      0.002
+     7      2.281     -0.098      0.031      0.002
+     8      2.405      0.026      0.024      0.265
+     10      2.307     -0.072      0.032      0.027
+     11      2.345     -0.033      0.026      0.205
+     13      2.326     -0.052      0.030      0.086
+     14      2.424      0.045      0.020      0.024
+
+
+
+ Loadings
+ Loadings for ANXMAT
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1     -0.316     -0.334      0.018      0.043      0.666
+     3         1     -0.472     -0.334     -0.138      0.053      0.010
+     3         2     -0.472     -0.316     -0.156      0.048      0.001
+     4         1     -0.329     -0.334      0.005      0.038      0.894
+     4         2     -0.329     -0.316     -0.013      0.033      0.685
+     4         3     -0.329     -0.472      0.143      0.045      0.001
+     5         1     -0.383     -0.334     -0.049      0.044      0.265
+     5         2     -0.383     -0.316     -0.067      0.038      0.077
+     5         3     -0.383     -0.472      0.089      0.045      0.050
+     5         4     -0.383     -0.329     -0.054      0.034      0.111
+     6         1     -0.487     -0.334     -0.153      0.045      0.001
+     6         2     -0.487     -0.316     -0.172      0.039      0.000
+     6         3     -0.487     -0.472     -0.015      0.042      0.714
+     6         4     -0.487     -0.329     -0.158      0.035      0.000
+     6         5     -0.487     -0.383     -0.104      0.036      0.004
+     7         1     -0.260     -0.334      0.074      0.056      0.186
+     7         2     -0.260     -0.316      0.055      0.051      0.280
+     7         3     -0.260     -0.472      0.211      0.059      0.000
+     7         4     -0.260     -0.329      0.068      0.049      0.160
+     7         5     -0.260     -0.383      0.122      0.052      0.018
+     7         6     -0.260     -0.487      0.227      0.053      0.000
+     8         1     -0.269     -0.334      0.065      0.044      0.142
+     8         2     -0.269     -0.316      0.046      0.038      0.229
+     8         3     -0.269     -0.472      0.202      0.049      0.000
+     8         4     -0.269     -0.329      0.059      0.035      0.085
+     8         5     -0.269     -0.383      0.113      0.039      0.004
+     8         6     -0.269     -0.487      0.218      0.040      0.000
+     8         7     -0.269     -0.260     -0.009      0.050      0.857
+     9         1     -0.402     -0.334     -0.068      0.051      0.182
+     9         2     -0.402     -0.316     -0.086      0.044      0.048
+     9         3     -0.402     -0.472      0.070      0.050      0.157
+     9         4     -0.402     -0.329     -0.073      0.040      0.069
+     9         5     -0.402     -0.383     -0.019      0.040      0.640
+     9         6     -0.402     -0.487      0.086      0.041      0.035
+     9         7     -0.402     -0.260     -0.141      0.056      0.012
+     9         8     -0.402     -0.269     -0.132      0.044      0.003
+     10        1     -0.367     -0.334     -0.033      0.058      0.574
+     10        2     -0.367     -0.316     -0.051      0.054      0.348
+     10        3     -0.367     -0.472      0.105      0.060      0.082
+     10        4     -0.367     -0.329     -0.038      0.051      0.462
+     10        5     -0.367     -0.383      0.016      0.052      0.758
+     10        6     -0.367     -0.487      0.120      0.054      0.025
+     10        7     -0.367     -0.260     -0.106      0.065      0.099
+     10        8     -0.367     -0.269     -0.097      0.055      0.079
+     10        9     -0.367     -0.402      0.035      0.057      0.542
+     11        1     -0.249     -0.334      0.085      0.057      0.133
+     11        2     -0.249     -0.316      0.067      0.052      0.202
+     11        3     -0.249     -0.472      0.223      0.060      0.000
+     11        4     -0.249     -0.329      0.080      0.050      0.107
+     11        5     -0.249     -0.383      0.134      0.053      0.011
+     11        6     -0.249     -0.487      0.238      0.054      0.000
+     11        7     -0.249     -0.260      0.012      0.062      0.851
+     11        8     -0.249     -0.269      0.021      0.051      0.688
+     11        9     -0.249     -0.402      0.153      0.057      0.007
+     11        10     -0.249     -0.367      0.118      0.065      0.071
+     12        1     -0.258     -0.334      0.076      0.046      0.100
+     12        2     -0.258     -0.316      0.058      0.041      0.156
+     12        3     -0.258     -0.472      0.214      0.051      0.000
+     12        4     -0.258     -0.329      0.071      0.037      0.057
+     12        5     -0.258     -0.383      0.125      0.042      0.003
+     12        6     -0.258     -0.487      0.229      0.043      0.000
+     12        7     -0.258     -0.260      0.003      0.053      0.961
+     12        8     -0.258     -0.269      0.012      0.040      0.773
+     12        9     -0.258     -0.402      0.144      0.047      0.002
+     12        10     -0.258     -0.367      0.109      0.057      0.056
+     12        11     -0.258     -0.249     -0.009      0.054      0.867
+     13        1     -0.337     -0.334     -0.003      0.045      0.952
+     13        2     -0.337     -0.316     -0.021      0.042      0.615
+     13        3     -0.337     -0.472      0.135      0.051      0.008
+     13        4     -0.337     -0.329     -0.008      0.038      0.835
+     13        5     -0.337     -0.383      0.046      0.043      0.283
+     13        6     -0.337     -0.487      0.150      0.044      0.001
+     13        7     -0.337     -0.260     -0.076      0.055      0.165
+     13        8     -0.337     -0.269     -0.067      0.043      0.121
+     13        9     -0.337     -0.402      0.065      0.047      0.168
+     13        10     -0.337     -0.367      0.030      0.057      0.597
+     13        11     -0.337     -0.249     -0.088      0.056      0.116
+     13        12     -0.337     -0.258     -0.079      0.045      0.082
+     14        1     -0.415     -0.334     -0.081      0.043      0.062
+     14        2     -0.415     -0.316     -0.099      0.037      0.007
+     14        3     -0.415     -0.472      0.057      0.044      0.196
+     14        4     -0.415     -0.329     -0.086      0.033      0.009
+     14        5     -0.415     -0.383     -0.032      0.035      0.355
+     14        6     -0.415     -0.487      0.072      0.034      0.035
+     14        7     -0.415     -0.260     -0.155      0.051      0.003
+     14        8     -0.415     -0.269     -0.146      0.038      0.000
+     14        9     -0.415     -0.402     -0.013      0.039      0.730
+     14        10     -0.415     -0.367     -0.048      0.053      0.363
+     14        11     -0.415     -0.249     -0.166      0.052      0.001
+     14        12     -0.415     -0.258     -0.157      0.041      0.000
+     14        13     -0.415     -0.337     -0.078      0.042      0.063
+     15        1     -0.440     -0.334     -0.106      0.043      0.014
+     15        2     -0.440     -0.316     -0.124      0.037      0.001
+     15        3     -0.440     -0.472      0.032      0.042      0.448
+     15        4     -0.440     -0.329     -0.111      0.033      0.001
+     15        5     -0.440     -0.383     -0.057      0.035      0.102
+     15        6     -0.440     -0.487      0.047      0.033      0.149
+     15        7     -0.440     -0.260     -0.179      0.051      0.000
+     15        8     -0.440     -0.269     -0.170      0.038      0.000
+     15        9     -0.440     -0.402     -0.038      0.039      0.326
+     15        10     -0.440     -0.367     -0.073      0.053      0.170
+     15        11     -0.440     -0.249     -0.191      0.052      0.000
+     15        12     -0.440     -0.258     -0.182      0.041      0.000
+     15        13     -0.440     -0.337     -0.103      0.042      0.014
+     15        14     -0.440     -0.415     -0.025      0.032      0.438
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 4 5 7 8 9 10 11 12
+ 13
+ Weighted Average Value Across Invariant Groups:      -0.322
+ R-square/Explained variance/Invariance index:       0.257
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1     -0.334     -0.012      0.033      0.709
+     2     -0.316      0.006      0.025      0.810
+     4     -0.329     -0.007      0.019      0.706
+     5     -0.383     -0.061      0.026      0.018
+     7     -0.260      0.061      0.043      0.150
+     8     -0.269      0.052      0.027      0.049
+     9     -0.402     -0.080      0.032      0.012
+     10     -0.367     -0.045      0.046      0.327
+     11     -0.249      0.073      0.043      0.089
+     12     -0.258      0.064      0.029      0.030
+     13     -0.337     -0.015      0.031      0.625
+
+ Loadings for MATHEFF
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.676      0.589      0.087      0.060      0.145
+     3         1      0.598      0.589      0.009      0.050      0.857
+     3         2      0.598      0.676     -0.078      0.070      0.265
+     4         1      0.604      0.589      0.014      0.032      0.658
+     4         2      0.604      0.676     -0.073      0.058      0.212
+     4         3      0.604      0.598      0.005      0.050      0.916
+     5         1      0.510      0.589     -0.079      0.040      0.048
+     5         2      0.510      0.676     -0.166      0.062      0.007
+     5         3      0.510      0.598     -0.088      0.057      0.121
+     5         4      0.510      0.604     -0.094      0.037      0.011
+     6         1      0.618      0.589      0.029      0.035      0.413
+     6         2      0.618      0.676     -0.058      0.057      0.304
+     6         3      0.618      0.598      0.020      0.052      0.706
+     6         4      0.618      0.604      0.014      0.030      0.634
+     6         5      0.618      0.510      0.108      0.038      0.004
+     7         1      0.621      0.589      0.031      0.052      0.546
+     7         2      0.621      0.676     -0.056      0.069      0.420
+     7         3      0.621      0.598      0.022      0.065      0.734
+     7         4      0.621      0.604      0.017      0.050      0.737
+     7         5      0.621      0.510      0.110      0.055      0.044
+     7         6      0.621      0.618      0.002      0.050      0.961
+     8         1      0.770      0.589      0.181      0.046      0.000
+     8         2      0.770      0.676      0.094      0.055      0.089
+     8         3      0.770      0.598      0.172      0.057      0.003
+     8         4      0.770      0.604      0.166      0.040      0.000
+     8         5      0.770      0.510      0.260      0.044      0.000
+     8         6      0.770      0.618      0.152      0.038      0.000
+     8         7      0.770      0.621      0.149      0.056      0.007
+     9         1      0.580      0.589     -0.009      0.044      0.838
+     9         2      0.580      0.676     -0.096      0.070      0.170
+     9         3      0.580      0.598     -0.018      0.064      0.779
+     9         4      0.580      0.604     -0.023      0.049      0.633
+     9         5      0.580      0.510      0.070      0.054      0.191
+     9         6      0.580      0.618     -0.038      0.051      0.463
+     9         7      0.580      0.621     -0.040      0.064      0.532
+     9         8      0.580      0.770     -0.190      0.060      0.002
+     10        1      0.670      0.589      0.080      0.060      0.180
+     10        2      0.670      0.676     -0.007      0.073      0.925
+     10        3      0.670      0.598      0.071      0.072      0.324
+     10        4      0.670      0.604      0.066      0.057      0.248
+     10        5      0.670      0.510      0.160      0.062      0.010
+     10        6      0.670      0.618      0.051      0.056      0.359
+     10        7      0.670      0.621      0.049      0.070      0.485
+     10        8      0.670      0.770     -0.100      0.057      0.081
+     10        9      0.670      0.580      0.089      0.071      0.208
+     11        1      0.687      0.589      0.098      0.061      0.111
+     11        2      0.687      0.676      0.011      0.069      0.879
+     11        3      0.687      0.598      0.089      0.070      0.208
+     11        4      0.687      0.604      0.083      0.058      0.152
+     11        5      0.687      0.510      0.177      0.062      0.004
+     11        6      0.687      0.618      0.069      0.057      0.227
+     11        7      0.687      0.621      0.066      0.070      0.344
+     11        8      0.687      0.770     -0.083      0.053      0.119
+     11        9      0.687      0.580      0.107      0.072      0.140
+     11        10      0.687      0.670      0.017      0.073      0.813
+     12        1      0.654      0.589      0.064      0.041      0.118
+     12        2      0.654      0.676     -0.023      0.059      0.699
+     12        3      0.654      0.598      0.055      0.057      0.332
+     12        4      0.654      0.604      0.050      0.036      0.171
+     12        5      0.654      0.510      0.144      0.042      0.001
+     12        6      0.654      0.618      0.035      0.035      0.311
+     12        7      0.654      0.621      0.033      0.054      0.542
+     12        8      0.654      0.770     -0.116      0.039      0.003
+     12        9      0.654      0.580      0.073      0.056      0.189
+     12        10      0.654      0.670     -0.016      0.058      0.782
+     12        11      0.654      0.687     -0.033      0.059      0.570
+     13        1      0.465      0.589     -0.124      0.086      0.151
+     13        2      0.465      0.676     -0.211      0.099      0.033
+     13        3      0.465      0.598     -0.133      0.096      0.164
+     13        4      0.465      0.604     -0.139      0.086      0.106
+     13        5      0.465      0.510     -0.045      0.082      0.583
+     13        6      0.465      0.618     -0.153      0.086      0.077
+     13        7      0.465      0.621     -0.155      0.095      0.102
+     13        8      0.465      0.770     -0.305      0.088      0.001
+     13        9      0.465      0.580     -0.115      0.093      0.217
+     13        10      0.465      0.670     -0.204      0.098      0.038
+     13        11      0.465      0.687     -0.222      0.099      0.026
+     13        12      0.465      0.654     -0.188      0.087      0.030
+     14        1      0.549      0.589     -0.040      0.040      0.310
+     14        2      0.549      0.676     -0.127      0.063      0.044
+     14        3      0.549      0.598     -0.049      0.058      0.395
+     14        4      0.549      0.604     -0.055      0.039      0.155
+     14        5      0.549      0.510      0.039      0.043      0.366
+     14        6      0.549      0.618     -0.069      0.040      0.086
+     14        7      0.549      0.621     -0.072      0.057      0.211
+     14        8      0.549      0.770     -0.221      0.048      0.000
+     14        9      0.549      0.580     -0.031      0.055      0.569
+     14        10      0.549      0.670     -0.121      0.062      0.053
+     14        11      0.549      0.687     -0.138      0.064      0.031
+     14        12      0.549      0.654     -0.105      0.045      0.019
+     14        13      0.549      0.465      0.084      0.088      0.340
+     15        1      0.661      0.589      0.072      0.041      0.077
+     15        2      0.661      0.676     -0.015      0.056      0.786
+     15        3      0.661      0.598      0.063      0.056      0.261
+     15        4      0.661      0.604      0.057      0.035      0.104
+     15        5      0.661      0.510      0.151      0.041      0.000
+     15        6      0.661      0.618      0.043      0.034      0.201
+     15        7      0.661      0.621      0.041      0.053      0.445
+     15        8      0.661      0.770     -0.109      0.038      0.004
+     15        9      0.661      0.580      0.081      0.056      0.150
+     15        10      0.661      0.670     -0.008      0.056      0.879
+     15        11      0.661      0.687     -0.026      0.055      0.640
+     15        12      0.661      0.654      0.008      0.035      0.832
+     15        13      0.661      0.465      0.196      0.088      0.027
+     15        14      0.661      0.549      0.112      0.045      0.012
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 9 10 11
+ 12 13 14 15
+ Weighted Average Value Across Invariant Groups:       0.604
+ R-square/Explained variance/Invariance index:       0.615
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.589     -0.015      0.026      0.580
+     2      0.676      0.072      0.049      0.143
+     3      0.598     -0.005      0.045      0.903
+     4      0.604      0.000      0.022      0.993
+     5      0.510     -0.094      0.029      0.001
+     6      0.618      0.014      0.024      0.547
+     7      0.621      0.017      0.045      0.714
+     9      0.580     -0.023      0.043      0.586
+     10      0.670      0.066      0.052      0.205
+     11      0.687      0.083      0.051      0.104
+     12      0.654      0.050      0.029      0.082
+     13      0.465     -0.139      0.077      0.072
+     14      0.549     -0.055      0.032      0.090
+     15      0.661      0.057      0.026      0.029
+
+ Loadings for MATHEF21
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.560      0.462      0.098      0.047      0.037
+     3         1      0.563      0.462      0.101      0.044      0.021
+     3         2      0.563      0.560      0.003      0.054      0.954
+     4         1      0.479      0.462      0.016      0.028      0.562
+     4         2      0.479      0.560     -0.081      0.045      0.072
+     4         3      0.479      0.563     -0.084      0.043      0.048
+     5         1      0.424      0.462     -0.039      0.035      0.268
+     5         2      0.424      0.560     -0.136      0.048      0.005
+     5         3      0.424      0.563     -0.140      0.048      0.004
+     5         4      0.424      0.479     -0.055      0.031      0.073
+     6         1      0.505      0.462      0.043      0.031      0.170
+     6         2      0.505      0.560     -0.055      0.044      0.215
+     6         3      0.505      0.563     -0.058      0.044      0.190
+     6         4      0.505      0.479      0.027      0.027      0.320
+     6         5      0.505      0.424      0.082      0.032      0.011
+     7         1      0.625      0.462      0.163      0.049      0.001
+     7         2      0.625      0.560      0.065      0.058      0.259
+     7         3      0.625      0.563      0.062      0.057      0.280
+     7         4      0.625      0.479      0.146      0.047      0.002
+     7         5      0.625      0.424      0.201      0.051      0.000
+     7         6      0.625      0.505      0.120      0.047      0.011
+     8         1      0.568      0.462      0.106      0.034      0.002
+     8         2      0.568      0.560      0.008      0.040      0.842
+     8         3      0.568      0.563      0.005      0.043      0.910
+     8         4      0.568      0.479      0.089      0.029      0.002
+     8         5      0.568      0.424      0.144      0.033      0.000
+     8         6      0.568      0.505      0.062      0.028      0.028
+     8         7      0.568      0.625     -0.057      0.046      0.218
+     9         1      0.458      0.462     -0.005      0.039      0.900
+     9         2      0.458      0.560     -0.102      0.056      0.070
+     9         3      0.458      0.563     -0.106      0.056      0.057
+     9         4      0.458      0.479     -0.021      0.042      0.610
+     9         5      0.458      0.424      0.034      0.046      0.459
+     9         6      0.458      0.505     -0.048      0.045      0.284
+     9         7      0.458      0.625     -0.167      0.060      0.005
+     9         8      0.458      0.568     -0.110      0.048      0.021
+     10        1      0.499      0.462      0.037      0.050      0.463
+     10        2      0.499      0.560     -0.061      0.058      0.296
+     10        3      0.499      0.563     -0.064      0.059      0.282
+     10        4      0.499      0.479      0.020      0.048      0.671
+     10        5      0.499      0.424      0.075      0.052      0.143
+     10        6      0.499      0.505     -0.006      0.047      0.893
+     10        7      0.499      0.625     -0.126      0.062      0.043
+     10        8      0.499      0.568     -0.069      0.047      0.141
+     10        9      0.499      0.458      0.042      0.059      0.484
+     11        1      0.562      0.462      0.100      0.048      0.039
+     11        2      0.562      0.560      0.002      0.052      0.970
+     11        3      0.562      0.563     -0.001      0.054      0.982
+     11        4      0.562      0.479      0.083      0.045      0.067
+     11        5      0.562      0.424      0.138      0.049      0.004
+     11        6      0.562      0.505      0.056      0.045      0.206
+     11        7      0.562      0.625     -0.063      0.058      0.279
+     11        8      0.562      0.568     -0.006      0.039      0.878
+     11        9      0.562      0.458      0.104      0.058      0.074
+     11        10      0.562      0.499      0.063      0.059      0.289
+     12        1      0.518      0.462      0.056      0.035      0.111
+     12        2      0.518      0.560     -0.042      0.046      0.357
+     12        3      0.518      0.563     -0.045      0.046      0.330
+     12        4      0.518      0.479      0.039      0.031      0.203
+     12        5      0.518      0.424      0.094      0.035      0.007
+     12        6      0.518      0.505      0.012      0.030      0.677
+     12        7      0.518      0.625     -0.107      0.049      0.030
+     12        8      0.518      0.568     -0.050      0.030      0.097
+     12        9      0.518      0.458      0.060      0.047      0.202
+     12        10      0.518      0.499      0.019      0.049      0.699
+     12        11      0.518      0.562     -0.044      0.046      0.340
+     13        1      0.412      0.462     -0.050      0.072      0.487
+     13        2      0.412      0.560     -0.148      0.079      0.062
+     13        3      0.412      0.563     -0.151      0.079      0.057
+     13        4      0.412      0.479     -0.066      0.070      0.344
+     13        5      0.412      0.424     -0.011      0.067      0.868
+     13        6      0.412      0.505     -0.093      0.071      0.191
+     13        7      0.412      0.625     -0.213      0.081      0.009
+     13        8      0.412      0.568     -0.155      0.070      0.026
+     13        9      0.412      0.458     -0.045      0.078      0.560
+     13        10      0.412      0.499     -0.087      0.081      0.284
+     13        11      0.412      0.562     -0.149      0.080      0.061
+     13        12      0.412      0.518     -0.105      0.071      0.137
+     14        1      0.479      0.462      0.017      0.035      0.626
+     14        2      0.479      0.560     -0.081      0.049      0.100
+     14        3      0.479      0.563     -0.084      0.049      0.086
+     14        4      0.479      0.479      0.000      0.032      0.990
+     14        5      0.479      0.424      0.056      0.036      0.126
+     14        6      0.479      0.505     -0.026      0.034      0.443
+     14        7      0.479      0.625     -0.146      0.053      0.006
+     14        8      0.479      0.568     -0.089      0.035      0.012
+     14        9      0.479      0.458      0.022      0.048      0.648
+     14        10      0.479      0.499     -0.020      0.051      0.700
+     14        11      0.479      0.562     -0.083      0.050      0.099
+     14        12      0.479      0.518     -0.039      0.037      0.293
+     14        13      0.479      0.412      0.067      0.072      0.356
+     15        1      0.528      0.462      0.066      0.035      0.058
+     15        2      0.528      0.560     -0.032      0.044      0.468
+     15        3      0.528      0.563     -0.035      0.046      0.447
+     15        4      0.528      0.479      0.049      0.030      0.101
+     15        5      0.528      0.424      0.105      0.035      0.003
+     15        6      0.528      0.505      0.023      0.029      0.433
+     15        7      0.528      0.625     -0.097      0.048      0.045
+     15        8      0.528      0.568     -0.040      0.029      0.172
+     15        9      0.528      0.458      0.071      0.048      0.140
+     15        10      0.528      0.499      0.029      0.048      0.538
+     15        11      0.528      0.562     -0.034      0.043      0.438
+     15        12      0.528      0.518      0.010      0.030      0.731
+     15        13      0.528      0.412      0.116      0.072      0.109
+     15        14      0.528      0.479      0.049      0.037      0.186
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 8 9 10
+ 11 12 13 14 15
+ Weighted Average Value Across Invariant Groups:       0.505
+ R-square/Explained variance/Invariance index:       0.613
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.462     -0.042      0.024      0.073
+     2      0.560      0.055      0.037      0.138
+     3      0.563      0.058      0.037      0.120
+     4      0.479     -0.026      0.019      0.165
+     5      0.424     -0.081      0.025      0.001
+     6      0.505      0.001      0.021      0.975
+     7      0.625      0.120      0.043      0.005
+     8      0.568      0.063      0.020      0.002
+     9      0.458     -0.047      0.038      0.210
+     10      0.499     -0.006      0.043      0.895
+     11      0.562      0.057      0.039      0.140
+     12      0.518      0.013      0.023      0.576
+     13      0.412     -0.092      0.063      0.146
+     14      0.479     -0.026      0.027      0.347
+     15      0.528      0.024      0.022      0.281
+
+ Loadings for MATHPERS
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.392      0.396     -0.004      0.039      0.920
+     3         1      0.439      0.396      0.043      0.043      0.308
+     3         2      0.439      0.392      0.047      0.032      0.140
+     4         1      0.340      0.396     -0.056      0.037      0.128
+     4         2      0.340      0.392     -0.052      0.028      0.064
+     4         3      0.340      0.439     -0.100      0.030      0.001
+     5         1      0.462      0.396      0.067      0.042      0.116
+     5         2      0.462      0.392      0.070      0.031      0.024
+     5         3      0.462      0.439      0.023      0.029      0.431
+     5         4      0.462      0.340      0.123      0.029      0.000
+     6         1      0.316      0.396     -0.080      0.039      0.042
+     6         2      0.316      0.392     -0.076      0.031      0.015
+     6         3      0.316      0.439     -0.123      0.033      0.000
+     6         4      0.316      0.340     -0.023      0.027      0.389
+     6         5      0.316      0.462     -0.146      0.032      0.000
+     7         1      0.378      0.396     -0.018      0.047      0.706
+     7         2      0.378      0.392     -0.014      0.040      0.733
+     7         3      0.378      0.439     -0.061      0.042      0.148
+     7         4      0.378      0.340      0.039      0.039      0.317
+     7         5      0.378      0.462     -0.084      0.042      0.042
+     7         6      0.378      0.316      0.062      0.041      0.131
+     8         1      0.450      0.396      0.054      0.038      0.162
+     8         2      0.450      0.392      0.058      0.025      0.023
+     8         3      0.450      0.439      0.010      0.024      0.667
+     8         4      0.450      0.340      0.110      0.024      0.000
+     8         5      0.450      0.462     -0.013      0.021      0.551
+     8         6      0.450      0.316      0.134      0.027      0.000
+     8         7      0.450      0.378      0.071      0.038      0.057
+     9         1      0.391      0.396     -0.005      0.041      0.911
+     9         2      0.391      0.392     -0.001      0.036      0.985
+     9         3      0.391      0.439     -0.048      0.039      0.214
+     9         4      0.391      0.340      0.052      0.034      0.127
+     9         5      0.391      0.462     -0.071      0.039      0.065
+     9         6      0.391      0.316      0.075      0.037      0.042
+     9         7      0.391      0.378      0.013      0.045      0.771
+     9         8      0.391      0.450     -0.058      0.035      0.092
+     10        1      0.450      0.396      0.054      0.047      0.252
+     10        2      0.450      0.392      0.058      0.038      0.127
+     10        3      0.450      0.439      0.011      0.037      0.773
+     10        4      0.450      0.340      0.110      0.036      0.002
+     10        5      0.450      0.462     -0.012      0.037      0.735
+     10        6      0.450      0.316      0.134      0.039      0.001
+     10        7      0.450      0.378      0.072      0.047      0.130
+     10        8      0.450      0.450      0.000      0.030      0.991
+     10        9      0.450      0.391      0.059      0.044      0.181
+     11        1      0.354      0.396     -0.042      0.044      0.339
+     11        2      0.354      0.392     -0.038      0.036      0.290
+     11        3      0.354      0.439     -0.086      0.038      0.025
+     11        4      0.354      0.340      0.014      0.034      0.676
+     11        5      0.354      0.462     -0.109      0.037      0.003
+     11        6      0.354      0.316      0.038      0.037      0.306
+     11        7      0.354      0.378     -0.025      0.045      0.585
+     11        8      0.354      0.450     -0.096      0.033      0.004
+     11        9      0.354      0.391     -0.038      0.042      0.369
+     11        10      0.354      0.450     -0.096      0.044      0.027
+     12        1      0.461      0.396      0.065      0.042      0.123
+     12        2      0.461      0.392      0.069      0.031      0.027
+     12        3      0.461      0.439      0.021      0.030      0.472
+     12        4      0.461      0.340      0.121      0.029      0.000
+     12        5      0.461      0.462     -0.002      0.027      0.946
+     12        6      0.461      0.316      0.145      0.032      0.000
+     12        7      0.461      0.378      0.082      0.041      0.046
+     12        8      0.461      0.450      0.011      0.022      0.611
+     12        9      0.461      0.391      0.069      0.038      0.068
+     12        10      0.461      0.450      0.011      0.036      0.764
+     12        11      0.461      0.354      0.107      0.037      0.004
+     13        1      0.470      0.396      0.074      0.057      0.192
+     13        2      0.470      0.392      0.078      0.049      0.108
+     13        3      0.470      0.439      0.031      0.047      0.515
+     13        4      0.470      0.340      0.131      0.047      0.006
+     13        5      0.470      0.462      0.008      0.042      0.852
+     13        6      0.470      0.316      0.154      0.050      0.002
+     13        7      0.470      0.378      0.092      0.056      0.101
+     13        8      0.470      0.450      0.021      0.042      0.620
+     13        9      0.470      0.391      0.079      0.054      0.141
+     13        10      0.470      0.450      0.020      0.052      0.697
+     13        11      0.470      0.354      0.117      0.053      0.028
+     13        12      0.470      0.461      0.010      0.045      0.831
+     14        1      0.438      0.396      0.042      0.040      0.291
+     14        2      0.438      0.392      0.046      0.030      0.128
+     14        3      0.438      0.439     -0.001      0.029      0.969
+     14        4      0.438      0.340      0.099      0.028      0.000
+     14        5      0.438      0.462     -0.024      0.028      0.388
+     14        6      0.438      0.316      0.122      0.031      0.000
+     14        7      0.438      0.378      0.060      0.041      0.145
+     14        8      0.438      0.450     -0.011      0.022      0.605
+     14        9      0.438      0.391      0.047      0.037      0.211
+     14        10      0.438      0.450     -0.012      0.036      0.742
+     14        11      0.438      0.354      0.085      0.037      0.021
+     14        12      0.438      0.461     -0.022      0.028      0.423
+     14        13      0.438      0.470     -0.032      0.047      0.493
+     15        1      0.320      0.396     -0.076      0.038      0.045
+     15        2      0.320      0.392     -0.072      0.029      0.014
+     15        3      0.320      0.439     -0.120      0.031      0.000
+     15        4      0.320      0.340     -0.020      0.026      0.435
+     15        5      0.320      0.462     -0.143      0.030      0.000
+     15        6      0.320      0.316      0.004      0.028      0.899
+     15        7      0.320      0.378     -0.059      0.040      0.143
+     15        8      0.320      0.450     -0.130      0.025      0.000
+     15        9      0.320      0.391     -0.072      0.036      0.047
+     15        10      0.320      0.450     -0.130      0.037      0.000
+     15        11      0.320      0.354     -0.034      0.035      0.333
+     15        12      0.320      0.461     -0.141      0.030      0.000
+     15        13      0.320      0.470     -0.151      0.048      0.002
+     15        14      0.320      0.438     -0.119      0.030      0.000
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 5 7 8 9 10 11 12
+ 13 14
+ Weighted Average Value Across Invariant Groups:       0.426
+ R-square/Explained variance/Invariance index:       0.461
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.396     -0.030      0.033      0.355
+     2      0.392     -0.034      0.021      0.106
+     3      0.439      0.013      0.022      0.552
+     5      0.462      0.036      0.019      0.064
+     7      0.378     -0.048      0.034      0.160
+     8      0.450      0.023      0.013      0.064
+     9      0.391     -0.035      0.028      0.217
+     10      0.450      0.024      0.030      0.434
+     11      0.354     -0.073      0.029      0.013
+     12      0.461      0.034      0.020      0.082
+     13      0.470      0.044      0.039      0.257
+     14      0.438      0.012      0.019      0.542
+
+ Loadings for ST268Q04
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.480      0.787     -0.306      0.064      0.000
+     3         1      0.495      0.787     -0.292      0.071      0.000
+     3         2      0.495      0.480      0.014      0.064      0.822
+     4         1      0.542      0.787     -0.245      0.054      0.000
+     4         2      0.542      0.480      0.062      0.043      0.154
+     4         3      0.542      0.495      0.047      0.050      0.344
+     5         1      0.507      0.787     -0.279      0.052      0.000
+     5         2      0.507      0.480      0.027      0.043      0.528
+     5         3      0.507      0.495      0.013      0.047      0.787
+     5         4      0.507      0.542     -0.035      0.018      0.054
+     6         1      0.533      0.787     -0.253      0.054      0.000
+     6         2      0.533      0.480      0.053      0.044      0.232
+     6         3      0.533      0.495      0.039      0.048      0.426
+     6         4      0.533      0.542     -0.009      0.018      0.629
+     6         5      0.533      0.507      0.026      0.018      0.149
+     7         1      0.521      0.787     -0.266      0.055      0.000
+     7         2      0.521      0.480      0.041      0.047      0.389
+     7         3      0.521      0.495      0.026      0.052      0.610
+     7         4      0.521      0.542     -0.021      0.024      0.380
+     7         5      0.521      0.507      0.014      0.023      0.561
+     7         6      0.521      0.533     -0.012      0.024      0.608
+     8         1      0.420      0.787     -0.367      0.049      0.000
+     8         2      0.420      0.480     -0.060      0.048      0.211
+     8         3      0.420      0.495     -0.075      0.052      0.149
+     8         4      0.420      0.542     -0.122      0.025      0.000
+     8         5      0.420      0.507     -0.087      0.025      0.001
+     8         6      0.420      0.533     -0.113      0.025      0.000
+     8         7      0.420      0.521     -0.101      0.030      0.001
+     9         1      0.546      0.787     -0.240      0.064      0.000
+     9         2      0.546      0.480      0.066      0.054      0.221
+     9         3      0.546      0.495      0.052      0.058      0.371
+     9         4      0.546      0.542      0.005      0.034      0.895
+     9         5      0.546      0.507      0.039      0.033      0.234
+     9         6      0.546      0.533      0.013      0.033      0.688
+     9         7      0.546      0.521      0.025      0.037      0.497
+     9         8      0.546      0.420      0.126      0.038      0.001
+     10        1      0.496      0.787     -0.290      0.062      0.000
+     10        2      0.496      0.480      0.016      0.057      0.778
+     10        3      0.496      0.495      0.002      0.059      0.977
+     10        4      0.496      0.542     -0.046      0.039      0.249
+     10        5      0.496      0.507     -0.011      0.037      0.770
+     10        6      0.496      0.533     -0.037      0.040      0.357
+     10        7      0.496      0.521     -0.025      0.042      0.557
+     10        8      0.496      0.420      0.076      0.044      0.083
+     10        9      0.496      0.546     -0.050      0.049      0.305
+     11        1      0.498      0.787     -0.289      0.055      0.000
+     11        2      0.498      0.480      0.018      0.051      0.729
+     11        3      0.498      0.495      0.003      0.053      0.951
+     11        4      0.498      0.542     -0.044      0.027      0.102
+     11        5      0.498      0.507     -0.009      0.026      0.720
+     11        6      0.498      0.533     -0.035      0.027      0.188
+     11        7      0.498      0.521     -0.023      0.031      0.463
+     11        8      0.498      0.420      0.078      0.032      0.017
+     11        9      0.498      0.546     -0.049      0.039      0.210
+     11        10      0.498      0.496      0.001      0.044      0.973
+     12        1      0.483      0.787     -0.304      0.053      0.000
+     12        2      0.483      0.480      0.003      0.047      0.954
+     12        3      0.483      0.495     -0.012      0.051      0.819
+     12        4      0.483      0.542     -0.059      0.025      0.018
+     12        5      0.483      0.507     -0.024      0.025      0.324
+     12        6      0.483      0.533     -0.050      0.025      0.048
+     12        7      0.483      0.521     -0.038      0.030      0.199
+     12        8      0.483      0.420      0.063      0.029      0.030
+     12        9      0.483      0.546     -0.063      0.038      0.096
+     12        10      0.483      0.496     -0.013      0.044      0.760
+     12        11      0.483      0.498     -0.015      0.032      0.640
+     13        1      0.500      0.787     -0.287      0.054      0.000
+     13        2      0.500      0.480      0.020      0.044      0.656
+     13        3      0.500      0.495      0.005      0.049      0.911
+     13        4      0.500      0.542     -0.042      0.022      0.063
+     13        5      0.500      0.507     -0.007      0.024      0.766
+     13        6      0.500      0.533     -0.033      0.022      0.137
+     13        7      0.500      0.521     -0.021      0.027      0.437
+     13        8      0.500      0.420      0.080      0.030      0.007
+     13        9      0.500      0.546     -0.046      0.036      0.197
+     13        10      0.500      0.496      0.004      0.040      0.926
+     13        11      0.500      0.498      0.002      0.029      0.939
+     13        12      0.500      0.483      0.017      0.029      0.551
+     14        1      0.523      0.787     -0.264      0.055      0.000
+     14        2      0.523      0.480      0.043      0.046      0.351
+     14        3      0.523      0.495      0.029      0.050      0.569
+     14        4      0.523      0.542     -0.019      0.023      0.410
+     14        5      0.523      0.507      0.016      0.022      0.464
+     14        6      0.523      0.533     -0.010      0.022      0.647
+     14        7      0.523      0.521      0.002      0.026      0.932
+     14        8      0.523      0.420      0.103      0.029      0.000
+     14        9      0.523      0.546     -0.023      0.036      0.519
+     14        10      0.523      0.496      0.027      0.042      0.524
+     14        11      0.523      0.498      0.025      0.029      0.386
+     14        12      0.523      0.483      0.040      0.028      0.158
+     14        13      0.523      0.500      0.023      0.026      0.367
+     15        1      0.521      0.787     -0.265      0.054      0.000
+     15        2      0.521      0.480      0.041      0.047      0.381
+     15        3      0.521      0.495      0.027      0.049      0.588
+     15        4      0.521      0.542     -0.021      0.021      0.330
+     15        5      0.521      0.507      0.014      0.021      0.512
+     15        6      0.521      0.533     -0.012      0.022      0.582
+     15        7      0.521      0.521      0.000      0.026      0.992
+     15        8      0.521      0.420      0.101      0.027      0.000
+     15        9      0.521      0.546     -0.025      0.034      0.458
+     15        10      0.521      0.496      0.025      0.043      0.559
+     15        11      0.521      0.498      0.023      0.031      0.449
+     15        12      0.521      0.483      0.038      0.029      0.188
+     15        13      0.521      0.500      0.021      0.025      0.397
+     15        14      0.521      0.523     -0.002      0.024      0.934
+ Approximate Measurement Invariance Holds For Groups:
+ 2 3 4 5 6 7 9 10 11 12
+ 13 14 15
+ Weighted Average Value Across Invariant Groups:       0.514
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     2      0.480     -0.034      0.040      0.391
+     3      0.495     -0.020      0.044      0.655
+     4      0.542      0.028      0.013      0.038
+     5      0.507     -0.007      0.013      0.581
+     6      0.533      0.019      0.014      0.169
+     7      0.521      0.007      0.021      0.747
+     9      0.546      0.032      0.029      0.275
+     10      0.496     -0.018      0.037      0.626
+     11      0.498     -0.016      0.024      0.493
+     12      0.483     -0.031      0.021      0.140
+     13      0.500     -0.014      0.018      0.420
+     14      0.523      0.009      0.018      0.614
+     15      0.521      0.007      0.016      0.671
+
+ Loadings for ST268Q07
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.303      0.167      0.136      0.038      0.000
+     3         1      0.242      0.167      0.075      0.038      0.051
+     3         2      0.242      0.303     -0.061      0.026      0.019
+     4         1      0.409      0.167      0.242      0.044      0.000
+     4         2      0.409      0.303      0.106      0.023      0.000
+     4         3      0.409      0.242      0.167      0.029      0.000
+     5         1      0.304      0.167      0.137      0.039      0.000
+     5         2      0.304      0.303      0.001      0.020      0.974
+     5         3      0.304      0.242      0.062      0.026      0.019
+     5         4      0.304      0.409     -0.105      0.024      0.000
+     6         1      0.231      0.167      0.063      0.036      0.078
+     6         2      0.231      0.303     -0.073      0.023      0.002
+     6         3      0.231      0.242     -0.011      0.027      0.675
+     6         4      0.231      0.409     -0.178      0.027      0.000
+     6         5      0.231      0.304     -0.073      0.024      0.003
+     7         1      0.277      0.167      0.110      0.041      0.008
+     7         2      0.277      0.303     -0.026      0.028      0.340
+     7         3      0.277      0.242      0.035      0.032      0.271
+     7         4      0.277      0.409     -0.132      0.031      0.000
+     7         5      0.277      0.304     -0.027      0.029      0.343
+     7         6      0.277      0.231      0.046      0.030      0.121
+     8         1      0.260      0.167      0.093      0.036      0.010
+     8         2      0.260      0.303     -0.043      0.022      0.047
+     8         3      0.260      0.242      0.018      0.025      0.459
+     8         4      0.260      0.409     -0.148      0.025      0.000
+     8         5      0.260      0.304     -0.044      0.022      0.046
+     8         6      0.260      0.231      0.030      0.023      0.196
+     8         7      0.260      0.277     -0.016      0.027      0.549
+     9         1      0.193      0.167      0.026      0.036      0.478
+     9         2      0.193      0.303     -0.110      0.031      0.000
+     9         3      0.193      0.242     -0.049      0.033      0.139
+     9         4      0.193      0.409     -0.216      0.035      0.000
+     9         5      0.193      0.304     -0.111      0.032      0.001
+     9         6      0.193      0.231     -0.037      0.031      0.224
+     9         7      0.193      0.277     -0.084      0.036      0.018
+     9         8      0.193      0.260     -0.067      0.030      0.027
+     10        1      0.192      0.167      0.025      0.039      0.525
+     10        2      0.192      0.303     -0.111      0.031      0.000
+     10        3      0.192      0.242     -0.050      0.033      0.135
+     10        4      0.192      0.409     -0.217      0.035      0.000
+     10        5      0.192      0.304     -0.112      0.032      0.000
+     10        6      0.192      0.231     -0.039      0.031      0.218
+     10        7      0.192      0.277     -0.085      0.036      0.018
+     10        8      0.192      0.260     -0.068      0.030      0.023
+     10        9      0.192      0.193     -0.001      0.035      0.975
+     11        1      0.286      0.167      0.119      0.042      0.005
+     11        2      0.286      0.303     -0.017      0.029      0.554
+     11        3      0.286      0.242      0.044      0.033      0.185
+     11        4      0.286      0.409     -0.123      0.031      0.000
+     11        5      0.286      0.304     -0.018      0.029      0.539
+     11        6      0.286      0.231      0.055      0.031      0.074
+     11        7      0.286      0.277      0.009      0.034      0.789
+     11        8      0.286      0.260      0.026      0.030      0.391
+     11        9      0.286      0.193      0.093      0.037      0.012
+     11        10      0.286      0.192      0.094      0.037      0.011
+     12        1      0.281      0.167      0.113      0.038      0.003
+     12        2      0.281      0.303     -0.023      0.023      0.318
+     12        3      0.281      0.242      0.039      0.027      0.153
+     12        4      0.281      0.409     -0.128      0.026      0.000
+     12        5      0.281      0.304     -0.023      0.023      0.317
+     12        6      0.281      0.231      0.050      0.025      0.045
+     12        7      0.281      0.277      0.004      0.029      0.892
+     12        8      0.281      0.260      0.020      0.023      0.366
+     12        9      0.281      0.193      0.088      0.032      0.006
+     12        10      0.281      0.192      0.089      0.032      0.005
+     12        11      0.281      0.286     -0.005      0.030      0.864
+     13        1      0.320      0.167      0.153      0.048      0.002
+     13        2      0.320      0.303      0.017      0.033      0.613
+     13        3      0.320      0.242      0.078      0.038      0.039
+     13        4      0.320      0.409     -0.089      0.036      0.013
+     13        5      0.320      0.304      0.016      0.032      0.613
+     13        6      0.320      0.231      0.090      0.037      0.014
+     13        7      0.320      0.277      0.043      0.039      0.272
+     13        8      0.320      0.260      0.060      0.034      0.081
+     13        9      0.320      0.193      0.127      0.042      0.003
+     13        10      0.320      0.192      0.128      0.042      0.002
+     13        11      0.320      0.286      0.034      0.040      0.392
+     13        12      0.320      0.281      0.039      0.035      0.263
+     14        1      0.180      0.167      0.012      0.033      0.708
+     14        2      0.180      0.303     -0.124      0.025      0.000
+     14        3      0.180      0.242     -0.062      0.028      0.025
+     14        4      0.180      0.409     -0.229      0.030      0.000
+     14        5      0.180      0.304     -0.124      0.026      0.000
+     14        6      0.180      0.231     -0.051      0.025      0.044
+     14        7      0.180      0.277     -0.097      0.031      0.002
+     14        8      0.180      0.260     -0.081      0.024      0.001
+     14        9      0.180      0.193     -0.013      0.030      0.651
+     14        10      0.180      0.192     -0.012      0.031      0.688
+     14        11      0.180      0.286     -0.106      0.032      0.001
+     14        12      0.180      0.281     -0.101      0.026      0.000
+     14        13      0.180      0.320     -0.140      0.038      0.000
+     15        1      0.250      0.167      0.083      0.036      0.020
+     15        2      0.250      0.303     -0.053      0.021      0.013
+     15        3      0.250      0.242      0.008      0.025      0.737
+     15        4      0.250      0.409     -0.159      0.025      0.000
+     15        5      0.250      0.304     -0.054      0.022      0.015
+     15        6      0.250      0.231      0.020      0.022      0.383
+     15        7      0.250      0.277     -0.027      0.028      0.340
+     15        8      0.250      0.260     -0.010      0.020      0.606
+     15        9      0.250      0.193      0.057      0.030      0.058
+     15        10      0.250      0.192      0.058      0.030      0.053
+     15        11      0.250      0.286     -0.036      0.029      0.225
+     15        12      0.250      0.281     -0.031      0.023      0.179
+     15        13      0.250      0.320     -0.070      0.035      0.046
+     15        14      0.250      0.180      0.071      0.024      0.003
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 5 6 7 8 9 10 11
+ 12 13 15
+ Weighted Average Value Across Invariant Groups:       0.257
+ R-square/Explained variance/Invariance index:       0.265
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.167     -0.089      0.031      0.004
+     2      0.303      0.047      0.015      0.002
+     3      0.242     -0.015      0.020      0.456
+     5      0.304      0.047      0.016      0.003
+     6      0.231     -0.026      0.017      0.131
+     7      0.277      0.020      0.023      0.391
+     8      0.260      0.004      0.015      0.802
+     9      0.193     -0.064      0.024      0.009
+     10      0.192     -0.065      0.026      0.012
+     11      0.286      0.029      0.025      0.237
+     12      0.281      0.024      0.017      0.156
+     13      0.320      0.063      0.029      0.031
+     15      0.250     -0.006      0.014      0.634
+
+ Loadings for ST268Q01
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.512      0.811     -0.299      0.071      0.000
+     3         1      0.442      0.811     -0.368      0.072      0.000
+     3         2      0.442      0.512     -0.070      0.069      0.311
+     4         1      0.544      0.811     -0.266      0.057      0.000
+     4         2      0.544      0.512      0.032      0.048      0.503
+     4         3      0.544      0.442      0.102      0.054      0.059
+     5         1      0.571      0.811     -0.240      0.059      0.000
+     5         2      0.571      0.512      0.059      0.047      0.210
+     5         3      0.571      0.442      0.129      0.051      0.011
+     5         4      0.571      0.544      0.027      0.021      0.201
+     6         1      0.548      0.811     -0.263      0.057      0.000
+     6         2      0.548      0.512      0.036      0.048      0.461
+     6         3      0.548      0.442      0.105      0.052      0.043
+     6         4      0.548      0.544      0.004      0.021      0.864
+     6         5      0.548      0.571     -0.023      0.020      0.241
+     7         1      0.543      0.811     -0.268      0.061      0.000
+     7         2      0.543      0.512      0.031      0.053      0.560
+     7         3      0.543      0.442      0.100      0.056      0.075
+     7         4      0.543      0.544     -0.001      0.029      0.960
+     7         5      0.543      0.571     -0.028      0.028      0.309
+     7         6      0.543      0.548     -0.005      0.028      0.858
+     8         1      0.475      0.811     -0.336      0.055      0.000
+     8         2      0.475      0.512     -0.038      0.053      0.474
+     8         3      0.475      0.442      0.032      0.054      0.552
+     8         4      0.475      0.544     -0.070      0.027      0.009
+     8         5      0.475      0.571     -0.097      0.027      0.000
+     8         6      0.475      0.548     -0.073      0.026      0.005
+     8         7      0.475      0.543     -0.068      0.033      0.039
+     9         1      0.619      0.811     -0.192      0.072      0.008
+     9         2      0.619      0.512      0.107      0.060      0.076
+     9         3      0.619      0.442      0.176      0.064      0.006
+     9         4      0.619      0.544      0.074      0.040      0.063
+     9         5      0.619      0.571      0.048      0.037      0.194
+     9         6      0.619      0.548      0.071      0.038      0.060
+     9         7      0.619      0.543      0.076      0.044      0.083
+     9         8      0.619      0.475      0.144      0.042      0.001
+     10        1      0.568      0.811     -0.243      0.070      0.001
+     10        2      0.568      0.512      0.056      0.063      0.374
+     10        3      0.568      0.442      0.125      0.064      0.050
+     10        4      0.568      0.544      0.023      0.044      0.591
+     10        5      0.568      0.571     -0.003      0.041      0.936
+     10        6      0.568      0.548      0.020      0.044      0.648
+     10        7      0.568      0.543      0.025      0.047      0.596
+     10        8      0.568      0.475      0.093      0.048      0.051
+     10        9      0.568      0.619     -0.051      0.054      0.342
+     11        1      0.552      0.811     -0.258      0.062      0.000
+     11        2      0.552      0.512      0.040      0.057      0.479
+     11        3      0.552      0.442      0.110      0.058      0.057
+     11        4      0.552      0.544      0.008      0.031      0.797
+     11        5      0.552      0.571     -0.019      0.030      0.532
+     11        6      0.552      0.548      0.004      0.030      0.886
+     11        7      0.552      0.543      0.009      0.037      0.799
+     11        8      0.552      0.475      0.078      0.037      0.035
+     11        9      0.552      0.619     -0.067      0.044      0.130
+     11        10      0.552      0.568     -0.016      0.049      0.751
+     12        1      0.546      0.811     -0.264      0.061      0.000
+     12        2      0.546      0.512      0.034      0.052      0.514
+     12        3      0.546      0.442      0.104      0.055      0.059
+     12        4      0.546      0.544      0.002      0.029      0.947
+     12        5      0.546      0.571     -0.025      0.028      0.372
+     12        6      0.546      0.548     -0.002      0.028      0.954
+     12        7      0.546      0.543      0.003      0.034      0.922
+     12        8      0.546      0.475      0.072      0.032      0.026
+     12        9      0.546      0.619     -0.073      0.043      0.091
+     12        10      0.546      0.568     -0.022      0.048      0.656
+     12        11      0.546      0.552     -0.006      0.037      0.870
+     13        1      0.581      0.811     -0.230      0.063      0.000
+     13        2      0.581      0.512      0.069      0.050      0.165
+     13        3      0.581      0.442      0.139      0.053      0.009
+     13        4      0.581      0.544      0.037      0.027      0.180
+     13        5      0.581      0.571      0.010      0.028      0.716
+     13        6      0.581      0.548      0.033      0.026      0.197
+     13        7      0.581      0.543      0.038      0.032      0.237
+     13        8      0.581      0.475      0.107      0.033      0.001
+     13        9      0.581      0.619     -0.038      0.040      0.350
+     13        10      0.581      0.568      0.013      0.045      0.765
+     13        11      0.581      0.552      0.029      0.034      0.400
+     13        12      0.581      0.546      0.035      0.033      0.293
+     14        1      0.601      0.811     -0.209      0.063      0.001
+     14        2      0.601      0.512      0.089      0.051      0.080
+     14        3      0.601      0.442      0.159      0.054      0.003
+     14        4      0.601      0.544      0.057      0.027      0.034
+     14        5      0.601      0.571      0.030      0.024      0.213
+     14        6      0.601      0.548      0.054      0.025      0.033
+     14        7      0.601      0.543      0.059      0.032      0.064
+     14        8      0.601      0.475      0.127      0.032      0.000
+     14        9      0.601      0.619     -0.017      0.040      0.662
+     14        10      0.601      0.568      0.034      0.046      0.467
+     14        11      0.601      0.552      0.049      0.034      0.146
+     14        12      0.601      0.546      0.055      0.032      0.089
+     14        13      0.601      0.581      0.020      0.029      0.487
+     15        1      0.502      0.811     -0.309      0.057      0.000
+     15        2      0.502      0.512     -0.010      0.052      0.846
+     15        3      0.502      0.442      0.060      0.053      0.263
+     15        4      0.502      0.544     -0.042      0.026      0.102
+     15        5      0.502      0.571     -0.069      0.026      0.007
+     15        6      0.502      0.548     -0.046      0.025      0.072
+     15        7      0.502      0.543     -0.041      0.032      0.204
+     15        8      0.502      0.475      0.028      0.029      0.336
+     15        9      0.502      0.619     -0.117      0.041      0.004
+     15        10      0.502      0.568     -0.066      0.048      0.168
+     15        11      0.502      0.552     -0.050      0.036      0.167
+     15        12      0.502      0.546     -0.044      0.034      0.191
+     15        13      0.502      0.581     -0.079      0.031      0.010
+     15        14      0.502      0.601     -0.099      0.029      0.001
+ Approximate Measurement Invariance Holds For Groups:
+ 2 3 4 5 6 7 8 9 10 11
+ 12 13 14 15
+ Weighted Average Value Across Invariant Groups:       0.541
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     2      0.512     -0.029      0.044      0.505
+     3      0.442     -0.099      0.047      0.036
+     4      0.544      0.003      0.016      0.852
+     5      0.571      0.030      0.014      0.034
+     6      0.548      0.006      0.015      0.665
+     7      0.543      0.001      0.025      0.952
+     8      0.475     -0.067      0.022      0.003
+     9      0.619      0.077      0.034      0.021
+     10      0.568      0.026      0.040      0.513
+     11      0.552      0.011      0.028      0.694
+     12      0.546      0.005      0.024      0.838
+     13      0.581      0.040      0.021      0.059
+     14      0.601      0.060      0.020      0.003
+     15      0.502     -0.039      0.020      0.048
+
+ Average Invariance index:       0.336
+
+
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              MATH_DIS
+              ________
+               -0.315
+
+
+           Covariances
+              MATH_DIS
+              ________
+ MATH_DIS       1.356
+
+
+           Correlations
+              MATH_DIS
+              ________
+ MATH_DIS       1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    D:/essay/resilient_student/dataset/mplus_data/math_dispo_scores_imp4.dat
+
+  Order of variables
+
+    ANXMAT
+    MATHEFF
+    MATHEF21
+    MATHPERS
+    ST268Q04
+    ST268Q07
+    ST268Q01
+    MATH_DISPO
+    CNTSTUID
+    CNT
+
+
+  Save file format           Free
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    d:\essay\resilient_student\dataset\mplus_data\alignment_imp4_math_dispo.dgm
+
+     Beginning Time:  15:17:42
+        Ending Time:  15:17:46
+       Elapsed Time:  00:00:04
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen
