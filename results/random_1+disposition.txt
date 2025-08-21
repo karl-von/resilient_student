@@ -1,0 +1,113 @@
+ formula.random = ~1 + Math_Disposition
+
+
+
+
+Multiple imputation results:
+      MIcombine.default(results = lapply(pooled_by_imp, coef), variances = lapply(pooled_by_imp, 
+    vcov))
+                                     results          se
+beta_(Intercept)                -0.774339336 0.142837032
+beta_ESCS                        0.048846585 0.040435343
+beta_FEMALE                     -0.034730635 0.070130526
+beta_IMMIG                      -0.044469091 0.059751065
+beta_REPEAT                     -0.440866949 0.119397965
+beta_Math_Disposition            0.271935282 0.031740051
+beta_Teacher_Classroom_Exp      -0.076079446 0.035508217
+Var_(Intercept)                  0.157053340 0.026624346
+Cov_(Intercept)Math_Disposition  0.018412024 0.009076490
+Cor_Math_Disposition(Intercept)  0.504227482 0.168434970
+Var_Math_Disposition             0.008476623 0.008425786
+ResidVar                         0.470036406 0.021044715
+ExplVar_Lev2_Fixed              -0.015925393 0.068634992
+ExplVar_Lev2_Random             -0.001795375 0.009889395
+ResidVar_Lev2                    0.144744155 0.023577115
+ExplVar_Lev1_Fixed               0.348193424 0.581252824
+ExplVar_Lev1_Random              0.039423602 0.103287550
+ResidVar_Lev1                    0.470036406 0.021044715
+Var_Total                        0.984676819 0.595465333
+R2_Lev2                         -0.139744266 0.767016825
+R2_Lev1                          0.451783723 0.391063876
+R2_Total                         0.375546776 0.346653078
+ICC_Uncond                       0.129040100 0.131726757
+ICC_UncondWB                     0.036695061 0.189118230
+ICC_Cond                         0.235428276 0.034360362
+                                       (lower       upper) missInfo
+beta_(Intercept)                -1.0543903313 -0.494288340      3 %
+beta_ESCS                       -0.0304052508  0.128098421      0 %
+beta_FEMALE                     -0.1721839926  0.102722722      0 %
+beta_IMMIG                      -0.1615990425  0.072660860      2 %
+beta_REPEAT                     -0.6749654782 -0.206768419      3 %
+beta_Math_Disposition            0.2084004040  0.335470159     29 %
+beta_Teacher_Classroom_Exp      -0.1459171779 -0.006241714     11 %
+Var_(Intercept)                  0.1048458574  0.209260823      4 %
+Cov_(Intercept)Math_Disposition  0.0005339321  0.036290115     13 %
+Cor_Math_Disposition(Intercept)  0.1737229565  0.834732007      6 %
+Var_Math_Disposition            -0.0080436085  0.024996854      4 %
+ResidVar                         0.4287435090  0.511329303      6 %
+ExplVar_Lev2_Fixed              -0.1504475177  0.118596733      0 %
+ExplVar_Lev2_Random             -0.0211782330  0.017587482      0 %
+ResidVar_Lev2                    0.0985318978  0.190956413      1 %
+ExplVar_Lev1_Fixed              -0.7910417263  1.487428574      0 %
+ExplVar_Lev1_Random             -0.1630163028  0.241863507      0 %
+ResidVar_Lev1                    0.4287435090  0.511329303      6 %
+Var_Total                       -0.1824138600  2.151767499      0 %
+R2_Lev2                         -1.6430697073  1.363581176      0 %
+R2_Lev1                         -0.3146877828  1.218255230      0 %
+R2_Total                        -0.3038812439  1.054974796      0 %
+ICC_Uncond                      -0.1291397313  0.387219932      0 %
+ICC_UncondWB                    -0.3339698595  0.407359981      0 %
+ICC_Cond                         0.1680830293  0.302773523      0 %
+                                     results          se
+beta_(Intercept)                -0.774339336 0.142837032
+beta_ESCS                        0.048846585 0.040435343
+beta_FEMALE                     -0.034730635 0.070130526
+beta_IMMIG                      -0.044469091 0.059751065
+beta_REPEAT                     -0.440866949 0.119397965
+beta_Math_Disposition            0.271935282 0.031740051
+beta_Teacher_Classroom_Exp      -0.076079446 0.035508217
+Var_(Intercept)                  0.157053340 0.026624346
+Cov_(Intercept)Math_Disposition  0.018412024 0.009076490
+Cor_Math_Disposition(Intercept)  0.504227482 0.168434970
+Var_Math_Disposition             0.008476623 0.008425786
+ResidVar                         0.470036406 0.021044715
+ExplVar_Lev2_Fixed              -0.015925393 0.068634992
+ExplVar_Lev2_Random             -0.001795375 0.009889395
+ResidVar_Lev2                    0.144744155 0.023577115
+ExplVar_Lev1_Fixed               0.348193424 0.581252824
+ExplVar_Lev1_Random              0.039423602 0.103287550
+ResidVar_Lev1                    0.470036406 0.021044715
+Var_Total                        0.984676819 0.595465333
+R2_Lev2                         -0.139744266 0.767016825
+R2_Lev1                          0.451783723 0.391063876
+R2_Total                         0.375546776 0.346653078
+ICC_Uncond                       0.129040100 0.131726757
+ICC_UncondWB                     0.036695061 0.189118230
+ICC_Cond                         0.235428276 0.034360362
+                                       (lower       upper) missInfo
+beta_(Intercept)                -1.0543903313 -0.494288340      3 %
+beta_ESCS                       -0.0304052508  0.128098421      0 %
+beta_FEMALE                     -0.1721839926  0.102722722      0 %
+beta_IMMIG                      -0.1615990425  0.072660860      2 %
+beta_REPEAT                     -0.6749654782 -0.206768419      3 %
+beta_Math_Disposition            0.2084004040  0.335470159     29 %
+beta_Teacher_Classroom_Exp      -0.1459171779 -0.006241714     11 %
+Var_(Intercept)                  0.1048458574  0.209260823      4 %
+Cov_(Intercept)Math_Disposition  0.0005339321  0.036290115     13 %
+Cor_Math_Disposition(Intercept)  0.1737229565  0.834732007      6 %
+Var_Math_Disposition            -0.0080436085  0.024996854      4 %
+ResidVar                         0.4287435090  0.511329303      6 %
+ExplVar_Lev2_Fixed              -0.1504475177  0.118596733      0 %
+ExplVar_Lev2_Random             -0.0211782330  0.017587482      0 %
+ResidVar_Lev2                    0.0985318978  0.190956413      1 %
+ExplVar_Lev1_Fixed              -0.7910417263  1.487428574      0 %
+ExplVar_Lev1_Random             -0.1630163028  0.241863507      0 %
+ResidVar_Lev1                    0.4287435090  0.511329303      6 %
+Var_Total                       -0.1824138600  2.151767499      0 %
+R2_Lev2                         -1.6430697073  1.363581176      0 %
+R2_Lev1                         -0.3146877828  1.218255230      0 %
+R2_Total                        -0.3038812439  1.054974796      0 %
+ICC_Uncond                      -0.1291397313  0.387219932      0 %
+ICC_UncondWB                    -0.3339698595  0.407359981      0 %
+ICC_Cond                         0.1680830293  0.302773523      0 %
+[1] "=================================================================="
