@@ -20,6 +20,7 @@ print("Loading and preparing data...")
 
 # Load datasets with the continuous outcome
 # main_data_path <- here("dataset", "", "Step6_TestData_With_New_Outcome.rds")
+main_data_path <- here("dataset", "", "Step3_Imputed_Data_List.rds")
 list_of_engineered_datasets <- readRDS(main_data_path)
 
 # Load latent variable scores
@@ -92,29 +93,86 @@ vif_scores <- vif(simple_lm)
 print(vif_scores)
 
 # Calculate and plot the correlation matrix for key numeric predictors
-print("--- Generating correlation matrix plot (see Plots pane) ---")
-cor_matrix <- cor(key_predictors, use = "pairwise.complete.obs")
+print("creat correlation matrix.png")
+cor_matrix <- cor(key_predictors, use = "pairwise.complete.obs") #
+
+png("correlation_matrix.png", width = 1200, height = 1000, res = 150) # 打开PNG设备
+
 corrplot(cor_matrix,
-         method = "color", type = "upper", order = "hclust",
-         tl.col = "black", tl.srt = 45, addCoef.col = "black",
-         number.cex = 0.6, diag = FALSE)
+         method = "color",
+         type = "upper",
+         order = "hclust",
+         tl.col = "black", tl.srt = 45,
+         addCoef.col = "black",
+         number.cex = 0.6,
+         diag = FALSE)
 
+dev.off()
 
-# --- Diagnostic C: Check Model Error (RMSE) ---
+# --- MODIFIED: Diagnostic C: Check Model Error (RMSE) across all PVs ---
 
-# We already fit 'simple_lm' above, so we can reuse it
-model_residuals <- residuals(simple_lm)
-rmse <- sqrt(mean(model_residuals^2, na.rm = TRUE))
+print("--- Calculating RMSE across all 10 Plausible Values ---")
 
-print("--- Calculating Root Mean Squared Error (RMSE) ---")
-print(paste("The Root Mean Squared Error (RMSE) is:", round(rmse, 4)))
+# Define the list of Plausible Value outcome names
+pv_names <- paste0("RESILIENCE_SCORE_PV", 1:10)
 
-# CRUCIAL: Check the standard deviation of the outcome to contextualize the RMSE
-print("--- Descriptive statistics for the outcome variable (for context) ---")
-print("Summary of RESILIENCE_SCORE_PV1:")
+# Define the base formula (without the outcome variable)
+base_formula <- as.formula(
+  ~ ESCS + AGE + FEMALE + IMMIG + ISCEDP +
+    EXPECEDU + OCOD3_major_group + BSMJ + SISCO +
+    REPEAT + MISSSC + SKIPPING + TARDYSD + EXERPRAC +
+    STUDYHMW + WORKPAY + WORKHOME + INFOSEEK + EXPOFA +
+    EXPO21ST + CREATAS + CREATOOS + STRESAGR + BULLIED + FEELLAH + PROBSELF + LEARRES +
+    Math_Disposition + Social_Emotional_Skills + Openness_Creativity +
+    Self_Directed_Learning + Teacher_Classroom_Exp + Home_Learning_Env + School_Experience
+)
+
+# Create a list to store results from each PV
+pv_results_list <- list()
+
+# Loop through each Plausible Value
+for (pv_name in pv_names) {
+
+  # Create the full formula for the current PV
+  current_formula <- update.formula(base_formula, as.formula(paste(pv_name, "~ .")))
+
+  # Fit a simple linear model for this PV
+  simple_lm <- lm(current_formula, data = diagnostic_df)
+
+  # Get residuals and calculate RMSE
+  model_residuals <- residuals(simple_lm)
+  rmse <- sqrt(mean(model_residuals^2, na.rm = TRUE))
+
+  # Get the standard deviation of the current PV
+  outcome_sd <- sd(diagnostic_df[[pv_name]], na.rm = TRUE)
+
+  # Store the results
+  pv_results_list[[pv_name]] <- data.frame(
+    PV = pv_name,
+    RMSE = rmse,
+    Outcome_SD = outcome_sd
+  )
+
+}
+
+# Combine the results into a single data frame
+pv_results_df <- do.call(rbind, pv_results_list)
+
+# Print the detailed results for each PV
+print("--- RMSE and SD for each Plausible Value ---")
+print(pv_results_df)
+
+# Calculate and print the final, averaged results
+avg_rmse <- mean(pv_results_df$RMSE)
+avg_sd <- mean(pv_results_df$Outcome_SD)
+improvement_pct <- (avg_sd - avg_rmse) / avg_sd * 100
+
+print("--- Averaged Diagnostic Results Across 10 PVs ---")
+print(paste("Average Root Mean Squared Error (RMSE):", round(avg_rmse, 4)))
+print(paste("Average Outcome Standard Deviation (SD):", round(avg_sd, 4)))
+print(paste("Average Reduction in Error (vs. SD):", round(improvement_pct, 2), "%"))
+
 summary(diagnostic_df$RESILIENCE_SCORE_PV1)
-print("Standard Deviation of RESILIENCE_SCORE_PV1:")
-sd(diagnostic_df$RESILIENCE_SCORE_PV1, na.rm = TRUE)
 
 print("==================================================================")
 print(" DIAGNOSTIC SCRIPT COMPLETE ")
