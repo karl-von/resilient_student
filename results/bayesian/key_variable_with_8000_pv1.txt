@@ -1,0 +1,69 @@
+[1] "=================================================================="
+[1] "             BAYESIAN MODEL SUMMARY (brms) - PV1                  "
+[1] "=================================================================="
+ Family: gaussian
+  Links: mu = identity; sigma = identity
+Formula: RESILIENCE_SCORE_PV1 | weights(W_FSTUWT) ~ ESCS + FEMALE + IMMIG + REPEAT + MISSSC + SKIPPING + TARDYSD + STUDYHMW + WORKPAY + BULLIED + EXPOFA + EXPO21ST + STRESAGR + Math_Disposition + Social_Emotional_Skills + Openness_Creativity + Self_Directed_Learning + Teacher_Classroom_Exp + School_Experience + (1 | CNTSCHID)
+   Data: list_of_final_datasets[[1]] (Number of observations: 23995)
+  Draws: 4 chains, each with iter = 8000; warmup = 4000; thin = 1;
+         total post-warmup draws = 16000
+
+Multilevel Hyperparameters:
+~CNTSCHID (Number of levels: 2915)
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.51      0.01     0.50     0.53 1.00      562      932
+
+Regression Coefficients:
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+Intercept                  -0.48      0.01    -0.50    -0.46 1.03      205
+ESCS                        0.15      0.00     0.15     0.16 1.00    10011
+FEMALE1                    -0.16      0.00    -0.16    -0.15 1.00    25614
+IMMIG2                      0.17      0.00     0.16     0.17 1.00    18559
+IMMIG3                     -0.11      0.00    -0.12    -0.10 1.00    22096
+REPEAT                     -0.33      0.00    -0.33    -0.32 1.00    24719
+MISSSC                     -0.14      0.00    -0.15    -0.14 1.00    30524
+SKIPPING                   -0.02      0.00    -0.02    -0.01 1.00    24149
+TARDYSD                    -0.07      0.00    -0.08    -0.07 1.00    22142
+STUDYHMW                   -0.01      0.00    -0.01    -0.01 1.00    17898
+WORKPAY                    -0.03      0.00    -0.03    -0.03 1.00    19213
+BULLIED                    -0.00      0.00    -0.00    -0.00 1.00    20681
+EXPOFA                      0.06      0.00     0.06     0.06 1.00    19806
+EXPO21ST                   -0.05      0.00    -0.05    -0.05 1.00    21009
+STRESAGR                   -0.01      0.00    -0.01    -0.01 1.00    21585
+Math_Disposition            0.20      0.00     0.20     0.20 1.00    19775
+Social_Emotional_Skills    -0.02      0.00    -0.02    -0.01 1.00    20579
+Openness_Creativity         0.06      0.00     0.06     0.06 1.00    21280
+Self_Directed_Learning      0.07      0.00     0.06     0.07 1.00    18971
+Teacher_Classroom_Exp      -0.06      0.00    -0.06    -0.06 1.00    20583
+School_Experience          -0.03      0.00    -0.03    -0.03 1.00    22557
+                        Tail_ESS
+Intercept                    462
+ESCS                       11871
+FEMALE1                    14233
+IMMIG2                     13253
+IMMIG3                     13354
+REPEAT                     13912
+MISSSC                     13680
+SKIPPING                   14119
+TARDYSD                    13626
+STUDYHMW                   13366
+WORKPAY                    12649
+BULLIED                    14396
+EXPOFA                     13823
+EXPO21ST                   14334
+STRESAGR                   14088
+Math_Disposition           14030
+Social_Emotional_Skills    14062
+Openness_Creativity        14627
+Self_Directed_Learning     14000
+Teacher_Classroom_Exp      15000
+School_Experience          14399
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.63      0.00     0.63     0.63 1.00    16292     9381
+[1] "=================================================================="
+[1] "                BAYESIAN R-SQUARED                                "
+[1] "=================================================================="
+    Estimate   Est.Error      Q2.5     Q97.5
+R2 0.4412735 0.001161922 0.4390195 0.4435315

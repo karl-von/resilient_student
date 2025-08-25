@@ -1,0 +1,246 @@
+
+# ==============================================================================
+# DIAGNOSTIC STEP 1: Naive Multilevel Model with lme4 (CORRECTED SCRIPT)
+#
+# Purpose: To test if the core model is stable without the complexity of
+#          survey weights, plausible values, and multiple imputations.
+#
+#          This is ONLY for diagnostic purposes. The results are biased and
+#          should NOT be used for final reporting.
+#
+# CORRECTION: This script now correctly includes the merging of latent
+#             variables and the pre-processing steps to create variables
+#             like 'FEMALE' before running the model.
+# ==============================================================================
+
+
+# --- 1. SETUP | Load Required Libraries ---
+library(lme4)
+library(performance)
+library(dplyr)
+library(here)
+
+
+# --- 2. DATA INPUT | Load BOTH Datasets ---
+# Load the list of 5 imputed datasets from Step 3
+print("Loading the list of 5 imputed datasets...")
+imputed_data_path <- here("dataset", "", "Step3_Imputed_Data_List.rds")
+list_of_imputed_datasets <- readRDS(imputed_data_path)
+print("List of imputed datasets loaded.")
+
+# Load the latent variable scores from Step 5
+print("Loading the latent variable factor scores...")
+lv_scores_path <- here("dataset", "Step5_Combined_Factor_Scores_Long_FullNames.rds")
+lv_scores_long <- readRDS(lv_scores_path)
+print("Latent variable scores loaded.")
+
+
+# --- 3. MERGE DATA | Combine Latent Variables with Main Datasets ---
+# --- THIS IS A NEWLY ADDED STEP ---
+print("Merging latent variable scores into each imputed dataset...")
+list_of_merged_datasets <- vector("list", length = length(list_of_imputed_datasets))
+
+for (i in 1:length(list_of_imputed_datasets)) {
+  main_df <- list_of_imputed_datasets[[i]]
+  lv_scores_for_imp <- lv_scores_long %>% filter(.imp == i)
+
+  main_df$CNTSTUID <- as.character(main_df$CNTSTUID)
+  lv_scores_for_imp$.id <- as.character(lv_scores_for_imp$.id)
+
+  merged_df <- left_join(main_df, lv_scores_for_imp, by = c("CNTSTUID" = ".id"))
+  list_of_merged_datasets[[i]] <- merged_df
+}
+print("Merging complete.")
+
+
+# --- 4. PRE-PROCESSING | Create Derived Variables ---
+# --- THIS IS A NEWLY ADDED STEP ---
+# This step creates the 'FEMALE' variable, which caused the error.
+print("Pre-processing each of the merged datasets...")
+list_of_final_datasets <- lapply(list_of_merged_datasets, function(df) {
+  df %>%
+    mutate(
+      # This line creates the FEMALE variable that was missing
+      FEMALE = as.factor(if_else(ST004D01T == 1, 1, 0)),
+      IMMIG = as.factor(IMMIG)
+    ) %>%
+    arrange(CNTSCHID)
+})
+print("Pre-processing complete. 'FEMALE' variable is now available.")
+
+
+# --- 5. DATA PREPARATION FOR NAIVE MODEL ---
+# Now we can safely prepare the data, as all columns are present.
+print("Preparing data for the naive model...")
+
+# We will use ONLY the FIRST fully prepared dataset from the list.
+diagnostic_df <- list_of_final_datasets[[1]]
+
+# We will use ONLY the FIRST plausible value as the outcome variable.
+diagnostic_df <- diagnostic_df %>%
+  mutate(RESILIENCE = RESILIENCE_SCORE_PV1)
+
+print("Data prepared. Using the 1st imputed/merged/processed dataset and 1st plausible value.")
+
+
+# --- 6. MODEL SPECIFICATION ---
+# This section remains the same.
+print("Specifying the model formula...")
+dv <- "RESILIENCE"
+
+original_model_2_predictors <- "ESCS + AGE + FEMALE + IMMIG + ISCEDP +
+  EXPECEDU + OCOD3_major_group + BSMJ + SISCO +
+  REPEAT + MISSSC + SKIPPING + TARDYSD + EXERPRAC +
+  STUDYHMW + WORKPAY + WORKHOME + INFOSEEK + EXPOFA +
+  EXPO21ST + CREATAS + CREATOOS + STRESAGR + BULLIED + FEELLAH + PROBSELF + LEARRES"
+
+latent_variable_predictors <- c(
+  "Math_Disposition",
+  "Social_Emotional_Skills",
+  "Openness_Creativity",
+  "Self_Directed_Learning",
+  "Teacher_Classroom_Exp",
+  "Home_Learning_Env",
+  "School_Experience"
+)
+
+fixed_effects_string <- paste(
+  original_model_2_predictors,
+  "+",
+  paste(latent_variable_predictors, collapse = " + ")
+)
+
+random_effect <- "(1 | CNTSCHID)"
+
+full_formula_string <- paste(dv, "~", fixed_effects_string, "+", random_effect)
+model_formula <- as.formula(full_formula_string)
+
+print("Model formula for lmer:")
+print(model_formula)
+
+
+# --- 7. RUN THE NAIVE MODEL ---
+# This section remains the same. The model should run correctly now.
+print("Running the naive multilevel model with lmer()...")
+start_time <- Sys.time()
+naive_model <- lmer(model_formula, data = diagnostic_df)
+end_time <- Sys.time()
+print("Model fitting complete.")
+print(paste("Time taken:", round(end_time - start_time, 2), "seconds"))
+
+
+# --- 8. CHECK RESULTS FOR STABILITY ---
+# The interpretation of these results remains the same.
+print("==================================================================")
+print("                  MODEL SUMMARY (lmer)                            ")
+print("==================================================================")
+print(summary(naive_model))
+
+print("==================================================================")
+print("                  MODEL R-SQUARED (performance)                   ")
+print("==================================================================")
+print(r2(naive_model))
+
+print("==================================================================")
+print("             INTRACLASS CORRELATION COEFFICIENT (ICC)             ")
+print("==================================================================")
+print(icc(naive_model))
+
+print("==================================================================")
+print("How to Interpret These Results:")
+print("If the model runs and the results (Std. Errors, R-squared) look stable and sensible,")
+print("you have confirmed the professor's diagnosis. You can then proceed to Step 2 (brms).")
+print("==================================================================")
+
+
+
+
+
+
+[1] "=================================================================="
+[1] "                  MODEL SUMMARY (lmer)                            "
+[1] "=================================================================="
+Linear mixed model fit by REML ['lmerMod']
+Formula: RESILIENCE ~ ESCS + AGE + FEMALE + IMMIG + ISCEDP + EXPECEDU +  
+    OCOD3_major_group + BSMJ + SISCO + REPEAT + MISSSC + SKIPPING +  
+    TARDYSD + EXERPRAC + STUDYHMW + WORKPAY + WORKHOME + INFOSEEK +  
+    EXPOFA + EXPO21ST + CREATAS + CREATOOS + STRESAGR + BULLIED +  
+    FEELLAH + PROBSELF + LEARRES + Math_Disposition + Social_Emotional_Skills +  
+    Openness_Creativity + Self_Directed_Learning + Teacher_Classroom_Exp +  
+    Home_Learning_Env + School_Experience + (1 | CNTSCHID)
+   Data: diagnostic_df
+
+REML criterion at convergence: 49816.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.2507 -0.6211  0.0101  0.6373  3.4318 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ CNTSCHID (Intercept) 0.1073   0.3275  
+ Residual             0.4063   0.6374  
+Number of obs: 23995, groups:  CNTSCHID, 2915
+
+Fixed effects:
+                          Estimate Std. Error t value
+(Intercept)             -2.6608548  0.2440340 -10.904
+ESCS                     0.1053361  0.0085211  12.362
+AGE                      0.0888426  0.0154925   5.735
+FEMALE1                 -0.1745717  0.0099432 -17.557
+IMMIG2                   0.0083224  0.0165391   0.503
+IMMIG3                  -0.1724426  0.0187297  -9.207
+ISCEDP                   0.0009816  0.0001528   6.425
+EXPECEDU                 0.0159451  0.0021068   7.568
+OCOD3_major_group       -0.0099356  0.0024663  -4.028
+BSMJ                     0.0078516  0.0002588  30.334
+SISCO                   -0.0487240  0.0170136  -2.864
+REPEAT                  -0.2642425  0.0183411 -14.407
+MISSSC                  -0.1671997  0.0160185 -10.438
+SKIPPING                -0.0381183  0.0104697  -3.641
+TARDYSD                 -0.0463382  0.0062640  -7.398
+EXERPRAC                -0.0176097  0.0013607 -12.942
+STUDYHMW                 0.0011381  0.0015313   0.743
+WORKPAY                 -0.0256961  0.0018471 -13.912
+WORKHOME                -0.0127674  0.0013756  -9.281
+INFOSEEK                 0.0131546  0.0040823   3.222
+EXPOFA                   0.0510007  0.0044672  11.417
+EXPO21ST                -0.0320760  0.0048692  -6.588
+CREATAS                  0.0108953  0.0052082   2.092
+CREATOOS                -0.0986784  0.0051154 -19.290
+STRESAGR                -0.0040230  0.0051059  -0.788
+BULLIED                  0.0015974  0.0046271   0.345
+FEELLAH                 -0.0061188  0.0043013  -1.423
+PROBSELF                -0.0330387  0.0040359  -8.186
+LEARRES                  0.0407317  0.0040170  10.140
+Math_Disposition         0.1967220  0.0043881  44.831
+Social_Emotional_Skills -0.0188202  0.0060702  -3.100
+Openness_Creativity      0.0594921  0.0054157  10.985
+Self_Directed_Learning   0.0385039  0.0142694   2.698
+Teacher_Classroom_Exp   -0.0635241  0.0049685 -12.785
+Home_Learning_Env       -0.0440885  0.0041302 -10.675
+School_Experience       -0.0113726  0.0071264  -1.596
+
+Correlation matrix not shown by default, as p = 36 > 12.
+Use print(summary(naive_model), correlation=TRUE)  or
+    vcov(summary(naive_model))        if you need it
+
+[1] "=================================================================="
+[1] "                  MODEL R-SQUARED (performance)                   "
+[1] "=================================================================="
+# R2 for Mixed Models
+
+  Conditional R2: 0.433
+     Marginal R2: 0.283
+[1] "=================================================================="
+[1] "             INTRACLASS CORRELATION COEFFICIENT (ICC)             "
+[1] "=================================================================="
+# Intraclass Correlation Coefficient
+
+    Adjusted ICC: 0.209
+  Unadjusted ICC: 0.150
+[1] "=================================================================="
+[1] "How to Interpret These Results:"
+[1] "If the model runs and the results (Std. Errors, R-squared) look stable and sensible,"
+[1] "you have confirmed the professor's diagnosis. You can then proceed to Step 2 (brms)."
+[1] "=================================================================="

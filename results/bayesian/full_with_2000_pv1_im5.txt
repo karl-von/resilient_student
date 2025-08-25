@@ -1,0 +1,189 @@
+ Family: gaussian 
+
+  Links: mu = identity; sigma = identity 
+
+Formula: RESILIENCE_SCORE_PV1 | weights(W_FSTUWT) ~ ESCS + AGE + FEMALE + IMMIG + ISCEDP + EXPECEDU + OCOD3_major_group + BSMJ + SISCO + REPEAT + MISSSC + SKIPPING + TARDYSD + EXERPRAC + STUDYHMW + WORKPAY + WORKHOME + INFOSEEK + EXPOFA + EXPO21ST + CREATAS + CREATOOS + STRESAGR + BULLIED + FEELLAH + PROBSELF + LEARRES + Math_Disposition + Social_Emotional_Skills + Openness_Creativity + Self_Directed_Learning + Teacher_Classroom_Exp + Home_Learning_Env + School_Experience + (1 | CNTSCHID) 
+
+   Data: list_of_final_datasets (Number of observations: 23995) 
+
+  Draws: 20 chains, each with iter = 2000; warmup = 1000; thin = 1;
+
+         total post-warmup draws = 20000
+
+
+
+Multilevel Hyperparameters:
+
+~CNTSCHID (Number of levels: 2915) 
+
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+
+sd(Intercept)     0.46      0.01     0.45     0.48 1.42       41
+
+              Tail_ESS
+
+sd(Intercept)      106
+
+
+
+Regression Coefficients:
+
+                        Estimate Est.Error l-95% CI u-95% CI Rhat
+
+Intercept                  -2.24      0.28    -2.59    -1.66 2.76
+
+ESCS                        0.14      0.01     0.13     0.16 2.24
+
+AGE                         0.06      0.01     0.05     0.07 1.90
+
+FEMALE1                    -0.20      0.01    -0.22    -0.19 2.24
+
+IMMIG2                      0.11      0.03     0.05     0.14 2.77
+
+IMMIG3                     -0.11      0.02    -0.14    -0.08 2.60
+
+ISCEDP                      0.00      0.00     0.00     0.00 2.27
+
+EXPECEDU                    0.01      0.01     0.00     0.02 3.14
+
+OCOD3_major_group          -0.01      0.02    -0.03     0.03 3.15
+
+BSMJ                        0.00      0.00     0.00     0.01 3.13
+
+SISCO                      -0.05      0.16    -0.25     0.22 2.82
+
+REPEAT                     -0.23      0.01    -0.25    -0.21 1.71
+
+MISSSC                     -0.12      0.01    -0.13    -0.11 1.66
+
+SKIPPING                   -0.00      0.01    -0.01     0.01 2.83
+
+TARDYSD                    -0.06      0.01    -0.07    -0.05 2.24
+
+EXERPRAC                   -0.02      0.00    -0.02    -0.02 1.72
+
+STUDYHMW                   -0.00      0.00    -0.01     0.00 2.68
+
+WORKPAY                    -0.02      0.00    -0.02    -0.02 2.32
+
+WORKHOME                   -0.01      0.00    -0.01    -0.01 2.33
+
+INFOSEEK                    0.02      0.00     0.01     0.02 1.85
+
+EXPOFA                      0.04      0.01     0.03     0.06 2.80
+
+EXPO21ST                   -0.04      0.01    -0.05    -0.03 2.46
+
+CREATAS                     0.01      0.01    -0.01     0.03 2.49
+
+CREATOOS                   -0.10      0.03    -0.13    -0.04 2.88
+
+STRESAGR                    0.01      0.01    -0.00     0.01 3.08
+
+BULLIED                     0.01      0.00     0.00     0.01 2.22
+
+FEELLAH                    -0.00      0.03    -0.04     0.04 3.14
+
+PROBSELF                   -0.01      0.02    -0.03     0.02 2.79
+
+LEARRES                     0.02      0.02    -0.01     0.05 3.15
+
+Math_Disposition            0.18      0.01     0.17     0.20 2.80
+
+Social_Emotional_Skills    -0.01      0.01    -0.02    -0.00 2.70
+
+Openness_Creativity         0.05      0.01     0.03     0.06 2.56
+
+Self_Directed_Learning      0.05      0.02     0.03     0.08 3.06
+
+Teacher_Classroom_Exp      -0.04      0.01    -0.06    -0.03 2.54
+
+Home_Learning_Env          -0.07      0.04    -0.13    -0.02 3.15
+
+School_Experience          -0.02      0.01    -0.03    -0.01 2.18
+
+                        Bulk_ESS Tail_ESS
+
+Intercept                     23      102
+
+ESCS                          25      103
+
+AGE                           28      183
+
+FEMALE1                       25      104
+
+IMMIG2                        23      100
+
+IMMIG3                        24      102
+
+ISCEDP                        25      103
+
+EXPECEDU                      22      102
+
+OCOD3_major_group             22      102
+
+BSMJ                          22      100
+
+SISCO                         23      103
+
+REPEAT                        31      101
+
+MISSSC                        32      143
+
+SKIPPING                      23      101
+
+TARDYSD                       25      100
+
+EXERPRAC                      31      102
+
+STUDYHMW                      24      101
+
+WORKPAY                       25      105
+
+WORKHOME                      25      104
+
+INFOSEEK                      29      103
+
+EXPOFA                        23      102
+
+EXPO21ST                      24      103
+
+CREATAS                       24      102
+
+CREATOOS                      24      103
+
+STRESAGR                      23      102
+
+BULLIED                       25      101
+
+FEELLAH                       23      104
+
+PROBSELF                      24      105
+
+LEARRES                       22      102
+
+Math_Disposition              23      102
+
+Social_Emotional_Skills       23      105
+
+Openness_Creativity           24      104
+
+Self_Directed_Learning        23      100
+
+Teacher_Classroom_Exp         24      102
+
+Home_Learning_Env             22      101
+
+School_Experience             26      100
+
+
+
+Further Distributional Parameters:
+
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+
+sigma     0.60      0.00     0.59     0.60 2.31       25      103
+
+please explain these result, it comes from iter = 2000
+
+warmup = 1000
