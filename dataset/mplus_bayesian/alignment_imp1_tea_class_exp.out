@@ -1,0 +1,3289 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+08/24/2025   5:15 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Alignment for Tea_Class_Exp (IMPUTATION 1 - FIXED);
+
+  DATA:
+    FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/imputed_data_1.dat";
+    FORMAT IS FREE;
+
+  VARIABLE:
+    NAMES ARE
+      CNT
+      CNTSTUID
+      CNTSCHID
+      W_FSTUWT
+      ESCS
+      PV1MATH
+      PV2MATH
+      PV3MATH
+      PV4MATH
+      PV5MATH
+      PV6MATH
+      PV7MATH
+      PV8MATH
+      PV9MATH
+      PV10MATH
+      RESILIENCE_SCORE_PV1
+      RESILIENCE_SCORE_PV2
+      RESILIENCE_SCORE_PV3
+      RESILIENCE_SCORE_PV4
+      RESILIENCE_SCORE_PV5
+      RESILIENCE_SCORE_PV6
+      RESILIENCE_SCORE_PV7
+      RESILIENCE_SCORE_PV8
+      RESILIENCE_SCORE_PV9
+      RESILIENCE_SCORE_PV10
+      W_FSTURWT1
+      W_FSTURWT2
+      W_FSTURWT3
+      W_FSTURWT4
+      W_FSTURWT5
+      W_FSTURWT6
+      W_FSTURWT7
+      W_FSTURWT8
+      W_FSTURWT9
+      W_FSTURWT10
+      W_FSTURWT11
+      W_FSTURWT12
+      W_FSTURWT13
+      W_FSTURWT14
+      W_FSTURWT15
+      W_FSTURWT16
+      W_FSTURWT17
+      W_FSTURWT18
+      W_FSTURWT19
+      W_FSTURWT20
+      W_FSTURWT21
+      W_FSTURWT22
+      W_FSTURWT23
+      W_FSTURWT24
+      W_FSTURWT25
+      W_FSTURWT26
+      W_FSTURWT27
+      W_FSTURWT28
+      W_FSTURWT29
+      W_FSTURWT30
+      W_FSTURWT31
+      W_FSTURWT32
+      W_FSTURWT33
+      W_FSTURWT34
+      W_FSTURWT35
+      W_FSTURWT36
+      W_FSTURWT37
+      W_FSTURWT38
+      W_FSTURWT39
+      W_FSTURWT40
+      W_FSTURWT41
+      W_FSTURWT42
+      W_FSTURWT43
+      W_FSTURWT44
+      W_FSTURWT45
+      W_FSTURWT46
+      W_FSTURWT47
+      W_FSTURWT48
+      W_FSTURWT49
+      W_FSTURWT50
+      W_FSTURWT51
+      W_FSTURWT52
+      W_FSTURWT53
+      W_FSTURWT54
+      W_FSTURWT55
+      W_FSTURWT56
+      W_FSTURWT57
+      W_FSTURWT58
+      W_FSTURWT59
+      W_FSTURWT60
+      W_FSTURWT61
+      W_FSTURWT62
+      W_FSTURWT63
+      W_FSTURWT64
+      W_FSTURWT65
+      W_FSTURWT66
+      W_FSTURWT67
+      W_FSTURWT68
+      W_FSTURWT69
+      W_FSTURWT70
+      W_FSTURWT71
+      W_FSTURWT72
+      W_FSTURWT73
+      W_FSTURWT74
+      W_FSTURWT75
+      W_FSTURWT76
+      W_FSTURWT77
+      W_FSTURWT78
+      W_FSTURWT79
+      W_FSTURWT80
+      ST268Q01JA
+      ST268Q04JA
+      ST268Q07JA
+      IMMIG
+      REPEAT
+      MISSSC
+      SKIPPING
+      TARDYSD
+      STUDYHMW
+      WORKPAY
+      RELATST
+      BELONG
+      BULLIED
+      FEELSAFE
+      SCHRISK
+      PERSEVAGR
+      CURIOAGR
+      COOPAGR
+      EMPATAGR
+      ASSERAGR
+      STRESAGR
+      EMOCOAGR
+      GROSAGR
+      DISCLIM
+      TEACHSUP
+      COGACRCO
+      COGACMCO
+      EXPOFA
+      EXPO21ST
+      MATHEFF
+      MATHEF21
+      ANXMAT
+      MATHPERS
+      CREATEFF
+      CREATSCH
+      CREATOP
+      OPENART
+      IMAGINE
+      SCHSUST
+      SDLEFF;
+    USEVARIABLES ARE
+      TEACHSUP RELATST COGACRCO COGACMCO DISCLIM CNT CNTSTUID;
+    IDVARIABLE IS CNTSTUID;
+    GROUPING IS CNT (
+      1 = CHL
+      2 = TAP
+      3 = HRV
+      4 = FIN
+      5 = FRA
+      6 = GRC
+      7 = HKG
+      8 = ISL
+      9 = IRL
+      10 = KOR
+      11 = LTU
+      12 = MLT
+      13 = NLD
+      14 = NZL
+      15 = POL
+      16 = PRT
+      17 = ROU
+      18 = TUR
+      19 = GBR
+    );
+
+  ANALYSIS:
+    ESTIMATOR = MLR;
+    PROCESSORS = 4;
+    ALIGNMENT = FIXED;
+
+  MODEL:
+    Tea_Class_Exp BY TEACHSUP RELATST COGACRCO COGACMCO DISCLIM;
+
+  SAVEDATA:
+    FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/tea_class_exp_scores_imp1.dat
+    SAVE = FSCORES;
+    FORMAT IS FREE;
+
+  OUTPUT:
+    TECH11;
+    ALIGNMENT;
+
+
+
+*** WARNING
+  Input line exceeded 90 characters. Some input may be truncated.
+    FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/tea_class_exp_scores_imp1.dat"
+*** WARNING in OUTPUT command
+  TECH11 option is available only with TYPE=MIXTURE.
+  Request for TECH11 is ignored.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Alignment for Tea_Class_Exp (IMPUTATION 1 - FIXED);
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                19
+Number of observations
+   Group CHL                                                  1209
+   Group TAP                                                  1668
+   Group HRV                                                  1528
+   Group FIN                                                  2754
+   Group FRA                                                  1768
+   Group GRC                                                  1529
+   Group HKG                                                  1368
+   Group ISL                                                   810
+   Group IRL                                                  1356
+   Group KOR                                                  1568
+   Group LTU                                                  1786
+   Group MLT                                                   710
+   Group NLD                                                  1242
+   Group NZL                                                  1104
+   Group POL                                                  1367
+   Group PRT                                                  1621
+   Group ROU                                                  1593
+   Group TUR                                                  1884
+   Group GBR                                                  2863
+   Total sample size                                         29728
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   TEACHSUP    RELATST     COGACRCO    COGACMCO    DISCLIM
+
+Continuous latent variables
+   TEA_CLAS
+
+Variables with special functions
+
+  Grouping variable     CNT
+  ID variable           CNTSTUID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                         EMA
+Specifications for Alignment Analysis
+  Factor mean for reference group                            FIXED
+  Simplicity function                                         SQRT
+  Factor variance metric                           Reference group
+  Reference group                                                1
+  Tolerance value                                        0.100D-01
+  Number of random starts                                       30
+  Maximum number of iterations                                5000
+  Convergence criteration                                0.100D-02
+
+Input data file(s)
+  D:/essay/resilient_student/dataset/mplus_bayesian/imputed_data_1.dat
+Input data format  FREE
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR CHL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.428      -0.590      -2.909    1.65%      -0.564     -0.100      0.436
+            1209.000       1.212      -0.320       1.649    0.08%       0.821      1.556
+     RELATST               0.281       0.044      -4.062    0.08%      -0.609      0.011      0.230
+            1209.000       1.171       0.517       3.165    0.08%       0.497      1.163
+     COGACRCO             -0.042       0.200      -2.978    0.50%      -0.815     -0.188     -0.091
+            1209.000       1.350       1.036       3.672    0.17%       0.094      0.596
+     COGACMCO              0.349       0.054      -2.160    0.25%      -0.410      0.153      0.246
+            1209.000       1.044       0.245       2.583    0.08%       0.490      0.976
+     DISCLIM              -0.329      -0.058      -2.480    0.08%      -1.007     -0.523     -0.313
+            1209.000       0.746       0.599       1.851    0.33%      -0.112      0.349
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR TAP
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.252      -0.399      -2.909    2.22%      -0.564     -0.100     -0.100
+            1668.000       1.111      -0.023       1.556   29.50%       0.436      1.556
+     RELATST               0.280       0.481      -6.268    0.06%      -0.491     -0.017      0.104
+            1668.000       1.053       1.350       3.165    0.18%       0.230      1.056
+     COGACRCO             -0.264       0.523      -2.978    0.18%      -1.008     -0.526     -0.244
+            1668.000       1.448       1.108       3.669    0.12%      -0.139      0.470
+     COGACMCO             -0.033       0.278      -2.160    0.12%      -0.834     -0.297      0.077
+            1668.000       1.307       0.066       2.587    0.06%       0.207      0.699
+     DISCLIM               0.316      -0.147      -2.493    0.12%      -0.344     -0.072      0.163
+            1668.000       0.976      -0.090       1.851    1.14%       0.403      1.629
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR HRV
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.102      -0.167      -2.909    3.34%      -1.069     -0.332     -0.100
+            1528.000       1.363      -0.466       1.649    0.07%      -0.100      1.556
+     RELATST              -0.189       0.390      -6.262    0.07%      -0.963     -0.535     -0.287
+            1528.000       0.953       1.679       3.163    0.07%      -0.017      0.558
+     COGACRCO             -0.156       0.307      -2.862    0.07%      -0.792     -0.317     -0.150
+            1528.000       1.018       1.821       3.635    0.07%      -0.042      0.492
+     COGACMCO              0.068       0.075      -2.160    0.13%      -0.574     -0.037      0.168
+            1528.000       0.963       0.488       2.583    0.07%       0.245      0.789
+     DISCLIM               0.059      -0.298      -2.493    0.20%      -0.695     -0.125     -0.052
+            1528.000       0.962       0.151       1.851    0.20%       0.201      0.990
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR FIN
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.028      -0.371      -3.254    0.07%      -1.069     -0.332     -0.100
+            2754.000       1.194       0.083       1.649    0.07%       0.147      0.821
+     RELATST              -0.171       0.252      -4.753    0.04%      -0.922     -0.514     -0.234
+            2754.000       0.938       1.756       3.149    0.04%       0.043      0.515
+     COGACRCO             -0.326       0.209      -2.850    0.04%      -0.864     -0.421     -0.194
+            2754.000       1.046       2.155       3.672    0.04%      -0.118      0.289
+     COGACMCO             -0.105       0.067      -2.160    0.04%      -0.730     -0.255      0.003
+            2754.000       0.885       0.563       2.583    0.07%       0.174      0.530
+     DISCLIM              -0.222       0.067      -2.493    0.15%      -0.871     -0.359     -0.136
+            2754.000       0.815       0.683       1.851    0.07%      -0.097      0.389
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR FRA
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.150      -0.161      -2.909    3.28%      -1.069     -0.564     -0.100
+            1768.000       1.277      -0.334       1.556   18.33%      -0.100      0.821
+     RELATST              -0.155       0.326      -6.269    0.06%      -0.973     -0.553     -0.313
+            1768.000       0.969       0.876       3.165    0.06%       0.042      0.675
+     COGACRCO             -0.039       0.160      -2.850    0.11%      -0.772     -0.241     -0.100
+            1768.000       1.287       1.053       3.727    0.06%       0.112      0.659
+     COGACMCO              0.010       0.129      -2.160    0.17%      -0.761     -0.172      0.065
+            1768.000       1.070       0.180       2.573    0.06%       0.214      0.788
+     DISCLIM              -0.348       0.011      -2.554    0.06%      -1.012     -0.526     -0.331
+            1768.000       0.889       0.256       1.851    0.28%      -0.113      0.385
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR GRC
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.296      -0.098      -2.909    4.05%      -1.069     -0.564     -0.332
+            1529.000       1.189      -0.054       1.556   13.60%      -0.100      0.436
+     RELATST              -0.146       0.050      -6.282    0.07%      -0.864     -0.448     -0.221
+            1529.000       0.859       2.968       3.165    0.07%       0.042      0.569
+     COGACRCO             -0.076       0.006      -2.862    0.13%      -0.756     -0.180     -0.065
+            1529.000       1.028       1.820       3.651    0.07%       0.128      0.546
+     COGACMCO             -0.085       0.090      -2.156    0.07%      -0.830     -0.259      0.009
+            1529.000       0.975       0.320       2.583    0.07%       0.190      0.608
+     DISCLIM              -0.313      -0.041      -2.493    0.13%      -0.976     -0.519     -0.316
+            1529.000       0.768       0.612       1.851    0.26%      -0.113      0.352
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR HKG
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.175      -0.376      -3.254    1.97%      -0.857     -0.079     -0.079
+            1368.000       1.256       0.099       1.649   24.34%       0.188      1.649
+     RELATST               0.025       0.303      -3.642    0.07%      -0.624     -0.167      0.029
+            1368.000       0.857       1.843       2.940    0.07%       0.146      0.541
+     COGACRCO              0.042       0.484      -2.862    0.07%      -0.685     -0.148     -0.097
+            1368.000       1.198       1.696       3.651    0.07%       0.069      0.563
+     COGACMCO              0.106       0.257      -2.160    0.07%      -0.510     -0.044      0.164
+            1368.000       1.016       0.635       2.616    0.07%       0.216      0.835
+     DISCLIM               0.314      -0.281      -2.493    0.07%      -0.330     -0.069      0.176
+            1368.000       0.922       0.201       1.851    1.39%       0.448      1.161
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR ISL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.172      -0.286      -2.909    1.85%      -0.564     -0.100     -0.100
+             810.000       1.076      -0.118       1.649    0.12%       0.436      1.556
+     RELATST               0.017       0.530      -3.383    0.12%      -0.729     -0.230     -0.037
+             810.000       0.869       1.002       3.160    0.12%       0.132      0.694
+     COGACRCO             -0.387       0.310      -2.978    0.12%      -0.997     -0.538     -0.257
+             810.000       1.207       1.529       3.651    0.12%      -0.133      0.269
+     COGACMCO             -0.066      -0.049      -2.160    0.12%      -0.755     -0.153      0.101
+             810.000       0.892       0.509       2.543    0.12%       0.194      0.593
+     DISCLIM              -0.126      -0.017      -2.479    0.12%      -0.844     -0.286     -0.111
+             810.000       0.879       0.438       1.994    0.12%      -0.072      0.482
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR IRL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.116      -0.387      -2.909    2.80%      -0.806     -0.100     -0.100
+            1356.000       1.282      -0.281       1.556   26.40%       0.436      1.556
+     RELATST              -0.150      -0.485      -6.490    0.15%      -0.835     -0.453     -0.230
+            1356.000       0.860       7.535       3.160    0.07%       0.017      0.490
+     COGACRCO              0.131       0.130      -2.850    0.07%      -0.484     -0.081      0.100
+            1356.000       0.897       1.996       3.669    0.07%       0.305      0.695
+     COGACMCO              0.010       0.071      -2.156    0.15%      -0.669     -0.183      0.095
+            1356.000       0.953       0.317       2.587    0.07%       0.230      0.756
+     DISCLIM               0.103      -0.270      -2.493    0.37%      -0.676     -0.111      0.100
+            1356.000       0.908       0.207       1.851    0.22%       0.349      0.990
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR KOR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.070      -0.264      -2.909    2.36%      -0.806     -0.100     -0.100
+            1568.000       1.050       0.148       1.556   21.17%       0.147      1.556
+     RELATST               0.294       0.546      -2.722    0.06%      -0.516      0.011      0.155
+            1568.000       1.104       0.452       3.165    0.32%       0.303      1.032
+     COGACRCO             -0.559       0.589      -2.978    0.13%      -1.352     -0.751     -0.534
+            1568.000       1.101       1.993       3.669    0.06%      -0.272      0.036
+     COGACMCO             -0.427       0.460      -2.160    0.19%      -1.510     -0.610     -0.414
+            1568.000       1.133       0.211       2.550    0.19%      -0.105      0.248
+     DISCLIM               0.809      -0.662      -2.470    0.06%      -0.072      0.639      0.930
+            1568.000       0.867      -0.139       1.851    2.23%       1.169      1.791
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR LTU
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.161      -0.086      -2.909    3.02%      -1.069     -0.332     -0.100
+            1786.000       1.133      -0.073       1.649    0.11%      -0.100      0.821
+     RELATST              -0.168       0.094      -6.483    0.06%      -0.895     -0.454     -0.248
+            1786.000       0.903       2.797       3.165    0.06%      -0.011      0.522
+     COGACRCO             -0.081       0.185      -2.850    0.06%      -0.747     -0.192     -0.102
+            1786.000       1.026       2.049       3.628    0.06%       0.062      0.518
+     COGACMCO              0.029       0.163      -2.160    0.06%      -0.658     -0.130      0.124
+            1786.000       0.943       0.578       2.583    0.06%       0.212      0.727
+     DISCLIM               0.093      -0.098      -2.493    0.22%      -0.673     -0.122     -0.061
+            1786.000       0.983       0.015       1.851    0.62%       0.176      1.009
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR MLT
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.074      -0.352      -2.909    3.38%      -0.806     -0.332     -0.100
+             710.000       1.363      -0.358       1.556   27.04%       0.147      1.556
+     RELATST              -0.056       0.387      -3.561    0.14%      -0.839     -0.359     -0.109
+             710.000       0.898       0.688       3.163    0.14%       0.135      0.677
+     COGACRCO             -0.022       0.256      -2.978    0.14%      -0.733     -0.177     -0.074
+             710.000       1.204       1.726       3.635    0.14%       0.131      0.604
+     COGACMCO              0.089       0.027      -2.128    0.14%      -0.630     -0.069      0.161
+             710.000       1.012       0.270       2.616    0.14%       0.265      0.837
+     DISCLIM              -0.286       0.219      -2.558    0.28%      -0.994     -0.650     -0.330
+             710.000       0.875       0.238       1.851    0.14%      -0.231      0.449
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR NLD
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.274      -0.086      -2.909    3.95%      -1.069     -0.564     -0.332
+            1242.000       1.142       0.107       1.649    0.08%      -0.100      0.436
+     RELATST              -0.109       0.005      -6.215    0.08%      -0.804     -0.331     -0.135
+            1242.000       0.798       4.129       3.163    0.08%       0.080      0.457
+     COGACRCO             -0.323       0.026      -2.978    0.08%      -0.979     -0.397     -0.172
+            1242.000       1.303       0.872       3.567    0.08%      -0.080      0.362
+     COGACMCO             -0.253       0.194      -2.160    0.08%      -1.143     -0.412     -0.147
+            1242.000       1.056       0.208       2.587    0.08%       0.110      0.377
+     DISCLIM              -0.142       0.086      -2.510    0.08%      -0.855     -0.336     -0.125
+            1242.000       0.883       0.408       1.851    0.24%      -0.072      0.463
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR NZL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.056      -0.226      -2.909    2.45%      -1.069     -0.100     -0.100
+            1104.000       1.191      -0.274       1.649    0.09%       0.147      1.556
+     RELATST              -0.161       0.456      -3.561    0.09%      -0.834     -0.424     -0.214
+            1104.000       0.688       0.947       2.969    0.09%      -0.024      0.457
+     COGACRCO             -0.082       0.300      -2.978    0.18%      -0.689     -0.176     -0.106
+            1104.000       0.911       2.734       3.651    0.09%       0.022      0.492
+     COGACMCO              0.066       0.031      -2.156    0.09%      -0.538     -0.023      0.166
+            1104.000       0.867       0.720       2.550    0.09%       0.231      0.690
+     DISCLIM              -0.359      -0.098      -2.554    0.09%      -1.007     -0.523     -0.322
+            1104.000       0.816       0.598       1.849    0.36%      -0.122      0.201
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR POL
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.561       0.108      -2.909    6.14%      -1.363     -0.806     -0.564
+            1367.000       1.361      -0.277       1.556   12.36%      -0.332      0.147
+     RELATST              -0.364      -0.132      -6.469    0.07%      -1.048     -0.629     -0.444
+            1367.000       0.736       3.820       3.149    0.07%      -0.173      0.266
+     COGACRCO             -0.294       0.334      -2.978    0.07%      -0.927     -0.451     -0.239
+            1367.000       1.149       1.777       3.614    0.07%      -0.108      0.374
+     COGACMCO             -0.313       0.232      -2.160    0.37%      -1.353     -0.487     -0.250
+            1367.000       1.099      -0.001       2.550    0.07%       0.059      0.392
+     DISCLIM              -0.119      -0.241      -2.493    0.22%      -0.859     -0.322     -0.111
+            1367.000       1.024       0.128       1.851    0.37%       0.100      0.695
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR PRT
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.358      -0.576      -2.909    2.10%      -0.564     -0.100      0.436
+            1621.000       1.227      -0.193       1.649    0.12%       0.821      1.556
+     RELATST               0.264       0.590      -2.774    0.06%      -0.472      0.003      0.144
+            1621.000       0.805       0.516       3.165    0.06%       0.290      0.953
+     COGACRCO              0.175       0.339      -2.862    0.12%      -0.523     -0.107      0.055
+            1621.000       1.362       1.440       3.720    0.06%       0.310      0.770
+     COGACMCO              0.331      -0.018      -2.160    0.06%      -0.413      0.163      0.257
+            1621.000       1.088       0.246       2.616    0.25%       0.505      0.956
+     DISCLIM               0.028       0.015      -2.493    0.06%      -0.696     -0.125     -0.078
+            1621.000       0.801       0.219       2.031    0.06%       0.133      0.757
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR ROU
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.075      -0.244      -2.909    3.52%      -1.069     -0.332     -0.100
+            1593.000       1.312      -0.310       1.649    0.13%       0.147      1.556
+     RELATST               0.018       0.314      -4.745    0.06%      -0.785     -0.271     -0.017
+            1593.000       0.938       0.767       3.165    0.06%       0.163      0.779
+     COGACRCO             -0.316       0.361      -2.978    0.13%      -0.971     -0.508     -0.293
+            1593.000       1.371       1.175       3.628    0.06%      -0.130      0.399
+     COGACMCO              0.074       0.275      -2.160    0.06%      -0.589     -0.153      0.075
+            1593.000       1.037       0.359       2.587    0.13%       0.219      0.800
+     DISCLIM              -0.069       0.009      -2.493    0.25%      -0.870     -0.331     -0.113
+            1593.000       1.069      -0.188       1.851    0.44%       0.097      0.765
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR TUR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP             -0.253      -0.083      -3.254    0.05%      -1.069     -0.564     -0.332
+            1884.000       1.266      -0.170       1.556   16.67%      -0.100      0.821
+     RELATST              -0.243       0.269      -6.269    0.05%      -1.091     -0.633     -0.361
+            1884.000       1.137       1.354       3.163    0.05%      -0.072      0.637
+     COGACRCO             -0.196       0.233      -2.841    0.05%      -0.816     -0.369     -0.179
+            1884.000       1.044       1.649       3.727    0.05%      -0.053      0.451
+     COGACMCO              0.028       0.129      -2.160    0.05%      -0.667     -0.149      0.078
+            1884.000       1.032       0.317       2.573    0.27%       0.216      0.773
+     DISCLIM              -0.108      -0.057      -2.475    0.05%      -0.781     -0.278     -0.069
+            1884.000       0.832       0.535       2.033    0.16%       0.007      0.548
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS FOR GBR
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     TEACHSUP              0.212      -0.432      -2.909    2.03%      -0.806     -0.100      0.147
+            2863.000       1.205      -0.278       1.649    0.07%       0.436      1.556
+     RELATST              -0.224      -0.214      -6.492    0.03%      -0.894     -0.498     -0.300
+            2863.000       0.823       4.800       3.165    0.03%      -0.037      0.393
+     COGACRCO              0.034       0.179      -2.850    0.03%      -0.615     -0.142     -0.041
+            2863.000       0.998       1.863       3.669    0.07%       0.171      0.594
+     COGACMCO              0.062       0.129      -2.160    0.03%      -0.612     -0.087      0.146
+            2863.000       0.952       0.525       2.573    0.03%       0.238      0.739
+     DISCLIM              -0.074      -0.196      -2.550    0.03%      -0.859     -0.294     -0.097
+            2863.000       1.011       0.040       2.019    0.03%       0.123      0.757
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      285
+
+Loglikelihood
+
+          H0 Value                     -205559.815
+          H0 Scaling Correction Factor      1.3630
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                  411689.630
+          Bayesian (BIC)                414055.085
+          Sample-Size Adjusted BIC      413149.359
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Group CHL
+
+ TEA_CLAS BY
+    TEACHSUP           0.353      0.039      9.008      0.000
+    RELATST            0.248      0.046      5.433      0.000
+    COGACRCO           0.712      0.045     15.703      0.000
+    COGACMCO           0.944      0.053     17.668      0.000
+    DISCLIM            0.110      0.035      3.194      0.001
+
+ Means
+    TEA_CLASS_         0.000      0.000    999.000    999.000
+
+ Intercepts
+    TEACHSUP           0.428      0.032     13.512      0.000
+    RELATST            0.281      0.031      9.030      0.000
+    COGACRCO          -0.042      0.033     -1.256      0.209
+    COGACMCO           0.349      0.029     11.875      0.000
+    DISCLIM           -0.329      0.025    -13.235      0.000
+
+ Variances
+    TEA_CLASS_         1.000      0.000    999.000    999.000
+
+ Residual Variances
+    TEACHSUP           1.088      0.050     21.917      0.000
+    RELATST            1.110      0.054     20.407      0.000
+    COGACRCO           0.843      0.071     11.889      0.000
+    COGACMCO           0.154      0.090      1.715      0.086
+    DISCLIM            0.734      0.034     21.675      0.000
+
+Group TAP
+
+ TEA_CLAS BY
+    TEACHSUP           0.251      0.039      6.458      0.000
+    RELATST            0.197      0.030      6.486      0.000
+    COGACRCO           0.730      0.054     13.496      0.000
+    COGACMCO           0.963      0.088     10.893      0.000
+    DISCLIM            0.164      0.024      6.798      0.000
+
+ Means
+    TEA_CLASS_        -0.323      0.057     -5.648      0.000
+
+ Intercepts
+    TEACHSUP           0.333      0.031     10.763      0.000
+    RELATST            0.343      0.029     12.004      0.000
+    COGACRCO          -0.029      0.043     -0.671      0.502
+    COGACMCO           0.278      0.048      5.833      0.000
+    DISCLIM            0.369      0.027     13.878      0.000
+
+ Variances
+    TEA_CLASS_         1.161      0.178      6.538      0.000
+
+ Residual Variances
+    TEACHSUP           1.038      0.046     22.647      0.000
+    RELATST            1.008      0.045     22.194      0.000
+    COGACRCO           0.830      0.063     13.108      0.000
+    COGACMCO           0.230      0.084      2.721      0.007
+    DISCLIM            0.945      0.033     28.317      0.000
+
+Group HRV
+
+ TEA_CLAS BY
+    TEACHSUP           0.394      0.038     10.471      0.000
+    RELATST            0.254      0.029      8.780      0.000
+    COGACRCO           0.515      0.056      9.205      0.000
+    COGACMCO           0.748      0.081      9.221      0.000
+    DISCLIM            0.189      0.032      5.984      0.000
+
+ Means
+    TEA_CLASS_        -0.401      0.082     -4.908      0.000
+
+ Intercepts
+    TEACHSUP           0.056      0.038      1.456      0.145
+    RELATST           -0.087      0.025     -3.409      0.001
+    COGACRCO           0.050      0.043      1.175      0.240
+    COGACMCO           0.368      0.053      7.000      0.000
+    DISCLIM            0.135      0.028      4.836      0.000
+
+ Variances
+    TEA_CLASS_         1.424      0.276      5.159      0.000
+
+ Residual Variances
+    TEACHSUP           1.142      0.048     23.563      0.000
+    RELATST            0.861      0.047     18.407      0.000
+    COGACRCO           0.640      0.045     14.268      0.000
+    COGACMCO           0.167      0.052      3.198      0.001
+    DISCLIM            0.911      0.035     26.146      0.000
+
+Group FIN
+
+ TEA_CLAS BY
+    TEACHSUP           0.286      0.039      7.305      0.000
+    RELATST            0.197      0.030      6.625      0.000
+    COGACRCO           0.767      0.056     13.716      0.000
+    COGACMCO           0.957      0.089     10.716      0.000
+    DISCLIM            0.139      0.031      4.492      0.000
+
+ Means
+    TEA_CLASS_        -0.489      0.068     -7.187      0.000
+
+ Intercepts
+    TEACHSUP           0.112      0.035      3.174      0.002
+    RELATST           -0.075      0.030     -2.499      0.012
+    COGACRCO           0.050      0.052      0.959      0.337
+    COGACMCO           0.363      0.043      8.497      0.000
+    DISCLIM           -0.154      0.026     -5.933      0.000
+
+ Variances
+    TEA_CLASS_         0.708      0.100      7.113      0.000
+
+ Residual Variances
+    TEACHSUP           1.136      0.036     31.900      0.000
+    RELATST            0.910      0.035     26.306      0.000
+    COGACRCO           0.630      0.047     13.389      0.000
+    COGACMCO           0.236      0.062      3.825      0.000
+    DISCLIM            0.801      0.025     31.649      0.000
+
+Group FRA
+
+ TEA_CLAS BY
+    TEACHSUP           0.412      0.039     10.570      0.000
+    RELATST            0.240      0.031      7.678      0.000
+    COGACRCO           0.646      0.073      8.825      0.000
+    COGACMCO           0.866      0.124      6.969      0.000
+    DISCLIM            0.113      0.032      3.491      0.000
+
+ Means
+    TEA_CLASS_        -0.360      0.077     -4.657      0.000
+
+ Intercepts
+    TEACHSUP          -0.001      0.039     -0.034      0.973
+    RELATST           -0.068      0.029     -2.331      0.020
+    COGACRCO           0.193      0.045      4.334      0.000
+    COGACMCO           0.321      0.053      6.095      0.000
+    DISCLIM           -0.308      0.026    -11.624      0.000
+
+ Variances
+    TEA_CLASS_         0.946      0.208      4.559      0.000
+
+ Residual Variances
+    TEACHSUP           1.116      0.044     25.534      0.000
+    RELATST            0.914      0.038     24.351      0.000
+    COGACRCO           0.892      0.051     17.386      0.000
+    COGACMCO           0.360      0.077      4.687      0.000
+    DISCLIM            0.877      0.032     27.440      0.000
+
+Group GRC
+
+ TEA_CLAS BY
+    TEACHSUP           0.393      0.048      8.271      0.000
+    RELATST            0.307      0.042      7.234      0.000
+    COGACRCO           0.575      0.076      7.564      0.000
+    COGACMCO           0.763      0.107      7.167      0.000
+    DISCLIM            0.154      0.033      4.695      0.000
+
+ Means
+    TEA_CLASS_        -0.537      0.106     -5.062      0.000
+
+ Intercepts
+    TEACHSUP          -0.085      0.055     -1.530      0.126
+    RELATST            0.019      0.045      0.420      0.674
+    COGACRCO           0.233      0.045      5.130      0.000
+    COGACMCO           0.324      0.047      6.864      0.000
+    DISCLIM           -0.231      0.035     -6.517      0.000
+
+ Variances
+    TEA_CLASS_         0.981      0.215      4.555      0.000
+
+ Residual Variances
+    TEACHSUP           1.037      0.054     19.313      0.000
+    RELATST            0.766      0.047     16.166      0.000
+    COGACRCO           0.704      0.052     13.534      0.000
+    COGACMCO           0.403      0.063      6.407      0.000
+    DISCLIM            0.745      0.032     23.571      0.000
+
+Group HKG
+
+ TEA_CLAS BY
+    TEACHSUP           0.322      0.053      6.089      0.000
+    RELATST            0.215      0.034      6.285      0.000
+    COGACRCO           0.832      0.097      8.617      0.000
+    COGACMCO           0.793      0.085      9.336      0.000
+    DISCLIM            0.118      0.039      3.005      0.003
+
+ Means
+    TEA_CLASS_        -0.142      0.066     -2.143      0.032
+
+ Intercepts
+    TEACHSUP           0.220      0.033      6.593      0.000
+    RELATST            0.055      0.028      1.954      0.051
+    COGACRCO           0.161      0.051      3.144      0.002
+    COGACMCO           0.219      0.053      4.150      0.000
+    DISCLIM            0.330      0.027     12.122      0.000
+
+ Variances
+    TEA_CLASS_         0.947      0.190      4.973      0.000
+
+ Residual Variances
+    TEACHSUP           1.158      0.062     18.759      0.000
+    RELATST            0.813      0.046     17.544      0.000
+    COGACRCO           0.542      0.071      7.597      0.000
+    COGACMCO           0.421      0.061      6.939      0.000
+    DISCLIM            0.909      0.038     24.023      0.000
+
+Group ISL
+
+ TEA_CLAS BY
+    TEACHSUP           0.199      0.062      3.226      0.001
+    RELATST            0.193      0.044      4.435      0.000
+    COGACRCO           0.743      0.095      7.803      0.000
+    COGACMCO           1.124      0.311      3.620      0.000
+    DISCLIM            0.153      0.042      3.641      0.000
+
+ Means
+    TEA_CLASS_        -0.368      0.111     -3.310      0.001
+
+ Intercepts
+    TEACHSUP           0.246      0.048      5.107      0.000
+    RELATST            0.088      0.045      1.941      0.052
+    COGACRCO          -0.114      0.070     -1.617      0.106
+    COGACMCO           0.348      0.041      8.462      0.000
+    DISCLIM           -0.069      0.043     -1.613      0.107
+
+ Variances
+    TEA_CLASS_         0.645      0.238      2.708      0.007
+
+ Residual Variances
+    TEACHSUP           1.050      0.055     19.133      0.000
+    RELATST            0.845      0.051     16.443      0.000
+    COGACRCO           0.851      0.104      8.201      0.000
+    COGACMCO           0.077      0.182      0.423      0.672
+    DISCLIM            0.864      0.047     18.385      0.000
+
+Group IRL
+
+ TEA_CLAS BY
+    TEACHSUP           0.471      0.079      5.945      0.000
+    RELATST            0.251      0.034      7.454      0.000
+    COGACRCO           0.440      0.104      4.225      0.000
+    COGACMCO           0.508      0.119      4.257      0.000
+    DISCLIM            0.163      0.022      7.309      0.000
+
+ Means
+    TEA_CLASS_        -0.242      0.097     -2.486      0.013
+
+ Intercepts
+    TEACHSUP           0.230      0.038      5.989      0.000
+    RELATST           -0.089      0.023     -3.924      0.000
+    COGACRCO           0.237      0.044      5.348      0.000
+    COGACMCO           0.133      0.051      2.600      0.009
+    DISCLIM            0.143      0.027      5.353      0.000
+
+ Variances
+    TEA_CLASS_         1.879      0.756      2.485      0.013
+
+ Residual Variances
+    TEACHSUP           0.866      0.059     14.690      0.000
+    RELATST            0.742      0.064     11.567      0.000
+    COGACRCO           0.533      0.042     12.832      0.000
+    COGACMCO           0.468      0.045     10.441      0.000
+    DISCLIM            0.858      0.036     23.877      0.000
+
+Group KOR
+
+ TEA_CLAS BY
+    TEACHSUP           0.190      0.053      3.569      0.000
+    RELATST            0.138      0.053      2.604      0.009
+    COGACRCO           0.732      0.081      9.006      0.000
+    COGACMCO           1.134      0.192      5.901      0.000
+    DISCLIM            0.046      0.038      1.209      0.227
+
+ Means
+    TEA_CLASS_        -0.675      0.118     -5.731      0.000
+
+ Intercepts
+    TEACHSUP           0.198      0.049      4.045      0.000
+    RELATST            0.387      0.050      7.780      0.000
+    COGACRCO          -0.065      0.094     -0.690      0.490
+    COGACMCO           0.338      0.043      7.886      0.000
+    DISCLIM            0.841      0.036     23.128      0.000
+
+ Variances
+    TEA_CLASS_         0.779      0.184      4.229      0.000
+
+ Residual Variances
+    TEACHSUP           1.022      0.041     25.167      0.000
+    RELATST            1.089      0.044     24.861      0.000
+    COGACRCO           0.683      0.083      8.204      0.000
+    COGACMCO           0.131      0.190      0.694      0.488
+    DISCLIM            0.865      0.030     28.925      0.000
+
+Group LTU
+
+ TEA_CLAS BY
+    TEACHSUP           0.293      0.049      5.942      0.000
+    RELATST            0.270      0.038      7.043      0.000
+    COGACRCO           0.669      0.057     11.821      0.000
+    COGACMCO           0.732      0.067     10.934      0.000
+    DISCLIM            0.205      0.037      5.610      0.000
+
+ Means
+    TEA_CLASS_        -0.362      0.078     -4.667      0.000
+
+ Intercepts
+    TEACHSUP          -0.054      0.035     -1.571      0.116
+    RELATST           -0.070      0.026     -2.708      0.007
+    COGACRCO           0.161      0.051      3.165      0.002
+    COGACMCO           0.294      0.056      5.255      0.000
+    DISCLIM            0.167      0.029      5.814      0.000
+
+ Variances
+    TEA_CLASS_         1.017      0.164      6.184      0.000
+
+ Residual Variances
+    TEACHSUP           1.046      0.043     24.143      0.000
+    RELATST            0.829      0.048     17.122      0.000
+    COGACRCO           0.571      0.047     12.073      0.000
+    COGACMCO           0.398      0.046      8.635      0.000
+    DISCLIM            0.940      0.034     27.726      0.000
+
+Group MLT
+
+ TEA_CLAS BY
+    TEACHSUP           0.368      0.053      6.877      0.000
+    RELATST            0.272      0.040      6.869      0.000
+    COGACRCO           0.670      0.103      6.530      0.000
+    COGACMCO           0.593      0.093      6.346      0.000
+    DISCLIM            0.218      0.035      6.256      0.000
+
+ Means
+    TEA_CLASS_        -0.314      0.099     -3.175      0.001
+
+ Intercepts
+    TEACHSUP           0.189      0.053      3.597      0.000
+    RELATST            0.030      0.041      0.725      0.468
+    COGACRCO           0.188      0.053      3.526      0.000
+    COGACMCO           0.275      0.052      5.328      0.000
+    DISCLIM           -0.218      0.042     -5.216      0.000
+
+ Variances
+    TEA_CLASS_         1.303      0.319      4.084      0.000
+
+ Residual Variances
+    TEACHSUP           1.187      0.089     13.397      0.000
+    RELATST            0.802      0.057     13.955      0.000
+    COGACRCO           0.620      0.090      6.922      0.000
+    COGACMCO           0.554      0.055      9.984      0.000
+    DISCLIM            0.814      0.049     16.626      0.000
+
+Group NLD
+
+ TEA_CLAS BY
+    TEACHSUP           0.389      0.038     10.249      0.000
+    RELATST            0.208      0.034      6.078      0.000
+    COGACRCO           0.787      0.088      8.939      0.000
+    COGACMCO           0.758      0.082      9.212      0.000
+    DISCLIM            0.091      0.042      2.166      0.030
+
+ Means
+    TEA_CLASS_        -0.683      0.092     -7.390      0.000
+
+ Intercepts
+    TEACHSUP          -0.008      0.050     -0.165      0.869
+    RELATST            0.033      0.041      0.793      0.428
+    COGACRCO           0.214      0.051      4.237      0.000
+    COGACMCO           0.264      0.058      4.541      0.000
+    DISCLIM           -0.080      0.038     -2.103      0.035
+
+ Variances
+    TEA_CLASS_         1.002      0.195      5.145      0.000
+
+ Residual Variances
+    TEACHSUP           0.990      0.051     19.409      0.000
+    RELATST            0.755      0.054     14.014      0.000
+    COGACRCO           0.683      0.073      9.353      0.000
+    COGACMCO           0.481      0.061      7.847      0.000
+    DISCLIM            0.874      0.039     22.384      0.000
+
+Group NZL
+
+ TEA_CLAS BY
+    TEACHSUP           0.487      0.062      7.829      0.000
+    RELATST            0.194      0.033      5.840      0.000
+    COGACRCO           0.686      0.069      9.886      0.000
+    COGACMCO           0.773      0.097      7.951      0.000
+    DISCLIM            0.156      0.036      4.393      0.000
+
+ Means
+    TEA_CLASS_        -0.349      0.077     -4.551      0.000
+
+ Intercepts
+    TEACHSUP           0.226      0.039      5.738      0.000
+    RELATST           -0.093      0.030     -3.071      0.002
+    COGACRCO           0.157      0.047      3.343      0.001
+    COGACMCO           0.336      0.047      7.109      0.000
+    DISCLIM           -0.305      0.032     -9.543      0.000
+
+ Variances
+    TEA_CLASS_         0.905      0.188      4.824      0.000
+
+ Residual Variances
+    TEACHSUP           0.976      0.052     18.621      0.000
+    RELATST            0.654      0.036     18.351      0.000
+    COGACRCO           0.486      0.043     11.325      0.000
+    COGACMCO           0.327      0.051      6.451      0.000
+    DISCLIM            0.794      0.039     20.375      0.000
+
+Group POL
+
+ TEA_CLAS BY
+    TEACHSUP           0.409      0.053      7.775      0.000
+    RELATST            0.175      0.042      4.216      0.000
+    COGACRCO           0.706      0.057     12.341      0.000
+    COGACMCO           0.940      0.113      8.340      0.000
+    DISCLIM            0.149      0.041      3.642      0.000
+
+ Means
+    TEA_CLASS_        -0.701      0.099     -7.099      0.000
+
+ Intercepts
+    TEACHSUP          -0.274      0.070     -3.924      0.000
+    RELATST           -0.241      0.049     -4.946      0.000
+    COGACRCO           0.201      0.062      3.249      0.001
+    COGACMCO           0.346      0.048      7.139      0.000
+    DISCLIM           -0.014      0.044     -0.324      0.746
+
+ Variances
+    TEA_CLASS_         0.854      0.130      6.584      0.000
+
+ Residual Variances
+    TEACHSUP           1.218      0.060     20.406      0.000
+    RELATST            0.710      0.049     14.452      0.000
+    COGACRCO           0.723      0.063     11.559      0.000
+    COGACMCO           0.344      0.106      3.257      0.001
+    DISCLIM            1.005      0.040     25.054      0.000
+
+Group PRT
+
+ TEA_CLAS BY
+    TEACHSUP           0.380      0.039      9.768      0.000
+    RELATST            0.249      0.026      9.390      0.000
+    COGACRCO           0.715      0.060     11.951      0.000
+    COGACMCO           0.726      0.065     11.224      0.000
+    DISCLIM            0.163      0.026      6.228      0.000
+
+ Means
+    TEA_CLASS_         0.152      0.088      1.730      0.084
+
+ Intercepts
+    TEACHSUP           0.301      0.040      7.444      0.000
+    RELATST            0.227      0.030      7.613      0.000
+    COGACRCO           0.067      0.057      1.184      0.237
+    COGACMCO           0.221      0.057      3.875      0.000
+    DISCLIM            0.004      0.023      0.157      0.875
+
+ Variances
+    TEA_CLASS_         1.362      0.219      6.233      0.000
+
+ Residual Variances
+    TEACHSUP           1.030      0.048     21.380      0.000
+    RELATST            0.721      0.030     24.347      0.000
+    COGACRCO           0.666      0.053     12.455      0.000
+    COGACMCO           0.369      0.045      8.159      0.000
+    DISCLIM            0.765      0.029     25.978      0.000
+
+Group ROU
+
+ TEA_CLAS BY
+    TEACHSUP           0.350      0.044      8.005      0.000
+    RELATST            0.203      0.028      7.118      0.000
+    COGACRCO           0.716      0.060     11.884      0.000
+    COGACMCO           0.745      0.074     10.055      0.000
+    DISCLIM            0.220      0.033      6.731      0.000
+
+ Means
+    TEA_CLASS_        -0.346      0.067     -5.168      0.000
+
+ Intercepts
+    TEACHSUP           0.046      0.036      1.264      0.206
+    RELATST            0.088      0.027      3.228      0.001
+    COGACRCO          -0.068      0.050     -1.372      0.170
+    COGACMCO           0.332      0.045      7.417      0.000
+    DISCLIM            0.007      0.027      0.255      0.799
+
+ Variances
+    TEA_CLASS_         1.128      0.179      6.297      0.000
+
+ Residual Variances
+    TEACHSUP           1.174      0.048     24.314      0.000
+    RELATST            0.892      0.039     22.763      0.000
+    COGACRCO           0.793      0.064     12.383      0.000
+    COGACMCO           0.412      0.058      7.129      0.000
+    DISCLIM            1.014      0.036     28.267      0.000
+
+Group TUR
+
+ TEA_CLAS BY
+    TEACHSUP           0.376      0.035     10.735      0.000
+    RELATST            0.321      0.037      8.725      0.000
+    COGACRCO           0.575      0.061      9.360      0.000
+    COGACMCO           0.705      0.075      9.426      0.000
+    DISCLIM            0.180      0.027      6.684      0.000
+
+ Means
+    TEA_CLASS_        -0.527      0.100     -5.279      0.000
+
+ Intercepts
+    TEACHSUP          -0.055      0.039     -1.414      0.157
+    RELATST           -0.074      0.026     -2.867      0.004
+    COGACRCO           0.107      0.057      1.884      0.060
+    COGACMCO           0.401      0.066      6.044      0.000
+    DISCLIM           -0.013      0.024     -0.552      0.581
+
+ Variances
+    TEA_CLASS_         1.411      0.277      5.103      0.000
+
+ Residual Variances
+    TEACHSUP           1.067      0.046     23.311      0.000
+    RELATST            0.991      0.048     20.501      0.000
+    COGACRCO           0.577      0.039     14.976      0.000
+    COGACMCO           0.329      0.040      8.145      0.000
+    DISCLIM            0.786      0.030     26.312      0.000
+
+Group GBR
+
+ TEA_CLAS BY
+    TEACHSUP           0.417      0.039     10.753      0.000
+    RELATST            0.200      0.022      8.983      0.000
+    COGACRCO           0.620      0.071      8.720      0.000
+    COGACMCO           0.684      0.079      8.638      0.000
+    DISCLIM            0.223      0.027      8.360      0.000
+
+ Means
+    TEA_CLASS_        -0.266      0.089     -2.996      0.003
+
+ Intercepts
+    TEACHSUP           0.323      0.039      8.258      0.000
+    RELATST           -0.171      0.026     -6.650      0.000
+    COGACRCO           0.199      0.053      3.739      0.000
+    COGACMCO           0.244      0.060      4.067      0.000
+    DISCLIM           -0.015      0.021     -0.706      0.480
+
+ Variances
+    TEA_CLASS_         1.094      0.223      4.894      0.000
+
+ Residual Variances
+    TEACHSUP           1.014      0.036     28.236      0.000
+    RELATST            0.779      0.042     18.753      0.000
+    COGACRCO           0.578      0.034     16.897      0.000
+    COGACMCO           0.441      0.032     13.664      0.000
+    DISCLIM            0.957      0.028     34.376      0.000
+
+
+
+APPROXIMATE MEASUREMENT INVARIANCE (NONINVARIANCE) FOR GROUPS
+
+ Intercepts/Thresholds
+   TEACHSUP    (1) (2) 3 (4) 5 6 (7) (8) (9) (10) 11 (12) 13 (14) (15) (16) 17 18 (19)
+   RELATST     (1) (2) 3 4 5 6 (7) 8 9 (10) 11 12 13 14 (15) (16) (17) 18 (19)
+   COGACRCO    (1) (2) 3 4 5 6 7 (8) 9 10 11 12 13 14 15 16 (17) 18 19
+   COGACMCO    1 2 3 4 5 6 (7) 8 (9) 10 11 12 13 14 15 16 17 18 19
+   DISCLIM     (1) (2) (3) (4) (5) (6) (7) 8 (9) (10) (11) (12) 13 (14) 15 16 17 18 19
+
+
+ Loadings for TEA_CLAS
+   TEACHSUP    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+   RELATST     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+   COGACRCO    1 2 (3) 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+   COGACMCO    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+   DISCLIM     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+
+FACTOR MEAN COMPARISON AT THE 5% SIGNIFICANCE LEVEL IN DESCENDING ORDER
+
+ Results for Factor TEA_CLAS
+
+           Latent    Group      Factor
+ Ranking    Class    Value       Mean     Groups With Significantly Smaller Factor Mean
+     1        16        16       0.152    7 9 19 12 2 17 14 5 11 8
+                                          3 4 18 6 10 13 15
+     2         1         1       0.000    7 9 19 12 2 17 14 5 11 8
+                                          3 4 18 6 10 13 15
+     3         7         7      -0.142    19 12 2 17 14 5 11 8 3 4
+                                          18 6 10 13 15
+     4         9         9      -0.242    4 18 6 10 13 15
+     5        19        19      -0.266    4 18 6 10 13 15
+     6        12        12      -0.314    4 18 6 10 13 15
+     7         2         2      -0.323    4 18 6 10 13 15
+     8        17        17      -0.346    4 18 6 10 13 15
+     9        14        14      -0.349    4 18 6 10 13 15
+    10         5         5      -0.360    4 18 6 10 13 15
+    11        11        11      -0.362    4 18 6 10 13 15
+    12         8         8      -0.368    10 13 15
+    13         3         3      -0.401    10 13 15
+    14         4         4      -0.489    13 15
+    15        18        18      -0.527
+    16         6         6      -0.537
+    17        10        10      -0.675
+    18        13        13      -0.683
+    19        15        15      -0.701
+
+
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.259E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+ALIGNMENT OUTPUT
+
+INVARIANCE ANALYSIS
+
+ Intercepts/Thresholds
+ Intercept for TEACHSUP
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.333      0.428     -0.095      0.044      0.030
+     3         1      0.056      0.428     -0.372      0.048      0.000
+     3         2      0.056      0.333     -0.278      0.044      0.000
+     4         1      0.112      0.428     -0.316      0.047      0.000
+     4         2      0.112      0.333     -0.221      0.042      0.000
+     4         3      0.112      0.056      0.056      0.041      0.173
+     5         1     -0.001      0.428     -0.429      0.049      0.000
+     5         2     -0.001      0.333     -0.335      0.044      0.000
+     5         3     -0.001      0.056     -0.057      0.043      0.182
+     5         4     -0.001      0.112     -0.113      0.042      0.007
+     6         1     -0.085      0.428     -0.513      0.063      0.000
+     6         2     -0.085      0.333     -0.418      0.058      0.000
+     6         3     -0.085      0.056     -0.140      0.058      0.015
+     6         4     -0.085      0.112     -0.197      0.058      0.001
+     6         5     -0.085     -0.001     -0.083      0.056      0.139
+     7         1      0.220      0.428     -0.208      0.045      0.000
+     7         2      0.220      0.333     -0.113      0.041      0.006
+     7         3      0.220      0.056      0.165      0.042      0.000
+     7         4      0.220      0.112      0.108      0.042      0.009
+     7         5      0.220     -0.001      0.222      0.042      0.000
+     7         6      0.220     -0.085      0.305      0.056      0.000
+     8         1      0.246      0.428     -0.182      0.057      0.001
+     8         2      0.246      0.333     -0.088      0.055      0.112
+     8         3      0.246      0.056      0.190      0.057      0.001
+     8         4      0.246      0.112      0.134      0.057      0.018
+     8         5      0.246     -0.001      0.247      0.057      0.000
+     8         6      0.246     -0.085      0.330      0.069      0.000
+     8         7      0.246      0.220      0.025      0.054      0.639
+     9         1      0.230      0.428     -0.198      0.049      0.000
+     9         2      0.230      0.333     -0.103      0.043      0.016
+     9         3      0.230      0.056      0.174      0.042      0.000
+     9         4      0.230      0.112      0.118      0.040      0.003
+     9         5      0.230     -0.001      0.231      0.040      0.000
+     9         6      0.230     -0.085      0.315      0.055      0.000
+     9         7      0.230      0.220      0.009      0.035      0.786
+     9         8      0.230      0.246     -0.016      0.052      0.761
+     10        1      0.198      0.428     -0.230      0.058      0.000
+     10        2      0.198      0.333     -0.135      0.055      0.014
+     10        3      0.198      0.056      0.142      0.059      0.015
+     10        4      0.198      0.112      0.086      0.058      0.139
+     10        5      0.198     -0.001      0.199      0.059      0.001
+     10        6      0.198     -0.085      0.283      0.070      0.000
+     10        7      0.198      0.220     -0.023      0.055      0.679
+     10        8      0.198      0.246     -0.048      0.067      0.474
+     10        9      0.198      0.230     -0.032      0.056      0.565
+     11        1     -0.054      0.428     -0.482      0.046      0.000
+     11        2     -0.054      0.333     -0.388      0.041      0.000
+     11        3     -0.054      0.056     -0.110      0.041      0.008
+     11        4     -0.054      0.112     -0.166      0.040      0.000
+     11        5     -0.054     -0.001     -0.053      0.041      0.191
+     11        6     -0.054     -0.085      0.030      0.055      0.584
+     11        7     -0.054      0.220     -0.275      0.040      0.000
+     11        8     -0.054      0.246     -0.300      0.056      0.000
+     11        9     -0.054      0.230     -0.284      0.039      0.000
+     11        10     -0.054      0.198     -0.252      0.057      0.000
+     12        1      0.189      0.428     -0.239      0.061      0.000
+     12        2      0.189      0.333     -0.144      0.057      0.011
+     12        3      0.189      0.056      0.133      0.058      0.021
+     12        4      0.189      0.112      0.077      0.057      0.179
+     12        5      0.189     -0.001      0.190      0.056      0.001
+     12        6      0.189     -0.085      0.274      0.064      0.000
+     12        7      0.189      0.220     -0.031      0.055      0.564
+     12        8      0.189      0.246     -0.057      0.068      0.402
+     12        9      0.189      0.230     -0.041      0.054      0.451
+     12        10      0.189      0.198     -0.009      0.066      0.893
+     12        11      0.189     -0.054      0.243      0.056      0.000
+     13        1     -0.008      0.428     -0.436      0.059      0.000
+     13        2     -0.008      0.333     -0.341      0.053      0.000
+     13        3     -0.008      0.056     -0.064      0.054      0.236
+     13        4     -0.008      0.112     -0.120      0.054      0.026
+     13        5     -0.008     -0.001     -0.007      0.050      0.888
+     13        6     -0.008     -0.085      0.076      0.062      0.216
+     13        7     -0.008      0.220     -0.229      0.052      0.000
+     13        8     -0.008      0.246     -0.254      0.065      0.000
+     13        9     -0.008      0.230     -0.238      0.051      0.000
+     13        10     -0.008      0.198     -0.206      0.066      0.002
+     13        11     -0.008     -0.054      0.046      0.052      0.373
+     13        12     -0.008      0.189     -0.197      0.062      0.001
+     14        1      0.226      0.428     -0.202      0.049      0.000
+     14        2      0.226      0.333     -0.107      0.044      0.015
+     14        3      0.226      0.056      0.170      0.043      0.000
+     14        4      0.226      0.112      0.114      0.043      0.008
+     14        5      0.226     -0.001      0.227      0.042      0.000
+     14        6      0.226     -0.085      0.311      0.057      0.000
+     14        7      0.226      0.220      0.005      0.039      0.888
+     14        8      0.226      0.246     -0.020      0.056      0.721
+     14        9      0.226      0.230     -0.004      0.034      0.908
+     14        10      0.226      0.198      0.028      0.057      0.625
+     14        11      0.226     -0.054      0.280      0.042      0.000
+     14        12      0.226      0.189      0.037      0.056      0.512
+     14        13      0.226     -0.008      0.234      0.053      0.000
+     15        1     -0.274      0.428     -0.702      0.076      0.000
+     15        2     -0.274      0.333     -0.608      0.071      0.000
+     15        3     -0.274      0.056     -0.330      0.070      0.000
+     15        4     -0.274      0.112     -0.386      0.071      0.000
+     15        5     -0.274     -0.001     -0.273      0.068      0.000
+     15        6     -0.274     -0.085     -0.190      0.078      0.015
+     15        7     -0.274      0.220     -0.495      0.068      0.000
+     15        8     -0.274      0.246     -0.520      0.081      0.000
+     15        9     -0.274      0.230     -0.504      0.067      0.000
+     15        10     -0.274      0.198     -0.472      0.082      0.000
+     15        11     -0.274     -0.054     -0.220      0.069      0.001
+     15        12     -0.274      0.189     -0.463      0.077      0.000
+     15        13     -0.274     -0.008     -0.266      0.075      0.000
+     15        14     -0.274      0.226     -0.500      0.068      0.000
+     16        1      0.301      0.428     -0.127      0.051      0.012
+     16        2      0.301      0.333     -0.032      0.043      0.453
+     16        3      0.301      0.056      0.245      0.044      0.000
+     16        4      0.301      0.112      0.189      0.044      0.000
+     16        5      0.301     -0.001      0.302      0.044      0.000
+     16        6      0.301     -0.085      0.386      0.058      0.000
+     16        7      0.301      0.220      0.080      0.043      0.064
+     16        8      0.301      0.246      0.055      0.059      0.350
+     16        9      0.301      0.230      0.071      0.043      0.101
+     16        10      0.301      0.198      0.103      0.060      0.088
+     16        11      0.301     -0.054      0.355      0.043      0.000
+     16        12      0.301      0.189      0.112      0.058      0.053
+     16        13      0.301     -0.008      0.309      0.054      0.000
+     16        14      0.301      0.226      0.075      0.045      0.095
+     16        15      0.301     -0.274      0.575      0.069      0.000
+     17        1      0.046      0.428     -0.382      0.047      0.000
+     17        2      0.046      0.333     -0.287      0.043      0.000
+     17        3      0.046      0.056     -0.010      0.041      0.813
+     17        4      0.046      0.112     -0.066      0.044      0.131
+     17        5      0.046     -0.001      0.047      0.044      0.289
+     17        6      0.046     -0.085      0.131      0.059      0.026
+     17        7      0.046      0.220     -0.175      0.043      0.000
+     17        8      0.046      0.246     -0.200      0.056      0.000
+     17        9      0.046      0.230     -0.184      0.044      0.000
+     17        10      0.046      0.198     -0.152      0.057      0.007
+     17        11      0.046     -0.054      0.100      0.043      0.020
+     17        12      0.046      0.189     -0.143      0.058      0.014
+     17        13      0.046     -0.008      0.054      0.055      0.322
+     17        14      0.046      0.226     -0.180      0.045      0.000
+     17        15      0.046     -0.274      0.320      0.071      0.000
+     17        16      0.046      0.301     -0.255      0.047      0.000
+     18        1     -0.055      0.428     -0.483      0.049      0.000
+     18        2     -0.055      0.333     -0.388      0.043      0.000
+     18        3     -0.055      0.056     -0.111      0.042      0.009
+     18        4     -0.055      0.112     -0.167      0.041      0.000
+     18        5     -0.055     -0.001     -0.054      0.041      0.195
+     18        6     -0.055     -0.085      0.030      0.056      0.594
+     18        7     -0.055      0.220     -0.275      0.042      0.000
+     18        8     -0.055      0.246     -0.301      0.058      0.000
+     18        9     -0.055      0.230     -0.285      0.040      0.000
+     18        10     -0.055      0.198     -0.253      0.059      0.000
+     18        11     -0.055     -0.054      0.000      0.038      0.991
+     18        12     -0.055      0.189     -0.244      0.057      0.000
+     18        13     -0.055     -0.008     -0.047      0.053      0.377
+     18        14     -0.055      0.226     -0.281      0.042      0.000
+     18        15     -0.055     -0.274      0.220      0.068      0.001
+     18        16     -0.055      0.301     -0.356      0.043      0.000
+     18        17     -0.055      0.046     -0.101      0.045      0.024
+     19        1      0.323      0.428     -0.105      0.050      0.034
+     19        2      0.323      0.333     -0.010      0.040      0.793
+     19        3      0.323      0.056      0.267      0.042      0.000
+     19        4      0.323      0.112      0.211      0.043      0.000
+     19        5      0.323     -0.001      0.324      0.040      0.000
+     19        6      0.323     -0.085      0.408      0.054      0.000
+     19        7      0.323      0.220      0.102      0.040      0.010
+     19        8      0.323      0.246      0.077      0.058      0.181
+     19        9      0.323      0.230      0.093      0.039      0.016
+     19        10      0.323      0.198      0.125      0.058      0.032
+     19        11      0.323     -0.054      0.377      0.040      0.000
+     19        12      0.323      0.189      0.134      0.054      0.014
+     19        13      0.323     -0.008      0.331      0.050      0.000
+     19        14      0.323      0.226      0.097      0.041      0.018
+     19        15      0.323     -0.274      0.597      0.064      0.000
+     19        16      0.323      0.301      0.022      0.036      0.543
+     19        17      0.323      0.046      0.277      0.044      0.000
+     19        18      0.323     -0.055      0.378      0.040      0.000
+ Approximate Measurement Invariance Holds For Groups:
+ 3 5 6 11 13 17 18
+ Weighted Average Value Across Invariant Groups:      -0.016
+ R-square/Explained variance/Invariance index:       0.400
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     3      0.056      0.072      0.029      0.014
+     5     -0.001      0.015      0.027      0.584
+     6     -0.085     -0.068      0.043      0.111
+     11     -0.054     -0.038      0.026      0.145
+     13     -0.008      0.008      0.040      0.840
+     17      0.046      0.062      0.031      0.043
+     18     -0.055     -0.039      0.027      0.154
+
+ Intercept for RELATST
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.343      0.281      0.062      0.042      0.141
+     3         1     -0.087      0.281     -0.368      0.040      0.000
+     3         2     -0.087      0.343     -0.430      0.035      0.000
+     4         1     -0.075      0.281     -0.356      0.043      0.000
+     4         2     -0.075      0.343     -0.418      0.038      0.000
+     4         3     -0.075     -0.087      0.012      0.030      0.689
+     5         1     -0.068      0.281     -0.349      0.042      0.000
+     5         2     -0.068      0.343     -0.411      0.038      0.000
+     5         3     -0.068     -0.087      0.019      0.031      0.545
+     5         4     -0.068     -0.075      0.007      0.033      0.837
+     6         1      0.019      0.281     -0.262      0.055      0.000
+     6         2      0.019      0.343     -0.324      0.050      0.000
+     6         3      0.019     -0.087      0.106      0.046      0.022
+     6         4      0.019     -0.075      0.094      0.048      0.048
+     6         5      0.019     -0.068      0.087      0.048      0.067
+     7         1      0.055      0.281     -0.226      0.042      0.000
+     7         2      0.055      0.343     -0.288      0.038      0.000
+     7         3      0.055     -0.087      0.142      0.033      0.000
+     7         4      0.055     -0.075      0.130      0.036      0.000
+     7         5      0.055     -0.068      0.123      0.036      0.001
+     7         6      0.055      0.019      0.036      0.048      0.453
+     8         1      0.088      0.281     -0.193      0.055      0.000
+     8         2      0.088      0.343     -0.255      0.052      0.000
+     8         3      0.088     -0.087      0.175      0.050      0.000
+     8         4      0.088     -0.075      0.163      0.052      0.002
+     8         5      0.088     -0.068      0.156      0.052      0.003
+     8         6      0.088      0.019      0.069      0.062      0.262
+     8         7      0.088      0.055      0.033      0.052      0.522
+     9         1     -0.089      0.281     -0.371      0.038      0.000
+     9         2     -0.089      0.343     -0.433      0.033      0.000
+     9         3     -0.089     -0.087     -0.003      0.023      0.909
+     9         4     -0.089     -0.075     -0.015      0.027      0.584
+     9         5     -0.089     -0.068     -0.021      0.029      0.460
+     9         6     -0.089      0.019     -0.109      0.044      0.014
+     9         7     -0.089      0.055     -0.145      0.031      0.000
+     9         8     -0.089      0.088     -0.178      0.048      0.000
+     10        1      0.387      0.281      0.106      0.059      0.071
+     10        2      0.387      0.343      0.044      0.056      0.438
+     10        3      0.387     -0.087      0.473      0.055      0.000
+     10        4      0.387     -0.075      0.462      0.057      0.000
+     10        5      0.387     -0.068      0.455      0.057      0.000
+     10        6      0.387      0.019      0.368      0.066      0.000
+     10        7      0.387      0.055      0.331      0.056      0.000
+     10        8      0.387      0.088      0.298      0.067      0.000
+     10        9      0.387     -0.089      0.476      0.053      0.000
+     11        1     -0.070      0.281     -0.351      0.040      0.000
+     11        2     -0.070      0.343     -0.413      0.035      0.000
+     11        3     -0.070     -0.087      0.017      0.027      0.529
+     11        4     -0.070     -0.075      0.005      0.028      0.850
+     11        5     -0.070     -0.068     -0.001      0.030      0.960
+     11        6     -0.070      0.019     -0.089      0.045      0.049
+     11        7     -0.070      0.055     -0.125      0.034      0.000
+     11        8     -0.070      0.088     -0.158      0.050      0.002
+     11        9     -0.070     -0.089      0.020      0.025      0.430
+     11        10     -0.070      0.387     -0.456      0.055      0.000
+     12        1      0.030      0.281     -0.251      0.051      0.000
+     12        2      0.030      0.343     -0.313      0.047      0.000
+     12        3      0.030     -0.087      0.116      0.043      0.007
+     12        4      0.030     -0.075      0.104      0.044      0.019
+     12        5      0.030     -0.068      0.098      0.045      0.030
+     12        6      0.030      0.019      0.011      0.049      0.832
+     12        7      0.030      0.055     -0.026      0.045      0.569
+     12        8      0.030      0.088     -0.059      0.059      0.321
+     12        9      0.030     -0.089      0.119      0.041      0.004
+     12        10      0.030      0.387     -0.357      0.062      0.000
+     12        11      0.030     -0.070      0.099      0.043      0.022
+     13        1      0.033      0.281     -0.248      0.052      0.000
+     13        2      0.033      0.343     -0.310      0.048      0.000
+     13        3      0.033     -0.087      0.120      0.044      0.007
+     13        4      0.033     -0.075      0.108      0.046      0.020
+     13        5      0.033     -0.068      0.101      0.046      0.026
+     13        6      0.033      0.019      0.014      0.053      0.794
+     13        7      0.033      0.055     -0.022      0.046      0.626
+     13        8      0.033      0.088     -0.055      0.059      0.352
+     13        9      0.033     -0.089      0.122      0.043      0.004
+     13        10      0.033      0.387     -0.354      0.064      0.000
+     13        11      0.033     -0.070      0.103      0.044      0.019
+     13        12      0.033      0.030      0.003      0.050      0.947
+     14        1     -0.093      0.281     -0.374      0.043      0.000
+     14        2     -0.093      0.343     -0.436      0.039      0.000
+     14        3     -0.093     -0.087     -0.006      0.032      0.848
+     14        4     -0.093     -0.075     -0.018      0.036      0.616
+     14        5     -0.093     -0.068     -0.025      0.036      0.496
+     14        6     -0.093      0.019     -0.112      0.049      0.023
+     14        7     -0.093      0.055     -0.148      0.037      0.000
+     14        8     -0.093      0.088     -0.181      0.052      0.001
+     14        9     -0.093     -0.089     -0.003      0.028      0.905
+     14        10     -0.093      0.387     -0.480      0.057      0.000
+     14        11     -0.093     -0.070     -0.023      0.033      0.488
+     14        12     -0.093      0.030     -0.122      0.046      0.008
+     14        13     -0.093      0.033     -0.126      0.047      0.008
+     15        1     -0.241      0.281     -0.522      0.058      0.000
+     15        2     -0.241      0.343     -0.584      0.053      0.000
+     15        3     -0.241     -0.087     -0.154      0.049      0.002
+     15        4     -0.241     -0.075     -0.166      0.052      0.001
+     15        5     -0.241     -0.068     -0.173      0.051      0.001
+     15        6     -0.241      0.019     -0.260      0.059      0.000
+     15        7     -0.241      0.055     -0.297      0.051      0.000
+     15        8     -0.241      0.088     -0.330      0.064      0.000
+     15        9     -0.241     -0.089     -0.152      0.047      0.001
+     15        10     -0.241      0.387     -0.628      0.068      0.000
+     15        11     -0.241     -0.070     -0.172      0.048      0.000
+     15        12     -0.241      0.030     -0.271      0.056      0.000
+     15        13     -0.241      0.033     -0.274      0.058      0.000
+     15        14     -0.241     -0.093     -0.148      0.052      0.005
+     16        1      0.227      0.281     -0.054      0.043      0.207
+     16        2      0.227      0.343     -0.116      0.037      0.002
+     16        3      0.227     -0.087      0.314      0.033      0.000
+     16        4      0.227     -0.075      0.302      0.035      0.000
+     16        5      0.227     -0.068      0.295      0.035      0.000
+     16        6      0.227      0.019      0.208      0.048      0.000
+     16        7      0.227      0.055      0.172      0.036      0.000
+     16        8      0.227      0.088      0.138      0.052      0.008
+     16        9      0.227     -0.089      0.316      0.031      0.000
+     16        10      0.227      0.387     -0.160      0.057      0.005
+     16        11      0.227     -0.070      0.296      0.032      0.000
+     16        12      0.227      0.030      0.197      0.045      0.000
+     16        13      0.227      0.033      0.194      0.046      0.000
+     16        14      0.227     -0.093      0.320      0.037      0.000
+     16        15      0.227     -0.241      0.468      0.049      0.000
+     17        1      0.088      0.281     -0.193      0.041      0.000
+     17        2      0.088      0.343     -0.255      0.038      0.000
+     17        3      0.088     -0.087      0.175      0.034      0.000
+     17        4      0.088     -0.075      0.163      0.036      0.000
+     17        5      0.088     -0.068      0.156      0.037      0.000
+     17        6      0.088      0.019      0.069      0.050      0.166
+     17        7      0.088      0.055      0.033      0.037      0.376
+     17        8      0.088      0.088      0.000      0.049      0.993
+     17        9      0.088     -0.089      0.177      0.032      0.000
+     17        10      0.088      0.387     -0.299      0.055      0.000
+     17        11      0.088     -0.070      0.158      0.034      0.000
+     17        12      0.088      0.030      0.058      0.046      0.209
+     17        13      0.088      0.033      0.055      0.047      0.242
+     17        14      0.088     -0.093      0.181      0.038      0.000
+     17        15      0.088     -0.241      0.329      0.052      0.000
+     17        16      0.088      0.227     -0.139      0.037      0.000
+     18        1     -0.074      0.281     -0.355      0.040      0.000
+     18        2     -0.074      0.343     -0.417      0.035      0.000
+     18        3     -0.074     -0.087      0.013      0.026      0.624
+     18        4     -0.074     -0.075      0.001      0.026      0.975
+     18        5     -0.074     -0.068     -0.006      0.027      0.828
+     18        6     -0.074      0.019     -0.093      0.044      0.036
+     18        7     -0.074      0.055     -0.129      0.033      0.000
+     18        8     -0.074      0.088     -0.162      0.050      0.001
+     18        9     -0.074     -0.089      0.015      0.023      0.499
+     18        10     -0.074      0.387     -0.461      0.055      0.000
+     18        11     -0.074     -0.070     -0.004      0.024      0.851
+     18        12     -0.074      0.030     -0.104      0.042      0.014
+     18        13     -0.074      0.033     -0.107      0.043      0.013
+     18        14     -0.074     -0.093      0.019      0.032      0.554
+     18        15     -0.074     -0.241      0.167      0.045      0.000
+     18        16     -0.074      0.227     -0.301      0.031      0.000
+     18        17     -0.074      0.088     -0.162      0.034      0.000
+     19        1     -0.171      0.281     -0.452      0.040      0.000
+     19        2     -0.171      0.343     -0.514      0.035      0.000
+     19        3     -0.171     -0.087     -0.084      0.030      0.006
+     19        4     -0.171     -0.075     -0.096      0.033      0.004
+     19        5     -0.171     -0.068     -0.103      0.033      0.002
+     19        6     -0.171      0.019     -0.190      0.046      0.000
+     19        7     -0.171      0.055     -0.226      0.033      0.000
+     19        8     -0.171      0.088     -0.259      0.050      0.000
+     19        9     -0.171     -0.089     -0.081      0.028      0.004
+     19        10     -0.171      0.387     -0.558      0.055      0.000
+     19        11     -0.171     -0.070     -0.101      0.030      0.001
+     19        12     -0.171      0.030     -0.201      0.043      0.000
+     19        13     -0.171      0.033     -0.204      0.044      0.000
+     19        14     -0.171     -0.093     -0.078      0.035      0.025
+     19        15     -0.171     -0.241      0.070      0.047      0.133
+     19        16     -0.171      0.227     -0.398      0.031      0.000
+     19        17     -0.171      0.088     -0.259      0.034      0.000
+     19        18     -0.171     -0.074     -0.097      0.029      0.001
+ Approximate Measurement Invariance Holds For Groups:
+ 3 4 5 6 8 9 11 12 13 14
+ 18
+ Weighted Average Value Across Invariant Groups:      -0.048
+ R-square/Explained variance/Invariance index:       0.173
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     3     -0.087     -0.039      0.020      0.047
+     4     -0.075     -0.027      0.020      0.177
+     5     -0.068     -0.021      0.023      0.363
+     6      0.019      0.067      0.038      0.076
+     8      0.088      0.136      0.045      0.002
+     9     -0.089     -0.042      0.016      0.010
+     11     -0.070     -0.022      0.018      0.230
+     12      0.030      0.077      0.036      0.033
+     13      0.033      0.081      0.037      0.028
+     14     -0.093     -0.045      0.026      0.085
+     18     -0.074     -0.026      0.016      0.103
+
+ Intercept for COGACRCO
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1     -0.029     -0.042      0.013      0.047      0.778
+     3         1      0.050     -0.042      0.092      0.048      0.056
+     3         2      0.050     -0.029      0.079      0.042      0.058
+     4         1      0.050     -0.042      0.091      0.055      0.094
+     4         2      0.050     -0.029      0.078      0.046      0.089
+     4         3      0.050      0.050     -0.001      0.042      0.989
+     5         1      0.193     -0.042      0.235      0.049      0.000
+     5         2      0.193     -0.029      0.222      0.039      0.000
+     5         3      0.193      0.050      0.143      0.040      0.000
+     5         4      0.193      0.050      0.144      0.045      0.001
+     6         1      0.233     -0.042      0.275      0.050      0.000
+     6         2      0.233     -0.029      0.262      0.041      0.000
+     6         3      0.233      0.050      0.183      0.044      0.000
+     6         4      0.233      0.050      0.183      0.048      0.000
+     6         5      0.233      0.193      0.039      0.038      0.295
+     7         1      0.161     -0.042      0.203      0.055      0.000
+     7         2      0.161     -0.029      0.190      0.039      0.000
+     7         3      0.161      0.050      0.111      0.043      0.010
+     7         4      0.161      0.050      0.111      0.045      0.013
+     7         5      0.161      0.193     -0.032      0.032      0.311
+     7         6      0.161      0.233     -0.072      0.037      0.051
+     8         1     -0.114     -0.042     -0.072      0.074      0.329
+     8         2     -0.114     -0.029     -0.085      0.070      0.224
+     8         3     -0.114      0.050     -0.164      0.070      0.020
+     8         4     -0.114      0.050     -0.163      0.074      0.027
+     8         5     -0.114      0.193     -0.307      0.070      0.000
+     8         6     -0.114      0.233     -0.347      0.071      0.000
+     8         7     -0.114      0.161     -0.275      0.071      0.000
+     9         1      0.237     -0.042      0.279      0.051      0.000
+     9         2      0.237     -0.029      0.266      0.046      0.000
+     9         3      0.237      0.050      0.187      0.048      0.000
+     9         4      0.237      0.050      0.188      0.052      0.000
+     9         5      0.237      0.193      0.044      0.043      0.304
+     9         6      0.237      0.233      0.005      0.044      0.917
+     9         7      0.237      0.161      0.076      0.043      0.079
+     9         8      0.237     -0.114      0.351      0.073      0.000
+     10        1     -0.065     -0.042     -0.023      0.097      0.811
+     10        2     -0.065     -0.029     -0.036      0.090      0.687
+     10        3     -0.065      0.050     -0.115      0.095      0.227
+     10        4     -0.065      0.050     -0.115      0.099      0.245
+     10        5     -0.065      0.193     -0.258      0.095      0.006
+     10        6     -0.065      0.233     -0.298      0.096      0.002
+     10        7     -0.065      0.161     -0.226      0.094      0.016
+     10        8     -0.065     -0.114      0.049      0.108      0.652
+     10        9     -0.065      0.237     -0.302      0.096      0.002
+     11        1      0.161     -0.042      0.203      0.055      0.000
+     11        2      0.161     -0.029      0.190      0.041      0.000
+     11        3      0.161      0.050      0.111      0.044      0.011
+     11        4      0.161      0.050      0.112      0.047      0.017
+     11        5      0.161      0.193     -0.032      0.038      0.400
+     11        6      0.161      0.233     -0.071      0.041      0.079
+     11        7      0.161      0.161      0.000      0.031      0.991
+     11        8      0.161     -0.114      0.275      0.072      0.000
+     11        9      0.161      0.237     -0.076      0.047      0.103
+     11        10      0.161     -0.065      0.226      0.096      0.019
+     12        1      0.188     -0.042      0.230      0.057      0.000
+     12        2      0.188     -0.029      0.217      0.043      0.000
+     12        3      0.188      0.050      0.138      0.047      0.003
+     12        4      0.188      0.050      0.139      0.050      0.006
+     12        5      0.188      0.193     -0.005      0.037      0.893
+     12        6      0.188      0.233     -0.044      0.039      0.261
+     12        7      0.188      0.161      0.027      0.033      0.404
+     12        8      0.188     -0.114      0.302      0.074      0.000
+     12        9      0.188      0.237     -0.049      0.047      0.300
+     12        10      0.188     -0.065      0.253      0.094      0.007
+     12        11      0.188      0.161      0.027      0.038      0.481
+     13        1      0.214     -0.042      0.256      0.054      0.000
+     13        2      0.214     -0.029      0.243      0.043      0.000
+     13        3      0.214      0.050      0.164      0.045      0.000
+     13        4      0.214      0.050      0.164      0.048      0.001
+     13        5      0.214      0.193      0.021      0.037      0.571
+     13        6      0.214      0.233     -0.019      0.038      0.621
+     13        7      0.214      0.161      0.053      0.033      0.111
+     13        8      0.214     -0.114      0.328      0.072      0.000
+     13        9      0.214      0.237     -0.023      0.044      0.597
+     13        10      0.214     -0.065      0.279      0.096      0.004
+     13        11      0.214      0.161      0.053      0.038      0.164
+     13        12      0.214      0.188      0.026      0.040      0.521
+     14        1      0.157     -0.042      0.199      0.051      0.000
+     14        2      0.157     -0.029      0.186      0.040      0.000
+     14        3      0.157      0.050      0.107      0.043      0.012
+     14        4      0.157      0.050      0.107      0.045      0.018
+     14        5      0.157      0.193     -0.036      0.036      0.312
+     14        6      0.157      0.233     -0.076      0.040      0.060
+     14        7      0.157      0.161     -0.004      0.035      0.906
+     14        8      0.157     -0.114      0.271      0.070      0.000
+     14        9      0.157      0.237     -0.080      0.045      0.077
+     14        10      0.157     -0.065      0.222      0.094      0.019
+     14        11      0.157      0.161     -0.004      0.037      0.904
+     14        12      0.157      0.188     -0.031      0.040      0.429
+     14        13      0.157      0.214     -0.057      0.039      0.140
+     15        1      0.201     -0.042      0.243      0.065      0.000
+     15        2      0.201     -0.029      0.230      0.054      0.000
+     15        3      0.201      0.050      0.151      0.057      0.008
+     15        4      0.201      0.050      0.151      0.059      0.011
+     15        5      0.201      0.193      0.008      0.050      0.878
+     15        6      0.201      0.233     -0.032      0.052      0.543
+     15        7      0.201      0.161      0.040      0.045      0.377
+     15        8      0.201     -0.114      0.315      0.081      0.000
+     15        9      0.201      0.237     -0.036      0.058      0.528
+     15        10      0.201     -0.065      0.266      0.103      0.010
+     15        11      0.201      0.161      0.040      0.051      0.440
+     15        12      0.201      0.188      0.013      0.049      0.797
+     15        13      0.201      0.214     -0.013      0.047      0.781
+     15        14      0.201      0.157      0.044      0.052      0.396
+     16        1      0.067     -0.042      0.109      0.059      0.066
+     16        2      0.067     -0.029      0.096      0.045      0.033
+     16        3      0.067      0.050      0.017      0.045      0.704
+     16        4      0.067      0.050      0.018      0.044      0.689
+     16        5      0.067      0.193     -0.126      0.044      0.004
+     16        6      0.067      0.233     -0.166      0.047      0.000
+     16        7      0.067      0.161     -0.094      0.038      0.013
+     16        8      0.067     -0.114      0.181      0.076      0.018
+     16        9      0.067      0.237     -0.170      0.053      0.001
+     16        10      0.067     -0.065      0.132      0.099      0.183
+     16        11      0.067      0.161     -0.094      0.043      0.030
+     16        12      0.067      0.188     -0.121      0.046      0.008
+     16        13      0.067      0.214     -0.147      0.045      0.001
+     16        14      0.067      0.157     -0.090      0.045      0.045
+     16        15      0.067      0.201     -0.134      0.055      0.016
+     17        1     -0.068     -0.042     -0.026      0.052      0.609
+     17        2     -0.068     -0.029     -0.040      0.043      0.354
+     17        3     -0.068      0.050     -0.119      0.046      0.010
+     17        4     -0.068      0.050     -0.118      0.050      0.019
+     17        5     -0.068      0.193     -0.262      0.045      0.000
+     17        6     -0.068      0.233     -0.301      0.047      0.000
+     17        7     -0.068      0.161     -0.229      0.046      0.000
+     17        8     -0.068     -0.114      0.045      0.069      0.508
+     17        9     -0.068      0.237     -0.306      0.052      0.000
+     17        10     -0.068     -0.065     -0.003      0.089      0.970
+     17        11     -0.068      0.161     -0.230      0.047      0.000
+     17        12     -0.068      0.188     -0.257      0.049      0.000
+     17        13     -0.068      0.214     -0.282      0.048      0.000
+     17        14     -0.068      0.157     -0.225      0.046      0.000
+     17        15     -0.068      0.201     -0.269      0.059      0.000
+     17        16     -0.068      0.067     -0.136      0.055      0.013
+     18        1      0.107     -0.042      0.149      0.062      0.015
+     18        2      0.107     -0.029      0.136      0.052      0.009
+     18        3      0.107      0.050      0.057      0.050      0.253
+     18        4      0.107      0.050      0.058      0.052      0.263
+     18        5      0.107      0.193     -0.086      0.049      0.083
+     18        6      0.107      0.233     -0.125      0.052      0.016
+     18        7      0.107      0.161     -0.054      0.047      0.257
+     18        8      0.107     -0.114      0.221      0.078      0.005
+     18        9      0.107      0.237     -0.130      0.056      0.020
+     18        10      0.107     -0.065      0.173      0.101      0.088
+     18        11      0.107      0.161     -0.054      0.051      0.287
+     18        12      0.107      0.188     -0.081      0.053      0.127
+     18        13      0.107      0.214     -0.107      0.051      0.038
+     18        14      0.107      0.157     -0.049      0.049      0.313
+     18        15      0.107      0.201     -0.093      0.062      0.129
+     18        16      0.107      0.067      0.040      0.050      0.419
+     18        17      0.107     -0.068      0.176      0.055      0.001
+     19        1      0.199     -0.042      0.241      0.058      0.000
+     19        2      0.199     -0.029      0.227      0.040      0.000
+     19        3      0.199      0.050      0.148      0.046      0.001
+     19        4      0.199      0.050      0.149      0.048      0.002
+     19        5      0.199      0.193      0.005      0.037      0.884
+     19        6      0.199      0.233     -0.034      0.040      0.397
+     19        7      0.199      0.161      0.038      0.029      0.194
+     19        8      0.199     -0.114      0.312      0.074      0.000
+     19        9      0.199      0.237     -0.039      0.048      0.418
+     19        10      0.199     -0.065      0.264      0.097      0.007
+     19        11      0.199      0.161      0.037      0.038      0.325
+     19        12      0.199      0.188      0.010      0.036      0.777
+     19        13      0.199      0.214     -0.015      0.034      0.652
+     19        14      0.199      0.157      0.042      0.039      0.291
+     19        15      0.199      0.201     -0.002      0.049      0.962
+     19        16      0.199      0.067      0.132      0.037      0.000
+     19        17      0.199     -0.068      0.267      0.048      0.000
+     19        18      0.199      0.107      0.091      0.052      0.078
+ Approximate Measurement Invariance Holds For Groups:
+ 3 4 5 6 7 9 10 11 12 13
+ 14 15 16 18 19
+ Weighted Average Value Across Invariant Groups:       0.138
+ R-square/Explained variance/Invariance index:       0.533
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     3      0.050     -0.088      0.032      0.006
+     4      0.050     -0.088      0.034      0.009
+     5      0.193      0.056      0.025      0.028
+     6      0.233      0.095      0.030      0.001
+     7      0.161      0.023      0.022      0.280
+     9      0.237      0.100      0.036      0.006
+     10     -0.065     -0.203      0.086      0.019
+     11      0.161      0.024      0.028      0.391
+     12      0.188      0.051      0.030      0.089
+     13      0.214      0.076      0.028      0.006
+     14      0.157      0.019      0.028      0.489
+     15      0.201      0.063      0.042      0.137
+     16      0.067     -0.071      0.032      0.026
+     18      0.107     -0.030      0.040      0.445
+     19      0.199      0.061      0.026      0.020
+
+ Intercept for COGACMCO
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.278      0.349     -0.071      0.045      0.116
+     3         1      0.368      0.349      0.019      0.050      0.706
+     3         2      0.368      0.278      0.090      0.037      0.015
+     4         1      0.363      0.349      0.014      0.038      0.710
+     4         2      0.363      0.278      0.085      0.029      0.004
+     4         3      0.363      0.368     -0.005      0.036      0.894
+     5         1      0.321      0.349     -0.028      0.050      0.578
+     5         2      0.321      0.278      0.043      0.030      0.153
+     5         3      0.321      0.368     -0.047      0.042      0.263
+     5         4      0.321      0.363     -0.042      0.040      0.294
+     6         1      0.324      0.349     -0.025      0.044      0.576
+     6         2      0.324      0.278      0.046      0.024      0.052
+     6         3      0.324      0.368     -0.044      0.037      0.232
+     6         4      0.324      0.363     -0.039      0.029      0.180
+     6         5      0.324      0.321      0.003      0.029      0.922
+     7         1      0.219      0.349     -0.131      0.052      0.013
+     7         2      0.219      0.278     -0.060      0.031      0.055
+     7         3      0.219      0.368     -0.149      0.045      0.001
+     7         4      0.219      0.363     -0.145      0.039      0.000
+     7         5      0.219      0.321     -0.103      0.038      0.007
+     7         6      0.219      0.324     -0.106      0.032      0.001
+     8         1      0.348      0.349     -0.001      0.037      0.968
+     8         2      0.348      0.278      0.069      0.024      0.003
+     8         3      0.348      0.368     -0.020      0.032      0.530
+     8         4      0.348      0.363     -0.016      0.025      0.532
+     8         5      0.348      0.321      0.026      0.031      0.395
+     8         6      0.348      0.324      0.023      0.023      0.307
+     8         7      0.348      0.219      0.129      0.036      0.000
+     9         1      0.133      0.349     -0.216      0.053      0.000
+     9         2      0.133      0.278     -0.145      0.048      0.002
+     9         3      0.133      0.368     -0.235      0.056      0.000
+     9         4      0.133      0.363     -0.230      0.049      0.000
+     9         5      0.133      0.321     -0.188      0.050      0.000
+     9         6      0.133      0.324     -0.191      0.046      0.000
+     9         7      0.133      0.219     -0.086      0.049      0.081
+     9         8      0.133      0.348     -0.215      0.045      0.000
+     10        1      0.338      0.349     -0.011      0.038      0.769
+     10        2      0.338      0.278      0.060      0.027      0.029
+     10        3      0.338      0.368     -0.030      0.033      0.367
+     10        4      0.338      0.363     -0.025      0.025      0.317
+     10        5      0.338      0.321      0.016      0.031      0.593
+     10        6      0.338      0.324      0.014      0.023      0.560
+     10        7      0.338      0.219      0.119      0.037      0.001
+     10        8      0.338      0.348     -0.010      0.022      0.654
+     10        9      0.338      0.133      0.205      0.047      0.000
+     11        1      0.294      0.349     -0.055      0.055      0.318
+     11        2      0.294      0.278      0.016      0.031      0.608
+     11        3      0.294      0.368     -0.073      0.044      0.097
+     11        4      0.294      0.363     -0.069      0.042      0.099
+     11        5      0.294      0.321     -0.027      0.041      0.506
+     11        6      0.294      0.324     -0.030      0.032      0.354
+     11        7      0.294      0.219      0.076      0.038      0.046
+     11        8      0.294      0.348     -0.053      0.035      0.124
+     11        9      0.294      0.133      0.162      0.052      0.002
+     11        10      0.294      0.338     -0.043      0.034      0.207
+     12        1      0.275      0.349     -0.074      0.052      0.157
+     12        2      0.275      0.278     -0.003      0.034      0.931
+     12        3      0.275      0.368     -0.093      0.047      0.050
+     12        4      0.275      0.363     -0.088      0.040      0.029
+     12        5      0.275      0.321     -0.046      0.040      0.254
+     12        6      0.275      0.324     -0.049      0.036      0.172
+     12        7      0.275      0.219      0.057      0.040      0.154
+     12        8      0.275      0.348     -0.072      0.036      0.046
+     12        9      0.275      0.133      0.143      0.052      0.006
+     12        10      0.275      0.338     -0.062      0.038      0.104
+     12        11      0.275      0.294     -0.019      0.042      0.649
+     13        1      0.264      0.349     -0.085      0.058      0.142
+     13        2      0.264      0.278     -0.014      0.037      0.706
+     13        3      0.264      0.368     -0.103      0.051      0.041
+     13        4      0.264      0.363     -0.099      0.045      0.027
+     13        5      0.264      0.321     -0.057      0.045      0.209
+     13        6      0.264      0.324     -0.060      0.042      0.151
+     13        7      0.264      0.219      0.046      0.044      0.294
+     13        8      0.264      0.348     -0.083      0.042      0.049
+     13        9      0.264      0.133      0.132      0.056      0.019
+     13        10      0.264      0.338     -0.073      0.042      0.079
+     13        11      0.264      0.294     -0.030      0.045      0.504
+     13        12      0.264      0.275     -0.011      0.048      0.821
+     14        1      0.336      0.349     -0.013      0.045      0.767
+     14        2      0.336      0.278      0.057      0.029      0.050
+     14        3      0.336      0.368     -0.032      0.042      0.442
+     14        4      0.336      0.363     -0.028      0.034      0.415
+     14        5      0.336      0.321      0.014      0.037      0.698
+     14        6      0.336      0.324      0.011      0.028      0.690
+     14        7      0.336      0.219      0.117      0.038      0.002
+     14        8      0.336      0.348     -0.012      0.028      0.672
+     14        9      0.336      0.133      0.203      0.049      0.000
+     14        10      0.336      0.338     -0.002      0.029      0.939
+     14        11      0.336      0.294      0.041      0.037      0.264
+     14        12      0.336      0.275      0.060      0.039      0.126
+     14        13      0.336      0.264      0.071      0.044      0.107
+     15        1      0.346      0.349     -0.003      0.045      0.942
+     15        2      0.346      0.278      0.068      0.041      0.099
+     15        3      0.346      0.368     -0.022      0.045      0.623
+     15        4      0.346      0.363     -0.017      0.042      0.677
+     15        5      0.346      0.321      0.024      0.046      0.598
+     15        6      0.346      0.324      0.022      0.040      0.589
+     15        7      0.346      0.219      0.127      0.049      0.009
+     15        8      0.346      0.348     -0.002      0.034      0.957
+     15        9      0.346      0.133      0.213      0.053      0.000
+     15        10      0.346      0.338      0.008      0.035      0.822
+     15        11      0.346      0.294      0.051      0.047      0.277
+     15        12      0.346      0.275      0.070      0.049      0.149
+     15        13      0.346      0.264      0.081      0.054      0.135
+     15        14      0.346      0.336      0.010      0.042      0.809
+     16        1      0.221      0.349     -0.128      0.056      0.023
+     16        2      0.221      0.278     -0.057      0.035      0.108
+     16        3      0.221      0.368     -0.146      0.045      0.001
+     16        4      0.221      0.363     -0.142      0.040      0.000
+     16        5      0.221      0.321     -0.100      0.043      0.021
+     16        6      0.221      0.324     -0.103      0.039      0.009
+     16        7      0.221      0.219      0.003      0.039      0.941
+     16        8      0.221      0.348     -0.126      0.042      0.002
+     16        9      0.221      0.133      0.089      0.056      0.114
+     16        10      0.221      0.338     -0.116      0.041      0.004
+     16        11      0.221      0.294     -0.073      0.044      0.094
+     16        12      0.221      0.275     -0.054      0.046      0.237
+     16        13      0.221      0.264     -0.043      0.046      0.354
+     16        14      0.221      0.336     -0.114      0.043      0.007
+     16        15      0.221      0.346     -0.124      0.054      0.021
+     17        1      0.332      0.349     -0.017      0.042      0.689
+     17        2      0.332      0.278      0.054      0.028      0.056
+     17        3      0.332      0.368     -0.036      0.037      0.335
+     17        4      0.332      0.363     -0.031      0.030      0.306
+     17        5      0.332      0.321      0.011      0.035      0.759
+     17        6      0.332      0.324      0.008      0.029      0.785
+     17        7      0.332      0.219      0.114      0.039      0.004
+     17        8      0.332      0.348     -0.015      0.025      0.536
+     17        9      0.332      0.133      0.199      0.049      0.000
+     17        10      0.332      0.338     -0.006      0.029      0.843
+     17        11      0.332      0.294      0.038      0.039      0.334
+     17        12      0.332      0.275      0.057      0.040      0.160
+     17        13      0.332      0.264      0.068      0.045      0.132
+     17        14      0.332      0.336     -0.003      0.032      0.915
+     17        15      0.332      0.346     -0.014      0.039      0.725
+     17        16      0.332      0.221      0.111      0.051      0.029
+     18        1      0.401      0.349      0.051      0.066      0.436
+     18        2      0.401      0.278      0.122      0.052      0.019
+     18        3      0.401      0.368      0.033      0.053      0.542
+     18        4      0.401      0.363      0.037      0.050      0.453
+     18        5      0.401      0.321      0.079      0.055      0.151
+     18        6      0.401      0.324      0.076      0.050      0.130
+     18        7      0.401      0.219      0.182      0.055      0.001
+     18        8      0.401      0.348      0.053      0.049      0.282
+     18        9      0.401      0.133      0.268      0.064      0.000
+     18        10      0.401      0.338      0.063      0.050      0.209
+     18        11      0.401      0.294      0.106      0.056      0.058
+     18        12      0.401      0.275      0.125      0.059      0.033
+     18        13      0.401      0.264      0.136      0.061      0.026
+     18        14      0.401      0.336      0.065      0.052      0.213
+     18        15      0.401      0.346      0.055      0.063      0.384
+     18        16      0.401      0.221      0.179      0.054      0.001
+     18        17      0.401      0.332      0.068      0.054      0.203
+     19        1      0.244      0.349     -0.105      0.060      0.079
+     19        2      0.244      0.278     -0.035      0.034      0.303
+     19        3      0.244      0.368     -0.124      0.050      0.012
+     19        4      0.244      0.363     -0.120      0.043      0.005
+     19        5      0.244      0.321     -0.078      0.041      0.057
+     19        6      0.244      0.324     -0.081      0.037      0.028
+     19        7      0.244      0.219      0.025      0.037      0.499
+     19        8      0.244      0.348     -0.104      0.042      0.012
+     19        9      0.244      0.133      0.111      0.056      0.047
+     19        10      0.244      0.338     -0.094      0.041      0.021
+     19        11      0.244      0.294     -0.051      0.043      0.234
+     19        12      0.244      0.275     -0.032      0.044      0.466
+     19        13      0.244      0.264     -0.021      0.045      0.646
+     19        14      0.244      0.336     -0.092      0.042      0.028
+     19        15      0.244      0.346     -0.102      0.058      0.080
+     19        16      0.244      0.221      0.022      0.038      0.555
+     19        17      0.244      0.332     -0.089      0.045      0.049
+     19        18      0.244      0.401     -0.157      0.059      0.007
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 8 10 11 12
+ 13 14 15 16 17 18 19
+ Weighted Average Value Across Invariant Groups:       0.317
+ R-square/Explained variance/Invariance index:       0.823
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.349      0.032      0.039      0.415
+     2      0.278     -0.039      0.016      0.019
+     3      0.368      0.051      0.030      0.091
+     4      0.363      0.046      0.021      0.030
+     5      0.321      0.005      0.026      0.865
+     6      0.324      0.007      0.017      0.671
+     8      0.348      0.031      0.017      0.063
+     10      0.338      0.021      0.017      0.226
+     11      0.294     -0.022      0.029      0.437
+     12      0.275     -0.041      0.032      0.193
+     13      0.264     -0.052      0.036      0.142
+     14      0.336      0.019      0.024      0.437
+     15      0.346      0.029      0.036      0.422
+     16      0.221     -0.095      0.032      0.003
+     17      0.332      0.015      0.024      0.525
+     18      0.401      0.084      0.045      0.060
+     19      0.244     -0.073      0.032      0.020
+
+ Intercept for DISCLIM
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.369     -0.329      0.698      0.036      0.000
+     3         1      0.135     -0.329      0.464      0.037      0.000
+     3         2      0.135      0.369     -0.234      0.037      0.000
+     4         1     -0.154     -0.329      0.175      0.036      0.000
+     4         2     -0.154      0.369     -0.523      0.035      0.000
+     4         3     -0.154      0.135     -0.289      0.035      0.000
+     5         1     -0.308     -0.329      0.021      0.036      0.556
+     5         2     -0.308      0.369     -0.676      0.036      0.000
+     5         3     -0.308      0.135     -0.443      0.036      0.000
+     5         4     -0.308     -0.154     -0.153      0.035      0.000
+     6         1     -0.231     -0.329      0.098      0.043      0.023
+     6         2     -0.231      0.369     -0.599      0.042      0.000
+     6         3     -0.231      0.135     -0.366      0.042      0.000
+     6         4     -0.231     -0.154     -0.076      0.042      0.067
+     6         5     -0.231     -0.308      0.077      0.042      0.066
+     7         1      0.330     -0.329      0.659      0.037      0.000
+     7         2      0.330      0.369     -0.038      0.037      0.303
+     7         3      0.330      0.135      0.195      0.037      0.000
+     7         4      0.330     -0.154      0.485      0.036      0.000
+     7         5      0.330     -0.308      0.638      0.036      0.000
+     7         6      0.330     -0.231      0.561      0.043      0.000
+     8         1     -0.069     -0.329      0.260      0.050      0.000
+     8         2     -0.069      0.369     -0.438      0.050      0.000
+     8         3     -0.069      0.135     -0.204      0.050      0.000
+     8         4     -0.069     -0.154      0.085      0.049      0.083
+     8         5     -0.069     -0.308      0.238      0.049      0.000
+     8         6     -0.069     -0.231      0.161      0.054      0.003
+     8         7     -0.069      0.330     -0.400      0.050      0.000
+     9         1      0.143     -0.329      0.471      0.036      0.000
+     9         2      0.143      0.369     -0.226      0.036      0.000
+     9         3      0.143      0.135      0.008      0.033      0.820
+     9         4      0.143     -0.154      0.297      0.034      0.000
+     9         5      0.143     -0.308      0.450      0.035      0.000
+     9         6      0.143     -0.231      0.373      0.041      0.000
+     9         7      0.143      0.330     -0.188      0.036      0.000
+     9         8      0.143     -0.069      0.212      0.049      0.000
+     10        1      0.841     -0.329      1.169      0.044      0.000
+     10        2      0.841      0.369      0.472      0.044      0.000
+     10        3      0.841      0.135      0.705      0.046      0.000
+     10        4      0.841     -0.154      0.995      0.044      0.000
+     10        5      0.841     -0.308      1.148      0.045      0.000
+     10        6      0.841     -0.231      1.071      0.050      0.000
+     10        7      0.841      0.330      0.510      0.045      0.000
+     10        8      0.841     -0.069      0.910      0.056      0.000
+     10        9      0.841      0.143      0.698      0.044      0.000
+     11        1      0.167     -0.329      0.496      0.038      0.000
+     11        2      0.167      0.369     -0.201      0.037      0.000
+     11        3      0.167      0.135      0.032      0.037      0.381
+     11        4      0.167     -0.154      0.322      0.035      0.000
+     11        5      0.167     -0.308      0.475      0.036      0.000
+     11        6      0.167     -0.231      0.398      0.042      0.000
+     11        7      0.167      0.330     -0.163      0.038      0.000
+     11        8      0.167     -0.069      0.237      0.050      0.000
+     11        9      0.167      0.143      0.025      0.036      0.489
+     11        10      0.167      0.841     -0.673      0.046      0.000
+     12        1     -0.218     -0.329      0.111      0.049      0.022
+     12        2     -0.218      0.369     -0.587      0.047      0.000
+     12        3     -0.218      0.135     -0.353      0.047      0.000
+     12        4     -0.218     -0.154     -0.064      0.047      0.173
+     12        5     -0.218     -0.308      0.090      0.047      0.056
+     12        6     -0.218     -0.231      0.012      0.049      0.797
+     12        7     -0.218      0.330     -0.548      0.048      0.000
+     12        8     -0.218     -0.069     -0.149      0.059      0.011
+     12        9     -0.218      0.143     -0.361      0.047      0.000
+     12        10     -0.218      0.841     -1.059      0.054      0.000
+     12        11     -0.218      0.167     -0.386      0.047      0.000
+     13        1     -0.080     -0.329      0.249      0.045      0.000
+     13        2     -0.080      0.369     -0.449      0.046      0.000
+     13        3     -0.080      0.135     -0.215      0.046      0.000
+     13        4     -0.080     -0.154      0.074      0.045      0.101
+     13        5     -0.080     -0.308      0.227      0.045      0.000
+     13        6     -0.080     -0.231      0.150      0.050      0.003
+     13        7     -0.080      0.330     -0.411      0.046      0.000
+     13        8     -0.080     -0.069     -0.011      0.056      0.848
+     13        9     -0.080      0.143     -0.223      0.045      0.000
+     13        10     -0.080      0.841     -0.921      0.053      0.000
+     13        11     -0.080      0.167     -0.248      0.047      0.000
+     13        12     -0.080     -0.218      0.138      0.055      0.012
+     14        1     -0.305     -0.329      0.024      0.040      0.550
+     14        2     -0.305      0.369     -0.673      0.040      0.000
+     14        3     -0.305      0.135     -0.440      0.040      0.000
+     14        4     -0.305     -0.154     -0.150      0.039      0.000
+     14        5     -0.305     -0.308      0.003      0.038      0.942
+     14        6     -0.305     -0.231     -0.074      0.045      0.101
+     14        7     -0.305      0.330     -0.635      0.041      0.000
+     14        8     -0.305     -0.069     -0.236      0.052      0.000
+     14        9     -0.305      0.143     -0.447      0.039      0.000
+     14        10     -0.305      0.841     -1.145      0.048      0.000
+     14        11     -0.305      0.167     -0.472      0.040      0.000
+     14        12     -0.305     -0.218     -0.087      0.050      0.083
+     14        13     -0.305     -0.080     -0.225      0.049      0.000
+     15        1     -0.014     -0.329      0.315      0.050      0.000
+     15        2     -0.014      0.369     -0.383      0.047      0.000
+     15        3     -0.014      0.135     -0.149      0.047      0.002
+     15        4     -0.014     -0.154      0.140      0.047      0.003
+     15        5     -0.014     -0.308      0.293      0.048      0.000
+     15        6     -0.014     -0.231      0.216      0.052      0.000
+     15        7     -0.014      0.330     -0.345      0.048      0.000
+     15        8     -0.014     -0.069      0.055      0.060      0.356
+     15        9     -0.014      0.143     -0.157      0.047      0.001
+     15        10     -0.014      0.841     -0.855      0.056      0.000
+     15        11     -0.014      0.167     -0.182      0.046      0.000
+     15        12     -0.014     -0.218      0.204      0.054      0.000
+     15        13     -0.014     -0.080      0.066      0.056      0.238
+     15        14     -0.014     -0.305      0.291      0.050      0.000
+     16        1      0.004     -0.329      0.333      0.034      0.000
+     16        2      0.004      0.369     -0.365      0.033      0.000
+     16        3      0.004      0.135     -0.131      0.033      0.000
+     16        4      0.004     -0.154      0.158      0.031      0.000
+     16        5      0.004     -0.308      0.311      0.032      0.000
+     16        6      0.004     -0.231      0.234      0.039      0.000
+     16        7      0.004      0.330     -0.327      0.034      0.000
+     16        8      0.004     -0.069      0.073      0.048      0.126
+     16        9      0.004      0.143     -0.139      0.032      0.000
+     16        10      0.004      0.841     -0.837      0.043      0.000
+     16        11      0.004      0.167     -0.164      0.033      0.000
+     16        12      0.004     -0.218      0.222      0.044      0.000
+     16        13      0.004     -0.080      0.084      0.044      0.056
+     16        14      0.004     -0.305      0.308      0.037      0.000
+     16        15      0.004     -0.014      0.018      0.042      0.672
+     17        1      0.007     -0.329      0.336      0.036      0.000
+     17        2      0.007      0.369     -0.362      0.036      0.000
+     17        3      0.007      0.135     -0.128      0.036      0.000
+     17        4      0.007     -0.154      0.161      0.035      0.000
+     17        5      0.007     -0.308      0.314      0.036      0.000
+     17        6      0.007     -0.231      0.237      0.042      0.000
+     17        7      0.007      0.330     -0.324      0.037      0.000
+     17        8      0.007     -0.069      0.076      0.049      0.120
+     17        9      0.007      0.143     -0.136      0.035      0.000
+     17        10      0.007      0.841     -0.834      0.044      0.000
+     17        11      0.007      0.167     -0.161      0.037      0.000
+     17        12      0.007     -0.218      0.225      0.047      0.000
+     17        13      0.007     -0.080      0.087      0.046      0.058
+     17        14      0.007     -0.305      0.312      0.040      0.000
+     17        15      0.007     -0.014      0.021      0.047      0.652
+     17        16      0.007      0.004      0.003      0.027      0.905
+     18        1     -0.013     -0.329      0.315      0.035      0.000
+     18        2     -0.013      0.369     -0.382      0.033      0.000
+     18        3     -0.013      0.135     -0.148      0.033      0.000
+     18        4     -0.013     -0.154      0.141      0.032      0.000
+     18        5     -0.013     -0.308      0.294      0.033      0.000
+     18        6     -0.013     -0.231      0.217      0.039      0.000
+     18        7     -0.013      0.330     -0.344      0.034      0.000
+     18        8     -0.013     -0.069      0.056      0.048      0.245
+     18        9     -0.013      0.143     -0.156      0.032      0.000
+     18        10     -0.013      0.841     -0.854      0.043      0.000
+     18        11     -0.013      0.167     -0.181      0.033      0.000
+     18        12     -0.013     -0.218      0.205      0.044      0.000
+     18        13     -0.013     -0.080      0.067      0.044      0.128
+     18        14     -0.013     -0.305      0.291      0.037      0.000
+     18        15     -0.013     -0.014      0.001      0.041      0.983
+     18        16     -0.013      0.004     -0.017      0.028      0.540
+     18        17     -0.013      0.007     -0.020      0.032      0.531
+     19        1     -0.015     -0.329      0.314      0.033      0.000
+     19        2     -0.015      0.369     -0.384      0.031      0.000
+     19        3     -0.015      0.135     -0.150      0.031      0.000
+     19        4     -0.015     -0.154      0.139      0.030      0.000
+     19        5     -0.015     -0.308      0.293      0.031      0.000
+     19        6     -0.015     -0.231      0.215      0.037      0.000
+     19        7     -0.015      0.330     -0.346      0.032      0.000
+     19        8     -0.015     -0.069      0.054      0.047      0.246
+     19        9     -0.015      0.143     -0.158      0.030      0.000
+     19        10     -0.015      0.841     -0.856      0.042      0.000
+     19        11     -0.015      0.167     -0.183      0.031      0.000
+     19        12     -0.015     -0.218      0.203      0.043      0.000
+     19        13     -0.015     -0.080      0.065      0.043      0.126
+     19        14     -0.015     -0.305      0.290      0.035      0.000
+     19        15     -0.015     -0.014     -0.001      0.035      0.981
+     19        16     -0.015      0.004     -0.019      0.026      0.467
+     19        17     -0.015      0.007     -0.022      0.030      0.465
+     19        18     -0.015     -0.013     -0.002      0.021      0.936
+ Approximate Measurement Invariance Holds For Groups:
+ 8 13 15 16 17 18 19
+ Weighted Average Value Across Invariant Groups:      -0.020
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     8     -0.069     -0.049      0.042      0.237
+     13     -0.080     -0.060      0.036      0.098
+     15     -0.014      0.006      0.033      0.865
+     16      0.004      0.024      0.019      0.213
+     17      0.007      0.027      0.023      0.250
+     18     -0.013      0.007      0.018      0.714
+     19     -0.015      0.005      0.013      0.707
+
+
+
+ Loadings
+ Loadings for TEACHSUP
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.251      0.353     -0.102      0.051      0.046
+     3         1      0.394      0.353      0.041      0.043      0.344
+     3         2      0.394      0.251      0.143      0.048      0.003
+     4         1      0.286      0.353     -0.067      0.051      0.191
+     4         2      0.286      0.251      0.035      0.049      0.479
+     4         3      0.286      0.394     -0.108      0.047      0.022
+     5         1      0.412      0.353      0.060      0.045      0.185
+     5         2      0.412      0.251      0.162      0.049      0.001
+     5         3      0.412      0.394      0.019      0.030      0.525
+     5         4      0.412      0.286      0.127      0.048      0.008
+     6         1      0.393      0.353      0.041      0.053      0.445
+     6         2      0.393      0.251      0.142      0.057      0.012
+     6         3      0.393      0.394      0.000      0.040      0.993
+     6         4      0.393      0.286      0.107      0.056      0.054
+     6         5      0.393      0.412     -0.019      0.042      0.647
+     7         1      0.322      0.353     -0.031      0.059      0.605
+     7         2      0.322      0.251      0.071      0.062      0.250
+     7         3      0.322      0.394     -0.072      0.055      0.196
+     7         4      0.322      0.286      0.036      0.060      0.544
+     7         5      0.322      0.412     -0.090      0.056      0.105
+     7         6      0.322      0.393     -0.071      0.064      0.266
+     8         1      0.199      0.353     -0.153      0.071      0.030
+     8         2      0.199      0.251     -0.052      0.070      0.457
+     8         3      0.199      0.394     -0.194      0.069      0.005
+     8         4      0.199      0.286     -0.087      0.069      0.210
+     8         5      0.199      0.412     -0.213      0.069      0.002
+     8         6      0.199      0.393     -0.194      0.075      0.010
+     8         7      0.199      0.322     -0.123      0.079      0.120
+     9         1      0.471      0.353      0.118      0.081      0.144
+     9         2      0.471      0.251      0.220      0.084      0.009
+     9         3      0.471      0.394      0.077      0.074      0.298
+     9         4      0.471      0.286      0.185      0.084      0.027
+     9         5      0.471      0.412      0.058      0.075      0.437
+     9         6      0.471      0.393      0.078      0.083      0.348
+     9         7      0.471      0.322      0.149      0.090      0.099
+     9         8      0.471      0.199      0.272      0.097      0.005
+     10        1      0.190      0.353     -0.163      0.063      0.010
+     10        2      0.190      0.251     -0.061      0.063      0.334
+     10        3      0.190      0.394     -0.204      0.063      0.001
+     10        4      0.190      0.286     -0.096      0.063      0.130
+     10        5      0.190      0.412     -0.222      0.064      0.001
+     10        6      0.190      0.393     -0.203      0.070      0.004
+     10        7      0.190      0.322     -0.132      0.075      0.077
+     10        8      0.190      0.199     -0.009      0.078      0.907
+     10        9      0.190      0.471     -0.281      0.094      0.003
+     11        1      0.293      0.353     -0.060      0.057      0.296
+     11        2      0.293      0.251      0.042      0.059      0.474
+     11        3      0.293      0.394     -0.101      0.051      0.050
+     11        4      0.293      0.286      0.007      0.055      0.897
+     11        5      0.293      0.412     -0.119      0.053      0.025
+     11        6      0.293      0.393     -0.100      0.060      0.097
+     11        7      0.293      0.322     -0.029      0.065      0.657
+     11        8      0.293      0.199      0.094      0.077      0.222
+     11        9      0.293      0.471     -0.178      0.086      0.039
+     11        10      0.293      0.190      0.103      0.071      0.148
+     12        1      0.368      0.353      0.015      0.058      0.799
+     12        2      0.368      0.251      0.117      0.063      0.062
+     12        3      0.368      0.394     -0.026      0.051      0.610
+     12        4      0.368      0.286      0.082      0.062      0.186
+     12        5      0.368      0.412     -0.045      0.055      0.411
+     12        6      0.368      0.393     -0.026      0.059      0.665
+     12        7      0.368      0.322      0.046      0.069      0.509
+     12        8      0.368      0.199      0.168      0.079      0.034
+     12        9      0.368      0.471     -0.103      0.087      0.237
+     12        10      0.368      0.190      0.177      0.074      0.017
+     12        11      0.368      0.293      0.074      0.066      0.261
+     13        1      0.389      0.353      0.036      0.045      0.422
+     13        2      0.389      0.251      0.138      0.048      0.004
+     13        3      0.389      0.394     -0.004      0.033      0.893
+     13        4      0.389      0.286      0.103      0.047      0.029
+     13        5      0.389      0.412     -0.023      0.035      0.505
+     13        6      0.389      0.393     -0.004      0.044      0.926
+     13        7      0.389      0.322      0.067      0.057      0.240
+     13        8      0.389      0.199      0.190      0.069      0.006
+     13        9      0.389      0.471     -0.082      0.079      0.300
+     13        10      0.389      0.190      0.199      0.063      0.002
+     13        11      0.389      0.293      0.096      0.054      0.073
+     13        12      0.389      0.368      0.022      0.054      0.689
+     14        1      0.487      0.353      0.134      0.066      0.041
+     14        2      0.487      0.251      0.236      0.067      0.000
+     14        3      0.487      0.394      0.094      0.058      0.107
+     14        4      0.487      0.286      0.201      0.065      0.002
+     14        5      0.487      0.412      0.075      0.059      0.207
+     14        6      0.487      0.393      0.094      0.068      0.167
+     14        7      0.487      0.322      0.165      0.073      0.023
+     14        8      0.487      0.199      0.288      0.083      0.001
+     14        9      0.487      0.471      0.016      0.083      0.844
+     14        10      0.487      0.190      0.297      0.079      0.000
+     14        11      0.487      0.293      0.194      0.071      0.006
+     14        12      0.487      0.368      0.120      0.073      0.103
+     14        13      0.487      0.389      0.098      0.060      0.105
+     15        1      0.409      0.353      0.056      0.060      0.344
+     15        2      0.409      0.251      0.158      0.060      0.009
+     15        3      0.409      0.394      0.015      0.047      0.745
+     15        4      0.409      0.286      0.123      0.061      0.042
+     15        5      0.409      0.412     -0.003      0.046      0.942
+     15        6      0.409      0.393      0.016      0.057      0.781
+     15        7      0.409      0.322      0.087      0.068      0.197
+     15        8      0.409      0.199      0.210      0.078      0.007
+     15        9      0.409      0.471     -0.062      0.086      0.471
+     15        10      0.409      0.190      0.219      0.072      0.002
+     15        11      0.409      0.293      0.116      0.065      0.073
+     15        12      0.409      0.368      0.042      0.066      0.530
+     15        13      0.409      0.389      0.020      0.051      0.696
+     15        14      0.409      0.487     -0.078      0.071      0.273
+     16        1      0.380      0.353      0.027      0.046      0.553
+     16        2      0.380      0.251      0.129      0.050      0.010
+     16        3      0.380      0.394     -0.014      0.034      0.685
+     16        4      0.380      0.286      0.094      0.049      0.055
+     16        5      0.380      0.412     -0.033      0.037      0.375
+     16        6      0.380      0.393     -0.013      0.046      0.772
+     16        7      0.380      0.322      0.058      0.058      0.317
+     16        8      0.380      0.199      0.181      0.070      0.009
+     16        9      0.380      0.471     -0.091      0.078      0.242
+     16        10      0.380      0.190      0.190      0.063      0.003
+     16        11      0.380      0.293      0.087      0.054      0.108
+     16        12      0.380      0.368      0.012      0.054      0.820
+     16        13      0.380      0.389     -0.009      0.038      0.809
+     16        14      0.380      0.487     -0.107      0.062      0.085
+     16        15      0.380      0.409     -0.029      0.054      0.588
+     17        1      0.350      0.353     -0.003      0.051      0.958
+     17        2      0.350      0.251      0.099      0.054      0.066
+     17        3      0.350      0.394     -0.044      0.045      0.335
+     17        4      0.350      0.286      0.064      0.052      0.222
+     17        5      0.350      0.412     -0.062      0.047      0.188
+     17        6      0.350      0.393     -0.043      0.055      0.429
+     17        7      0.350      0.322      0.028      0.060      0.642
+     17        8      0.350      0.199      0.151      0.072      0.038
+     17        9      0.350      0.471     -0.121      0.084      0.151
+     17        10      0.350      0.190      0.160      0.067      0.017
+     17        11      0.350      0.293      0.057      0.060      0.342
+     17        12      0.350      0.368     -0.018      0.063      0.780
+     17        13      0.350      0.389     -0.039      0.047      0.405
+     17        14      0.350      0.487     -0.137      0.067      0.039
+     17        15      0.350      0.409     -0.059      0.061      0.330
+     17        16      0.350      0.380     -0.030      0.049      0.539
+     18        1      0.376      0.353      0.023      0.041      0.575
+     18        2      0.376      0.251      0.125      0.047      0.008
+     18        3      0.376      0.394     -0.018      0.028      0.519
+     18        4      0.376      0.286      0.090      0.046      0.051
+     18        5      0.376      0.412     -0.037      0.030      0.229
+     18        6      0.376      0.393     -0.018      0.039      0.652
+     18        7      0.376      0.322      0.054      0.055      0.328
+     18        8      0.376      0.199      0.177      0.068      0.010
+     18        9      0.376      0.471     -0.095      0.077      0.217
+     18        10      0.376      0.190      0.186      0.063      0.003
+     18        11      0.376      0.293      0.083      0.052      0.109
+     18        12      0.376      0.368      0.008      0.048      0.865
+     18        13      0.376      0.389     -0.013      0.032      0.674
+     18        14      0.376      0.487     -0.111      0.059      0.058
+     18        15      0.376      0.409     -0.033      0.047      0.483
+     18        16      0.376      0.380     -0.004      0.032      0.899
+     18        17      0.376      0.350      0.026      0.044      0.553
+     19        1      0.417      0.353      0.065      0.045      0.155
+     19        2      0.417      0.251      0.166      0.048      0.000
+     19        3      0.417      0.394      0.024      0.031      0.448
+     19        4      0.417      0.286      0.132      0.045      0.004
+     19        5      0.417      0.412      0.005      0.030      0.869
+     19        6      0.417      0.393      0.024      0.043      0.576
+     19        7      0.417      0.322      0.095      0.056      0.086
+     19        8      0.417      0.199      0.218      0.068      0.001
+     19        9      0.417      0.471     -0.053      0.078      0.494
+     19        10      0.417      0.190      0.227      0.064      0.000
+     19        11      0.417      0.293      0.124      0.053      0.019
+     19        12      0.417      0.368      0.050      0.056      0.376
+     19        13      0.417      0.389      0.028      0.035      0.424
+     19        14      0.417      0.487     -0.070      0.059      0.235
+     19        15      0.417      0.409      0.008      0.047      0.857
+     19        16      0.417      0.380      0.038      0.038      0.325
+     19        17      0.417      0.350      0.067      0.048      0.164
+     19        18      0.417      0.376      0.042      0.032      0.195
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 8 9 10
+ 11 12 13 14 15 16 17 18 19
+ Weighted Average Value Across Invariant Groups:       0.355
+ R-square/Explained variance/Invariance index:       0.513
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.353     -0.002      0.035      0.955
+     2      0.251     -0.104      0.038      0.006
+     3      0.394      0.039      0.023      0.089
+     4      0.286     -0.069      0.035      0.049
+     5      0.412      0.058      0.025      0.019
+     6      0.393      0.039      0.037      0.299
+     7      0.322     -0.033      0.048      0.494
+     8      0.199     -0.155      0.061      0.011
+     9      0.471      0.116      0.070      0.099
+     10      0.190     -0.165      0.054      0.002
+     11      0.293     -0.062      0.044      0.157
+     12      0.368      0.013      0.048      0.788
+     13      0.389      0.034      0.027      0.205
+     14      0.487      0.133      0.053      0.012
+     15      0.409      0.054      0.043      0.210
+     16      0.380      0.025      0.029      0.380
+     17      0.350     -0.005      0.038      0.901
+     18      0.376      0.021      0.022      0.342
+     19      0.417      0.063      0.024      0.010
+
+ Loadings for RELATST
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.197      0.248     -0.052      0.048      0.279
+     3         1      0.254      0.248      0.006      0.038      0.879
+     3         2      0.254      0.197      0.057      0.038      0.127
+     4         1      0.197      0.248     -0.051      0.048      0.287
+     4         2      0.197      0.197      0.000      0.037      0.993
+     4         3      0.197      0.254     -0.057      0.037      0.124
+     5         1      0.240      0.248     -0.008      0.041      0.847
+     5         2      0.240      0.197      0.044      0.040      0.274
+     5         3      0.240      0.254     -0.014      0.034      0.686
+     5         4      0.240      0.197      0.043      0.040      0.275
+     6         1      0.307      0.248      0.059      0.049      0.226
+     6         2      0.307      0.197      0.111      0.047      0.018
+     6         3      0.307      0.254      0.053      0.044      0.223
+     6         4      0.307      0.197      0.110      0.046      0.017
+     6         5      0.307      0.240      0.067      0.046      0.147
+     7         1      0.215      0.248     -0.033      0.047      0.483
+     7         2      0.215      0.197      0.019      0.041      0.647
+     7         3      0.215      0.254     -0.039      0.041      0.340
+     7         4      0.215      0.197      0.018      0.040      0.643
+     7         5      0.215      0.240     -0.025      0.042      0.547
+     7         6      0.215      0.307     -0.092      0.051      0.070
+     8         1      0.193      0.248     -0.055      0.057      0.333
+     8         2      0.193      0.197     -0.003      0.048      0.947
+     8         3      0.193      0.254     -0.061      0.049      0.214
+     8         4      0.193      0.197     -0.004      0.047      0.941
+     8         5      0.193      0.240     -0.047      0.050      0.352
+     8         6      0.193      0.307     -0.114      0.056      0.041
+     8         7      0.193      0.215     -0.022      0.051      0.669
+     9         1      0.251      0.248      0.003      0.039      0.943
+     9         2      0.251      0.197      0.054      0.042      0.193
+     9         3      0.251      0.254     -0.003      0.032      0.926
+     9         4      0.251      0.197      0.054      0.041      0.189
+     9         5      0.251      0.240      0.011      0.036      0.765
+     9         6      0.251      0.307     -0.056      0.046      0.222
+     9         7      0.251      0.215      0.036      0.044      0.419
+     9         8      0.251      0.193      0.058      0.052      0.263
+     10        1      0.138      0.248     -0.111      0.066      0.093
+     10        2      0.138      0.197     -0.059      0.059      0.317
+     10        3      0.138      0.254     -0.116      0.060      0.053
+     10        4      0.138      0.197     -0.059      0.059      0.313
+     10        5      0.138      0.240     -0.103      0.061      0.094
+     10        6      0.138      0.307     -0.170      0.068      0.012
+     10        7      0.138      0.215     -0.078      0.063      0.217
+     10        8      0.138      0.193     -0.056      0.069      0.419
+     10        9      0.138      0.251     -0.113      0.063      0.070
+     11        1      0.270      0.248      0.022      0.047      0.638
+     11        2      0.270      0.197      0.074      0.045      0.100
+     11        3      0.270      0.254      0.016      0.040      0.686
+     11        4      0.270      0.197      0.073      0.043      0.090
+     11        5      0.270      0.240      0.030      0.044      0.498
+     11        6      0.270      0.307     -0.037      0.051      0.470
+     11        7      0.270      0.215      0.055      0.047      0.241
+     11        8      0.270      0.193      0.077      0.055      0.159
+     11        9      0.270      0.251      0.019      0.043      0.657
+     11        10      0.270      0.138      0.133      0.065      0.040
+     12        1      0.272      0.248      0.024      0.048      0.620
+     12        2      0.272      0.197      0.076      0.046      0.100
+     12        3      0.272      0.254      0.018      0.041      0.658
+     12        4      0.272      0.197      0.075      0.045      0.095
+     12        5      0.272      0.240      0.032      0.045      0.482
+     12        6      0.272      0.307     -0.035      0.051      0.488
+     12        7      0.272      0.215      0.057      0.048      0.233
+     12        8      0.272      0.193      0.079      0.055      0.156
+     12        9      0.272      0.251      0.021      0.045      0.638
+     12        10      0.272      0.138      0.135      0.065      0.040
+     12        11      0.272      0.270      0.002      0.045      0.967
+     13        1      0.208      0.248     -0.041      0.048      0.395
+     13        2      0.208      0.197      0.011      0.041      0.787
+     13        3      0.208      0.254     -0.046      0.041      0.252
+     13        4      0.208      0.197      0.011      0.040      0.790
+     13        5      0.208      0.240     -0.033      0.042      0.433
+     13        6      0.208      0.307     -0.100      0.049      0.043
+     13        7      0.208      0.215     -0.008      0.043      0.858
+     13        8      0.208      0.193      0.014      0.051      0.782
+     13        9      0.208      0.251     -0.043      0.044      0.323
+     13        10      0.208      0.138      0.070      0.062      0.260
+     13        11      0.208      0.270     -0.063      0.047      0.186
+     13        12      0.208      0.272     -0.065      0.048      0.174
+     14        1      0.194      0.248     -0.054      0.048      0.261
+     14        2      0.194      0.197     -0.002      0.039      0.957
+     14        3      0.194      0.254     -0.060      0.040      0.138
+     14        4      0.194      0.197     -0.002      0.038      0.948
+     14        5      0.194      0.240     -0.046      0.042      0.277
+     14        6      0.194      0.307     -0.113      0.049      0.022
+     14        7      0.194      0.215     -0.021      0.044      0.639
+     14        8      0.194      0.193      0.001      0.050      0.983
+     14        9      0.194      0.251     -0.057      0.042      0.174
+     14        10      0.194      0.138      0.057      0.061      0.354
+     14        11      0.194      0.270     -0.076      0.048      0.111
+     14        12      0.194      0.272     -0.078      0.048      0.107
+     14        13      0.194      0.208     -0.013      0.044      0.763
+     15        1      0.175      0.248     -0.073      0.056      0.192
+     15        2      0.175      0.197     -0.021      0.048      0.660
+     15        3      0.175      0.254     -0.079      0.045      0.079
+     15        4      0.175      0.197     -0.022      0.048      0.655
+     15        5      0.175      0.240     -0.065      0.047      0.170
+     15        6      0.175      0.307     -0.132      0.051      0.010
+     15        7      0.175      0.215     -0.040      0.050      0.427
+     15        8      0.175      0.193     -0.018      0.056      0.747
+     15        9      0.175      0.251     -0.076      0.048      0.118
+     15        10      0.175      0.138      0.038      0.066      0.566
+     15        11      0.175      0.270     -0.095      0.052      0.069
+     15        12      0.175      0.272     -0.097      0.053      0.068
+     15        13      0.175      0.208     -0.032      0.049      0.513
+     15        14      0.175      0.194     -0.019      0.049      0.693
+     16        1      0.249      0.248      0.000      0.038      0.994
+     16        2      0.249      0.197      0.052      0.036      0.152
+     16        3      0.249      0.254     -0.005      0.030      0.853
+     16        4      0.249      0.197      0.052      0.035      0.145
+     16        5      0.249      0.240      0.008      0.033      0.801
+     16        6      0.249      0.307     -0.059      0.042      0.163
+     16        7      0.249      0.215      0.033      0.039      0.390
+     16        8      0.249      0.193      0.055      0.048      0.249
+     16        9      0.249      0.251     -0.002      0.032      0.938
+     16        10      0.249      0.138      0.111      0.058      0.056
+     16        11      0.249      0.270     -0.022      0.040      0.591
+     16        12      0.249      0.272     -0.024      0.041      0.566
+     16        13      0.249      0.208      0.041      0.039      0.288
+     16        14      0.249      0.194      0.054      0.038      0.155
+     16        15      0.249      0.175      0.073      0.044      0.097
+     17        1      0.203      0.248     -0.045      0.045      0.309
+     17        2      0.203      0.197      0.006      0.036      0.864
+     17        3      0.203      0.254     -0.051      0.036      0.151
+     17        4      0.203      0.197      0.006      0.035      0.865
+     17        5      0.203      0.240     -0.038      0.038      0.322
+     17        6      0.203      0.307     -0.105      0.046      0.023
+     17        7      0.203      0.215     -0.012      0.038      0.745
+     17        8      0.203      0.193      0.009      0.048      0.844
+     17        9      0.203      0.251     -0.048      0.040      0.225
+     17        10      0.203      0.138      0.065      0.059      0.267
+     17        11      0.203      0.270     -0.067      0.043      0.120
+     17        12      0.203      0.272     -0.069      0.044      0.116
+     17        13      0.203      0.208     -0.005      0.039      0.902
+     17        14      0.203      0.194      0.008      0.039      0.831
+     17        15      0.203      0.175      0.028      0.046      0.553
+     17        16      0.203      0.249     -0.046      0.034      0.181
+     18        1      0.321      0.248      0.073      0.042      0.086
+     18        2      0.321      0.197      0.125      0.042      0.003
+     18        3      0.321      0.254      0.067      0.036      0.066
+     18        4      0.321      0.197      0.124      0.042      0.003
+     18        5      0.321      0.240      0.081      0.040      0.044
+     18        6      0.321      0.307      0.014      0.041      0.739
+     18        7      0.321      0.215      0.106      0.044      0.017
+     18        8      0.321      0.193      0.128      0.052      0.014
+     18        9      0.321      0.251      0.070      0.042      0.092
+     18        10      0.321      0.138      0.184      0.065      0.004
+     18        11      0.321      0.270      0.051      0.046      0.265
+     18        12      0.321      0.272      0.049      0.045      0.277
+     18        13      0.321      0.208      0.114      0.044      0.010
+     18        14      0.321      0.194      0.127      0.044      0.004
+     18        15      0.321      0.175      0.146      0.048      0.002
+     18        16      0.321      0.249      0.073      0.036      0.043
+     18        17      0.321      0.203      0.118      0.040      0.003
+     19        1      0.200      0.248     -0.048      0.040      0.236
+     19        2      0.200      0.197      0.004      0.031      0.905
+     19        3      0.200      0.254     -0.054      0.031      0.078
+     19        4      0.200      0.197      0.003      0.029      0.908
+     19        5      0.200      0.240     -0.040      0.034      0.239
+     19        6      0.200      0.307     -0.107      0.042      0.010
+     19        7      0.200      0.215     -0.015      0.034      0.662
+     19        8      0.200      0.193      0.007      0.043      0.873
+     19        9      0.200      0.251     -0.051      0.035      0.147
+     19        10      0.200      0.138      0.063      0.057      0.269
+     19        11      0.200      0.270     -0.070      0.039      0.075
+     19        12      0.200      0.272     -0.072      0.040      0.075
+     19        13      0.200      0.208     -0.007      0.034      0.830
+     19        14      0.200      0.194      0.006      0.034      0.865
+     19        15      0.200      0.175      0.025      0.041      0.546
+     19        16      0.200      0.249     -0.048      0.028      0.090
+     19        17      0.200      0.203     -0.003      0.030      0.931
+     19        18      0.200      0.321     -0.121      0.036      0.001
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 8 9 10
+ 11 12 13 14 15 16 17 18 19
+ Weighted Average Value Across Invariant Groups:       0.227
+ R-square/Explained variance/Invariance index:       0.543
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.248      0.021      0.034      0.538
+     2      0.197     -0.031      0.027      0.260
+     3      0.254      0.027      0.023      0.246
+     4      0.197     -0.030      0.025      0.228
+     5      0.240      0.013      0.027      0.622
+     6      0.307      0.080      0.036      0.025
+     7      0.215     -0.012      0.031      0.700
+     8      0.193     -0.034      0.041      0.409
+     9      0.251      0.024      0.028      0.394
+     10      0.138     -0.090      0.052      0.085
+     11      0.270      0.043      0.033      0.193
+     12      0.272      0.045      0.035      0.201
+     13      0.208     -0.020      0.031      0.524
+     14      0.194     -0.033      0.030      0.280
+     15      0.175     -0.052      0.038      0.168
+     16      0.249      0.021      0.021      0.312
+     17      0.203     -0.024      0.025      0.326
+     18      0.321      0.094      0.029      0.001
+     19      0.200     -0.027      0.017      0.111
+
+ Loadings for COGACRCO
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.730      0.712      0.018      0.050      0.721
+     3         1      0.515      0.712     -0.197      0.055      0.000
+     3         2      0.515      0.730     -0.215      0.063      0.001
+     4         1      0.767      0.712      0.055      0.053      0.302
+     4         2      0.767      0.730      0.037      0.053      0.484
+     4         3      0.767      0.515      0.252      0.065      0.000
+     5         1      0.646      0.712     -0.066      0.069      0.336
+     5         2      0.646      0.730     -0.084      0.075      0.261
+     5         3      0.646      0.515      0.132      0.069      0.058
+     5         4      0.646      0.767     -0.121      0.077      0.115
+     6         1      0.575      0.712     -0.137      0.075      0.067
+     6         2      0.575      0.730     -0.155      0.080      0.051
+     6         3      0.575      0.515      0.060      0.071      0.394
+     6         4      0.575      0.767     -0.192      0.081      0.018
+     6         5      0.575      0.646     -0.071      0.085      0.401
+     7         1      0.832      0.712      0.120      0.090      0.181
+     7         2      0.832      0.730      0.102      0.094      0.276
+     7         3      0.832      0.515      0.318      0.087      0.000
+     7         4      0.832      0.767      0.066      0.093      0.481
+     7         5      0.832      0.646      0.186      0.096      0.053
+     7         6      0.832      0.575      0.258      0.096      0.007
+     8         1      0.743      0.712      0.031      0.091      0.736
+     8         2      0.743      0.730      0.013      0.092      0.889
+     8         3      0.743      0.515      0.228      0.100      0.023
+     8         4      0.743      0.767     -0.024      0.093      0.796
+     8         5      0.743      0.646      0.097      0.109      0.375
+     8         6      0.743      0.575      0.168      0.114      0.140
+     8         7      0.743      0.832     -0.090      0.121      0.458
+     9         1      0.440      0.712     -0.273      0.105      0.009
+     9         2      0.440      0.730     -0.290      0.109      0.008
+     9         3      0.440      0.515     -0.075      0.105      0.477
+     9         4      0.440      0.767     -0.327      0.111      0.003
+     9         5      0.440      0.646     -0.207      0.116      0.075
+     9         6      0.440      0.575     -0.135      0.118      0.254
+     9         7      0.440      0.832     -0.393      0.132      0.003
+     9         8      0.440      0.743     -0.303      0.134      0.024
+     10        1      0.732      0.712      0.020      0.076      0.791
+     10        2      0.732      0.730      0.002      0.076      0.976
+     10        3      0.732      0.515      0.218      0.089      0.014
+     10        4      0.732      0.767     -0.035      0.078      0.660
+     10        5      0.732      0.646      0.086      0.099      0.382
+     10        6      0.732      0.575      0.158      0.104      0.128
+     10        7      0.732      0.832     -0.100      0.114      0.379
+     10        8      0.732      0.743     -0.011      0.080      0.895
+     10        9      0.732      0.440      0.293      0.127      0.021
+     11        1      0.669      0.712     -0.043      0.051      0.399
+     11        2      0.669      0.730     -0.061      0.058      0.296
+     11        3      0.669      0.515      0.155      0.050      0.002
+     11        4      0.669      0.767     -0.097      0.063      0.120
+     11        5      0.669      0.646      0.023      0.061      0.703
+     11        6      0.669      0.575      0.095      0.068      0.164
+     11        7      0.669      0.832     -0.163      0.084      0.053
+     11        8      0.669      0.743     -0.073      0.096      0.444
+     11        9      0.669      0.440      0.230      0.107      0.032
+     11        10      0.669      0.732     -0.063      0.084      0.452
+     12        1      0.670      0.712     -0.042      0.100      0.672
+     12        2      0.670      0.730     -0.060      0.103      0.561
+     12        3      0.670      0.515      0.155      0.102      0.128
+     12        4      0.670      0.767     -0.097      0.106      0.359
+     12        5      0.670      0.646      0.024      0.104      0.820
+     12        6      0.670      0.575      0.095      0.114      0.403
+     12        7      0.670      0.832     -0.163      0.124      0.190
+     12        8      0.670      0.743     -0.073      0.129      0.570
+     12        9      0.670      0.440      0.230      0.137      0.094
+     12        10      0.670      0.732     -0.062      0.119      0.600
+     12        11      0.670      0.669      0.000      0.098      0.997
+     13        1      0.787      0.712      0.075      0.083      0.366
+     13        2      0.787      0.730      0.057      0.086      0.507
+     13        3      0.787      0.515      0.272      0.082      0.001
+     13        4      0.787      0.767      0.020      0.083      0.809
+     13        5      0.787      0.646      0.141      0.093      0.132
+     13        6      0.787      0.575      0.212      0.095      0.025
+     13        7      0.787      0.832     -0.046      0.099      0.647
+     13        8      0.787      0.743      0.044      0.113      0.697
+     13        9      0.787      0.440      0.347      0.127      0.006
+     13        10      0.787      0.732      0.054      0.103      0.597
+     13        11      0.787      0.669      0.117      0.078      0.134
+     13        12      0.787      0.670      0.117      0.120      0.331
+     14        1      0.686      0.712     -0.027      0.065      0.681
+     14        2      0.686      0.730     -0.044      0.073      0.541
+     14        3      0.686      0.515      0.171      0.065      0.009
+     14        4      0.686      0.767     -0.081      0.075      0.276
+     14        5      0.686      0.646      0.039      0.076      0.605
+     14        6      0.686      0.575      0.111      0.081      0.170
+     14        7      0.686      0.832     -0.147      0.091      0.107
+     14        8      0.686      0.743     -0.057      0.109      0.598
+     14        9      0.686      0.440      0.246      0.111      0.026
+     14        10      0.686      0.732     -0.047      0.094      0.619
+     14        11      0.686      0.669      0.016      0.057      0.778
+     14        12      0.686      0.670      0.016      0.104      0.880
+     14        13      0.686      0.787     -0.101      0.088      0.252
+     15        1      0.706      0.712     -0.006      0.054      0.912
+     15        2      0.706      0.730     -0.024      0.056      0.673
+     15        3      0.706      0.515      0.192      0.065      0.003
+     15        4      0.706      0.767     -0.061      0.060      0.315
+     15        5      0.706      0.646      0.060      0.077      0.438
+     15        6      0.706      0.575      0.131      0.083      0.113
+     15        7      0.706      0.832     -0.126      0.096      0.189
+     15        8      0.706      0.743     -0.037      0.099      0.712
+     15        9      0.706      0.440      0.267      0.110      0.015
+     15        10      0.706      0.732     -0.026      0.082      0.751
+     15        11      0.706      0.669      0.037      0.058      0.529
+     15        12      0.706      0.670      0.036      0.103      0.725
+     15        13      0.706      0.787     -0.081      0.090      0.368
+     15        14      0.706      0.686      0.021      0.072      0.775
+     16        1      0.715      0.712      0.003      0.052      0.955
+     16        2      0.715      0.730     -0.015      0.057      0.793
+     16        3      0.715      0.515      0.200      0.054      0.000
+     16        4      0.715      0.767     -0.052      0.058      0.374
+     16        5      0.715      0.646      0.069      0.069      0.319
+     16        6      0.715      0.575      0.140      0.072      0.050
+     16        7      0.715      0.832     -0.117      0.086      0.173
+     16        8      0.715      0.743     -0.028      0.093      0.766
+     16        9      0.715      0.440      0.276      0.106      0.009
+     16        10      0.715      0.732     -0.017      0.080      0.829
+     16        11      0.715      0.669      0.046      0.047      0.333
+     16        12      0.715      0.670      0.045      0.100      0.650
+     16        13      0.715      0.787     -0.072      0.080      0.370
+     16        14      0.715      0.686      0.030      0.063      0.640
+     16        15      0.715      0.706      0.009      0.058      0.878
+     17        1      0.716      0.712      0.004      0.055      0.944
+     17        2      0.716      0.730     -0.014      0.059      0.812
+     17        3      0.716      0.515      0.201      0.057      0.000
+     17        4      0.716      0.767     -0.051      0.063      0.419
+     17        5      0.716      0.646      0.070      0.071      0.323
+     17        6      0.716      0.575      0.141      0.074      0.057
+     17        7      0.716      0.832     -0.116      0.090      0.197
+     17        8      0.716      0.743     -0.027      0.095      0.776
+     17        9      0.716      0.440      0.276      0.111      0.012
+     17        10      0.716      0.732     -0.016      0.080      0.839
+     17        11      0.716      0.669      0.047      0.051      0.362
+     17        12      0.716      0.670      0.046      0.104      0.657
+     17        13      0.716      0.787     -0.071      0.083      0.395
+     17        14      0.716      0.686      0.030      0.065      0.642
+     17        15      0.716      0.706      0.010      0.061      0.873
+     17        16      0.716      0.715      0.001      0.052      0.986
+     18        1      0.575      0.712     -0.137      0.060      0.022
+     18        2      0.575      0.730     -0.155      0.067      0.021
+     18        3      0.575      0.515      0.060      0.053      0.255
+     18        4      0.575      0.767     -0.192      0.069      0.005
+     18        5      0.575      0.646     -0.071      0.070      0.310
+     18        6      0.575      0.575      0.000      0.070      1.000
+     18        7      0.575      0.832     -0.258      0.089      0.004
+     18        8      0.575      0.743     -0.168      0.103      0.104
+     18        9      0.575      0.440      0.135      0.112      0.226
+     18        10      0.575      0.732     -0.158      0.093      0.091
+     18        11      0.575      0.669     -0.095      0.051      0.066
+     18        12      0.575      0.670     -0.095      0.105      0.365
+     18        13      0.575      0.787     -0.212      0.085      0.012
+     18        14      0.575      0.686     -0.111      0.068      0.105
+     18        15      0.575      0.706     -0.131      0.068      0.054
+     18        16      0.575      0.715     -0.140      0.056      0.012
+     18        17      0.575      0.716     -0.141      0.061      0.020
+     19        1      0.620      0.712     -0.092      0.069      0.181
+     19        2      0.620      0.730     -0.110      0.075      0.145
+     19        3      0.620      0.515      0.106      0.065      0.106
+     19        4      0.620      0.767     -0.147      0.079      0.062
+     19        5      0.620      0.646     -0.026      0.074      0.725
+     19        6      0.620      0.575      0.045      0.080      0.569
+     19        7      0.620      0.832     -0.212      0.098      0.030
+     19        8      0.620      0.743     -0.123      0.109      0.260
+     19        9      0.620      0.440      0.181      0.117      0.124
+     19        10      0.620      0.732     -0.112      0.099      0.258
+     19        11      0.620      0.669     -0.049      0.059      0.403
+     19        12      0.620      0.670     -0.050      0.106      0.641
+     19        13      0.620      0.787     -0.167      0.092      0.069
+     19        14      0.620      0.686     -0.065      0.077      0.398
+     19        15      0.620      0.706     -0.086      0.076      0.259
+     19        16      0.620      0.715     -0.095      0.065      0.143
+     19        17      0.620      0.716     -0.096      0.070      0.174
+     19        18      0.620      0.575      0.045      0.062      0.461
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 4 5 6 7 8 9 10 11
+ 12 13 14 15 16 17 18 19
+ Weighted Average Value Across Invariant Groups:       0.682
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.712      0.030      0.036      0.401
+     2      0.730      0.048      0.042      0.256
+     4      0.767      0.085      0.044      0.053
+     5      0.646     -0.036      0.055      0.520
+     6      0.575     -0.107      0.061      0.079
+     7      0.832      0.151      0.077      0.051
+     8      0.743      0.061      0.085      0.473
+     9      0.440     -0.242      0.098      0.013
+     10      0.732      0.051      0.070      0.473
+     11      0.669     -0.012      0.033      0.706
+     12      0.670     -0.012      0.092      0.897
+     13      0.787      0.105      0.070      0.134
+     14      0.686      0.004      0.053      0.943
+     15      0.706      0.024      0.047      0.602
+     16      0.715      0.033      0.035      0.343
+     17      0.716      0.034      0.041      0.402
+     18      0.575     -0.107      0.044      0.015
+     19      0.620     -0.062      0.052      0.240
+
+ Loadings for COGACMCO
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.963      0.944      0.020      0.111      0.860
+     3         1      0.748      0.944     -0.196      0.110      0.076
+     3         2      0.748      0.963     -0.216      0.103      0.036
+     4         1      0.957      0.944      0.014      0.110      0.902
+     4         2      0.957      0.963     -0.006      0.105      0.954
+     4         3      0.957      0.748      0.210      0.107      0.050
+     5         1      0.866      0.944     -0.078      0.146      0.595
+     5         2      0.866      0.963     -0.097      0.135      0.471
+     5         3      0.866      0.748      0.118      0.121      0.328
+     5         4      0.866      0.957     -0.091      0.138      0.508
+     6         1      0.763      0.944     -0.181      0.128      0.159
+     6         2      0.763      0.963     -0.200      0.127      0.115
+     6         3      0.763      0.748      0.015      0.097      0.873
+     6         4      0.763      0.957     -0.194      0.131      0.138
+     6         5      0.763      0.866     -0.103      0.137      0.454
+     7         1      0.793      0.944     -0.151      0.112      0.177
+     7         2      0.793      0.963     -0.171      0.108      0.113
+     7         3      0.793      0.748      0.045      0.079      0.574
+     7         4      0.793      0.957     -0.165      0.114      0.147
+     7         5      0.793      0.866     -0.074      0.124      0.553
+     7         6      0.793      0.763      0.029      0.099      0.768
+     8         1      1.124      0.944      0.180      0.319      0.572
+     8         2      1.124      0.963      0.161      0.315      0.610
+     8         3      1.124      0.748      0.376      0.315      0.233
+     8         4      1.124      0.957      0.167      0.319      0.601
+     8         5      1.124      0.866      0.258      0.329      0.432
+     8         6      1.124      0.763      0.361      0.329      0.273
+     8         7      1.124      0.793      0.332      0.317      0.295
+     9         1      0.508      0.944     -0.436      0.139      0.002
+     9         2      0.508      0.963     -0.456      0.139      0.001
+     9         3      0.508      0.748     -0.240      0.128      0.060
+     9         4      0.508      0.957     -0.450      0.143      0.002
+     9         5      0.508      0.866     -0.358      0.160      0.025
+     9         6      0.508      0.763     -0.256      0.149      0.086
+     9         7      0.508      0.793     -0.285      0.136      0.036
+     9         8      0.508      1.124     -0.616      0.330      0.062
+     10        1      1.134      0.944      0.190      0.206      0.356
+     10        2      1.134      0.963      0.170      0.196      0.385
+     10        3      1.134      0.748      0.386      0.194      0.046
+     10        4      1.134      0.957      0.176      0.200      0.379
+     10        5      1.134      0.866      0.268      0.214      0.210
+     10        6      1.134      0.763      0.370      0.209      0.077
+     10        7      1.134      0.793      0.341      0.195      0.081
+     10        8      1.134      1.124      0.010      0.279      0.972
+     10        9      1.134      0.508      0.626      0.218      0.004
+     11        1      0.732      0.944     -0.212      0.098      0.031
+     11        2      0.732      0.963     -0.232      0.093      0.013
+     11        3      0.732      0.748     -0.016      0.067      0.811
+     11        4      0.732      0.957     -0.226      0.100      0.024
+     11        5      0.732      0.866     -0.134      0.112      0.232
+     11        6      0.732      0.763     -0.031      0.092      0.733
+     11        7      0.732      0.793     -0.061      0.073      0.408
+     11        8      0.732      1.124     -0.392      0.311      0.207
+     11        9      0.732      0.508      0.224      0.124      0.072
+     11        10      0.732      1.134     -0.402      0.189      0.033
+     12        1      0.593      0.944     -0.351      0.116      0.002
+     12        2      0.593      0.963     -0.371      0.118      0.002
+     12        3      0.593      0.748     -0.155      0.104      0.136
+     12        4      0.593      0.957     -0.365      0.122      0.003
+     12        5      0.593      0.866     -0.273      0.135      0.042
+     12        6      0.593      0.763     -0.171      0.125      0.173
+     12        7      0.593      0.793     -0.200      0.110      0.070
+     12        8      0.593      1.124     -0.531      0.319      0.096
+     12        9      0.593      0.508      0.085      0.143      0.552
+     12        10      0.593      1.134     -0.541      0.202      0.008
+     12        11      0.593      0.732     -0.139      0.097      0.152
+     13        1      0.758      0.944     -0.186      0.108      0.086
+     13        2      0.758      0.963     -0.206      0.106      0.053
+     13        3      0.758      0.748      0.010      0.081      0.902
+     13        4      0.758      0.957     -0.200      0.110      0.071
+     13        5      0.758      0.866     -0.108      0.125      0.388
+     13        6      0.758      0.763     -0.005      0.105      0.959
+     13        7      0.758      0.793     -0.035      0.088      0.693
+     13        8      0.758      1.124     -0.366      0.315      0.244
+     13        9      0.758      0.508      0.250      0.134      0.062
+     13        10      0.758      1.134     -0.376      0.194      0.052
+     13        11      0.758      0.732      0.026      0.073      0.721
+     13        12      0.758      0.593      0.165      0.109      0.130
+     14        1      0.773      0.944     -0.171      0.120      0.154
+     14        2      0.773      0.963     -0.191      0.122      0.118
+     14        3      0.773      0.748      0.025      0.095      0.795
+     14        4      0.773      0.957     -0.185      0.126      0.143
+     14        5      0.773      0.866     -0.094      0.132      0.480
+     14        6      0.773      0.763      0.009      0.121      0.939
+     14        7      0.773      0.793     -0.020      0.096      0.835
+     14        8      0.773      1.124     -0.352      0.325      0.280
+     14        9      0.773      0.508      0.265      0.139      0.057
+     14        10      0.773      1.134     -0.361      0.203      0.075
+     14        11      0.773      0.732      0.041      0.086      0.637
+     14        12      0.773      0.593      0.180      0.116      0.122
+     14        13      0.773      0.758      0.015      0.102      0.886
+     15        1      0.940      0.944     -0.004      0.132      0.976
+     15        2      0.940      0.963     -0.024      0.127      0.853
+     15        3      0.940      0.748      0.192      0.128      0.132
+     15        4      0.940      0.957     -0.018      0.129      0.892
+     15        5      0.940      0.866      0.074      0.154      0.631
+     15        6      0.940      0.763      0.177      0.152      0.245
+     15        7      0.940      0.793      0.147      0.130      0.255
+     15        8      0.940      1.124     -0.184      0.331      0.578
+     15        9      0.940      0.508      0.432      0.158      0.006
+     15        10      0.940      1.134     -0.194      0.214      0.364
+     15        11      0.940      0.732      0.208      0.119      0.079
+     15        12      0.940      0.593      0.347      0.138      0.012
+     15        13      0.940      0.758      0.182      0.131      0.163
+     15        14      0.940      0.773      0.167      0.143      0.242
+     16        1      0.726      0.944     -0.218      0.097      0.025
+     16        2      0.726      0.963     -0.237      0.091      0.009
+     16        3      0.726      0.748     -0.022      0.068      0.750
+     16        4      0.726      0.957     -0.231      0.095      0.015
+     16        5      0.726      0.866     -0.140      0.116      0.230
+     16        6      0.726      0.763     -0.037      0.098      0.703
+     16        7      0.726      0.793     -0.066      0.076      0.383
+     16        8      0.726      1.124     -0.398      0.309      0.198
+     16        9      0.726      0.508      0.218      0.121      0.071
+     16        10      0.726      1.134     -0.408      0.187      0.029
+     16        11      0.726      0.732     -0.006      0.056      0.919
+     16        12      0.726      0.593      0.134      0.095      0.160
+     16        13      0.726      0.758     -0.032      0.075      0.672
+     16        14      0.726      0.773     -0.046      0.092      0.614
+     16        15      0.726      0.940     -0.214      0.118      0.069
+     17        1      0.745      0.944     -0.199      0.102      0.050
+     17        2      0.745      0.963     -0.219      0.100      0.029
+     17        3      0.745      0.748     -0.003      0.076      0.967
+     17        4      0.745      0.957     -0.213      0.107      0.047
+     17        5      0.745      0.866     -0.121      0.122      0.320
+     17        6      0.745      0.763     -0.019      0.102      0.855
+     17        7      0.745      0.793     -0.048      0.084      0.570
+     17        8      0.745      1.124     -0.379      0.312      0.224
+     17        9      0.745      0.508      0.237      0.130      0.069
+     17        10      0.745      1.134     -0.389      0.192      0.042
+     17        11      0.745      0.732      0.013      0.069      0.851
+     17        12      0.745      0.593      0.152      0.107      0.156
+     17        13      0.745      0.758     -0.013      0.084      0.876
+     17        14      0.745      0.773     -0.028      0.098      0.776
+     17        15      0.745      0.940     -0.195      0.125      0.118
+     17        16      0.745      0.726      0.019      0.067      0.781
+     18        1      0.705      0.944     -0.238      0.103      0.021
+     18        2      0.705      0.963     -0.258      0.102      0.012
+     18        3      0.705      0.748     -0.042      0.069      0.539
+     18        4      0.705      0.957     -0.252      0.106      0.018
+     18        5      0.705      0.866     -0.161      0.117      0.171
+     18        6      0.705      0.763     -0.058      0.096      0.548
+     18        7      0.705      0.793     -0.087      0.081      0.284
+     18        8      0.705      1.124     -0.419      0.316      0.185
+     18        9      0.705      0.508      0.198      0.130      0.127
+     18        10      0.705      1.134     -0.428      0.194      0.027
+     18        11      0.705      0.732     -0.026      0.061      0.666
+     18        12      0.705      0.593      0.113      0.102      0.270
+     18        13      0.705      0.758     -0.052      0.081      0.519
+     18        14      0.705      0.773     -0.067      0.095      0.482
+     18        15      0.705      0.940     -0.234      0.126      0.063
+     18        16      0.705      0.726     -0.021      0.064      0.748
+     18        17      0.705      0.745     -0.039      0.074      0.595
+     19        1      0.684      0.944     -0.260      0.105      0.013
+     19        2      0.684      0.963     -0.280      0.107      0.009
+     19        3      0.684      0.748     -0.064      0.079      0.417
+     19        4      0.684      0.957     -0.274      0.113      0.016
+     19        5      0.684      0.866     -0.182      0.118      0.123
+     19        6      0.684      0.763     -0.079      0.104      0.444
+     19        7      0.684      0.793     -0.109      0.091      0.235
+     19        8      0.684      1.124     -0.440      0.318      0.166
+     19        9      0.684      0.508      0.176      0.133      0.187
+     19        10      0.684      1.134     -0.450      0.197      0.022
+     19        11      0.684      0.732     -0.048      0.070      0.492
+     19        12      0.684      0.593      0.091      0.105      0.386
+     19        13      0.684      0.758     -0.074      0.090      0.411
+     19        14      0.684      0.773     -0.089      0.103      0.391
+     19        15      0.684      0.940     -0.256      0.129      0.047
+     19        16      0.684      0.726     -0.042      0.072      0.559
+     19        17      0.684      0.745     -0.061      0.089      0.492
+     19        18      0.684      0.705     -0.022      0.070      0.758
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 8 9 10
+ 11 12 13 14 15 16 17 18 19
+ Weighted Average Value Across Invariant Groups:       0.812
+ R-square/Explained variance/Invariance index:       0.000
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.944      0.132      0.085      0.122
+     2      0.963      0.151      0.079      0.055
+     3      0.748     -0.064      0.057      0.260
+     4      0.957      0.145      0.082      0.076
+     5      0.866      0.054      0.103      0.601
+     6      0.763     -0.049      0.088      0.581
+     7      0.793     -0.020      0.066      0.766
+     8      1.124      0.312      0.297      0.294
+     9      0.508     -0.304      0.113      0.007
+     10      1.134      0.322      0.172      0.061
+     11      0.732     -0.080      0.043      0.064
+     12      0.593     -0.220      0.087      0.011
+     13      0.758     -0.054      0.065      0.407
+     14      0.773     -0.040      0.083      0.634
+     15      0.940      0.128      0.107      0.235
+     16      0.726     -0.086      0.043      0.048
+     17      0.745     -0.067      0.058      0.248
+     18      0.705     -0.107      0.054      0.047
+     19      0.684     -0.128      0.061      0.036
+
+ Loadings for DISCLIM
+ Group     Group      Value      Value     Difference  SE       P-value
+     2         1      0.164      0.110      0.053      0.040      0.187
+     3         1      0.189      0.110      0.079      0.044      0.070
+     3         2      0.189      0.164      0.026      0.036      0.477
+     4         1      0.139      0.110      0.028      0.045      0.531
+     4         2      0.139      0.164     -0.025      0.037      0.507
+     4         3      0.139      0.189     -0.051      0.042      0.232
+     5         1      0.113      0.110      0.003      0.045      0.949
+     5         2      0.113      0.164     -0.050      0.040      0.207
+     5         3      0.113      0.189     -0.076      0.044      0.082
+     5         4      0.113      0.139     -0.025      0.044      0.568
+     6         1      0.154      0.110      0.043      0.045      0.342
+     6         2      0.154      0.164     -0.010      0.036      0.784
+     6         3      0.154      0.189     -0.036      0.044      0.411
+     6         4      0.154      0.139      0.015      0.042      0.724
+     6         5      0.154      0.113      0.040      0.046      0.380
+     7         1      0.118      0.110      0.007      0.050      0.880
+     7         2      0.118      0.164     -0.046      0.046      0.318
+     7         3      0.118      0.189     -0.072      0.049      0.147
+     7         4      0.118      0.139     -0.021      0.049      0.673
+     7         5      0.118      0.113      0.005      0.048      0.924
+     7         6      0.118      0.154     -0.036      0.051      0.487
+     8         1      0.153      0.110      0.043      0.053      0.421
+     8         2      0.153      0.164     -0.010      0.046      0.820
+     8         3      0.153      0.189     -0.036      0.050      0.463
+     8         4      0.153      0.139      0.014      0.050      0.773
+     8         5      0.153      0.113      0.040      0.052      0.448
+     8         6      0.153      0.154     -0.001      0.047      0.991
+     8         7      0.153      0.118      0.035      0.057      0.538
+     9         1      0.163      0.110      0.053      0.038      0.160
+     9         2      0.163      0.164      0.000      0.024      0.997
+     9         3      0.163      0.189     -0.026      0.034      0.440
+     9         4      0.163      0.139      0.025      0.036      0.488
+     9         5      0.163      0.113      0.050      0.038      0.188
+     9         6      0.163      0.154      0.010      0.033      0.766
+     9         7      0.163      0.118      0.046      0.044      0.306
+     9         8      0.163      0.153      0.010      0.042      0.802
+     10        1      0.046      0.110     -0.064      0.051      0.212
+     10        2      0.046      0.164     -0.117      0.045      0.009
+     10        3      0.046      0.189     -0.143      0.050      0.004
+     10        4      0.046      0.139     -0.092      0.049      0.058
+     10        5      0.046      0.113     -0.067      0.051      0.187
+     10        6      0.046      0.154     -0.107      0.051      0.034
+     10        7      0.046      0.118     -0.071      0.055      0.197
+     10        8      0.046      0.153     -0.107      0.058      0.065
+     10        9      0.046      0.163     -0.117      0.045      0.009
+     11        1      0.205      0.110      0.095      0.047      0.046
+     11        2      0.205      0.164      0.042      0.041      0.313
+     11        3      0.205      0.189      0.016      0.043      0.715
+     11        4      0.205      0.139      0.066      0.046      0.150
+     11        5      0.205      0.113      0.092      0.048      0.053
+     11        6      0.205      0.154      0.052      0.047      0.277
+     11        7      0.205      0.118      0.087      0.053      0.098
+     11        8      0.205      0.153      0.052      0.053      0.330
+     11        9      0.205      0.163      0.042      0.039      0.284
+     11        10      0.205      0.046      0.159      0.053      0.003
+     12        1      0.218      0.110      0.107      0.046      0.020
+     12        2      0.218      0.164      0.054      0.039      0.167
+     12        3      0.218      0.189      0.028      0.042      0.504
+     12        4      0.218      0.139      0.079      0.044      0.074
+     12        5      0.218      0.113      0.104      0.046      0.024
+     12        6      0.218      0.154      0.064      0.046      0.161
+     12        7      0.218      0.118      0.100      0.051      0.051
+     12        8      0.218      0.153      0.064      0.052      0.214
+     12        9      0.218      0.163      0.054      0.037      0.144
+     12        10      0.218      0.046      0.171      0.052      0.001
+     12        11      0.218      0.205      0.012      0.044      0.777
+     13        1      0.091      0.110     -0.020      0.053      0.711
+     13        2      0.091      0.164     -0.073      0.047      0.121
+     13        3      0.091      0.189     -0.099      0.051      0.054
+     13        4      0.091      0.139     -0.048      0.051      0.342
+     13        5      0.091      0.113     -0.023      0.053      0.668
+     13        6      0.091      0.154     -0.063      0.053      0.234
+     13        7      0.091      0.118     -0.027      0.056      0.630
+     13        8      0.091      0.153     -0.062      0.058      0.283
+     13        9      0.091      0.163     -0.073      0.047      0.118
+     13        10      0.091      0.046      0.044      0.057      0.436
+     13        11      0.091      0.205     -0.114      0.054      0.036
+     13        12      0.091      0.218     -0.127      0.053      0.017
+     14        1      0.156      0.110      0.046      0.048      0.335
+     14        2      0.156      0.164     -0.007      0.039      0.852
+     14        3      0.156      0.189     -0.033      0.045      0.464
+     14        4      0.156      0.139      0.018      0.044      0.691
+     14        5      0.156      0.113      0.043      0.048      0.367
+     14        6      0.156      0.154      0.003      0.044      0.952
+     14        7      0.156      0.118      0.038      0.053      0.470
+     14        8      0.156      0.153      0.003      0.050      0.949
+     14        9      0.156      0.163     -0.007      0.036      0.842
+     14        10      0.156      0.046      0.110      0.052      0.035
+     14        11      0.156      0.205     -0.049      0.050      0.326
+     14        12      0.156      0.218     -0.061      0.048      0.199
+     14        13      0.156      0.091      0.066      0.054      0.225
+     15        1      0.149      0.110      0.039      0.052      0.457
+     15        2      0.149      0.164     -0.014      0.045      0.749
+     15        3      0.149      0.189     -0.040      0.049      0.412
+     15        4      0.149      0.139      0.010      0.049      0.829
+     15        5      0.149      0.113      0.036      0.052      0.490
+     15        6      0.149      0.154     -0.004      0.048      0.926
+     15        7      0.149      0.118      0.031      0.056      0.577
+     15        8      0.149      0.153     -0.004      0.054      0.943
+     15        9      0.149      0.163     -0.014      0.042      0.733
+     15        10      0.149      0.046      0.103      0.056      0.065
+     15        11      0.149      0.205     -0.056      0.053      0.287
+     15        12      0.149      0.218     -0.068      0.051      0.181
+     15        13      0.149      0.091      0.058      0.058      0.309
+     15        14      0.149      0.156     -0.007      0.050      0.887
+     16        1      0.163      0.110      0.053      0.041      0.194
+     16        2      0.163      0.164      0.000      0.030      0.990
+     16        3      0.163      0.189     -0.026      0.037      0.482
+     16        4      0.163      0.139      0.024      0.038      0.522
+     16        5      0.163      0.113      0.050      0.041      0.221
+     16        6      0.163      0.154      0.010      0.039      0.807
+     16        7      0.163      0.118      0.045      0.047      0.331
+     16        8      0.163      0.153      0.010      0.046      0.827
+     16        9      0.163      0.163      0.000      0.025      0.990
+     16        10      0.163      0.046      0.117      0.046      0.011
+     16        11      0.163      0.205     -0.042      0.042      0.318
+     16        12      0.163      0.218     -0.054      0.040      0.179
+     16        13      0.163      0.091      0.072      0.048      0.135
+     16        14      0.163      0.156      0.007      0.040      0.865
+     16        15      0.163      0.149      0.014      0.045      0.759
+     17        1      0.220      0.110      0.110      0.045      0.014
+     17        2      0.220      0.164      0.057      0.038      0.131
+     17        3      0.220      0.189      0.031      0.041      0.455
+     17        4      0.220      0.139      0.082      0.042      0.053
+     17        5      0.220      0.113      0.107      0.044      0.016
+     17        6      0.220      0.154      0.067      0.044      0.129
+     17        7      0.220      0.118      0.102      0.050      0.041
+     17        8      0.220      0.153      0.067      0.051      0.187
+     17        9      0.220      0.163      0.057      0.035      0.108
+     17        10      0.220      0.046      0.174      0.050      0.001
+     17        11      0.220      0.205      0.015      0.044      0.730
+     17        12      0.220      0.218      0.003      0.038      0.944
+     17        13      0.220      0.091      0.129      0.051      0.012
+     17        14      0.220      0.156      0.064      0.046      0.164
+     17        15      0.220      0.149      0.071      0.049      0.149
+     17        16      0.220      0.163      0.057      0.039      0.139
+     18        1      0.180      0.110      0.070      0.041      0.090
+     18        2      0.180      0.164      0.017      0.032      0.606
+     18        3      0.180      0.189     -0.009      0.034      0.783
+     18        4      0.180      0.139      0.041      0.039      0.291
+     18        5      0.180      0.113      0.067      0.041      0.103
+     18        6      0.180      0.154      0.027      0.041      0.513
+     18        7      0.180      0.118      0.062      0.047      0.184
+     18        8      0.180      0.153      0.027      0.047      0.562
+     18        9      0.180      0.163      0.017      0.029      0.569
+     18        10      0.180      0.046      0.134      0.047      0.005
+     18        11      0.180      0.205     -0.025      0.041      0.544
+     18        12      0.180      0.218     -0.037      0.040      0.346
+     18        13      0.180      0.091      0.089      0.049      0.067
+     18        14      0.180      0.156      0.024      0.042      0.571
+     18        15      0.180      0.149      0.031      0.046      0.503
+     18        16      0.180      0.163      0.017      0.034      0.619
+     18        17      0.180      0.220     -0.040      0.038      0.292
+     19        1      0.223      0.110      0.112      0.040      0.005
+     19        2      0.223      0.164      0.059      0.032      0.067
+     19        3      0.223      0.189      0.033      0.036      0.351
+     19        4      0.223      0.139      0.084      0.038      0.025
+     19        5      0.223      0.113      0.110      0.041      0.007
+     19        6      0.223      0.154      0.069      0.040      0.081
+     19        7      0.223      0.118      0.105      0.046      0.022
+     19        8      0.223      0.153      0.070      0.046      0.133
+     19        9      0.223      0.163      0.059      0.030      0.044
+     19        10      0.223      0.046      0.176      0.047      0.000
+     19        11      0.223      0.205      0.018      0.039      0.651
+     19        12      0.223      0.218      0.005      0.033      0.873
+     19        13      0.223      0.091      0.132      0.048      0.006
+     19        14      0.223      0.156      0.067      0.041      0.108
+     19        15      0.223      0.149      0.074      0.046      0.108
+     19        16      0.223      0.163      0.060      0.033      0.073
+     19        17      0.223      0.220      0.003      0.031      0.932
+     19        18      0.223      0.180      0.043      0.032      0.186
+ Approximate Measurement Invariance Holds For Groups:
+ 1 2 3 4 5 6 7 8 9 10
+ 11 12 13 14 15 16 17 18 19
+ Weighted Average Value Across Invariant Groups:       0.158
+ R-square/Explained variance/Invariance index:       0.388
+
+ Invariant Group Values, Difference to Average and Significance
+ Group      Value Difference         SE    P-value
+     1      0.110     -0.047      0.032      0.143
+     2      0.164      0.006      0.022      0.796
+     3      0.189      0.032      0.028      0.264
+     4      0.139     -0.019      0.028      0.492
+     5      0.113     -0.045      0.032      0.159
+     6      0.154     -0.004      0.030      0.887
+     7      0.118     -0.040      0.038      0.297
+     8      0.153     -0.005      0.040      0.902
+     9      0.163      0.006      0.018      0.760
+     10      0.046     -0.111      0.038      0.004
+     11      0.205      0.047      0.033      0.152
+     12      0.218      0.060      0.031      0.056
+     13      0.091     -0.067      0.041      0.099
+     14      0.156     -0.002      0.033      0.961
+     15      0.149     -0.009      0.038      0.817
+     16      0.163      0.005      0.023      0.824
+     17      0.220      0.062      0.028      0.028
+     18      0.180      0.022      0.024      0.350
+     19      0.223      0.065      0.021      0.002
+
+ Average Invariance index:       0.337
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    D:/essay/resilient_student/dataset/mplus_bayesian/tea_class_exp_scores_imp1.
+
+  Order of variables
+
+    TEACHSUP
+    RELATST
+    COGACRCO
+    COGACMCO
+    DISCLIM
+    CNTSTUID
+    CNT
+
+
+  Save file format           Free
+
+  Save file record length    10000
+
+
+DIAGRAM INFORMATION
+
+  Use View Diagram under the Diagram menu in the Mplus Editor to view the diagram.
+  If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
+
+  Diagram output
+    d:\essay\resilient_student\dataset\mplus_bayesian\alignment_imp1_tea_class_exp.dgm
+
+     Beginning Time:  17:15:18
+        Ending Time:  17:15:23
+       Elapsed Time:  00:00:05
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen
