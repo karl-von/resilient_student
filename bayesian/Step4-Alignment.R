@@ -11,7 +11,7 @@ library(stringr)
 
 # --- 2. Load and Prepare Data for Mplus ---
 print("Loading imputed data from Step 3...")
-INPUT_MICE_BUNDLE <- here("dataset", "", "Step3_Imputed_Data_List.rds")
+INPUT_MICE_BUNDLE <- here("dataset", "", "Step3_Imputed_Mice_Object_bayesian.rds")
 saved_bundle <- readRDS(INPUT_MICE_BUNDLE)
 imputed_object <- saved_bundle$mids_object
 
@@ -36,7 +36,7 @@ student_country_map <- imputed_object$data %>%
 # --- 3. Loop Through Imputations and Save Corrected .dat Files ---
 
 # --- Path Declaration for easy modification ---
-mplus_data_dir <- here("dataset", "mplus_data")
+mplus_data_dir <- here("dataset", "mplus_bayesian")
 
 print("Writing imputed datasets to .dat files for Mplus...")
 if (!dir.exists(mplus_data_dir)) {
@@ -53,7 +53,7 @@ for (i in 1:imputed_object$m) {
 
   completed_data <- mice::complete(imputed_object, i)
 
-  # Ensure CNTSTUID is in the final data
+  # Ensure CNTSTUID is in the bayesian data
   completed_data_final <- completed_data %>%
     mutate(CNTSTUID = as.character(CNTSTUID)) %>%
     select(-CNT) %>%
@@ -93,13 +93,10 @@ print(paste("Success! File list for Mplus created at:", file_list_path))
 # --- Define the list of latent variables and their indicators ---
 latent_variables_list <- list(
   Math_Dispo = c('ANXMAT', 'MATHEFF', 'MATHEF21', 'MATHPERS', 'ST268Q04JA', 'ST268Q07JA', 'ST268Q01JA'),
-  Social_Emo_Ski = c('ASSERAGR', 'COOPAGR', 'EMOCOAGR', 'EMPATAGR', 'PERSEVAGR'),
+  Soc_Emo_Ski = c('ASSERAGR', 'COOPAGR', 'EMOCOAGR', 'EMPATAGR', 'PERSEVAGR'),
   Open_Creat = c('CURIOAGR', 'CREATEFF', 'CREATOP', 'IMAGINE', 'OPENART'),
-  Self_Dir_Lear = c('SDLEFF', 'GROSAGR'),
-  Tea_Class_Exp = c('TEACHSUP', 'RELATST', 'COGACRCO', 'COGACMCO', 'DISCLIM', 'CREATSCH'),
-  Home_Learning_Env = c('FAMSUP', 'CREATFAM', 'FAMSUPSL'),
-  Rem_Learning_Exp = c('FEELLAH', 'PROBSELF', 'LEARRES'),
-  Sch_Exp = c('FEELSAFE', 'SCHRISK', 'BELONG', 'SCHSUST')
+  Tea_Class_Exp = c('TEACHSUP', 'RELATST', 'COGACRCO', 'COGACMCO', 'DISCLIM'),
+  Sch_Exp = c('FEELSAFE', 'SCHRISK', 'BELONG', 'SCHSUST', 'CREATSCH', 'BULLIED')
 )
 
 #' @title Generate Mplus Input File for Alignment (Flexible)

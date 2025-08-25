@@ -12,24 +12,21 @@ print("Starting Step 5 (Revised): Combining Mplus factor scores...")
 # --- 2. Setup and Definitions ---
 
 # Directory where the .dat and .inp files were saved
-mplus_data_dir <- here("dataset", "mplus_data")
+mplus_data_dir <- here("dataset", "mplus_bayesian")
 
 # Number of imputations (must match the number you ran)
 num_imputations <- 5 # Assuming 5, as in your previous script
 
 # --- NEW: Define the mapping from short Mplus names to your desired full names ---
 # The names on the LEFT must EXACTLY match the latent variable names from your Step 4 script.
-# The names on the RIGHT are the new, longer names you want in the final data frame.
+# The names on the RIGHT are the new, longer names you want in the bayesian data frame.
 lv_name_map <- list(
   Math_Dispo = "Math_Disposition",
-  Social_Emo_Ski = "Social_Emotional_Skills",
+  Soc_Emo_Ski = "Social_Emotional_Skills",
   Open_Creat = "Openness_Creativity",
-  Self_Dir_Lear = "Self_Directed_Learning",
   Tea_Class_Exp = "Teacher_Classroom_Exp",
-  Home_Learning_Env = "Home_Learning_Env",
   Sch_Exp = "School_Experience"
 )
-
 
 # --- 3. Main Processing Loop ---
 
@@ -117,7 +114,7 @@ print("Combining all imputation data frames into one long-format dataset...")
 # Stack all the completed imputation data frames on top of each other
 final_long_data <- bind_rows(imputation_dfs_list)
 
-# Inspect the final result
+# Inspect the bayesian result
 print("Final combined dataset structure:")
 glimpse(final_long_data)
 
@@ -126,7 +123,7 @@ print(head(final_long_data))
 
 # --- 5. (Optional) Save the Final Dataset ---
 # This is highly recommended so you don't have to re-run this script.
-output_path <- here("dataset", "Step5_Combined_Factor_Scores_Long_FullNames.rds")
+output_path <- here("dataset", "Step5_lantent_variables.rds")
 saveRDS(final_long_data, file = output_path)
 
 print("=================================================================")

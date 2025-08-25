@@ -19,8 +19,8 @@ library(progress)
 
 # // Define paths using the 'here' package for portability.
 # // 使用 'here' 包定义路径以增强代码的可移植性。
-INPUT_SAV_FILE <- here("dataset", "meta", "CY08MSP_STU_QQQ.SAV")
-OUTPUT_RDS_FILE <- here("dataset", "", "Step1_Resilience.rds")
+INPUT_SAV_FILE <- here("../dataset", "meta", "CY08MSP_STU_QQQ.SAV")
+OUTPUT_RDS_FILE <- here("../dataset", "", "Step1_Resilience.rds")
 
 # --- 3. Load Required Data Columns ---
 # --- 3. 加载所需的数据列 ---
@@ -81,7 +81,7 @@ escs_thresholds <- svyby(~ESCS, by = ~CNT, design = pisa_design_final, svyquanti
 escs_thresholds <- escs_thresholds %>%
   rename(ESCS_p25_threshold = statistic)
 
-# // Create the final data frame, starting with only the disadvantaged students.
+# // Create the bayesian data frame, starting with only the disadvantaged students.
 # // 创建最终的数据框，仅保留处境不利的学生作为开始。
 disadvantaged_data <- pisa_data_filtered %>%
   left_join(escs_thresholds, by = "CNT") %>%
@@ -118,7 +118,7 @@ for (i in 1:10) {
   final_data <- final_data %>%
     left_join(pv_thresholds, by = "CNT")
 
-  # // Create the final resilience flag for this specific plausible value.
+  # // Create the bayesian resilience flag for this specific plausible value.
   # // 为这个特定的合理值创建最终的学业韧性标签。
   # resilience_flag_name <- paste0("ACADEMIC_RESILIENCE_PV", i)
   # final_data <- final_data %>%
