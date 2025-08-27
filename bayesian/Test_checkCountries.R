@@ -15,7 +15,7 @@ library(tidyr)
 # // Define paths for the outputs of Step 1 and Step 2.
 # // 定义步骤1和步骤2的输出文件路径。
 INPUT_RDS_STEP1 <- here("dataset", "", "Step1_Resilience.rds")
-INPUT_RDS_STEP2 <- here("dataset", "", "Step2_Merged_Cleaned_final.rds")
+INPUT_RDS_STEP2 <- here("dataset", "", "Step2_Merged_Cleaned_bayesian.rds")
 
 # --- 3. Load and Merge Data ---
 

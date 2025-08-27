@@ -24,7 +24,7 @@ lv_name_map <- list(
   Math_Dispo = "Math_Disposition",
   Soc_Emo_Ski = "Social_Emotional_Skills",
   Open_Creat = "Openness_Creativity",
-  Tea_Class_Exp = "Teacher_Classroom_Exp",
+  Tea_Exp = "Teacher_Classroom_Exp",
   Sch_Exp = "School_Experience"
 )
 

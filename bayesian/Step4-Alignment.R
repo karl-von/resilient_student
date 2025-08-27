@@ -95,8 +95,8 @@ latent_variables_list <- list(
   Math_Dispo = c('ANXMAT', 'MATHEFF', 'MATHEF21', 'MATHPERS', 'ST268Q04JA', 'ST268Q07JA', 'ST268Q01JA'),
   Soc_Emo_Ski = c('ASSERAGR', 'COOPAGR', 'EMOCOAGR', 'EMPATAGR', 'PERSEVAGR'),
   Open_Creat = c('CURIOAGR', 'CREATEFF', 'CREATOP', 'IMAGINE', 'OPENART'),
-  Tea_Class_Exp = c('TEACHSUP', 'RELATST', 'COGACRCO', 'COGACMCO', 'DISCLIM'),
-  Sch_Exp = c('FEELSAFE', 'SCHRISK', 'BELONG', 'SCHSUST', 'CREATSCH', 'BULLIED')
+  Tea_Exp = c('TEACHSUP', 'RELATST', 'COGACRCO', 'COGACMCO', 'CREATSCH', 'DISCLIM'),
+  Sch_Exp = c('FEELSAFE', 'SCHRISK', 'BELONG',  'SCHSUST', 'BULLIED')
 )
 
 #' @title Generate Mplus Input File for Alignment (Flexible)

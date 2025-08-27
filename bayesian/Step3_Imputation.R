@@ -13,7 +13,7 @@ library(miceadds)
 library(haven) # Added for the 'is.labelled' check
 
 # --- Define File Paths ---
-INPUT_RDS_STEP2 <- here("dataset", "Step2_Merged_Cleaned_final.rds")
+INPUT_RDS_STEP2 <- here("dataset", "Step2_Merged_Cleaned_bayesian.rds")
 OUTPUT_RDS_MICE <- here("dataset", "", "Step3_Imputed_Mice_Object_bayesian.rds")
 OUTPUT_RDS_LIST <- here("dataset", "", "Step3_Imputed_Data_List_bayesian.rds")
 

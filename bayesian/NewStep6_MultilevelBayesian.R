@@ -72,7 +72,7 @@ weight_var <- "W_FSTUWT"
 original_model_2_predictors <- paste(
   c("ESCS", "FEMALE", "IMMIG",
     "REPEAT", "MISSSC", "SKIPPING", "TARDYSD",
-    "STUDYHMW", "WORKPAY", "EXPOFA", "EXPO21ST", "STRESAGR",'SDLEFF', 'GROSAGR'),
+    "STUDYHMW", "WORKPAY","WORKHOME", "EXPOFA", "EXPO21ST", "STRESAGR",'SDLEFF', 'GROSAGR'),
   collapse = " + "
 )
 
@@ -112,16 +112,16 @@ print(paste("Start time:", Sys.time()))
 
 # For a real analysis, you might increase iterations (e.g., iter = 4000).
 # For this first run, 2000 is a reasonable start.
-brms_model_pv1 <- brm_multiple(
+brms_model_pv1 <- brm(
   formula = brms_formula,
-  data = list_of_final_datasets,
+  data = list_of_final_datasets[[1]],
   family = gaussian(),
   prior = priors,
   chains = 4,          # Number of simulation chains
   iter = 8000,         # Total iterations per chain
   warmup = 4000,       # Burn-in iterations to discard
   seed = 1234,         # For reproducibility
-  refresh = 100
+  refresh = 50
 )
 
 print(paste("End time:", Sys.time()))
@@ -130,7 +130,7 @@ print(paste("End time:", Sys.time()))
 # --- 5. SAVE AND EXAMINE RESULTS ---
 # ALWAYS save your model object after it finishes running!
 print("Saving model object...")
-saveRDS(brms_model_pv1, file = here("../dataset", "analysis", "brms_model_pv1.rds"))
+saveRDS(brms_model_pv1, file = here("dataset", "analysis", "brms_model_pv1.rds"))
 print("Model object saved.")
 
 # Print the summary of the model

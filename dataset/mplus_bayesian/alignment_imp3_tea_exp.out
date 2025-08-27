@@ -1,10 +1,10 @@
 Mplus VERSION 8.3
 MUTHEN & MUTHEN
-08/27/2025   7:41 AM
+08/27/2025   9:29 AM
 
 INPUT INSTRUCTIONS
 
-  TITLE: Alignment for Tea_Class_Exp (IMPUTATION 3 - FIXED);
+  TITLE: Alignment for Tea_Exp (IMPUTATION 3 - FIXED);
 
   DATA:
     FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/imputed_data_3.dat";
@@ -190,10 +190,10 @@ INPUT INSTRUCTIONS
     ALIGNMENT = FIXED;
 
   MODEL:
-    Tea_Class_Exp BY TEACHSUP RELATST COGACRCO COGACMCO CREATSCH DISCLIM;
+    Tea_Exp BY TEACHSUP RELATST COGACRCO COGACMCO CREATSCH DISCLIM;
 
   SAVEDATA:
-    FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/tea_class_exp_scores_imp3.dat
+    FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/tea_exp_scores_imp3.dat";
     SAVE = FSCORES;
     FORMAT IS FREE;
 
@@ -203,17 +203,14 @@ INPUT INSTRUCTIONS
 
 
 
-*** WARNING
-  Input line exceeded 90 characters. Some input may be truncated.
-    FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/tea_class_exp_scores_imp3.dat"
 *** WARNING in OUTPUT command
   TECH11 option is available only with TYPE=MIXTURE.
   Request for TECH11 is ignored.
-   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
 
 
 
-Alignment for Tea_Class_Exp (IMPUTATION 3 - FIXED);
+Alignment for Tea_Exp (IMPUTATION 3 - FIXED);
 
 SUMMARY OF ANALYSIS
 
@@ -250,7 +247,7 @@ Observed dependent variables
    TEACHSUP    RELATST     COGACRCO    COGACMCO    CREATSCH    DISCLIM
 
 Continuous latent variables
-   TEA_CLAS
+   TEA_EXP
 
 Variables with special functions
 
@@ -694,7 +691,7 @@ MODEL RESULTS
 
 Group CHL
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.382      0.043      8.809      0.000
     RELATST            0.281      0.045      6.234      0.000
     COGACRCO           0.729      0.038     18.956      0.000
@@ -703,7 +700,7 @@ Group CHL
     DISCLIM            0.140      0.036      3.916      0.000
 
  Means
-    TEA_CLASS_         0.000      0.000    999.000    999.000
+    TEA_EXP            0.000      0.000    999.000    999.000
 
  Intercepts
     TEACHSUP           0.435      0.032     13.443      0.000
@@ -714,7 +711,7 @@ Group CHL
     DISCLIM           -0.303      0.025    -12.034      0.000
 
  Variances
-    TEA_CLASS_         1.000      0.000    999.000    999.000
+    TEA_EXP            1.000      0.000    999.000    999.000
 
  Residual Variances
     TEACHSUP           1.122      0.058     19.349      0.000
@@ -726,7 +723,7 @@ Group CHL
 
 Group TAP
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.280      0.044      6.404      0.000
     RELATST            0.239      0.037      6.492      0.000
     COGACRCO           0.781      0.075     10.376      0.000
@@ -735,7 +732,7 @@ Group TAP
     DISCLIM            0.187      0.024      7.667      0.000
 
  Means
-    TEA_CLASS_        -0.371      0.066     -5.658      0.000
+    TEA_EXP           -0.371      0.066     -5.658      0.000
 
  Intercepts
     TEACHSUP           0.354      0.033     10.766      0.000
@@ -746,7 +743,7 @@ Group TAP
     DISCLIM            0.388      0.028     13.942      0.000
 
  Variances
-    TEA_CLASS_         1.076      0.203      5.308      0.000
+    TEA_EXP            1.076      0.203      5.308      0.000
 
  Residual Variances
     TEACHSUP           1.032      0.048     21.454      0.000
@@ -758,7 +755,7 @@ Group TAP
 
 Group HRV
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.371      0.043      8.683      0.000
     RELATST            0.268      0.031      8.517      0.000
     COGACRCO           0.506      0.072      7.006      0.000
@@ -767,7 +764,7 @@ Group HRV
     DISCLIM            0.191      0.025      7.774      0.000
 
  Means
-    TEA_CLASS_        -0.449      0.090     -4.973      0.000
+    TEA_EXP           -0.449      0.090     -4.973      0.000
 
  Intercepts
     TEACHSUP           0.070      0.039      1.810      0.070
@@ -778,7 +775,7 @@ Group HRV
     DISCLIM            0.163      0.028      5.731      0.000
 
  Variances
-    TEA_CLASS_         1.629      0.385      4.233      0.000
+    TEA_EXP            1.629      0.385      4.233      0.000
 
  Residual Variances
     TEACHSUP           1.133      0.053     21.523      0.000
@@ -790,7 +787,7 @@ Group HRV
 
 Group FIN
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.300      0.043      6.993      0.000
     RELATST            0.196      0.034      5.733      0.000
     COGACRCO           0.794      0.077     10.356      0.000
@@ -799,7 +796,7 @@ Group FIN
     DISCLIM            0.157      0.028      5.641      0.000
 
  Means
-    TEA_CLASS_        -0.474      0.072     -6.549      0.000
+    TEA_EXP           -0.474      0.072     -6.549      0.000
 
  Intercepts
     TEACHSUP           0.123      0.036      3.436      0.001
@@ -810,7 +807,7 @@ Group FIN
     DISCLIM           -0.120      0.025     -4.774      0.000
 
  Variances
-    TEA_CLASS_         0.655      0.129      5.063      0.000
+    TEA_EXP            0.655      0.129      5.063      0.000
 
  Residual Variances
     TEACHSUP           1.161      0.037     31.738      0.000
@@ -822,7 +819,7 @@ Group FIN
 
 Group FRA
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.450      0.050      8.949      0.000
     RELATST            0.248      0.031      7.949      0.000
     COGACRCO           0.623      0.083      7.495      0.000
@@ -831,7 +828,7 @@ Group FRA
     DISCLIM            0.143      0.028      5.200      0.000
 
  Means
-    TEA_CLASS_        -0.457      0.111     -4.138      0.000
+    TEA_EXP           -0.457      0.111     -4.138      0.000
 
  Intercepts
     TEACHSUP           0.115      0.046      2.521      0.012
@@ -842,7 +839,7 @@ Group FRA
     DISCLIM           -0.226      0.029     -7.820      0.000
 
  Variances
-    TEA_CLASS_         1.193      0.268      4.453      0.000
+    TEA_EXP            1.193      0.268      4.453      0.000
 
  Residual Variances
     TEACHSUP           1.082      0.049     22.198      0.000
@@ -854,7 +851,7 @@ Group FRA
 
 Group GRC
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.370      0.040      9.180      0.000
     RELATST            0.310      0.031      9.943      0.000
     COGACRCO           0.422      0.089      4.748      0.000
@@ -863,7 +860,7 @@ Group GRC
     DISCLIM            0.150      0.027      5.451      0.000
 
  Means
-    TEA_CLASS_        -0.880      0.168     -5.248      0.000
+    TEA_EXP           -0.880      0.168     -5.248      0.000
 
  Intercepts
     TEACHSUP           0.041      0.062      0.670      0.503
@@ -874,7 +871,7 @@ Group GRC
     DISCLIM           -0.143      0.036     -3.969      0.000
 
  Variances
-    TEA_CLASS_         1.734      0.434      3.998      0.000
+    TEA_EXP            1.734      0.434      3.998      0.000
 
  Residual Variances
     TEACHSUP           0.977      0.062     15.705      0.000
@@ -886,7 +883,7 @@ Group GRC
 
 Group HKG
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.343      0.051      6.681      0.000
     RELATST            0.248      0.040      6.194      0.000
     COGACRCO           0.749      0.071     10.492      0.000
@@ -895,7 +892,7 @@ Group HKG
     DISCLIM            0.119      0.039      3.043      0.002
 
  Means
-    TEA_CLASS_        -0.164      0.064     -2.589      0.010
+    TEA_EXP           -0.164      0.064     -2.589      0.010
 
  Intercepts
     TEACHSUP           0.228      0.032      7.033      0.000
@@ -906,7 +903,7 @@ Group HKG
     DISCLIM            0.332      0.027     12.215      0.000
 
  Variances
-    TEA_CLASS_         1.046      0.185      5.656      0.000
+    TEA_EXP            1.046      0.185      5.656      0.000
 
  Residual Variances
     TEACHSUP           1.138      0.064     17.791      0.000
@@ -918,7 +915,7 @@ Group HKG
 
 Group ISL
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.285      0.048      5.921      0.000
     RELATST            0.300      0.037      8.132      0.000
     COGACRCO           0.142      0.101      1.410      0.158
@@ -927,7 +924,7 @@ Group ISL
     DISCLIM            0.203      0.033      6.246      0.000
 
  Means
-    TEA_CLASS_        -0.212      0.178     -1.190      0.234
+    TEA_EXP           -0.212      0.178     -1.190      0.234
 
  Intercepts
     TEACHSUP           0.234      0.054      4.359      0.000
@@ -938,7 +935,7 @@ Group ISL
     DISCLIM           -0.031      0.053     -0.592      0.554
 
  Variances
-    TEA_CLASS_         2.611      0.650      4.017      0.000
+    TEA_EXP            2.611      0.650      4.017      0.000
 
  Residual Variances
     TEACHSUP           0.880      0.083     10.655      0.000
@@ -950,7 +947,7 @@ Group ISL
 
 Group IRL
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.480      0.054      8.964      0.000
     RELATST            0.305      0.029     10.568      0.000
     COGACRCO           0.313      0.054      5.824      0.000
@@ -959,7 +956,7 @@ Group IRL
     DISCLIM            0.177      0.022      7.888      0.000
 
  Means
-    TEA_CLASS_        -0.317      0.095     -3.328      0.001
+    TEA_EXP           -0.317      0.095     -3.328      0.001
 
  Intercepts
     TEACHSUP           0.275      0.043      6.426      0.000
@@ -970,7 +967,7 @@ Group IRL
     DISCLIM            0.167      0.027      6.157      0.000
 
  Variances
-    TEA_CLASS_         2.335      0.516      4.525      0.000
+    TEA_EXP            2.335      0.516      4.525      0.000
 
  Residual Variances
     TEACHSUP           0.759      0.045     16.874      0.000
@@ -982,7 +979,7 @@ Group IRL
 
 Group KOR
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.225      0.050      4.534      0.000
     RELATST            0.198      0.049      4.017      0.000
     COGACRCO           0.755      0.067     11.227      0.000
@@ -991,7 +988,7 @@ Group KOR
     DISCLIM            0.072      0.037      1.948      0.051
 
  Means
-    TEA_CLASS_        -0.804      0.094     -8.585      0.000
+    TEA_EXP           -0.804      0.094     -8.585      0.000
 
  Intercepts
     TEACHSUP           0.246      0.052      4.762      0.000
@@ -1002,7 +999,7 @@ Group KOR
     DISCLIM            0.867      0.039     22.204      0.000
 
  Variances
-    TEA_CLASS_         0.876      0.160      5.482      0.000
+    TEA_EXP            0.876      0.160      5.482      0.000
 
  Residual Variances
     TEACHSUP           1.013      0.043     23.580      0.000
@@ -1014,7 +1011,7 @@ Group KOR
 
 Group LTU
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.287      0.043      6.650      0.000
     RELATST            0.290      0.032      8.946      0.000
     COGACRCO           0.507      0.096      5.277      0.000
@@ -1023,7 +1020,7 @@ Group LTU
     DISCLIM            0.198      0.026      7.621      0.000
 
  Means
-    TEA_CLASS_        -0.544      0.106     -5.149      0.000
+    TEA_EXP           -0.544      0.106     -5.149      0.000
 
  Intercepts
     TEACHSUP           0.015      0.041      0.379      0.705
@@ -1034,7 +1031,7 @@ Group LTU
     DISCLIM            0.204      0.032      6.396      0.000
 
  Variances
-    TEA_CLASS_         1.569      0.420      3.732      0.000
+    TEA_EXP            1.569      0.420      3.732      0.000
 
  Residual Variances
     TEACHSUP           1.018      0.051     20.004      0.000
@@ -1046,7 +1043,7 @@ Group LTU
 
 Group MLT
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.310      0.058      5.333      0.000
     RELATST            0.312      0.036      8.773      0.000
     COGACRCO           0.395      0.127      3.118      0.002
@@ -1055,7 +1052,7 @@ Group MLT
     DISCLIM            0.182      0.027      6.632      0.000
 
  Means
-    TEA_CLASS_        -0.492      0.142     -3.469      0.001
+    TEA_EXP           -0.492      0.142     -3.469      0.001
 
  Intercepts
     TEACHSUP           0.276      0.054      5.092      0.000
@@ -1066,7 +1063,7 @@ Group MLT
     DISCLIM           -0.153      0.043     -3.535      0.000
 
  Variances
-    TEA_CLASS_         2.255      0.750      3.007      0.003
+    TEA_EXP            2.255      0.750      3.007      0.003
 
  Residual Variances
     TEACHSUP           1.120      0.085     13.163      0.000
@@ -1078,7 +1075,7 @@ Group MLT
 
 Group NLD
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.430      0.044      9.721      0.000
     RELATST            0.208      0.044      4.730      0.000
     COGACRCO           0.808      0.070     11.509      0.000
@@ -1087,7 +1084,7 @@ Group NLD
     DISCLIM            0.061      0.042      1.469      0.142
 
  Means
-    TEA_CLASS_        -0.706      0.094     -7.526      0.000
+    TEA_EXP           -0.706      0.094     -7.526      0.000
 
  Intercepts
     TEACHSUP           0.060      0.056      1.058      0.290
@@ -1098,7 +1095,7 @@ Group NLD
     DISCLIM           -0.094      0.040     -2.333      0.020
 
  Variances
-    TEA_CLASS_         0.940      0.151      6.214      0.000
+    TEA_EXP            0.940      0.151      6.214      0.000
 
  Residual Variances
     TEACHSUP           1.010      0.053     18.903      0.000
@@ -1110,7 +1107,7 @@ Group NLD
 
 Group NZL
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.533      0.082      6.533      0.000
     RELATST            0.235      0.039      6.013      0.000
     COGACRCO           0.605      0.119      5.077      0.000
@@ -1119,7 +1116,7 @@ Group NZL
     DISCLIM            0.186      0.029      6.320      0.000
 
  Means
-    TEA_CLASS_        -0.394      0.108     -3.639      0.000
+    TEA_EXP           -0.394      0.108     -3.639      0.000
 
  Intercepts
     TEACHSUP           0.292      0.049      5.939      0.000
@@ -1130,7 +1127,7 @@ Group NZL
     DISCLIM           -0.254      0.036     -6.986      0.000
 
  Variances
-    TEA_CLASS_         1.008      0.331      3.048      0.002
+    TEA_EXP            1.008      0.331      3.048      0.002
 
  Residual Variances
     TEACHSUP           0.922      0.066     13.935      0.000
@@ -1142,7 +1139,7 @@ Group NZL
 
 Group POL
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.439      0.057      7.730      0.000
     RELATST            0.221      0.043      5.171      0.000
     COGACRCO           0.624      0.132      4.710      0.000
@@ -1151,7 +1148,7 @@ Group POL
     DISCLIM            0.176      0.034      5.223      0.000
 
  Means
-    TEA_CLASS_        -1.124      0.379     -2.969      0.003
+    TEA_EXP           -1.124      0.379     -2.969      0.003
 
  Intercepts
     TEACHSUP          -0.055      0.193     -0.287      0.774
@@ -1162,7 +1159,7 @@ Group POL
     DISCLIM            0.078      0.085      0.922      0.357
 
  Variances
-    TEA_CLASS_         1.061      0.328      3.233      0.001
+    TEA_EXP            1.061      0.328      3.233      0.001
 
  Residual Variances
     TEACHSUP           1.165      0.082     14.161      0.000
@@ -1174,7 +1171,7 @@ Group POL
 
 Group PRT
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.412      0.043      9.672      0.000
     RELATST            0.296      0.029     10.156      0.000
     COGACRCO           0.725      0.073      9.925      0.000
@@ -1183,7 +1180,7 @@ Group PRT
     DISCLIM            0.152      0.028      5.459      0.000
 
  Means
-    TEA_CLASS_         0.104      0.067      1.549      0.121
+    TEA_EXP            0.104      0.067      1.549      0.121
 
  Intercepts
     TEACHSUP           0.322      0.037      8.793      0.000
@@ -1194,7 +1191,7 @@ Group PRT
     DISCLIM            0.025      0.023      1.064      0.287
 
  Variances
-    TEA_CLASS_         1.204      0.211      5.705      0.000
+    TEA_EXP            1.204      0.211      5.705      0.000
 
  Residual Variances
     TEACHSUP           1.038      0.050     20.629      0.000
@@ -1206,7 +1203,7 @@ Group PRT
 
 Group ROU
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.379      0.045      8.448      0.000
     RELATST            0.169      0.033      5.195      0.000
     COGACRCO           0.766      0.066     11.635      0.000
@@ -1215,7 +1212,7 @@ Group ROU
     DISCLIM            0.189      0.029      6.561      0.000
 
  Means
-    TEA_CLASS_        -0.295      0.065     -4.516      0.000
+    TEA_EXP           -0.295      0.065     -4.516      0.000
 
  Intercepts
     TEACHSUP           0.131      0.036      3.639      0.000
@@ -1226,7 +1223,7 @@ Group ROU
     DISCLIM            0.049      0.029      1.665      0.096
 
  Variances
-    TEA_CLASS_         0.992      0.166      5.972      0.000
+    TEA_EXP            0.992      0.166      5.972      0.000
 
  Residual Variances
     TEACHSUP           1.200      0.048     25.065      0.000
@@ -1238,7 +1235,7 @@ Group ROU
 
 Group TUR
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.348      0.035      9.929      0.000
     RELATST            0.311      0.029     10.769      0.000
     COGACRCO           0.444      0.074      5.964      0.000
@@ -1247,7 +1244,7 @@ Group TUR
     DISCLIM            0.168      0.022      7.751      0.000
 
  Means
-    TEA_CLASS_        -0.702      0.130     -5.410      0.000
+    TEA_EXP           -0.702      0.130     -5.410      0.000
 
  Intercepts
     TEACHSUP          -0.008      0.046     -0.162      0.871
@@ -1258,7 +1255,7 @@ Group TUR
     DISCLIM            0.017      0.028      0.601      0.548
 
  Variances
-    TEA_CLASS_         2.183      0.532      4.101      0.000
+    TEA_EXP            2.183      0.532      4.101      0.000
 
  Residual Variances
     TEACHSUP           1.011      0.059     17.169      0.000
@@ -1270,7 +1267,7 @@ Group TUR
 
 Group GBR
 
- TEA_CLAS BY
+ TEA_EXP  BY
     TEACHSUP           0.417      0.039     10.555      0.000
     RELATST            0.248      0.029      8.710      0.000
     COGACRCO           0.488      0.082      5.982      0.000
@@ -1279,7 +1276,7 @@ Group GBR
     DISCLIM            0.205      0.025      8.282      0.000
 
  Means
-    TEA_CLASS_        -0.474      0.117     -4.056      0.000
+    TEA_EXP           -0.474      0.117     -4.056      0.000
 
  Intercepts
     TEACHSUP           0.427      0.048      8.900      0.000
@@ -1290,7 +1287,7 @@ Group GBR
     DISCLIM            0.045      0.028      1.599      0.110
 
  Variances
-    TEA_CLASS_         1.428      0.332      4.296      0.000
+    TEA_EXP            1.428      0.332      4.296      0.000
 
  Residual Variances
     TEACHSUP           0.972      0.048     20.066      0.000
@@ -1313,7 +1310,7 @@ APPROXIMATE MEASUREMENT INVARIANCE (NONINVARIANCE) FOR GROUPS
    DISCLIM     (1) (2) (3) (4) (5) (6) (7) 8 (9) (10) (11) (12) 13 (14) 15 16 17 18 19
 
 
- Loadings for TEA_CLAS
+ Loadings for TEA_EXP
    TEACHSUP    1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
    RELATST     1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
    COGACRCO    1 2 3 4 5 6 7 (8) (9) 10 11 12 13 14 15 16 17 18 19
@@ -1324,7 +1321,7 @@ APPROXIMATE MEASUREMENT INVARIANCE (NONINVARIANCE) FOR GROUPS
 
 FACTOR MEAN COMPARISON AT THE 5% SIGNIFICANCE LEVEL IN DESCENDING ORDER
 
- Results for Factor TEA_CLAS
+ Results for Factor TEA_EXP
 
            Latent    Group      Factor
  Ranking    Class    Value       Mean     Groups With Significantly Smaller Factor Mean
@@ -3742,11 +3739,35 @@ INVARIANCE ANALYSIS
  Average Invariance index:       0.409
 
 
+SAMPLE STATISTICS FOR ESTIMATED FACTOR SCORES
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              TEA_EXP
+              ________
+               -0.471
+
+
+           Covariances
+              TEA_EXP
+              ________
+ TEA_EXP        1.056
+
+
+           Correlations
+              TEA_EXP
+              ________
+ TEA_EXP        1.000
+
+
 SAVEDATA INFORMATION
 
 
   Save file
-    D:/essay/resilient_student/dataset/mplus_bayesian/tea_class_exp_scores_imp3.
+    D:/essay/resilient_student/dataset/mplus_bayesian/tea_exp_scores_imp3.dat
 
   Order of variables
 
@@ -3756,6 +3777,7 @@ SAVEDATA INFORMATION
     COGACMCO
     CREATSCH
     DISCLIM
+    TEA_EXP
     CNTSTUID
     CNT
 
@@ -3771,11 +3793,11 @@ DIAGRAM INFORMATION
   If running Mplus from the Mplus Diagrammer, the diagram opens automatically.
 
   Diagram output
-    d:\essay\resilient_student\dataset\mplus_bayesian\alignment_imp3_tea_class_exp.dgm
+    d:\essay\resilient_student\dataset\mplus_bayesian\alignment_imp3_tea_exp.dgm
 
-     Beginning Time:  07:41:59
-        Ending Time:  07:42:05
-       Elapsed Time:  00:00:06
+     Beginning Time:  09:29:48
+        Ending Time:  09:29:55
+       Elapsed Time:  00:00:07
 
 
 

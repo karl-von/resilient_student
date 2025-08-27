@@ -1,4 +1,4 @@
-TITLE: Alignment for Open_Creat (IMPUTATION 5 - FIXED);
+TITLE: Alignment for Tea_Exp (IMPUTATION 5 - FIXED);
 
 DATA:
   FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/imputed_data_5.dat";
@@ -154,7 +154,7 @@ VARIABLE:
     SCHSUST
     SDLEFF;
   USEVARIABLES ARE
-    CURIOAGR CREATEFF CREATOP IMAGINE OPENART CNT CNTSTUID;
+    TEACHSUP RELATST COGACRCO COGACMCO CREATSCH DISCLIM CNT CNTSTUID;
   IDVARIABLE IS CNTSTUID;
   GROUPING IS CNT (
     1 = CHL
@@ -184,10 +184,10 @@ ANALYSIS:
   ALIGNMENT = FIXED;
 
 MODEL:
-  Open_Creat BY CURIOAGR CREATEFF CREATOP IMAGINE OPENART;
+  Tea_Exp BY TEACHSUP RELATST COGACRCO COGACMCO CREATSCH DISCLIM;
 
 SAVEDATA:
-  FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/open_creat_scores_imp5.dat";
+  FILE IS "D:/essay/resilient_student/dataset/mplus_bayesian/tea_exp_scores_imp5.dat";
   SAVE = FSCORES;
   FORMAT IS FREE;
 
